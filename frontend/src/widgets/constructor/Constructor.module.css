@@ -1,0 +1,31 @@
+.constructorPage {
+
+}
+
+.header {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    background: #282c34;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.tools {
+    display: flex;
+    width: 320px;
+}
+
+.canvas {
+    width: calc(100% - 320px);;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 5px;
+    color: white;
+    margin-left: 20px;
+}
