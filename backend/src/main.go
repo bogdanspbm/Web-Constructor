@@ -2,7 +2,6 @@ package main
 
 import (
 	"backend/src/utils"
-	"fmt"
 )
 
 func main() {
@@ -20,7 +19,16 @@ func main() {
 	}
 
 	for _, schema := range schemas {
-		fmt.Println(schema.Schema)
+		println(schema)
+		tables, err := database.GetTables(schema)
+
+		if err != nil {
+			panic(err)
+		}
+
+		for _, table := range tables {
+			println("   " + table)
+		}
 	}
 
 	defer database.Close()

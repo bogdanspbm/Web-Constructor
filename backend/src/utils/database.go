@@ -8,10 +8,6 @@ import (
 
 var sshTunnel SSH
 
-type Schemas struct {
-	Schema string `db:"schema_name"`
-}
-
 type DBConnect struct {
 	Ip       string
 	User     string
@@ -47,23 +43,41 @@ func (client *DBConnect) Close() {
 	client.db.Close()
 }
 
-func (client *DBConnect) GetSchemas() ([]Schemas, error) {
-	var res []Schemas
-	rows, err := client.db.Query("select schema_name from information_schema.schemata;")
+func (client *DBConnect) GetTables(schema string) ([]string, error) {
+	var res []string
+	rows, err := client.db.Query("SELECT table_name FROM information_schema.tables WHERE table_schema = $1;", schema)
+	if err != nil {
+		return nil, err
+	}
+
+	for rows.Next() {
+		var el string
+		err = rows.Scan(&el)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		res = append(res, el)
+	}
+
+	return res, nil
+}
+func (client *DBConnect) GetSchemas() ([]string, error) {
+	var res []string
+	rows, err := client.db.Query("SELECT schema_name FROM information_schema.schemata;")
 
 	if err != nil {
 		return nil, err
 	}
 
 	for rows.Next() {
-		var schema string
-		err = rows.Scan(&schema)
+		var el string
+		err = rows.Scan(&el)
 
 		if err != nil {
 			fmt.Println(err)
 		}
-
-		el := Schemas{Schema: schema}
 
 		res = append(res, el)
 	}
