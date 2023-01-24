@@ -16,7 +16,7 @@ func main() {
 }
 
 func mainDatabaseRequest() {
-	database := &utils.DBConnect{Ip: "localhost", Port: "49153", User: "postgres", Password: "postgrespw", Name: "postgres"}
+	database := &utils.DBConnect{Ip: "localhost", Port: "49153", User: "postgres", Password: "postgrespw", Database: "postgres"}
 	err := database.Open()
 
 	if err != nil {

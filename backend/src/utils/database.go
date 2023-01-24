@@ -13,7 +13,7 @@ type DBConnect struct {
 	Port     string `json:"port"`
 	User     string `json:"user"`
 	Password string `json:"password"`
-	Name     string `json:"name"`
+	Database string `json:"database"`
 
 	db *sqlx.DB
 }
@@ -31,7 +31,7 @@ func (client *DBConnect) Open() error {
 		sql.Register(driver, &ViaSSHDialer{sshTunnel.client})
 	}
 
-	db, err := sqlx.Open(driver, fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", client.User, client.Password, client.Ip, client.Port, client.Name))
+	db, err := sqlx.Open(driver, fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", client.User, client.Password, client.Ip, client.Port, client.Database))
 	if err != nil {
 		return err
 	}
