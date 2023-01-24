@@ -9,10 +9,11 @@ import (
 var sshTunnel SSH
 
 type DBConnect struct {
-	Ip       string
-	User     string
-	Password string
-	Name     string
+	Ip       string `json:"ip"`
+	Port     string `json:"port"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	Name     string `json:"name"`
 
 	db *sqlx.DB
 }
@@ -30,7 +31,7 @@ func (client *DBConnect) Open() error {
 		sql.Register(driver, &ViaSSHDialer{sshTunnel.client})
 	}
 
-	db, err := sqlx.Open(driver, fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", client.User, client.Password, client.Ip, client.Name))
+	db, err := sqlx.Open(driver, fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", client.User, client.Password, client.Ip, client.Port, client.Name))
 	if err != nil {
 		return err
 	}

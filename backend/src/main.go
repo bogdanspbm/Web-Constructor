@@ -2,10 +2,21 @@ package main
 
 import (
 	"backend/src/utils"
+	"net/http"
 )
 
 func main() {
-	database := &utils.DBConnect{Ip: "localhost:49153", User: "postgres", Password: "postgrespw", Name: "postgres"}
+	handler := http.HandlerFunc(utils.TableList)
+	http.Handle("/tables", handler)
+
+	pingHandler := http.HandlerFunc(utils.Ping)
+	http.Handle("/", pingHandler)
+
+	http.ListenAndServe(":8080", nil)
+}
+
+func mainDatabaseRequest() {
+	database := &utils.DBConnect{Ip: "localhost", Port: "49153", User: "postgres", Password: "postgrespw", Name: "postgres"}
 	err := database.Open()
 
 	if err != nil {
