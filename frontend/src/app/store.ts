@@ -1,10 +1,11 @@
 import {Action, combineReducers, configureStore, ThunkAction,} from '@reduxjs/toolkit';
 import undoable from 'redux-undo';
+import {databaseReducer} from "../structures/database/Database";
 
 export const store = configureStore({
     reducer: {
         canvas: undoable(
-            combineReducers({})
+            combineReducers({databaseReducer})
         ),
     },
 });
