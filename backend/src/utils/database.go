@@ -36,6 +36,12 @@ func (client *DBConnect) Open() error {
 		return err
 	}
 
+	err = db.Ping()
+
+	if err != nil {
+		return err
+	}
+
 	client.db = db
 	return nil
 }
