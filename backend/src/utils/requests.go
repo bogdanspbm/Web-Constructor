@@ -32,7 +32,7 @@ func Ping(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "{'status':'success'}", http.StatusOK)
 }
 
-func TableList(w http.ResponseWriter, r *http.Request) {
+func SchemasList(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	w.Header().Set("Content-Type", "application/json")
@@ -59,5 +59,23 @@ func TableList(w http.ResponseWriter, r *http.Request) {
 
 	defer connect.Close()
 
-	makeResponse(w, "success")
+	schemas, err := connect.GetSchemas()
+
+	if err != nil {
+		makeResponse(w, "request failed")
+	}
+
+	response := "{\"status\":\"success\",\"schemas\": ["
+
+	for i, el := range schemas {
+		response += "\"" + el + "\""
+
+		if i != len(schemas)-1 {
+			response += ","
+		}
+	}
+
+	response += "]}"
+
+	w.Write([]byte(response))
 }

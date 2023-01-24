@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	handler := http.HandlerFunc(utils.TableList)
-	http.Handle("/tables", handler)
+	handler := http.HandlerFunc(utils.SchemasList)
+	http.Handle("/schemas", handler)
 
 	pingHandler := http.HandlerFunc(utils.Ping)
 	http.Handle("/", pingHandler)
