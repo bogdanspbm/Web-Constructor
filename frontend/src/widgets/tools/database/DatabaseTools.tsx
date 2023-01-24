@@ -1,19 +1,14 @@
 import styles from './DatabaseTools.module.css';
 import {Button, Input} from 'antd';
 import Title from "antd/lib/typography/Title";
-import {DatabaseConnection} from "../../../structures/database/Database";
+import {getDatabaseConfig} from "../../../structures/database/Database";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 
 
 export function DatabaseTools() {
 
-
-    var connection: DatabaseConnection = {
-        ip: "localhost",
-        port: "55000",
-        user: "postgres",
-        password: "postgrespw",
-        database: "postgres"
-    }
+    const dispatch = useAppDispatch();
+    const connection = useAppSelector(getDatabaseConfig);
 
     async function createDatabaseConnection() {
         const body = JSON.stringify(connection)

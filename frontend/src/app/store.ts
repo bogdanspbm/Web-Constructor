@@ -5,7 +5,7 @@ import {databaseReducer} from "../structures/database/Database";
 export const store = configureStore({
     reducer: {
         canvas: undoable(
-            combineReducers({databaseReducer})
+            combineReducers({database: databaseReducer})
         ),
     },
 });

@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {RootState} from "../../app/store";
 
 export type DatabaseConnection = {
     ip: string
@@ -57,4 +58,6 @@ export const {
     setPort, setUser, setStatus, setPassword, setIP
 } = databaseModel.actions;
 
+export const getDatabaseConfig = (state: RootState) =>
+    state.canvas.present.database.config
 export const databaseReducer = databaseModel.reducer;
