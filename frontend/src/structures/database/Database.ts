@@ -11,12 +11,12 @@ export type DatabaseConnection = {
 
 export interface DatabaseState {
     config: DatabaseConnection
-    status: boolean
+    status: string
 }
 
 const initialState: DatabaseState = {
     config: {ip: "localhost", port: "5432", user: "postgres", password: "postgrespw", database: "postgres"},
-    status: false
+    status: "empty"
 }
 
 export const databaseModel = createSlice({
@@ -25,7 +25,7 @@ export const databaseModel = createSlice({
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
         setStatus: (state: DatabaseState, action: PayloadAction<{
-                        status: boolean
+                        status: string
                     }>
         ) => {
             state.status = action.payload.status
@@ -60,4 +60,7 @@ export const {
 
 export const getDatabaseConfig = (state: RootState) =>
     state.canvas.present.database.config
+
+export const getDatabaseStatus = (state: RootState) =>
+    state.canvas.present.database.status
 export const databaseReducer = databaseModel.reducer;

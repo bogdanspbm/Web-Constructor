@@ -1,7 +1,15 @@
 import styles from './DatabaseTools.module.css';
 import {Button, Input} from 'antd';
 import Title from "antd/lib/typography/Title";
-import {getDatabaseConfig, setIP, setPassword, setPort, setUser} from "../../../structures/database/Database";
+import {
+    getDatabaseConfig,
+    getDatabaseStatus,
+    setIP,
+    setPassword,
+    setPort,
+    setStatus,
+    setUser
+} from "../../../structures/database/Database";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 
 
@@ -9,6 +17,7 @@ export function DatabaseTools() {
 
     const dispatch = useAppDispatch();
     const connection = useAppSelector(getDatabaseConfig);
+    const status = useAppSelector(getDatabaseStatus);
 
     async function createDatabaseConnection() {
         const body = JSON.stringify(connection)
@@ -18,26 +27,29 @@ export function DatabaseTools() {
             method: 'POST', body: body
         });
 
-        const text = await response.text();
-        console.log(text);
+        const json = await response.json();
+        dispatch(setStatus({status: json.status}))
     }
 
 
     return (
         <div className={styles.panel}>
             <Title level={5} style={{height: 16, marginLeft: 2}}>Connection</Title>
-            <Input size={"large"} placeholder={"IP"} defaultValue={"localhost"} onChange={(e) => {
+            <Input size={"large"} placeholder={"IP"} defaultValue={connection.ip} onChange={(e) => {
                 dispatch(setIP({ip: e.target.value}))
             }}></Input>
-            <Input size={"large"} placeholder={"Port"} defaultValue={"55000"} onChange={(e) => {
+            <Input size={"large"} placeholder={"Port"} defaultValue={connection.port} onChange={(e) => {
                 dispatch(setPort({port: e.target.value}))
             }}></Input>
-            <Input size={"large"} placeholder={"User"} defaultValue={"postgres"} onChange={(e) => {
+            <Input size={"large"} placeholder={"User"} defaultValue={connection.user} onChange={(e) => {
                 dispatch(setUser({user: e.target.value}))
             }}></Input>
-            <Input size={"large"} placeholder={"Password"} defaultValue={"postgrespw"} onChange={(e) => {
+            <Input size={"large"} placeholder={"Password"} defaultValue={connection.password} onChange={(e) => {
                 dispatch(setPassword({password: e.target.value}))
             }}></Input>
+
+            {status === "success" ? <Title level={5} type={"success"}> Connected </Title> : <></>}
+            {status !== "success" && status !== "empty" ? <Title level={5} type={"danger"}> Failed </Title> : <></>}
             <Button size={"large"} style={{width: "100%"}} onClick={createDatabaseConnection}>Connect</Button>
         </div>)
 }
