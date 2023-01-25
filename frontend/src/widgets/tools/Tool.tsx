@@ -6,6 +6,7 @@ import { SchemasPanel } from "./schemas/SchemasPanel";
 const { Panel } = Collapse;
 
 export function Tool() {
+<<<<<<< Updated upstream
   return (
     <div className={styles.panel}>
       <Collapse defaultActiveKey={["1"]} bordered={false}>
@@ -21,3 +22,24 @@ export function Tool() {
     </div>
   );
 }
+=======
+
+    const schemas = useAppSelector(getDatabaseSchemas);
+
+
+    return (
+        <div className={styles.panel}>
+            <Collapse defaultActiveKey={['1']} bordered={false}>
+                <Panel header="Database" key="1">
+                    <DatabaseTools/>
+                </Panel>
+                <Panel header="Schemas" key="2">
+                    {!schemas ? <div></div> : schemas.map(schema => {
+                        return <Button>{schema}</Button>
+                    })}
+                </Panel>
+                <Panel header={"Tables"} key="3"></Panel>
+            </Collapse>
+        </div>)
+}
+>>>>>>> Stashed changes
