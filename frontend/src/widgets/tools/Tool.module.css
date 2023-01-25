@@ -1,6 +1,11 @@
-.panel{
+.panel {
     width: 300px;
     padding: 10px;
     background: #FAFAFA;
     border-right: 1px solid #E9E9E9;
+}
+
+.schemasPanel {
+    display: flex;
+    flex-direction: column;
 }
