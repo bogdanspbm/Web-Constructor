@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
-import {getDatabaseSchemas, setSchemas, setStatus} from "../../../structures/database/Database";
+import {getDatabaseSchemas, setTables} from "../../../structures/database/Database";
 import {Button} from "antd";
 import styles from "./SchemasPanel.module.css";
 
@@ -9,8 +9,6 @@ export const SchemasPanel = (props: any) => {
     const dispatch = useAppDispatch()
     const schemas = useAppSelector(getDatabaseSchemas);
 
-    console.log(schemas);
-
     if (!schemas) {
         return <></>;
     }
@@ -18,14 +16,13 @@ export const SchemasPanel = (props: any) => {
     async function loadTables(schema: string) {
         const body = JSON.stringify(connection);
 
-        const response = await fetch("http://localhost:8080/schemas", {
+        const response = await fetch("http://localhost:8080/tables/" + schema, {
             method: "POST",
             body: body,
         });
 
         const json = await response.json();
-        dispatch(setStatus({status: json.status}));
-        dispatch(setSchemas({schemas: json.schemas}));
+        dispatch(setTables({tables: json.tables}))
     }
 
     return (

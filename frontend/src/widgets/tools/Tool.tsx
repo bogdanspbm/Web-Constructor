@@ -4,6 +4,7 @@ import {DatabaseTools} from "./database/DatabaseTools";
 import {SchemasPanel} from "./schemas/SchemasPanel";
 import {useAppSelector} from "../../app/hooks";
 import {getDatabaseConfig} from "../../structures/database/Database";
+import {TablesPanel} from "./tables/TablesPanel";
 
 const {Panel} = Collapse;
 
@@ -23,6 +24,9 @@ export const Tool = (props: any) => {
                     </div>
                 </Panel>
                 <Panel header="Tables" key="3">
+                    <div className={styles.tablesPanel}>
+                        <TablesPanel connection={connection}/>
+                    </div>
                 </Panel>
             </Collapse>
         </div>

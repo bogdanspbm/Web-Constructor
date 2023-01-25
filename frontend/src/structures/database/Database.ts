@@ -13,12 +13,15 @@ export interface DatabaseState {
     config: DatabaseConnection
     status: string
     schemas: string[]
+
+    tables: string[]
 }
 
 const initialState: DatabaseState = {
     config: {ip: "localhost", port: "5432", user: "postgres", password: "postgrespw", database: "postgres"},
     status: "empty",
-    schemas: []
+    schemas: [],
+    tables: []
 }
 
 export const databaseModel = createSlice({
@@ -59,11 +62,17 @@ export const databaseModel = createSlice({
         ) => {
             state.schemas = action.payload.schemas
         },
+        setTables: (state: DatabaseState, action: PayloadAction<{
+                        tables: string[]
+                    }>
+        ) => {
+            state.tables = action.payload.tables
+        },
     }
 })
 
 export const {
-    setPort, setUser, setStatus, setPassword, setIP, setSchemas
+    setPort, setUser, setStatus, setPassword, setIP, setSchemas, setTables
 } = databaseModel.actions;
 
 export const getDatabaseConfig = (state: RootState) =>
@@ -74,4 +83,7 @@ export const getDatabaseStatus = (state: RootState) =>
 
 export const getDatabaseSchemas = (state: RootState) =>
     state.canvas.present.database.schemas
+
+export const getDatabaseTables = (state: RootState) =>
+    state.canvas.present.database.tables
 export const databaseReducer = databaseModel.reducer;
