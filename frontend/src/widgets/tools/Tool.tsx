@@ -1,45 +1,31 @@
 import styles from "./Tool.module.css";
-import { Collapse } from "antd";
-import { DatabaseTools } from "./database/DatabaseTools";
-import { SchemasPanel } from "./schemas/SchemasPanel";
+import {Collapse} from "antd";
+import {DatabaseTools} from "./database/DatabaseTools";
+import {SchemasPanel} from "./schemas/SchemasPanel";
+import {useAppSelector} from "../../app/hooks";
+import {getDatabaseConfig} from "../../structures/database/Database";
 
-const { Panel } = Collapse;
+const {Panel} = Collapse;
 
-export function Tool() {
-<<<<<<< Updated upstream
-  return (
-    <div className={styles.panel}>
-      <Collapse defaultActiveKey={["1"]} bordered={false}>
-        <Panel header="Database" key="1">
-          <DatabaseTools />
-        </Panel>
-        <Panel header="Panels" key="2">
-          <div className={styles.schemasPanel}>
-            <SchemasPanel />
-          </div>
-        </Panel>
-      </Collapse>
-    </div>
-  );
-}
-=======
+export const Tool = (props: any) => {
 
-    const schemas = useAppSelector(getDatabaseSchemas);
-
+    const connection = useAppSelector(getDatabaseConfig)
 
     return (
         <div className={styles.panel}>
-            <Collapse defaultActiveKey={['1']} bordered={false}>
+            <Collapse defaultActiveKey={["1"]} bordered={false}>
                 <Panel header="Database" key="1">
-                    <DatabaseTools/>
+                    <DatabaseTools connection={connection}/>
                 </Panel>
                 <Panel header="Schemas" key="2">
-                    {!schemas ? <div></div> : schemas.map(schema => {
-                        return <Button>{schema}</Button>
-                    })}
+                    <div className={styles.schemasPanel}>
+                        <SchemasPanel connection={connection}/>
+                    </div>
                 </Panel>
-                <Panel header={"Tables"} key="3"></Panel>
+                <Panel header="Tables" key="3">
+                </Panel>
             </Collapse>
-        </div>)
+        </div>
+    );
 }
->>>>>>> Stashed changes
+
