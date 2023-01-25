@@ -7,6 +7,7 @@ import {
     setIP,
     setPassword,
     setPort,
+    setSchemas,
     setStatus,
     setUser
 } from "../../../structures/database/Database";
@@ -23,12 +24,13 @@ export function DatabaseTools() {
         const body = JSON.stringify(connection)
         console.log(body)
 
-        const response = await fetch('http://localhost:8080/tables', {
+        const response = await fetch('http://localhost:8080/schemas', {
             method: 'POST', body: body
         });
 
         const json = await response.json();
         dispatch(setStatus({status: json.status}))
+        dispatch(setSchemas({schemas: json.schemas}))
     }
 
 
