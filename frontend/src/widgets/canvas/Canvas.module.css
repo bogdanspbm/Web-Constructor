@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    display: flex;
+    background: #eee;
+    padding: 10px 0;
+}
+
+.canvas {
+    margin: auto;
+    background: #fff;
+    position: relative;
+}

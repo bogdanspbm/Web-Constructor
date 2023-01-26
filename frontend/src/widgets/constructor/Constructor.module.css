@@ -16,11 +16,11 @@
 
 .tools {
     display: flex;
-    width: 320px;
+    width: 300px;
 }
 
 .canvas {
-    width: calc(100% - 320px);;
+    width: calc(100% - 300px);;
 }
 
 .title {
