@@ -1,6 +1,7 @@
 import styles from "./Canvas.module.css";
 import { Background } from "./Background";
 import { Layer, Stage } from "react-konva";
+import { ComponentCanvas } from "../component/ComponentCanvas";
 
 export const Canvas = () => {
   const width = 800;
@@ -12,6 +13,9 @@ export const Canvas = () => {
         <Stage width={width} height={height} style={{ width, height }}>
           <Layer>
             <Background width={width} height={height} />
+          </Layer>
+          <Layer>
+            <ComponentCanvas />
           </Layer>
         </Stage>
       </div>
