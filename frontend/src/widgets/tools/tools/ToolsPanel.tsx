@@ -7,14 +7,13 @@ import { addComponent } from "../../../structures/component/Component";
 export const ToolsPanel = () => {
   const dispatch = useAppDispatch();
 
-  const builder = new ComponentBuilder();
-
   return (
     <>
       <Button
         block={true}
         className={styles.tool}
         onClick={() => {
+          const builder = new ComponentBuilder();
           const component = builder.setType("button").build();
           dispatch(addComponent({ component }));
         }}

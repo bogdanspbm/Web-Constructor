@@ -1,3 +1,4 @@
+import { Group } from "react-konva";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   getComponents,
@@ -17,11 +18,14 @@ export const ComponentCanvas = () => {
   }
 
   return (
-    <div>
+    <Group>
       {components.map((component) => {
         return (
           <Component
             key={component.uid}
+            shapeProps={{
+              ...component.bounds,
+            }}
             component={component}
             isSelected={selected && component.uid === selected.uid}
             onSelect={() => dispatch(select({ uid: component.uid }))}
@@ -41,6 +45,6 @@ export const ComponentCanvas = () => {
           ></Component>
         );
       })}
-    </div>
+    </Group>
   );
 };

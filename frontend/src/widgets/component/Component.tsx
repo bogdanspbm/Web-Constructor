@@ -6,10 +6,19 @@ export const Component = (props: any) => {
   const trRef: any = useRef();
   const [isTransforming, setIsTransforming] = useState(false);
   const [customShapeProps, setCustomShapeProps] = useState({});
-  const { component, isSelected, onSelect, onChange, onDoubleClick } = props;
+
+  const {
+    shapeProps,
+    isSelected,
+    onSelect,
+    onChange,
+    onDoubleClick,
+    component,
+  } = props;
 
   useEffect(() => {
     if (isSelected) {
+      // we need to attach transformer manually
       trRef.current.nodes([shapeRef.current]);
       trRef.current.getLayer().batchDraw();
       setCustomShapeProps({});
@@ -24,13 +33,13 @@ export const Component = (props: any) => {
         onDblClick={onDoubleClick}
         draggable
         ref={shapeRef}
+        {...shapeProps}
         onDragStart={() => setIsTransforming(true)}
         onDragEnd={(e) => {
           onChange({
+            ...shapeProps,
             x: e.target.x(),
             y: e.target.y(),
-            width: component.bounds.width,
-            height: component.bounds.height,
           });
           setIsTransforming(false);
         }}
@@ -47,26 +56,27 @@ export const Component = (props: any) => {
           const scaleX = node.scaleX();
           const scaleY = node.scaleY();
 
+          // we will reset it back
           node.scaleX(1);
           node.scaleY(1);
           onChange({
+            ...shapeProps,
             x: node.x(),
             y: node.y(),
+            // set minimal value
             width: Math.max(5, node.width() * scaleX),
             height: Math.max(node.height() * scaleY),
           });
           setIsTransforming(false);
         }}
       >
-        {
-          <Rect
-            cornerRadius={5}
-            fill={component.params.color}
-            width={component.bounds.width}
-            height={component.bounds.height}
-            {...customShapeProps}
-          />
-        }
+        <Rect
+          cornerRadius={5}
+          fill={component.params.color}
+          width={shapeProps.width}
+          height={shapeProps.height}
+          {...customShapeProps}
+        />
       </Group>
       {isSelected && (
         <>
