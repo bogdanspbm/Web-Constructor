@@ -7,11 +7,13 @@ import {
   transform,
 } from "../../structures/component/Component";
 import { Component } from "./Component";
+import { getCanvasSize } from "../../structures/canvas/Canvas";
 
 export const ComponentCanvas = () => {
   const dispatch = useAppDispatch();
   const components = useAppSelector(getComponents);
   const selected = useAppSelector(getSelected);
+  const canvasSize = useAppSelector(getCanvasSize);
 
   if (!components) {
     return <></>;
@@ -22,6 +24,7 @@ export const ComponentCanvas = () => {
       {components.map((component) => {
         return (
           <Component
+            canvasSize={canvasSize}
             key={component.uid}
             shapeProps={{
               ...component.bounds,

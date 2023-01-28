@@ -14,7 +14,15 @@ export const Component = (props: any) => {
     onChange,
     onDoubleClick,
     component,
+    canvasSize,
   } = props;
+
+  function calculateGridSize(): { width: number; height: number } {
+    const width = shapeProps.width;
+    const height = shapeProps.height;
+
+    return { width: width, height: height };
+  }
 
   useEffect(() => {
     if (isSelected) {
@@ -70,6 +78,14 @@ export const Component = (props: any) => {
           setIsTransforming(false);
         }}
       >
+        <Rect
+          cornerRadius={5}
+          fill={"green"}
+          opacity={0.5}
+          width={shapeProps.width}
+          height={shapeProps.height}
+          {...customShapeProps}
+        />
         <Rect
           cornerRadius={5}
           fill={component.params.color}

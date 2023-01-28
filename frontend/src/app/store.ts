@@ -7,6 +7,7 @@ import {
 import undoable from "redux-undo";
 import { databaseReducer } from "../structures/database/Database";
 import { componentReducer } from "../structures/component/Component";
+import { canvasReducer } from "../structures/canvas/Canvas";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
       combineReducers({
         database: databaseReducer,
         component: componentReducer,
+        canvas: canvasReducer,
       })
     ),
   },
