@@ -4,18 +4,22 @@ export const CanvasGrid = (props: any) => {
   const { width, height, addRectToGroup, overlapKeys } = props;
   const colCount = 12;
   const columnWidth = Math.round(width / colCount);
+  const columnHeight = 48;
+  const columnCount = Math.round(height / columnHeight);
 
   return (
     <Group>
-      {Array.from(Array(colCount).keys()).map((value) => {
+      {Array.from(Array(colCount * columnCount).keys()).map((value) => {
+        const col = value % colCount;
+        const row = Math.floor(value / colCount);
         let rectangle = (
           <Rect
             width={columnWidth}
-            height={height}
-            x={value * columnWidth}
-            y={0}
+            height={columnHeight}
+            x={col * columnWidth}
+            y={row * columnHeight}
             key={value}
-            fill={overlapKeys.indexOf(value) >= 0 ? "green" : "grey"}
+            fill={overlapKeys.indexOf(value) >= 0 ? "green" : "white"}
           ></Rect>
         );
         addRectToGroup(rectangle);
