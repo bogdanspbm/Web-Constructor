@@ -50,8 +50,6 @@ export const Canvas = () => {
       overlapKeys.length !== result.length ||
       !overlapKeys.every((value, index) => value === result[index])
     ) {
-      console.log(overlapKeys);
-      console.log(result);
       dispatch(setOverlapKeys({ keys: result }));
     }
   }

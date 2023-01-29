@@ -1,12 +1,15 @@
 import { ReactElement } from "react";
-import { Bound } from "../structures/component/Component";
+import { Bound, ComponentObject } from "../structures/component/Component";
 
 export function haveIntersection(r1: ReactElement, r2: Bound) {
+  const component = new ComponentObject(r2);
+  const normalize = component.getGridBounds(800);
+
   const res = !(
-    r2.x > r1.props.x + r1.props.width ||
-    r2.x + r2.width < r1.props.x ||
-    r2.y > r1.props.y + r1.props.height ||
-    r2.y + r2.height < r1.props.y
+    normalize.x >= r1.props.x + r1.props.width ||
+    normalize.x + r2.width <= r1.props.x ||
+    normalize.y >= r1.props.y + r1.props.height ||
+    normalize.y + r2.height <= r1.props.y
   );
 
   return res;

@@ -9,13 +9,14 @@ export class ComponentObject {
   }
 
   getGridBounds(canvasWidth: number): Bound {
-    const y = this.bounds.y;
     const height = this.bounds.height;
 
     const colWidth = Math.round(canvasWidth / 12);
+    const rowHeight = 48;
 
     const width = Math.round(this.bounds.width / colWidth) * colWidth;
     const x = Math.round(this.bounds.x / colWidth) * colWidth;
+    const y = Math.round(this.bounds.y / rowHeight) * rowHeight;
 
     return { x: x, y: y, width: width, height: height };
   }

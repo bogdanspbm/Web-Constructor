@@ -20,6 +20,7 @@ export const CanvasGrid = (props: any) => {
             y={row * columnHeight}
             key={value}
             fill={overlapKeys.indexOf(value) >= 0 ? "green" : "white"}
+            opacity={0.4}
           ></Rect>
         );
         addRectToGroup(rectangle);
