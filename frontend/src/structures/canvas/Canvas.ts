@@ -9,6 +9,7 @@ export interface CanvasState {
   };
   isTransforming: boolean;
   transformBound: Bound;
+  overlapKeys: number[];
 }
 
 const initialState: CanvasState = {
@@ -17,6 +18,7 @@ const initialState: CanvasState = {
     height: 600,
   },
   isTransforming: false,
+  overlapKeys: [],
   transformBound: { x: 0, y: 0, width: 100, height: 100 },
 };
 
@@ -42,6 +44,14 @@ export const canvasModel = createSlice({
     ) => {
       state.transformBound = action.payload.bounds;
     },
+    setOverlapKeys: (
+      state: CanvasState,
+      action: PayloadAction<{
+        keys: number[];
+      }>
+    ) => {
+      state.overlapKeys = action.payload.keys;
+    },
     setIsTransform: (
       state: CanvasState,
       action: PayloadAction<{
@@ -59,9 +69,12 @@ export const getCanvasSize = (state: RootState) =>
 export const getIsTransforming = (state: RootState) =>
   state.canvas.present.canvas.isTransforming;
 
-export const getTransformingPadding = (state: RootState) =>
+export const getTransformingBounds = (state: RootState) =>
   state.canvas.present.canvas.transformBound;
-export const { setSize, setTransformBound, setIsTransform } =
+
+export const getOverlapKeys = (state: RootState) =>
+  state.canvas.present.canvas.overlapKeys;
+export const { setSize, setTransformBound, setIsTransform, setOverlapKeys } =
   canvasModel.actions;
 
 export const canvasReducer = canvasModel.reducer;

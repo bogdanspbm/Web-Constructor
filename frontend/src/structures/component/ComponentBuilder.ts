@@ -1,7 +1,7 @@
-import { Bound, Component } from "./Component";
+import { Bound, ComponentStruct } from "./Component";
 
 export class ComponentBuilder {
-  component: Component = {
+  component: ComponentStruct = {
     uid: "",
     type: "component",
     bounds: { x: 0, y: 0, width: 100, height: 100 },
@@ -19,8 +19,8 @@ export class ComponentBuilder {
     while (i++ < 36) {
       var c = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"[i - 1],
         r = (Math.random() * 16) | 0,
-        v = c == "x" ? r : (r & 0x3) | 0x8;
-      u += c == "-" || c == "4" ? c : v.toString(16);
+        v = c === "x" ? r : (r & 0x3) | 0x8;
+      u += c === "-" || c === "4" ? c : v.toString(16);
     }
     return u;
   }
@@ -45,7 +45,7 @@ export class ComponentBuilder {
     return this;
   }
 
-  build(): Component {
+  build(): ComponentStruct {
     return this.component;
   }
 }

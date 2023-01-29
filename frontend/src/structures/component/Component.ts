@@ -1,6 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
+export class ComponentObject {
+  bounds: Bound;
+
+  constructor(bounds: Bound) {
+    this.bounds = bounds;
+  }
+
+  getGridBounds(canvasWidth: number): Bound {
+    const y = this.bounds.y;
+    const height = this.bounds.height;
+
+    const colWidth = Math.round(canvasWidth / 12);
+
+    const width = Math.round(this.bounds.width / colWidth) * colWidth;
+    const x = Math.round(this.bounds.x / colWidth) * colWidth;
+
+    return { x: x, y: y, width: width, height: height };
+  }
+}
+
 export type Bound = {
   x: number;
   y: number;
@@ -13,7 +33,7 @@ export type Params = {
   color: string;
 };
 
-export type Component = {
+export type ComponentStruct = {
   uid: string;
   type: string;
   bounds: Bound;
@@ -23,7 +43,7 @@ export type Component = {
 
 export interface ComponentState {
   selectedUID: string;
-  components: Component[];
+  components: ComponentStruct[];
 }
 
 const initialState: ComponentState = {
@@ -38,7 +58,7 @@ export const componentModel = createSlice({
     addComponent: (
       state: ComponentState,
       action: PayloadAction<{
-        component: Component;
+        component: ComponentStruct;
       }>
     ) => {
       state.components.push(action.payload.component);

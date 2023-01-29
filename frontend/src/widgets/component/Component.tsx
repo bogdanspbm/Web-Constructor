@@ -14,11 +14,8 @@ export const Component = (props: any) => {
     onChange,
     onDoubleClick,
     component,
-    canvasSize,
+    onTransformingChange,
   } = props;
-
-  console.log(component.bounds.width);
-  console.log(trRef.current && trRef.current.getWidth());
 
   useEffect(() => {
     if (isSelected) {
@@ -38,13 +35,17 @@ export const Component = (props: any) => {
         draggable
         ref={shapeRef}
         {...shapeProps}
-        onDragStart={() => setIsTransforming(true)}
+        onDragStart={() => {
+          setIsTransforming(true);
+          onTransformingChange(true);
+        }}
         onDragEnd={(e) => {
           onChange({
             ...shapeProps,
             x: e.target.x(),
             y: e.target.y(),
           });
+          onTransformingChange(false);
           setIsTransforming(false);
         }}
         onMouseEnter={() =>
@@ -54,7 +55,10 @@ export const Component = (props: any) => {
           })
         }
         onMouseLeave={() => setCustomShapeProps({})}
-        onTransformStart={() => setIsTransforming(true)}
+        onTransformStart={() => {
+          setIsTransforming(true);
+          onTransformingChange(true);
+        }}
         onTransformEnd={(e) => {
           const node = shapeRef.current;
           const scaleX = node.scaleX();
@@ -71,6 +75,7 @@ export const Component = (props: any) => {
             width: Math.max(5, node.width() * scaleX),
             height: Math.max(node.height() * scaleY),
           });
+          onTransformingChange(false);
           setIsTransforming(false);
         }}
       >
