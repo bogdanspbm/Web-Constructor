@@ -5,6 +5,7 @@ import { ComponentCanvas } from "../component/ComponentCanvas";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   getCanvasSize,
+  getIsTransforming,
   getOverlapKeys,
   setOverlapKeys,
 } from "../../structures/canvas/Canvas";
@@ -18,11 +19,22 @@ export const Canvas = () => {
   const width = canvasSize.width;
   const height = canvasSize.height;
   const overlapKeys = useAppSelector(getOverlapKeys);
+  const isTransforming = useAppSelector(getIsTransforming);
 
   let group: ReactElement[] = [];
 
   function onDragEvent(drag: any) {
-    const bound = { x: drag.attrs.x, y: drag.attrs.y, width: 100, height: 100 };
+    const bound = {
+      x: drag.attrs.x,
+      y: drag.attrs.y,
+      width: drag.attrs.width,
+      height: drag.attrs.height,
+    };
+
+    if (!bound.width || !bound.height) {
+      return;
+    }
+
     let result: number[] = [];
     group.forEach((el) => {
       if (haveIntersection(el, bound)) {
@@ -34,7 +46,12 @@ export const Canvas = () => {
       }
     });
 
-    if (overlapKeys !== result) {
+    if (
+      overlapKeys.length !== result.length ||
+      !overlapKeys.every((value, index) => value === result[index])
+    ) {
+      console.log(overlapKeys);
+      console.log(result);
       dispatch(setOverlapKeys({ keys: result }));
     }
   }
@@ -60,7 +77,12 @@ export const Canvas = () => {
               addRectToGroup={addRectToGroup}
             />
           </Layer>
-          <Layer onDragMove={(e) => onDragEvent(e.target)}>
+          <Layer
+            onDragMove={(e) => onDragEvent(e.target)}
+            onDragEnd={() => {
+              dispatch(setOverlapKeys({ keys: [] }));
+            }}
+          >
             <ComponentCanvas />
           </Layer>
         </Stage>
