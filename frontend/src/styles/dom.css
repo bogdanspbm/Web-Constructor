@@ -1,0 +1,12 @@
+.collapse {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+
+}
+
+.button:hover {
+    background: gray;
+}
