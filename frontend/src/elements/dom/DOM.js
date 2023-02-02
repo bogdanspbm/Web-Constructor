@@ -1,88 +1,114 @@
+import { attributeFromMap } from "../../utils/Utils.js";
+
 export class DOM {
-    element;
+  element;
 
-    constructor(elements) {
-        this.createElement();
+  styles = {};
 
-        if (!elements) {
-            return;
-        }
+  constructor(elements) {
+    this.createElement();
 
-        elements.forEach((element) => this.append(element));
+    if (!elements) {
+      return;
     }
 
-    createElement() {
-        this.element = document.createElement("div");
+    elements.forEach((element) => this.append(element));
+  }
+
+  createElement() {
+    this.element = document.createElement("div");
+  }
+
+  setAttribute(key, value, element) {
+    this.styles[key] = value;
+
+    if (!element) {
+      element = "element";
     }
 
-    setText(text) {
-        this.element.textContent = text;
-        return this;
-    }
+    this[element].setAttribute("style", attributeFromMap(this.styles));
+    return this;
+  }
 
+  setText(text) {
+    this.element.textContent = text;
+    return this;
+  }
 
-    setStyle(style, key) {
-        if (!key) {
-            key = 'element'
-        }
-        this[key].setAttribute("class", style);
-        return this;
+  setStyle(style, key) {
+    if (!key) {
+      key = "element";
     }
+    this[key].setAttribute("class", style);
+    return this;
+  }
 
-    addClickEvent(action) {
-        this.element.addEventListener('click', action, false);
-    }
+  addClickEvent(action) {
+    this.element.addEventListener("click", action, false);
+  }
 
-    append(element) {
-        if (element.classList.contains(DOM)) {
-            this.element.appendChild(element.getDOM());
-        } else {
-            this.element.appendChild(element);
-        }
-        return this;
+  append(element) {
+    if (element.classList.contains(DOM)) {
+      this.element.appendChild(element.getDOM());
+    } else {
+      this.element.appendChild(element);
     }
+    return this;
+  }
 
-    getDOM() {
-        return this.element;
-    }
+  getDOM() {
+    return this.element;
+  }
 }
 
-export class Div extends DOM {
-}
+export class Div extends DOM {}
 
 export class Collapse extends DOM {
-    createElement() {
-        this.element = document.createElement("div");
-        this.details = document.createElement("details")
-        this.summary = document.createElement("summary")
-        this.content = document.createElement("div")
+  createElement() {
+    this.element = document.createElement("div");
+    this.details = document.createElement("details");
+    this.summary = document.createElement("summary");
+    this.content = document.createElement("div");
 
-        this.content.setAttribute("class", "collapse")
+    this.content.setAttribute("class", "collapse");
+    this.summary.setAttribute("class", "unselectable");
+    this.summary.setAttribute("style", " padding-bottom: 6px");
+    this.details.setAttribute("class", "details");
 
-        this.element.appendChild(this.details)
-        this.details.appendChild(this.summary)
-        this.details.appendChild(this.content)
+    this.element.appendChild(this.details);
+    this.details.appendChild(this.summary);
+    this.details.appendChild(this.content);
+  }
+
+  setText(text) {
+    this.summary.textContent = text;
+    return this;
+  }
+
+  append(element) {
+    if (element.classList.contains(DOM)) {
+      this.content.appendChild(element.getDOM());
+    } else {
+      this.content.appendChild(element);
     }
-
-    setText(text) {
-        this.summary.textContent = text;
-        return this;
-    }
-
-    append(element) {
-        if (element.classList.contains(DOM)) {
-            this.content.appendChild(element.getDOM());
-        } else {
-            this.content.appendChild(element);
-        }
-        return this;
-    }
-
+    return this;
+  }
 }
 
 export class Button extends DOM {
-    createElement() {
-        super.createElement();
-        this.setStyle("button")
-    }
+  createElement() {
+    super.createElement();
+
+    this.text = document.createElement("div");
+    this.text.setAttribute("class", "unselectable");
+
+    this.element.appendChild(this.text);
+
+    this.setStyle("button");
+  }
+
+  setText(text) {
+    this.text.textContent = text;
+    return this;
+  }
 }
