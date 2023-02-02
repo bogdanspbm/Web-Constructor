@@ -1,9 +1,0 @@
-.panel {
-    display: flex;
-    flex-direction: column;
-}
-
-.schema {
-    margin-top: 4px;
-    height: 36px;
-}
