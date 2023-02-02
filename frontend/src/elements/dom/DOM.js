@@ -1,33 +1,43 @@
 export class DOM {
-  element;
+    element;
 
-  constructor(elements) {
-    this.createElement();
+    constructor(elements) {
+        this.createElement();
 
-    if (!elements) {
-      return;
+        if (!elements) {
+            return;
+        }
+
+        elements.forEach((element) => this.append(element));
     }
 
-    elements.forEach((element) => this.append(element));
-  }
+    createElement() {
+        this.element = document.createElement("div");
+    }
 
-  createElement() {
-    this.element = document.createElement("div");
-  }
+    setText(text) {
+        this.element.textContent = text;
+        return this;
+    }
 
-  setStyle(style) {
-    this.element.setAttribute("class", style);
-    return this;
-  }
+    setStyle(style) {
+        this.element.setAttribute("class", style);
+        return this;
+    }
 
-  append(element) {
-    this.element.appendChild(element);
-    return this;
-  }
+    append(element) {
+        if (element.classList.contains(DOM)) {
+            this.element.appendChild(element.getDOM());
+        } else {
+            this.element.appendChild(element);
+        }
+        return this;
+    }
 
-  getDOM() {
-    return this.element;
-  }
+    getDOM() {
+        return this.element;
+    }
 }
 
-export class Div extends DOM {}
+export class Div extends DOM {
+}

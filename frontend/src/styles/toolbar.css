@@ -1,0 +1,9 @@
+.toolbar {
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+
+    border-right: 1px solid #eee;
+    width: 300px;
+}
