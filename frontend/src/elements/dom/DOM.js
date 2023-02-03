@@ -19,6 +19,12 @@ export class DOM {
     this.element = document.createElement("div");
   }
 
+  setID(id) {
+    this.element.setAttribute("id", id);
+
+    return this;
+  }
+
   setAttribute(key, value, element) {
     this.styles[key] = value;
 
@@ -115,5 +121,11 @@ export class CollapseItem extends DOM {
   createElement() {
     super.createElement();
     this.setStyle("collapse-item");
+  }
+}
+
+export class Canvas extends DOM {
+  createElement() {
+    this.element = document.createElement("canvas");
   }
 }

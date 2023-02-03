@@ -1,0 +1,5 @@
+.canvas {
+    margin: 64px;
+    background: white;
+    width: calc(100% - 300);
+}
