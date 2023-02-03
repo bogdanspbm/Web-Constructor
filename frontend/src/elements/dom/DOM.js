@@ -72,8 +72,6 @@ export class Collapse extends DOM {
 
     this.content.setAttribute("class", "collapse");
     this.summary.setAttribute("class", "unselectable");
-    this.summary.setAttribute("style", " padding-bottom: 6px");
-    this.details.setAttribute("class", "details");
 
     this.element.appendChild(this.details);
     this.details.appendChild(this.summary);
@@ -100,7 +98,7 @@ export class Button extends DOM {
     super.createElement();
 
     this.text = document.createElement("div");
-    this.text.setAttribute("class", "unselectable");
+    this.text.setAttribute("class", "button-text");
 
     this.element.appendChild(this.text);
 
@@ -110,5 +108,12 @@ export class Button extends DOM {
   setText(text) {
     this.text.textContent = text;
     return this;
+  }
+}
+
+export class CollapseItem extends DOM {
+  createElement() {
+    super.createElement();
+    this.setStyle("collapse-item");
   }
 }
