@@ -1,131 +1,133 @@
-import { attributeFromMap } from "../../utils/Utils.js";
+import {attributeFromMap} from "../../utils/Utils.js";
 
 export class DOM {
-  element;
+    element;
 
-  styles = {};
+    styles = {};
 
-  constructor(elements) {
-    this.createElement();
+    constructor(elements) {
+        this.createElement();
 
-    if (!elements) {
-      return;
+        if (!elements) {
+            return;
+        }
+
+        elements.forEach((element) => this.append(element));
     }
 
-    elements.forEach((element) => this.append(element));
-  }
-
-  createElement() {
-    this.element = document.createElement("div");
-  }
-
-  setID(id) {
-    this.element.setAttribute("id", id);
-
-    return this;
-  }
-
-  setAttribute(key, value, element) {
-    this.styles[key] = value;
-
-    if (!element) {
-      element = "element";
+    createElement() {
+        this.element = document.createElement("div");
     }
 
-    this[element].setAttribute("style", attributeFromMap(this.styles));
-    return this;
-  }
+    setID(id) {
+        this.element.setAttribute("id", id);
 
-  setText(text) {
-    this.element.textContent = text;
-    return this;
-  }
-
-  setStyle(style, key) {
-    if (!key) {
-      key = "element";
+        return this;
     }
-    this[key].setAttribute("class", style);
-    return this;
-  }
 
-  addClickEvent(action) {
-    this.element.addEventListener("click", action, false);
-  }
+    setAttribute(key, value, element) {
+        this.styles[key] = value;
 
-  append(element) {
-    if (element.classList.contains(DOM)) {
-      this.element.appendChild(element.getDOM());
-    } else {
-      this.element.appendChild(element);
+        if (!element) {
+            element = "element";
+        }
+
+        this[element].setAttribute("style", attributeFromMap(this.styles));
+        return this;
     }
-    return this;
-  }
 
-  getDOM() {
-    return this.element;
-  }
+    setText(text) {
+        this.element.textContent = text;
+        return this;
+    }
+
+    setStyle(style, key) {
+        if (!key) {
+            key = "element";
+        }
+        this[key].setAttribute("class", style);
+        return this;
+    }
+
+    addClickEvent(action) {
+        this.element.addEventListener("click", action, false);
+        return this;
+    }
+
+    append(element) {
+        if (element.classList.contains(DOM)) {
+            this.element.appendChild(element.getDOM());
+        } else {
+            this.element.appendChild(element);
+        }
+        return this;
+    }
+
+    getDOM() {
+        return this.element;
+    }
 }
 
-export class Div extends DOM {}
+export class Div extends DOM {
+}
 
 export class Collapse extends DOM {
-  createElement() {
-    this.element = document.createElement("div");
-    this.details = document.createElement("details");
-    this.summary = document.createElement("summary");
-    this.content = document.createElement("div");
+    createElement() {
+        this.element = document.createElement("div");
+        this.details = document.createElement("details");
+        this.summary = document.createElement("summary");
+        this.content = document.createElement("div");
 
-    this.content.setAttribute("class", "collapse");
-    this.summary.setAttribute("class", "unselectable");
+        this.content.setAttribute("class", "collapse");
+        this.summary.setAttribute("class", "unselectable");
 
-    this.element.appendChild(this.details);
-    this.details.appendChild(this.summary);
-    this.details.appendChild(this.content);
-  }
-
-  setText(text) {
-    this.summary.textContent = text;
-    return this;
-  }
-
-  append(element) {
-    if (element.classList.contains(DOM)) {
-      this.content.appendChild(element.getDOM());
-    } else {
-      this.content.appendChild(element);
+        this.element.appendChild(this.details);
+        this.details.appendChild(this.summary);
+        this.details.appendChild(this.content);
     }
-    return this;
-  }
+
+    setText(text) {
+        this.summary.textContent = text;
+        return this;
+    }
+
+    append(element) {
+        if (element.classList.contains(DOM)) {
+            this.content.appendChild(element.getDOM());
+        } else {
+            this.content.appendChild(element);
+        }
+        return this;
+    }
 }
 
 export class Button extends DOM {
-  createElement() {
-    super.createElement();
+    createElement() {
+        super.createElement();
 
-    this.text = document.createElement("div");
-    this.text.setAttribute("class", "button-text");
+        this.text = document.createElement("div");
+        this.text.setAttribute("class", "button-text");
 
-    this.element.appendChild(this.text);
+        this.element.appendChild(this.text);
 
-    this.setStyle("button");
-  }
+        this.setStyle("button");
+    }
 
-  setText(text) {
-    this.text.textContent = text;
-    return this;
-  }
+    setText(text) {
+        this.text.textContent = text;
+        return this;
+    }
 }
 
 export class CollapseItem extends DOM {
-  createElement() {
-    super.createElement();
-    this.setStyle("collapse-item");
-  }
+    createElement() {
+        super.createElement();
+        this.setStyle("collapse-item");
+    }
 }
 
 export class Canvas extends DOM {
-  createElement() {
-    this.element = document.createElement("canvas");
-  }
+    createElement() {
+        this.element = document.createElement("canvas");
+    }
 }

@@ -1,12 +1,11 @@
-export class Drawable {
+import {Interactable} from "../Interactable/Interactable.js";
+
+export class Drawable extends Interactable {
 
     position = {x: 0, y: 0}
     size = {width: 100, height: 100}
 
     backgroundColor = "green"
-
-    constructor() {
-    }
 
     getContext() {
         var canvas = document.getElementById("canvas")
@@ -48,5 +47,10 @@ export class Drawable {
 
     setSize(size) {
         this.size = size
+    }
+
+    redraw() {
+        this.clear()
+        this.draw()
     }
 }

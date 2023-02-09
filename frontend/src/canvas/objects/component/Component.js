@@ -1,12 +1,13 @@
-import {Drawable} from "../drawable/Drawable.js";
+import {Transformable} from "../drawable/Transformable.js";
 
-export class Component extends Drawable {
-
+export class Component extends Transformable {
+    id = document.canvas !== undefined ? document.canvas.getLastID() : 0
     children = []
-    parent = null
+    parent = undefined
 
     setParent(parent) {
         this.parent = parent
+        parent.children.push(this)
     }
 
     getParent() {
@@ -14,10 +15,13 @@ export class Component extends Drawable {
     }
 
     getPosition() {
-        if (parent === null) {
+        if (this.getParent() === undefined) {
             return this.position
         } else {
-            return {x: parent.getPosition().x + this.position.x, y: parent.getPosition().y + this.position.y}
+            return {
+                x: this.getParent().getPosition().x + this.position.x,
+                y: this.getParent().getPosition().y + this.position.y
+            }
         }
     }
 
@@ -33,6 +37,8 @@ export class Component extends Drawable {
 
     addChild(child) {
         this.children.push(child)
+        child.parent = this
+        this.redraw()
     }
 
     getChildren() {
