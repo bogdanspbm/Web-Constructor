@@ -5,6 +5,10 @@ export class Component extends Transformable {
     children = []
     parent = undefined
 
+    constructor() {
+        super();
+    }
+
     setParent(parent) {
         this.parent = parent
         parent.children.push(this)

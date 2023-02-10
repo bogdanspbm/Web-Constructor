@@ -9,6 +9,8 @@ export class Drawable extends Interactable {
 
     backgroundColor = "green"
 
+    strokeColor = "blue"
+
     constructor() {
         super();
         this.setPath();
@@ -25,6 +27,7 @@ export class Drawable extends Interactable {
 
     enableDrawSettings() {
         this.getContext().fillStyle = this.backgroundColor
+        this.getContext().strokeStyle = this.strokeColor
     }
 
     draw() {
@@ -34,6 +37,10 @@ export class Drawable extends Interactable {
     drawOverride() {
         this.enableDrawSettings()
         this.getContext().fill(this.path);
+
+        if (document.selected === this) {
+            this.getContext().stroke(this.path)
+        }
     }
 
     setPath() {

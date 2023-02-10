@@ -39,6 +39,7 @@ export class CanvasComponent extends Component {
             let element = parent.getOverlappedComponent(event)
             if (element !== undefined && element.clickEvent !== undefined) {
                 element.clickEvent()
+                parent.draw()
             }
         });
     }
