@@ -1,5 +1,12 @@
 export class Interactable {
 
+    overlapEvent = () => {
+        console.log("[overlapEvent] Method isn't implemented")
+    }
+    overlapEndEvent = () => {
+        console.log("[overlapEndEvent] Method isn't implemented")
+    }
+
     isSelected() {
         return document.selected === this;
     }
@@ -12,6 +19,9 @@ export class Interactable {
 
         document.selected = this;
         this.selectEvent()
+    }
+
+    isOverlapped(event) {
     }
 
     addSelectEvent(event) {
@@ -28,6 +38,10 @@ export class Interactable {
 
     addOverlapEvent(event) {
         this.overlapEvent = event
+    }
+
+    addOverlapEndEvent(event) {
+        this.overlapEndEvent = event
     }
 
     addDragEvent(event) {

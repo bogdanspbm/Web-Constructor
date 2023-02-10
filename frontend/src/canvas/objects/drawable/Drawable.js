@@ -2,14 +2,25 @@ import {Interactable} from "../Interactable/Interactable.js";
 
 export class Drawable extends Interactable {
 
-    position = {x: 0, y: 0}
-    size = {width: 100, height: 100}
+    position = {x: 100, y: 100}
+    size = {width: 10, height: 10}
+
+    path = new Path2D()
 
     backgroundColor = "green"
+
+    constructor() {
+        super();
+        this.setPath();
+    }
 
     getContext() {
         var canvas = document.getElementById("canvas")
         return canvas.getContext("2d");
+    }
+
+    getCanvas() {
+        return document.getElementById("canvas")
     }
 
     enableDrawSettings() {
@@ -17,20 +28,20 @@ export class Drawable extends Interactable {
     }
 
     draw() {
-        this.enableDrawSettings()
-        this.drawOverride()
+        this.drawOverride();
     }
 
     drawOverride() {
-        this.getContext().fillRect(this.getPosition().x, this.getPosition().y, this.size.width, this.size.height)
+        this.enableDrawSettings()
+        this.getContext().fill(this.path);
+    }
+
+    setPath() {
+        this.path.arc(this.position.x, this.position.y, this.size.width, 0, 2 * Math.PI);
     }
 
     clear() {
-        this.clearOverride()
-    }
-
-    clearOverride() {
-        this.getContext().clearRect(this.getPosition().x, this.getPosition().y, this.size.width, this.size.height)
+        // TODO: Clear Path
     }
 
     getPosition() {
@@ -52,5 +63,9 @@ export class Drawable extends Interactable {
     redraw() {
         this.clear()
         this.draw()
+    }
+
+    isOverlapped(event) {
+        return this.getContext().isPointInPath(this.path, event.offsetX, event.offsetY)
     }
 }

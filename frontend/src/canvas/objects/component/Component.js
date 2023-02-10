@@ -31,7 +31,6 @@ export class Component extends Transformable {
     }
 
     clear() {
-        this.clearOverride();
         this.children.forEach(child => child.clear())
     }
 
@@ -43,6 +42,23 @@ export class Component extends Transformable {
 
     getChildren() {
         return this.children
+    }
+
+    getOverlappedComponent(event) {
+        for (let i = this.children.length - 1; i >= 0; i--) {
+            const child = this.children[i]
+            const element = child.getOverlappedComponent(event)
+
+            if (element !== undefined) {
+                return element
+            }
+        }
+
+        if (this.isOverlapped(event)) {
+            return this
+        }
+
+        return undefined
     }
 
 }

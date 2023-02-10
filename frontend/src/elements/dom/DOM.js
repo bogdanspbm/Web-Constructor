@@ -129,5 +129,9 @@ export class CollapseItem extends DOM {
 export class Canvas extends DOM {
     createElement() {
         this.element = document.createElement("canvas");
+
+        //TODO: AutoCalc
+        this.element.setAttribute("width", "1122-128")
+        this.element.setAttribute("height", "561-128")
     }
 }
