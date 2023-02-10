@@ -34,6 +34,13 @@ export class CanvasComponent extends Component {
                 parent.lastOverlapped.overlapEvent()
             }
         });
+
+        this.getCanvas().addEventListener('click', function (event) {
+            let element = parent.getOverlappedComponent(event)
+            if (element !== undefined && element.clickEvent !== undefined) {
+                element.clickEvent()
+            }
+        });
     }
 
 }
