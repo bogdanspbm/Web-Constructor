@@ -7,6 +7,8 @@ export class CanvasComponent extends Component {
 
     dragElement = undefined
 
+    dragStartPosition = undefined
+
     constructor() {
         super();
         this.bindEvents()
@@ -15,6 +17,10 @@ export class CanvasComponent extends Component {
     getLastID() {
         this.idCounter += 1
         return this.idCounter
+    }
+
+    clear() {
+        this.getContext().clearRect(0, 0, 1920, 1080)
     }
 
     bindEvents() {
@@ -64,8 +70,9 @@ export class CanvasComponent extends Component {
                 return
             }
 
-            if (parent.dragElement !== undefined && parent.dragElement !== element) {
+            if (parent.dragElement === undefined && parent.dragElement !== element) {
                 parent.dragElement = element
+                parent.dragStartPosition = element.getPosition()
                 console.log("[Drag Event] Start")
             }
         });
@@ -88,9 +95,8 @@ export class CanvasComponent extends Component {
                 return
             }
 
-
-            console.log(event)
-            parent.dragElement.addPosition(2, 2)
+            parent.dragElement.setPosition({x: event.offsetX, y: event.offsetY})
+            parent.clear()
             parent.draw()
         });
     }

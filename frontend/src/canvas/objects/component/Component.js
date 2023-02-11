@@ -30,6 +30,7 @@ export class Component extends Transformable {
     }
 
     draw() {
+        this.updatePath();
         this.drawOverride();
         this.children.forEach(child => child.draw())
     }

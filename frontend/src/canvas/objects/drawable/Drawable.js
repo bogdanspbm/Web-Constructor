@@ -13,7 +13,7 @@ export class Drawable extends Interactable {
 
     constructor() {
         super();
-        this.setPath();
+        this.updatePath();
     }
 
     getContext() {
@@ -47,7 +47,8 @@ export class Drawable extends Interactable {
         }
     }
 
-    setPath() {
+    updatePath() {
+        this.path = new Path2D()
         this.path.arc(this.position.x, this.position.y, this.size.width, 0, 2 * Math.PI);
     }
 
@@ -72,6 +73,7 @@ export class Drawable extends Interactable {
     }
 
     redraw() {
+        this.updatePath();
         this.clear()
         this.draw()
     }
