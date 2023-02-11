@@ -25,6 +25,10 @@ export class Drawable extends Interactable {
         return document.getElementById("canvas")
     }
 
+    addPosition(x, y) {
+        this.position = {x: this.position.x + x, y: this.position.y + y}
+    }
+
     enableDrawSettings() {
         this.getContext().fillStyle = this.backgroundColor
         this.getContext().strokeStyle = this.strokeColor

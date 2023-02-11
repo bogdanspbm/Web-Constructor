@@ -5,6 +5,8 @@ export class CanvasComponent extends Component {
 
     lastOverlapped = undefined
 
+    dragElement = undefined
+
     constructor() {
         super();
         this.bindEvents()
@@ -16,8 +18,14 @@ export class CanvasComponent extends Component {
     }
 
     bindEvents() {
+        this.setClickEvent()
+        this.setOverlapEvent()
+        this.setDragEvent()
+    }
+
+    setOverlapEvent() {
         const parent = this
-        this.getCanvas().addEventListener('mousemove', function (event) {
+        this.getCanvas().addEventListener('mouseover', function (event) {
             let element = parent.getOverlappedComponent(event)
 
             if (parent.lastOverlapped !== undefined && parent.lastOverlapped === element) {
@@ -34,13 +42,56 @@ export class CanvasComponent extends Component {
                 parent.lastOverlapped.overlapEvent()
             }
         });
+    }
 
+    setClickEvent() {
+        const parent = this
         this.getCanvas().addEventListener('click', function (event) {
             let element = parent.getOverlappedComponent(event)
             if (element !== undefined && element.clickEvent !== undefined) {
                 element.clickEvent()
                 parent.draw()
             }
+        });
+    }
+
+    setDragEvent() {
+        const parent = this
+        this.getCanvas().addEventListener('mousedown', function (event) {
+            let element = parent.getOverlappedComponent(event)
+
+            if (parent.dragElement !== undefined && parent.dragElement === element) {
+                return
+            }
+
+            if (parent.dragElement !== undefined && parent.dragElement !== element) {
+                parent.dragElement = element
+                console.log("[Drag Event] Start")
+            }
+        });
+
+        this.getCanvas().addEventListener('mouseup', function (event) {
+            let element = parent.getOverlappedComponent(event)
+
+            if (element === undefined) {
+                return
+            }
+
+            if (parent.dragElement !== undefined && parent.dragElement === element) {
+                parent.dragElement = undefined
+                console.log("[Drag Event] End")
+            }
+        });
+
+        this.getCanvas().addEventListener('mousemove', function (event) {
+            if (parent.dragElement === undefined) {
+                return
+            }
+
+
+            console.log(event)
+            parent.dragElement.addPosition(2, 2)
+            parent.draw()
         });
     }
 
