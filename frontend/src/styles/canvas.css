@@ -1,5 +1,21 @@
 .canvas {
     margin: 64px;
     background: white;
-    width: calc(100% - 300);
+    width: calc(100% - 300px);
+}
+
+.grid {
+    margin: 64px;
+    background: #F7F7F7;
+    width: calc(100% - 300px);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 64px;
+}
+
+.grid-block {
+    margin-right: 1px;
+    margin-top: 1px;
+    background: white;
 }

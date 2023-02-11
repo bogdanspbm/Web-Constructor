@@ -126,6 +126,25 @@ export class CollapseItem extends DOM {
     }
 }
 
+export class Grid extends DOM {
+
+    createElement() {
+        this.element = document.createElement("div");
+
+        for (let i = 0; i < 12 * 9; i++) {
+            let block = new GridBlock().getDOM()
+            this.element.append(block);
+        }
+    }
+}
+
+export class GridBlock extends DOM {
+    createElement() {
+        this.element = document.createElement("div");
+        this.setStyle("grid-block");
+    }
+}
+
 export class Canvas extends DOM {
     createElement() {
         this.element = document.createElement("canvas");

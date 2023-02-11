@@ -1,4 +1,4 @@
-import {Canvas, Div} from "../elements/dom/DOM.js";
+import {Div, Grid} from "../elements/dom/DOM.js";
 import {Toolbar} from "../widgets/toolbar/Toolbar.js";
 import {CanvasComponent} from "../canvas/objects/canvas/Canvas.js";
 
@@ -18,7 +18,7 @@ export class App {
         this.root.append(this.header);
 
         this.toolbar = new Toolbar().getDOM();
-        this.canvas = new Canvas().setStyle("canvas").setID("canvas").getDOM();
+        this.canvas = new Grid().setStyle("grid").setID("canvas").getDOM();
 
         this.panel = new Div([this.toolbar, this.canvas])
             .setStyle("container")
