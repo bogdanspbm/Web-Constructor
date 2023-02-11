@@ -95,6 +95,10 @@ export class CanvasComponent extends Component {
                 return
             }
 
+            if (parent.dragElement !== document.selected) {
+                parent.dragElement.select()
+            }
+
             parent.dragElement.setPosition({x: event.offsetX, y: event.offsetY})
             parent.clear()
             parent.draw()
