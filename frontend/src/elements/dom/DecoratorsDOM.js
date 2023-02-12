@@ -1,4 +1,4 @@
-import {DOM} from "./DOM";
+import {DOM} from "./DOM.js";
 
 export class DecoratorDOM extends DOM {
 
@@ -19,4 +19,9 @@ export class DecoratorDOM extends DOM {
 
 export class DraggableDOM extends DecoratorDOM {
 
+    createElement() {
+        this.element = document.createElement("div");
+        this.setStyle("draggable")
+        this.element.setAttribute("draggable", "true")
+    }
 }
