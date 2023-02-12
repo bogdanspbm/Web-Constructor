@@ -8,6 +8,9 @@ export class DOM {
     children = []
     styles = {};
 
+    /**
+     * @param {DOM[]} elements
+     */
     constructor(elements) {
         this.createElement();
 
@@ -22,12 +25,20 @@ export class DOM {
         this.element = document.createElement("div");
     }
 
+    /**
+     * @param {string} id
+     */
     setID(id) {
         this.element.setAttribute("id", id);
 
         return this;
     }
 
+    /**
+     * @param {string} key
+     * @param {string} value
+     * @param {string} element
+     */
     setAttribute(key, value, element) {
         this.styles[key] = value;
 
@@ -39,11 +50,18 @@ export class DOM {
         return this;
     }
 
+    /**
+     * @param {string} text
+     */
     setText(text) {
         this.element.textContent = text;
         return this;
     }
 
+    /**
+     * @param {string} style
+     * @param {string} key
+     */
     setStyle(style, key) {
         if (!key) {
             key = "element";
@@ -57,14 +75,23 @@ export class DOM {
         return this;
     }
 
+    /**
+     * @returns {DOM}
+     */
     getElementToAppend() {
         return this.element
     }
 
+    /**
+     * @returns {boolean}
+     */
     canAppend() {
         return !(this.children.length >= this.childLimit && this.childLimit != -1)
     }
 
+    /**
+     * @param {DOM} element
+     */
     append(element) {
 
         if (!this.canAppend()) {
@@ -77,6 +104,9 @@ export class DOM {
         return this;
     }
 
+    /**
+     * @returns {HTMLElementTagNameMap}
+     */
     getDOM() {
         return this.element;
     }
