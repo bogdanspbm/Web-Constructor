@@ -62,12 +62,12 @@ export class DOM {
     }
 
     canAppend() {
-        return this.children.length >= this.childLimit && this.childLimit != -1
+        return !(this.children.length >= this.childLimit && this.childLimit != -1)
     }
 
     append(element) {
 
-        if (this.canAppend()) {
+        if (!this.canAppend()) {
             return this
         }
 
@@ -111,7 +111,7 @@ export class Collapse extends DOM {
     }
 
     canAppend() {
-        return false
+        return true
     }
 }
 
@@ -148,9 +148,9 @@ export class Grid extends DOM {
         this.blocks = []
 
         for (let i = 0; i < 12 * 9; i++) {
-            let block = new GridBlock().getDOM()
+            let block = new GridBlock()
             this.blocks.push(block)
-            this.element.append(block);
+            this.element.append(block.getDOM());
         }
     }
 
@@ -175,9 +175,22 @@ export class Grid extends DOM {
 
         return undefined;
     }
+
+    append(element) {
+
+        if (!this.canAppend()) {
+            return this
+        }
+
+        this.children.push(element)
+        this.getElementToAppend().append(element);
+
+        return this;
+    }
 }
 
 export class GridBlock extends DOM {
+    childLimit = 1
 
     createElement() {
         this.element = document.createElement("div");

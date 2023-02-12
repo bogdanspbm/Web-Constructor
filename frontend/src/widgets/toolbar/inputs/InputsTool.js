@@ -1,5 +1,4 @@
 import {Button, Collapse, CollapseItem} from "../../../elements/dom/DOM.js";
-import {Component} from "../../../canvas/objects/component/Component.js";
 
 export class InputsTool extends Collapse {
     createElement() {
@@ -10,8 +9,8 @@ export class InputsTool extends Collapse {
             .setText("Button")
             .setAttribute("margin-left", buttonLeftPadding)
             .addClickEvent(() => {
-                var component = new Component();
-                document.grid.addChild(component);
+                var component = new Button();
+                document.grid.append(component);
             }),]);
         this.input = new CollapseItem([new Button()
             .setText("Input")
