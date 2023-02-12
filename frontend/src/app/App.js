@@ -6,23 +6,23 @@ export class App {
     constructor() {
         this.root = document.getElementById("root");
         this.generateConstructor();
-        this.createCanvasComponent();
+        //this.createCanvasComponent();
     }
 
     createCanvasComponent() {
         document.canvas = new CanvasComponent();
     }
 
+
     generateConstructor() {
         this.header = new Div().setStyle("header").setText("Constructor").getDOM();
         this.root.append(this.header);
 
-        this.toolbar = new Toolbar().getDOM();
-        this.canvas = new Grid().setStyle("grid").setID("canvas").getDOM();
+        document.toolbar = new Toolbar()
+        document.grid = new Grid().setStyle("grid").setID("canvas")
 
-        this.panel = new Div([this.toolbar, this.canvas])
-            .setStyle("container")
-            .getDOM();
-        this.root.append(this.panel);
+        this.panel = new Div([document.toolbar, document.grid])
+            .setStyle("container");
+        this.root.append(this.panel.getDOM());
     }
 }

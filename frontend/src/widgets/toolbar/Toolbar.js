@@ -8,7 +8,7 @@ export class Toolbar extends DOM {
         this.setStyle("toolbar")
 
         this.inputsTool = new InputsTool().setText("Inputs");
-        this.append(this.inputsTool.getDOM());
+        this.append(this.inputsTool);
     }
 
 }

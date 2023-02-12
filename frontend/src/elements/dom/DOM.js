@@ -3,6 +3,9 @@ import {attributeFromMap} from "../../utils/Utils.js";
 export class DOM {
     element;
 
+    childLimit = -1
+
+    children = []
     styles = {};
 
     constructor(elements) {
@@ -54,12 +57,23 @@ export class DOM {
         return this;
     }
 
+    getElementToAppend() {
+        return this.element
+    }
+
+    canAppend() {
+        return this.children.length >= this.childLimit && this.childLimit != -1
+    }
+
     append(element) {
-        if (element.classList.contains(DOM)) {
-            this.element.appendChild(element.getDOM());
-        } else {
-            this.element.appendChild(element);
+
+        if (this.canAppend()) {
+            return this
         }
+
+        this.children.push(element)
+        this.getElementToAppend().appendChild(element.getDOM());
+
         return this;
     }
 
@@ -72,6 +86,7 @@ export class Div extends DOM {
 }
 
 export class Collapse extends DOM {
+
     createElement() {
         this.element = document.createElement("div");
         this.details = document.createElement("details");
@@ -91,13 +106,12 @@ export class Collapse extends DOM {
         return this;
     }
 
-    append(element) {
-        if (element.classList.contains(DOM)) {
-            this.content.appendChild(element.getDOM());
-        } else {
-            this.content.appendChild(element);
-        }
-        return this;
+    getElementToAppend() {
+        return this.content
+    }
+
+    canAppend() {
+        return false
     }
 }
 
@@ -131,14 +145,40 @@ export class Grid extends DOM {
     createElement() {
         this.element = document.createElement("div");
 
+        this.blocks = []
+
         for (let i = 0; i < 12 * 9; i++) {
             let block = new GridBlock().getDOM()
+            this.blocks.push(block)
             this.element.append(block);
         }
+    }
+
+    canAppend() {
+        for (let i = 0; i < this.blocks.length; i++) {
+            let block = this.blocks[i]
+            if (block.canAppend()) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    getElementToAppend() {
+        for (let i = 0; i < this.blocks.length; i++) {
+            let block = this.blocks[i]
+            if (block.canAppend()) {
+                return block;
+            }
+        }
+
+        return undefined;
     }
 }
 
 export class GridBlock extends DOM {
+
     createElement() {
         this.element = document.createElement("div");
         this.setStyle("grid-block");
