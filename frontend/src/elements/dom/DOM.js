@@ -55,6 +55,13 @@ export class DOM {
     }
 
     /**
+     * @returns {DOM}
+     */
+    getParentDOM() {
+        return this
+    }
+
+    /**
      * @param {string} text
      */
     setText(text) {

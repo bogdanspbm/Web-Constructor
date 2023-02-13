@@ -6,3 +6,29 @@
 .button-component:hover {
     background: #4096ff;
 }
+
+.resizable {
+    resize: both;
+    width: calc(100%);
+    height: calc(100%);
+}
+
+.selectable-off {
+    display: flex;
+    width: calc(100%);
+    height: calc(100%);
+    background: transparent;
+    border: 0px transparent;
+}
+
+.selectable-on {
+    display: flex;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    border: 1px solid #1677ff;
+}
+
+.draggable {
+    width: calc(100%);
+    height: calc(100%);
+}

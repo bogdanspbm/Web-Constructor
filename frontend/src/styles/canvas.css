@@ -1,13 +1,13 @@
 .canvas {
     margin: 64px;
     background: white;
-    width: calc(100% - 300px);
+    width: calc(100% - 600px);
 }
 
 .grid {
     margin: 64px;
     background: #F7F7F7;
-    width: calc(100% - 300px);
+    width: calc(100% - 600px);
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);

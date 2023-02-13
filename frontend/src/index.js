@@ -1,3 +1,3 @@
-import { App } from "./app/App.js";
+import {App} from "./app/App.js";
 
-const app = new App();
+document.app = new App();
