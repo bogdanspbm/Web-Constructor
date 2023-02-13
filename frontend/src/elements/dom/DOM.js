@@ -8,6 +8,8 @@ export class DOM {
     children = []
     styles = {};
 
+    parent = undefined
+
     /**
      * @param {DOM[]} elements
      */
@@ -76,7 +78,7 @@ export class DOM {
     }
 
     /**
-     * @returns {DOM}
+     * @returns {HTMLElementTagNameMap}
      */
     getElementToAppend() {
         return this.element
@@ -90,6 +92,37 @@ export class DOM {
     }
 
     /**
+     * @param {DOM} parent
+     * @returns {DOM}
+     */
+    setParent(parent) {
+        this.removeParent()
+        this.parent = parent
+        return this
+    }
+
+    removeParent() {
+        if (this.parent === undefined) {
+            return this
+        }
+
+        if (!this.parent.children.includes(this)) {
+            this.parent = undefined
+            return this
+        }
+
+        this.parent.getElementToAppend().removeChild(this.getDOM())
+
+        const index = this.parent.children.indexOf(this);
+        if (index > -1) { // only splice array when item is found
+            this.parent.children.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        this.parent = undefined
+        return this
+    }
+
+
+    /**
      * @param {DOM} element
      */
     append(element) {
@@ -97,6 +130,8 @@ export class DOM {
         if (!this.canAppend()) {
             return this
         }
+
+        element.setParent(this);
 
         this.children.push(element)
         this.getElementToAppend().appendChild(element.getDOM());
@@ -224,7 +259,28 @@ export class GridBlock extends DOM {
 
     createElement() {
         this.element = document.createElement("div");
+        this.bindEvents()
         this.setStyle("grid-block");
+    }
+
+    bindEvents() {
+        let parent = this
+        this.element.addEventListener('dragenter', function (event) {
+            document.dragTarget = parent
+            parent.setAttribute("background", "#F7F7F7")
+        })
+
+        this.element.addEventListener("dragover", function (event) {
+            event.preventDefault()
+        })
+
+        this.element.addEventListener('dragleave', function (event) {
+            parent.onDragLeave()
+        })
+    }
+
+    onDragLeave() {
+        this.setAttribute("background", "#FFFFFF")
     }
 }
 

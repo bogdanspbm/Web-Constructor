@@ -23,5 +23,28 @@ export class DraggableDOM extends DecoratorDOM {
         this.element = document.createElement("div");
         this.setStyle("draggable")
         this.element.setAttribute("draggable", "true")
+        this.bindEvents()
+    }
+
+    bindEvents() {
+        let parent = this
+
+        this.element.addEventListener("dragstart", function (event) {
+            document.dragging = parent
+        })
+
+        this.element.addEventListener("dragend", function (event) {
+            document.dragging = undefined
+            parent.attachToLastDragTarget()
+        })
+    }
+
+    attachToLastDragTarget() {
+        if (document.dragTarget === undefined) {
+            return;
+        }
+
+        document.dragTarget.onDragLeave()
+        document.dragTarget.append(this)
     }
 }
