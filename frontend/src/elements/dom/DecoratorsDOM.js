@@ -5,6 +5,23 @@ export class DecoratorDOM extends DOM {
     parentDOM = undefined
     childLimit = 0
 
+    type = "decorator"
+
+    /**
+     * @returns {DOM}
+     */
+    getParentDOM() {
+        if (this.parentDOM === undefined) {
+            return this
+        }
+
+        if (this.parentDOM.type === "dom") {
+            return this.parentDOM
+        }
+
+        return this.parentDOM.getParentDOM()
+    }
+
 
     /**
      * @param {DOM} dom
@@ -13,7 +30,7 @@ export class DecoratorDOM extends DOM {
     constructor(dom) {
         super()
 
-        if (dom == undefined) {
+        if (dom === undefined) {
             return
         }
 
@@ -37,6 +54,32 @@ export class ResizableDOM extends DecoratorDOM {
         this.element = document.createElement("div");
         this.setStyle("resizable")
     }
+}
+
+export class SelectableDOM extends DecoratorDOM {
+    createElement() {
+        const parent = this;
+        this.element = document.createElement("div");
+        this.setStyle("selectable-off")
+        this.element.addEventListener("click", function (event) {
+            if (document.selected !== undefined) {
+                document.selected.setSelect(false)
+            }
+
+            parent.setSelect(true)
+            document.selected = parent
+
+        })
+    }
+
+    onSelect() {
+        this.setStyle("selectable-on")
+    }
+
+    onUnselect() {
+        this.setStyle("selectable-off")
+    }
+
 }
 
 export class DraggableDOM extends DecoratorDOM {

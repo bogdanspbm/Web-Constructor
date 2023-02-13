@@ -3,6 +3,8 @@ import {attributeFromMap} from "../../utils/Utils.js";
 export class DOM {
     element;
 
+    type = "dom"
+
     childLimit = -1
 
     children = []
@@ -123,6 +125,24 @@ export class DOM {
 
 
     /**
+     * @param {boolean} flag
+     */
+    setSelect(flag) {
+        if (flag) {
+            this.onSelect()
+        } else {
+            this.onUnselect()
+        }
+    }
+
+    onSelect() {
+    }
+
+    onUnselect() {
+    }
+
+
+    /**
      * @param {DOM} element
      */
     append(element) {
@@ -212,7 +232,7 @@ export class Grid extends DOM {
 
         this.blocks = []
 
-        for (let i = 0; i < 12 * 9; i++) {
+        for (let i = 0; i < 12 * 18; i++) {
             const block = new GridBlock()
             this.blocks.push(block)
             this.element.append(block.getDOM());
@@ -258,7 +278,7 @@ export class GridBlock extends DOM {
     childLimit = 1
 
     createElement() {
-        this.element = document.createElement("div");
+        this.element = document.createElement("section");
         this.bindEvents()
         this.setStyle("grid-block");
     }
