@@ -6,11 +6,22 @@ export class App {
     constructor() {
         this.root = document.getElementById("root");
         this.generateConstructor();
+        this.bindGlobalFunctions()
         //this.createCanvasComponent();
     }
 
     createCanvasComponent() {
         document.canvas = new CanvasComponent();
+    }
+
+    bindGlobalFunctions() {
+        document.select = function (item) {
+            if (document.selected !== undefined) {
+                document.selected.setSelect(false)
+            }
+            item.setSelect(true)
+            document.selected = item
+        }
     }
 
 

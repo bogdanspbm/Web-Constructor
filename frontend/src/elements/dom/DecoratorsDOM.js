@@ -62,13 +62,7 @@ export class SelectableDOM extends DecoratorDOM {
         this.element = document.createElement("div");
         this.setStyle("selectable-off")
         this.element.addEventListener("click", function (event) {
-            if (document.selected !== undefined) {
-                document.selected.setSelect(false)
-            }
-
-            parent.setSelect(true)
-            document.selected = parent
-
+            document.select(parent)
         })
     }
 
