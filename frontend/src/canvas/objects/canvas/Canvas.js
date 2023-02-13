@@ -32,7 +32,7 @@ export class CanvasComponent extends Component {
     setOverlapEvent() {
         const parent = this
         this.getCanvas().addEventListener('mouseover', function (event) {
-            let element = parent.getOverlappedComponent(event)
+            const element = parent.getOverlappedComponent(event)
 
             if (parent.lastOverlapped !== undefined && parent.lastOverlapped === element) {
                 return
@@ -53,7 +53,7 @@ export class CanvasComponent extends Component {
     setClickEvent() {
         const parent = this
         this.getCanvas().addEventListener('click', function (event) {
-            let element = parent.getOverlappedComponent(event)
+            const element = parent.getOverlappedComponent(event)
             if (element !== undefined && element.clickEvent !== undefined) {
                 element.clickEvent()
                 parent.draw()
@@ -64,7 +64,7 @@ export class CanvasComponent extends Component {
     setDragEvent() {
         const parent = this
         this.getCanvas().addEventListener('mousedown', function (event) {
-            let element = parent.getOverlappedComponent(event)
+            const element = parent.getOverlappedComponent(event)
 
             if (parent.dragElement !== undefined && parent.dragElement === element) {
                 return
@@ -78,7 +78,7 @@ export class CanvasComponent extends Component {
         });
 
         this.getCanvas().addEventListener('mouseup', function (event) {
-            let element = parent.getOverlappedComponent(event)
+            const element = parent.getOverlappedComponent(event)
 
             if (element === undefined) {
                 return

@@ -213,7 +213,7 @@ export class Grid extends DOM {
         this.blocks = []
 
         for (let i = 0; i < 12 * 9; i++) {
-            let block = new GridBlock()
+            const block = new GridBlock()
             this.blocks.push(block)
             this.element.append(block.getDOM());
         }
@@ -221,7 +221,7 @@ export class Grid extends DOM {
 
     canAppend() {
         for (let i = 0; i < this.blocks.length; i++) {
-            let block = this.blocks[i]
+            const block = this.blocks[i]
             if (block.canAppend()) {
                 return true
             }
@@ -232,7 +232,7 @@ export class Grid extends DOM {
 
     getElementToAppend() {
         for (let i = 0; i < this.blocks.length; i++) {
-            let block = this.blocks[i]
+            const block = this.blocks[i]
             if (block.canAppend()) {
                 return block;
             }
@@ -264,7 +264,7 @@ export class GridBlock extends DOM {
     }
 
     bindEvents() {
-        let parent = this
+        const parent = this
         this.element.addEventListener('dragenter', function (event) {
             document.dragTarget = parent
             parent.setAttribute("background", "#F7F7F7")

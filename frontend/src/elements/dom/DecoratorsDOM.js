@@ -11,9 +11,24 @@ export class DecoratorDOM extends DOM {
      */
 
     constructor(dom) {
-        super();
+        super()
+
+        if (dom == undefined) {
+            return
+        }
+
         this.parentDOM = dom
         this.element.appendChild(dom.getDOM())
+    }
+
+    /**
+     * @param {DOM} dom
+     * @returns {DOM}
+     */
+    setParentDOM(dom) {
+        this.parentDOM = dom
+        this.element.appendChild(dom.getDOM())
+        return this
     }
 }
 
@@ -27,7 +42,7 @@ export class DraggableDOM extends DecoratorDOM {
     }
 
     bindEvents() {
-        let parent = this
+        const parent = this
 
         this.element.addEventListener("dragstart", function (event) {
             document.dragging = parent
