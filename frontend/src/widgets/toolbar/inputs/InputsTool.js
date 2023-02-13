@@ -1,5 +1,5 @@
 import {Button, Collapse, CollapseItem} from "../../../elements/dom/DOM.js";
-import {DraggableDOM} from "../../../elements/dom/DecoratorsDOM.js";
+import {createButtonBuilder} from "../../../elements/builder/DOMBuilder.js";
 
 export class InputsTool extends Collapse {
     createElement() {
@@ -10,8 +10,8 @@ export class InputsTool extends Collapse {
             .setText("Button")
             .setAttribute("margin-left", buttonLeftPadding)
             .addClickEvent(() => {
-                var component = new DraggableDOM(new Button());
-                document.grid.append(component);
+                const builder = createButtonBuilder()
+                document.grid.append(builder.buildDOM());
             }),]);
         this.input = new CollapseItem([new Button()
             .setText("Input")

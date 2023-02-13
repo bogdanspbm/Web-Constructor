@@ -1,0 +1,8 @@
+.button-component {
+    background: #1677ff;
+    border-radius: 7px;
+}
+
+.button-component:hover {
+    background: #4096ff;
+}

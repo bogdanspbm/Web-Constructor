@@ -1,3 +1,6 @@
+import {DraggableDOM, ResizableDOM} from "../dom/DecoratorsDOM.js";
+import {Button} from "../dom/DOM.js";
+
 export class DOMBuilder {
 
     element = undefined
@@ -43,4 +46,20 @@ export class DOMBuilder {
 
         return this.decorators[this.decorators.length - 1]
     }
+}
+
+export class ComponentDOMBuilder extends DOMBuilder {
+    decorators = [new ResizableDOM(), new DraggableDOM()]
+}
+
+/**
+ * @returns {DOMBuilder}
+ */
+export function createButtonBuilder() {
+    const builder = new ComponentDOMBuilder()
+    const button = new Button()
+    button.setAttribute("width", "calc(100% - 10px)").setAttribute("height", "calc(100% - 10px)").setAttribute("margin", "5px")
+    button.setStyle("button-component")
+    builder.setMainDOM(button)
+    return builder
 }

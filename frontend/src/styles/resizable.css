@@ -1,4 +1,5 @@
-.draggable {
+.resizable {
+    resize: both;
     width: calc(100%);
     height: calc(100%);
 }

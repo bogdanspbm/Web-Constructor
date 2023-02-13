@@ -32,6 +32,13 @@ export class DecoratorDOM extends DOM {
     }
 }
 
+export class ResizableDOM extends DecoratorDOM {
+    createElement() {
+        this.element = document.createElement("div");
+        this.setStyle("resizable")
+    }
+}
+
 export class DraggableDOM extends DecoratorDOM {
 
     createElement() {
