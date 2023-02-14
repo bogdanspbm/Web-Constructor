@@ -12,6 +12,8 @@ export class DOM {
 
     parent = undefined
 
+    selected = false
+
     /**
      * @param {DOM[]} elements
      */
@@ -134,6 +136,11 @@ export class DOM {
 
         this.parent.getElementToAppend().removeChild(this.getDOM())
 
+
+        if (this.selected) {
+            this.parent.setSelect(false);
+        }
+
         const index = this.parent.children.indexOf(this);
         if (index > -1) { // only splice array when item is found
             this.parent.children.splice(index, 1); // 2nd parameter means remove one item only
@@ -147,6 +154,7 @@ export class DOM {
      * @param {boolean} flag
      */
     setSelect(flag) {
+        this.select = flag
         if (flag) {
             this.onSelect()
         } else {
@@ -288,6 +296,10 @@ export class Grid extends DOM {
 
         this.children.push(element)
         this.getElementToAppend().append(element);
+
+        if (element.selected) {
+            this.setSelect(element.select)
+        }
 
         return this;
     }
