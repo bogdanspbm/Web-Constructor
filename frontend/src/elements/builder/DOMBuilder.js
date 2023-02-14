@@ -49,7 +49,7 @@ export class DOMBuilder {
 }
 
 export class ComponentDOMBuilder extends DOMBuilder {
-    decorators = [new SelectableDOM(), new ResizableDOM(), new DraggableDOM()]
+    decorators = [new SelectableDOM(), new DraggableDOM(), new ResizableDOM()]
 }
 
 /**

@@ -5,6 +5,8 @@ export class DOM {
 
     type = "dom"
 
+    id = document.getID()
+
     childLimit = -1
 
     children = []
@@ -65,11 +67,11 @@ export class DOM {
 
     getRootDOM() {
         if (this.children.length === 0) {
-            return this.parent
+            return this
         }
 
         if (this.children[0].type === "dom") {
-            return this.children[0]
+            return this
         }
 
         return this.children[0].getRootDOM()

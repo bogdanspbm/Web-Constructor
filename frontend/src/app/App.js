@@ -42,6 +42,12 @@ export class App {
 
         document.selectListeners = []
         document.addSelectListener = this.addSelectListener
+
+        document.idCounter = 0;
+        document.getID = function () {
+            document.idCounter += 1
+            return document.idCounter
+        }
     }
 
 

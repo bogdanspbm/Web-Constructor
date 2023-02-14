@@ -57,13 +57,30 @@ export class DecoratorDOM extends DOM {
 }
 
 export class ResizableDOM extends DecoratorDOM {
+
     createElement() {
+        this.resizerArray = []
         this.element = document.createElement("div")
         this.setStyle("controllers")
         this.createControllers()
         this.setControllersVisibility("hidden")
+        this.bindResize()
 
         document.addSelectListener(this);
+    }
+
+    bindResize() {
+        const parent = this
+        for (let i = 0; i < this.resizerArray.length; i++) {
+            const resizer = this.resizerArray[i]
+            resizer.addEventListener("dragstart", function (event) {
+                document.resizing = parent
+            })
+
+            resizer.addEventListener("dragend", function (event) {
+                document.resizing = undefined
+            })
+        }
     }
 
     selectNotify(element) {
@@ -83,21 +100,26 @@ export class ResizableDOM extends DecoratorDOM {
     }
 
     createControllers() {
+        console.log(this)
         this.leftTopResizer = document.createElement("div");
         this.leftTopResizer.setAttribute("class", "resizer top-left")
-        this.element.appendChild(this.leftTopResizer)
+        this.resizerArray.push(this.leftTopResizer)
 
         this.rightTopResizer = document.createElement("div");
         this.rightTopResizer.setAttribute("class", "resizer top-right")
-        this.element.appendChild(this.rightTopResizer)
+        this.resizerArray.push(this.rightTopResizer)
 
         this.leftBotResizer = document.createElement("div");
         this.leftBotResizer.setAttribute("class", "resizer bottom-left")
-        this.element.appendChild(this.leftBotResizer)
+        this.resizerArray.push(this.leftBotResizer)
 
         this.rightBotResizer = document.createElement("div");
         this.rightBotResizer.setAttribute("class", "resizer bottom-right")
-        this.element.appendChild(this.rightBotResizer)
+        this.resizerArray.push(this.rightBotResizer)
+
+        for (let i = 0; i < this.resizerArray.length; i++) {
+            this.element.appendChild(this.resizerArray[i])
+        }
 
     }
 }
@@ -114,12 +136,12 @@ export class SelectableDOM extends DecoratorDOM {
 
     onSelect() {
         this.setStyle("selectable-on")
-        this.getRootDOM().setSelect(true)
+        this.getRootDOM().parent.setSelect(true)
     }
 
     onUnselect() {
         this.setStyle("selectable-off")
-        this.getRootDOM().setSelect(false)
+        this.getRootDOM().parent.setSelect(false)
     }
 
 }
@@ -138,6 +160,7 @@ export class DraggableDOM extends DecoratorDOM {
 
         this.element.addEventListener("dragstart", function (event) {
             document.dragging = parent
+            console.log(event)
         })
 
         this.element.addEventListener("dragend", function (event) {
@@ -152,6 +175,6 @@ export class DraggableDOM extends DecoratorDOM {
         }
 
         document.dragTarget.onDragLeave()
-        document.dragTarget.append(this)
+        document.dragTarget.append(this.getRootDOM())
     }
 }
