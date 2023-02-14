@@ -348,21 +348,15 @@ export class Grid extends DOM {
         this.overlappedBlocks = []
     }
 
-    overlapBlocks(startPosition, endPosition, flag) {
-
+    overlapBlocks(startPosition, endPosition) {
         this.clearOverlappedBlocks(startPosition, endPosition)
 
 
         for (let x = startPosition.x; x < startPosition.x + endPosition.x; x++) {
             for (let y = startPosition.y; y < startPosition.y + endPosition.y; y++) {
                 const block = this.getBlockByPosition({x: x, y: y})
-
-                if (flag) {
-                    block.onDragEnter()
-                    this.overlappedBlocks.push(block)
-                } else {
-                    block.onDragLeave()
-                }
+                block.onDragEnter()
+                this.overlappedBlocks.push(block)
             }
         }
     }

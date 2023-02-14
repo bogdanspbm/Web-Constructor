@@ -56,6 +56,7 @@ export class DecoratorDOM extends DOM {
 }
 
 export class ResizableDOM extends DecoratorDOM {
+    gridSize = {x: 1, y: 1}
 
     createElement() {
         this.resizerArray = []
@@ -84,17 +85,24 @@ export class ResizableDOM extends DecoratorDOM {
                     x: event.pageX, y: event.pageY
                 }
 
+                const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
+                const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
+
 
                 parent.originalSize = {
-                    width: parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', '')),
-                    height: parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
+                    width: parent.gridSize.x * parentWidth, height: parent.gridSize.y * parentHeight
                 }
             })
 
             resizer.addEventListener("mouseup", function (event) {
-                const newSize = parent.getOverlappingGridBlock()
-                parent.element.style.width = newSize.x * parent.originalSize.width + "px"
-                parent.element.style.height = newSize.y * parent.originalSize.height + "px"
+                parent.gridSize = parent.getOverlappingGridBlock()
+
+                const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
+                const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
+
+
+                parent.element.style.width = parent.gridSize.x * parentWidth + "px"
+                parent.element.style.height = parent.gridSize.y * parentHeight + "px"
 
                 document.resizer = undefined
                 document.resizing = undefined
@@ -103,8 +111,8 @@ export class ResizableDOM extends DecoratorDOM {
     }
 
     getOverlappingGridBlock() {
-        const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10) - 2) / this.originalSize.width)
-        const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10) - 8) / this.originalSize.height)
+        const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10) - 2) / Math.round(this.originalSize.width / this.gridSize.x))
+        const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10) - 8) / Math.round(this.originalSize.height / this.gridSize.y))
         return {x: overlappedBlocksHorizontal, y: overlappedBlocksVertical}
     }
 

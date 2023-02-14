@@ -83,7 +83,7 @@ export class App {
             }
 
             const overlapOffset = controller.getOverlappingGridBlock()
-            document.grid.overlapBlocks(controller.getRootDOM().parent.gridPosition, overlapOffset, true);
+            document.grid.overlapBlocks(controller.getRootDOM().parent.gridPosition, overlapOffset);
         }
 
         this.root.addEventListener("mouseup", function (event) {
