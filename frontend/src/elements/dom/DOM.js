@@ -14,8 +14,6 @@ export class DOM {
 
     parent = undefined
 
-    selected = false
-
     /**
      * @param {DOM[]} elements
      */
@@ -322,9 +320,9 @@ export class Grid extends DOM {
         return this.blocks[index]
     }
 
-    clearOverlappedBlocks(startPosition, endPosition) {
+    clearOverlappedBlocks(startPosition, endPosition, force) {
 
-        if (this.lastStartOverlap !== undefined && this.lastEndOverlap !== undefined) {
+        if (force === false && this.lastStartOverlap !== undefined && this.lastEndOverlap !== undefined) {
             if (startPosition === this.lastStartOverlap && endPosition === this.lastEndOverlap) {
                 return
             }
@@ -352,7 +350,7 @@ export class Grid extends DOM {
     }
 
     overlapBlocks(startPosition, endPosition) {
-        this.clearOverlappedBlocks(startPosition, endPosition)
+        this.clearOverlappedBlocks(startPosition, endPosition, false)
 
 
         for (let x = startPosition.x; x < startPosition.x + endPosition.x; x++) {

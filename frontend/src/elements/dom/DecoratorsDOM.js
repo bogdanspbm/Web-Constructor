@@ -106,6 +106,7 @@ export class ResizableDOM extends DecoratorDOM {
 
                 document.resizer = undefined
                 document.resizing = undefined
+                document.grid.clearOverlappedBlocks(undefined, undefined, true)
             })
         }
     }
