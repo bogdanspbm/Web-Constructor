@@ -3,7 +3,6 @@ import {DOM} from "./DOM.js";
 export class DecoratorDOM extends DOM {
 
     parentDOM = undefined
-    childDOM = undefined
     childLimit = 0
 
     type = "decorator"
@@ -85,13 +84,18 @@ export class ResizableDOM extends DecoratorDOM {
                     x: event.pageX, y: event.pageY
                 }
 
+
                 parent.originalSize = {
-                    width: parseFloat(getComputedStyle(parent.element, null).getPropertyValue('width').replace('px', '')),
-                    height: parseFloat(getComputedStyle(parent.element, null).getPropertyValue('height').replace('px', ''))
+                    width: parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', '')),
+                    height: parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
                 }
             })
 
             resizer.addEventListener("mouseup", function (event) {
+                const newSize = parent.getOverlappingGridBlock()
+                parent.element.style.width = newSize.x * parent.originalSize.width + "px"
+                parent.element.style.height = newSize.y * parent.originalSize.height + "px"
+
                 document.resizer = undefined
                 document.resizing = undefined
             })

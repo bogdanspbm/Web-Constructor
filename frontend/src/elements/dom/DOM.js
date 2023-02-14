@@ -266,7 +266,7 @@ export class Grid extends DOM {
 
         for (let i = 0; i < this.columns * 18; i++) {
             const block = new GridBlock()
-            block.setGridPosition({x: i % this.columns, y: i / this.columns})
+            block.setGridPosition({x: i % this.columns, y: Math.floor(i / this.columns)})
             this.blocks.push(block)
             this.element.append(block.getDOM());
         }
@@ -319,7 +319,14 @@ export class Grid extends DOM {
         return this.blocks[index]
     }
 
-    clearOverlappedBlocks() {
+    clearOverlappedBlocks(startPosition, endPosition) {
+
+        if (this.lastStartOverlap !== undefined && this.lastEndOverlap !== undefined) {
+            if (startPosition === this.lastStartOverlap && endPosition === this.lastEndOverlap) {
+                return
+            }
+        }
+
         if (this.overlappedBlocks === undefined) {
             this.overlappedBlocks = []
             return
@@ -335,15 +342,19 @@ export class Grid extends DOM {
             block.onDragLeave()
         }
 
+        this.lastStartOverlap = startPosition
+        this.lastEndOverlap = endPosition
+
         this.overlappedBlocks = []
     }
 
     overlapBlocks(startPosition, endPosition, flag) {
 
-        this.clearOverlappedBlocks()
+        this.clearOverlappedBlocks(startPosition, endPosition)
 
-        for (let x = startPosition.x; x < endPosition.x; x++) {
-            for (let y = startPosition.y; y < endPosition.y; y++) {
+
+        for (let x = startPosition.x; x < startPosition.x + endPosition.x; x++) {
+            for (let y = startPosition.y; y < startPosition.y + endPosition.y; y++) {
                 const block = this.getBlockByPosition({x: x, y: y})
 
                 if (flag) {
