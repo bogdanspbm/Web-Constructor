@@ -259,10 +259,14 @@ export class Grid extends DOM {
     createElement() {
         this.element = document.createElement("div");
 
+
         this.blocks = []
 
-        for (let i = 0; i < 12 * 18; i++) {
+        this.columns = 12
+
+        for (let i = 0; i < this.columns * 18; i++) {
             const block = new GridBlock()
+            block.setGridPosition({x: i % this.columns, y: i / this.columns})
             this.blocks.push(block)
             this.element.append(block.getDOM());
         }
@@ -305,15 +309,67 @@ export class Grid extends DOM {
 
         return this;
     }
+
+    getBlockRows() {
+        return this.blocks.length / this.columns
+    }
+
+    getBlockByPosition(position) {
+        const index = position.x + position.y * this.columns;
+        return this.blocks[index]
+    }
+
+    clearOverlappedBlocks() {
+        if (this.overlappedBlocks === undefined) {
+            this.overlappedBlocks = []
+            return
+        }
+
+        for (let i = 0; i < this.overlappedBlocks.length; i++) {
+            const block = this.overlappedBlocks[i]
+
+            if (block === undefined) {
+                continue
+            }
+
+            block.onDragLeave()
+        }
+
+        this.overlappedBlocks = []
+    }
+
+    overlapBlocks(startPosition, endPosition, flag) {
+
+        this.clearOverlappedBlocks()
+
+        for (let x = startPosition.x; x < endPosition.x; x++) {
+            for (let y = startPosition.y; y < endPosition.y; y++) {
+                const block = this.getBlockByPosition({x: x, y: y})
+
+                if (flag) {
+                    block.onDragEnter()
+                    this.overlappedBlocks.push(block)
+                } else {
+                    block.onDragLeave()
+                }
+            }
+        }
+    }
 }
 
 export class GridBlock extends DOM {
     childLimit = 1
 
+    gridPosition = {x: 0, y: 0}
+
     createElement() {
         this.element = document.createElement("div");
         this.bindEvents()
         this.setStyle("grid-block");
+    }
+
+    setGridPosition(position) {
+        this.gridPosition = position
     }
 
     onSelect() {
@@ -328,7 +384,7 @@ export class GridBlock extends DOM {
         const parent = this
         this.element.addEventListener('dragenter', function (event) {
             document.dragTarget = parent
-            parent.setAttribute("background", "#F7F7F7")
+            parent.onDragEnter()
         })
 
         this.element.addEventListener("dragover", function (event) {
@@ -338,6 +394,10 @@ export class GridBlock extends DOM {
         this.element.addEventListener('dragleave', function (event) {
             parent.onDragLeave()
         })
+    }
+
+    onDragEnter() {
+        this.setAttribute("background", "#F7F7F7")
     }
 
     onDragLeave() {

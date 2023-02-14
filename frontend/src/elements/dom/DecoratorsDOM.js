@@ -73,15 +73,37 @@ export class ResizableDOM extends DecoratorDOM {
         const parent = this
         for (let i = 0; i < this.resizerArray.length; i++) {
             const resizer = this.resizerArray[i]
-            resizer.addEventListener("dragstart", function (event) {
+            resizer.addEventListener("mousedown", function (event) {
+                document.resizer = resizer
                 document.resizing = parent
+
+                parent.orinialPosition = {
+                    x: parent.element.getBoundingClientRect().left, y: parent.element.getBoundingClientRect().top
+                }
+
+                parent.clickPoint = {
+                    x: event.pageX, y: event.pageY
+                }
+
+                parent.originalSize = {
+                    width: parseFloat(getComputedStyle(parent.element, null).getPropertyValue('width').replace('px', '')),
+                    height: parseFloat(getComputedStyle(parent.element, null).getPropertyValue('height').replace('px', ''))
+                }
             })
 
-            resizer.addEventListener("dragend", function (event) {
+            resizer.addEventListener("mouseup", function (event) {
+                document.resizer = undefined
                 document.resizing = undefined
             })
         }
     }
+
+    getOverlappingGridBlock() {
+        const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10) - 2) / this.originalSize.width)
+        const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10) - 8) / this.originalSize.height)
+        return {x: overlappedBlocksHorizontal, y: overlappedBlocksVertical}
+    }
+
 
     selectNotify(element) {
         if (element.getParentDOM() !== this.getParentDOM()) {
