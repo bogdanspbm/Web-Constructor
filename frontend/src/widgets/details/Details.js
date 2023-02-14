@@ -12,6 +12,5 @@ export class Details extends DOM {
     }
 
     selectNotify(element) {
-        console.log(element.getParentDOM())
     }
 }

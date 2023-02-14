@@ -61,6 +61,18 @@ export class DOM {
         return this
     }
 
+    getRootDOM() {
+        if (this.children.length === 0) {
+            return this.parent
+        }
+
+        if (this.children[0].type === "dom") {
+            return this.children[0]
+        }
+
+        return this.children[0].getRootDOM()
+    }
+
     /**
      * @param {string} text
      */
@@ -285,9 +297,17 @@ export class GridBlock extends DOM {
     childLimit = 1
 
     createElement() {
-        this.element = document.createElement("section");
+        this.element = document.createElement("div");
         this.bindEvents()
         this.setStyle("grid-block");
+    }
+
+    onSelect() {
+        this.setAttribute("z-index", 100)
+    }
+
+    onUnselect() {
+        this.setAttribute("z-index", 0)
     }
 
     bindEvents() {

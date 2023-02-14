@@ -1,4 +1,4 @@
-import {DraggableDOM, SelectableDOM} from "../dom/DecoratorsDOM.js";
+import {DraggableDOM, ResizableDOM, SelectableDOM} from "../dom/DecoratorsDOM.js";
 import {Button} from "../dom/DOM.js";
 
 export class DOMBuilder {
@@ -49,7 +49,7 @@ export class DOMBuilder {
 }
 
 export class ComponentDOMBuilder extends DOMBuilder {
-    decorators = [new SelectableDOM(), new DraggableDOM()]
+    decorators = [new SelectableDOM(), new ResizableDOM(), new DraggableDOM()]
 }
 
 /**

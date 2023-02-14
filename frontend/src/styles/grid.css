@@ -1,9 +1,3 @@
-.canvas {
-    margin: 64px;
-    background: white;
-    width: calc(100% - 600px);
-}
-
 .grid {
     margin: 64px;
     background: #F7F7F7;
@@ -15,7 +9,7 @@
 }
 
 .grid-block {
-    display: flex;
+    width: 64px;
     margin-right: 1px;
     margin-top: 1px;
     background: white;
