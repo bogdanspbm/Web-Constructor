@@ -170,11 +170,13 @@ export class SelectableDOM extends DecoratorDOM {
 
     onSelect() {
         this.setStyle("selectable-on")
+        this.getParentDOM().setSelect(true)
         this.getRootDOM().parent.setSelect(true)
     }
 
     onUnselect() {
         this.setStyle("selectable-off")
+        this.getParentDOM().setSelect(false)
         this.getRootDOM().parent.setSelect(false)
     }
 

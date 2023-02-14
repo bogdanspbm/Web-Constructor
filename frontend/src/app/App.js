@@ -21,6 +21,7 @@ export class App {
         document.selectListeners.push(listener)
     }
 
+    // TODO: Мне не нравится что логика ресайза находится в App
     bindMouseMoveEvent() {
         this.root.addEventListener("mousemove", resize)
 

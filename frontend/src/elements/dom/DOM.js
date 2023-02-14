@@ -123,6 +123,13 @@ export class DOM {
     setParent(parent) {
         this.removeParent()
         this.parent = parent
+
+        console.log(this.getParentDOM())
+
+        if (this.getParentDOM().select) {
+            parent.setSelect(true)
+        }
+
         return this
     }
 
@@ -137,11 +144,7 @@ export class DOM {
         }
 
         this.parent.getElementToAppend().removeChild(this.getDOM())
-
-
-        if (this.selected) {
-            this.parent.setSelect(false);
-        }
+        this.parent.setSelect(false);
 
         const index = this.parent.children.indexOf(this);
         if (index > -1) { // only splice array when item is found
@@ -303,7 +306,7 @@ export class Grid extends DOM {
         this.children.push(element)
         this.getElementToAppend().append(element);
 
-        if (element.selected) {
+        if (element.select) {
             this.setSelect(element.select)
         }
 
