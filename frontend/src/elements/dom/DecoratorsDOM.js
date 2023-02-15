@@ -74,23 +74,37 @@ export class ResizableDOM extends DecoratorDOM {
         for (let i = 0; i < this.resizerArray.length; i++) {
             const resizer = this.resizerArray[i]
             resizer.addEventListener("mousedown", function (event) {
+                const parentGridBlock = parent.getRootDOM().parent
+                const gridPosition = parentGridBlock.gridPosition
                 document.resizer = resizer
                 document.resizing = parent
 
-                parent.orinialPosition = {
-                    x: parent.element.getBoundingClientRect().left, y: parent.element.getBoundingClientRect().top
+                const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
+                const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
+
+
+                parent.originalPosition = {
+                    x: gridPosition.y * parentWidth, y: gridPosition.x * parentHeight
+                }
+
+                parent.originalBlockSize = {
+                    width: parentWidth, height: parentHeight
                 }
 
                 parent.clickPoint = {
                     x: event.pageX, y: event.pageY
                 }
 
-                const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
-                const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
-
-
                 parent.originalSize = {
                     width: parent.gridSize.x * parentWidth, height: parent.gridSize.y * parentHeight
+                }
+
+                parent.originalGridSize = {
+                    x: parent.gridSize.x, y: parent.gridSize.y
+                }
+
+                parent.originalGridPosition = {
+                    x: gridPosition.x, y: gridPosition.y
                 }
             })
 
@@ -111,9 +125,9 @@ export class ResizableDOM extends DecoratorDOM {
         }
     }
 
-    getOverlappingGridBlock() {
-        const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10) - 2) / Math.round(this.originalSize.width / this.gridSize.x))
-        const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10) - 8) / Math.round(this.originalSize.height / this.gridSize.y))
+    getOverlappingGridBlock(x, y) {
+        const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10)) / Math.round(this.originalSize.width / this.gridSize.x))
+        const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10)) / Math.round(this.originalSize.height / this.gridSize.y))
         return {x: overlappedBlocksHorizontal, y: overlappedBlocksVertical}
     }
 
@@ -135,7 +149,6 @@ export class ResizableDOM extends DecoratorDOM {
     }
 
     createControllers() {
-        console.log(this)
         this.leftTopResizer = document.createElement("div");
         this.leftTopResizer.setAttribute("class", "resizer top-left")
         this.resizerArray.push(this.leftTopResizer)
@@ -197,7 +210,6 @@ export class DraggableDOM extends DecoratorDOM {
 
         this.element.addEventListener("dragstart", function (event) {
             document.dragging = parent
-            console.log(event)
         })
 
         this.element.addEventListener("dragend", function (event) {

@@ -36,14 +36,20 @@ export class App {
             const controller = document.resizing
 
             const originalSize = controller.originalSize
-            const originalPosition = controller.orinialPosition
+            const originalPosition = controller.originalPosition
             const clickPoint = controller.clickPoint
+            let gridPosition = {x: controller.originalGridPosition.x, y: controller.originalGridPosition.y}
 
             const element = controller.element
 
+            const deltaWidth = (event.pageX - clickPoint.x)
+            const deltaHeight = (event.pageY - clickPoint.y)
+
+
+            // Это чисто логика изменения размера и позиции
             if (currentResizer.classList.contains('bottom-right')) {
-                const width = originalSize.width + (event.pageX - clickPoint.x);
-                const height = originalSize.height + (event.pageY - clickPoint.y)
+                const width = originalSize.width + deltaWidth
+                const height = originalSize.height + deltaHeight
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
                 }
@@ -51,40 +57,55 @@ export class App {
                     element.style.height = height + 'px'
                 }
             } else if (currentResizer.classList.contains('bottom-left')) {
-                const height = originalSize.height + (event.pageY - clickPoint.y)
-                const width = originalSize.width - (event.pageX - clickPoint.x)
+                const height = originalSize.height + deltaHeight
+                const width = originalSize.width - deltaWidth
                 if (height > minimumSize) {
                     element.style.height = height + 'px'
                 }
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
-                    element.style.left = originalPosition.x + (event.pageX - clickPoint.x) + 'px'
+                    element.style.left = deltaWidth + 'px'
                 }
             } else if (currentResizer.classList.contains('top-right')) {
-                const width = originalSize.width + (event.pageX - clickPoint.x)
-                const height = originalSize.height - (event.pageY - clickPoint.y)
+                const width = originalSize.width + deltaWidth
+                const height = originalSize.height - deltaHeight
+
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
                 }
                 if (height > minimumSize) {
                     element.style.height = height + 'px'
-                    element.style.top = originalPosition.y + (event.pageY - clickPoint.y) + 'px'
+                    element.style.top = deltaHeight + 'px'
                 }
             } else {
-                const width = originalSize.width - (event.pageX - clickPoint.x)
-                const height = originalSize.height - (event.pageY - clickPoint.y)
+                const width = originalSize.width - deltaWidth
+                const height = originalSize.height - deltaHeight
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
-                    element.style.left = originalPosition.x + (event.pageX - clickPoint.x) + 'px'
+                    element.style.left = deltaWidth + 'px'
                 }
                 if (height > minimumSize) {
                     element.style.height = height + 'px'
-                    element.style.top = originalPosition.y + (event.pageY - clickPoint.y) + 'px'
+                    element.style.top = deltaHeight + 'px'
                 }
             }
 
+            // Это логика вычисления новой координаты блока в случае отрицательного скейла
+            const originalBlockSize = controller.originalBlockSize
+
+            const ratioX = deltaWidth / originalBlockSize.width
+            const ratioY = deltaHeight / originalBlockSize.height
+
+            if (ratioX < 0) {
+                gridPosition.x = gridPosition.x + Math.floor(ratioX)
+            }
+
+            if (ratioY < 0) {
+                gridPosition.y = gridPosition.y + Math.floor(ratioY)
+            }
+
             const overlapOffset = controller.getOverlappingGridBlock()
-            document.grid.overlapBlocks(controller.getRootDOM().parent.gridPosition, overlapOffset);
+            document.grid.overlapBlocks(gridPosition, overlapOffset);
         }
 
         this.root.addEventListener("mouseup", function (event) {

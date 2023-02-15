@@ -122,8 +122,6 @@ export class DOM {
         this.removeParent()
         this.parent = parent
 
-        console.log(this.getParentDOM())
-
         if (this.getParentDOM().select) {
             parent.setSelect(true)
         }
