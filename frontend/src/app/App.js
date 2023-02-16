@@ -36,10 +36,7 @@ export class App {
             const controller = document.resizing
 
             const originalSize = controller.originalSize
-            const originalPosition = controller.originalPosition
             const clickPoint = controller.clickPoint
-            let gridPosition = {x: controller.originalGridPosition.x, y: controller.originalGridPosition.y}
-
             const element = controller.element
 
             const deltaWidth = (event.pageX - clickPoint.x)
@@ -91,21 +88,9 @@ export class App {
             }
 
             // Это логика вычисления новой координаты блока в случае отрицательного скейла
-            const originalBlockSize = controller.originalBlockSize
-
-            const ratioX = deltaWidth / originalBlockSize.width
-            const ratioY = deltaHeight / originalBlockSize.height
-
-            if (ratioX < 0) {
-                gridPosition.x = gridPosition.x + Math.floor(ratioX)
-            }
-
-            if (ratioY < 0) {
-                gridPosition.y = gridPosition.y + Math.floor(ratioY)
-            }
-
+            const startPoint = controller.calculateNewGridPosition(deltaWidth, deltaHeight)
             const overlapOffset = controller.getOverlappingGridBlock()
-            document.grid.overlapBlocks(gridPosition, overlapOffset);
+            document.grid.overlapBlocks(startPoint, overlapOffset);
         }
 
         this.root.addEventListener("mouseup", function (event) {

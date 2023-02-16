@@ -40,6 +40,18 @@ export class DecoratorDOM extends DOM {
         return this.parentDOM.getParentDOM()
     }
 
+    attachToLastDragTarget(target) {
+        if (target === undefined) {
+            target = document.dragTarget
+        }
+
+        if (target === undefined) {
+            return;
+        }
+
+        target.onDragLeave()
+        target.append(this.getRootDOM())
+    }
 
     /**
      * @param {DOM} dom
@@ -121,14 +133,45 @@ export class ResizableDOM extends DecoratorDOM {
                 document.resizer = undefined
                 document.resizing = undefined
                 document.grid.clearOverlappedBlocks(undefined, undefined, true)
+
+                // Attach to new target
+                const deltaWidth = parent.element.style.left.replace('px', '')
+                const deltaHeight = parent.element.style.top.replace('px', '')
+                const newGridPosition = parent.calculateNewGridPosition(deltaWidth, deltaHeight)
+                const dragTarget = document.grid.getBlockByPosition(newGridPosition)
+                parent.attachToLastDragTarget(dragTarget)
+
+                parent.refreshPosition()
             })
         }
     }
 
-    getOverlappingGridBlock(x, y) {
+    refreshPosition() {
+        this.element.style.left = "0px"
+        this.element.style.top = "0px"
+    }
+
+    getOverlappingGridBlock() {
         const overlappedBlocksHorizontal = Math.ceil((parseInt(this.element.style.width, 10)) / Math.round(this.originalSize.width / this.gridSize.x))
         const overlappedBlocksVertical = Math.ceil((parseInt(this.element.style.height, 10)) / Math.round(this.originalSize.height / this.gridSize.y))
         return {x: overlappedBlocksHorizontal, y: overlappedBlocksVertical}
+    }
+
+    calculateNewGridPosition(deltaWidth, deltaHeight) {
+        const gridPosition = {x: this.originalGridPosition.x, y: this.originalGridPosition.y}
+
+        const ratioX = deltaWidth / this.originalBlockSize.width
+        const ratioY = deltaHeight / this.originalBlockSize.height
+
+        if (ratioX < 0) {
+            gridPosition.x = gridPosition.x + Math.floor(ratioX)
+        }
+
+        if (ratioY < 0) {
+            gridPosition.y = gridPosition.y + Math.floor(ratioY)
+        }
+
+        return gridPosition
     }
 
 
@@ -216,14 +259,5 @@ export class DraggableDOM extends DecoratorDOM {
             document.dragging = undefined
             parent.attachToLastDragTarget()
         })
-    }
-
-    attachToLastDragTarget() {
-        if (document.dragTarget === undefined) {
-            return;
-        }
-
-        document.dragTarget.onDragLeave()
-        document.dragTarget.append(this.getRootDOM())
     }
 }
