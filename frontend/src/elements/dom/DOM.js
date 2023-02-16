@@ -347,17 +347,47 @@ export class Grid extends DOM {
         this.overlappedBlocks = []
     }
 
-    overlapBlocks(startPosition, endPosition) {
-        this.clearOverlappedBlocks(startPosition, endPosition, false)
-
+    getBlocks(startPosition, endPosition) {
+        let result = []
 
         for (let x = startPosition.x; x < startPosition.x + endPosition.x; x++) {
             for (let y = startPosition.y; y < startPosition.y + endPosition.y; y++) {
                 const block = this.getBlockByPosition({x: x, y: y})
-                block.onDragEnter()
-                this.overlappedBlocks.push(block)
+                result.push(block)
             }
         }
+
+        return result
+    }
+
+    getComponentsInBlocks(blocks) {
+        let result = 0
+
+        for (let i = 0; i < blocks.length; i++) {
+            const block = blocks[i]
+            if (block.children.length == 0) {
+                continue
+            }
+
+            result += 1
+        }
+
+        return result
+    }
+
+    overlapBlocks(startPosition, endPosition) {
+        this.clearOverlappedBlocks(startPosition, endPosition, false)
+        const blocks = this.getBlocks(startPosition, endPosition)
+        const overlappingComponentsCount = this.getComponentsInBlocks(blocks)
+        const success = overlappingComponentsCount < 2
+
+        for (let i = 0; i < blocks.length; i++) {
+            const block = blocks[i]
+            block.onDragEnter(success ? undefined : "#fff1f0")
+            this.overlappedBlocks.push(block)
+        }
+
+        return success
     }
 }
 
@@ -400,8 +430,11 @@ export class GridBlock extends DOM {
         })
     }
 
-    onDragEnter() {
-        this.setAttribute("background", "#F7F7F7")
+    onDragEnter(color) {
+        if (color === undefined) {
+            color = "#F7F7F7"
+        }
+        this.setAttribute("background", color)
     }
 
     onDragLeave() {

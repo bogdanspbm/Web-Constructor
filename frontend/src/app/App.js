@@ -97,7 +97,7 @@ export class App {
             // Это логика вычисления новой координаты блока в случае отрицательного скейла
             const startPoint = controller.calculateNewGridPosition(deltaX, deltaY)
             const overlapOffset = controller.getOverlappingGridBlock()
-            document.grid.overlapBlocks(startPoint, overlapOffset);
+            document.canDrag = document.grid.overlapBlocks(startPoint, overlapOffset);
         }
 
         this.root.addEventListener("mouseup", function (event) {

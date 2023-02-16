@@ -121,17 +121,32 @@ export class ResizableDOM extends DecoratorDOM {
             })
 
             resizer.addEventListener("mouseup", function (event) {
+                const success = document.canDrag
+
+                // Clear global data
+                document.resizer = undefined
+                document.resizing = undefined
+                document.canDrag = undefined
+                document.grid.clearOverlappedBlocks(undefined, undefined, true)
+
+                if (success) {
+                    parent.gridSize = parent.getOverlappingGridBlock()
+                } else {
+                    parent.gridSize = parent.originalGridSize
+                }
+
                 // Set final size
-                parent.gridSize = parent.getOverlappingGridBlock()
                 const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
                 const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
                 parent.element.style.width = parent.gridSize.x * parentWidth + "px"
                 parent.element.style.height = parent.gridSize.y * parentHeight + "px"
 
-                // Clear global data
-                document.resizer = undefined
-                document.resizing = undefined
-                document.grid.clearOverlappedBlocks(undefined, undefined, true)
+                // Refresh position
+                parent.refreshPosition()
+
+                if (!success) {
+                    return
+                }
 
                 // Attach to new target
                 const deltaWidth = parent.element.style.left.replace('px', '')
@@ -139,9 +154,6 @@ export class ResizableDOM extends DecoratorDOM {
                 const newGridPosition = parent.calculateNewGridPosition(deltaWidth, deltaHeight)
                 const dragTarget = document.grid.getBlockByPosition(newGridPosition)
                 parent.attachToLastDragTarget(dragTarget)
-
-                // Refresh position
-                parent.refreshPosition()
             })
         }
     }
