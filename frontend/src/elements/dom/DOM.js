@@ -418,15 +418,11 @@ export class GridBlock extends DOM {
         const parent = this
         this.element.addEventListener('dragenter', function (event) {
             document.dragTarget = parent
-            parent.onDragEnter()
+            document.grid.overlapBlocks(parent.gridPosition, document.dragging.getResizeDecorator().gridSize)
         })
 
         this.element.addEventListener("dragover", function (event) {
             event.preventDefault()
-        })
-
-        this.element.addEventListener('dragleave', function (event) {
-            parent.onDragLeave()
         })
     }
 

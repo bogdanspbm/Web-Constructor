@@ -24,6 +24,33 @@ export class DecoratorDOM extends DOM {
         this.element.appendChild(dom.getDOM())
     }
 
+    searchDecorator(type) {
+        const startDOM = this.getRootDOM()
+        return startDOM.getDecorator(type)
+    }
+
+    getDecorator(type) {
+        if (this.type === "dom") {
+            return undefined
+        }
+
+        if (this instanceof type) {
+            return this
+        }
+
+        const decorator = this.parentDOM
+
+        if (decorator instanceof type || decorator.type === "dom") {
+            return decorator
+        }
+
+        return decorator.getDecorator(type)
+    }
+
+    getResizeDecorator() {
+        return this.searchDecorator(ResizableDOM)
+    }
+
 
     /**
      * @returns {DOM}
@@ -264,7 +291,12 @@ export class DraggableDOM extends DecoratorDOM {
         })
 
         this.element.addEventListener("dragend", function (event) {
+            const success = document.grid.overlapBlocks(document.dragTarget.gridPosition, document.dragging.getResizeDecorator().gridSize)
             document.dragging = undefined
+
+            if (!success) {
+                return
+            }
             parent.attachToLastDragTarget()
         })
     }
