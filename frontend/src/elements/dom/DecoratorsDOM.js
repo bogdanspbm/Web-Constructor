@@ -121,15 +121,14 @@ export class ResizableDOM extends DecoratorDOM {
             })
 
             resizer.addEventListener("mouseup", function (event) {
+                // Set final size
                 parent.gridSize = parent.getOverlappingGridBlock()
-
                 const parentWidth = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('width').replace('px', ''))
                 const parentHeight = parseFloat(getComputedStyle(parent.parent.element, null).getPropertyValue('height').replace('px', ''))
-
-
                 parent.element.style.width = parent.gridSize.x * parentWidth + "px"
                 parent.element.style.height = parent.gridSize.y * parentHeight + "px"
 
+                // Clear global data
                 document.resizer = undefined
                 document.resizing = undefined
                 document.grid.clearOverlappedBlocks(undefined, undefined, true)
@@ -141,6 +140,7 @@ export class ResizableDOM extends DecoratorDOM {
                 const dragTarget = document.grid.getBlockByPosition(newGridPosition)
                 parent.attachToLastDragTarget(dragTarget)
 
+                // Refresh position
                 parent.refreshPosition()
             })
         }
@@ -163,13 +163,9 @@ export class ResizableDOM extends DecoratorDOM {
         const ratioX = deltaWidth / this.originalBlockSize.width
         const ratioY = deltaHeight / this.originalBlockSize.height
 
-        if (ratioX < 0) {
-            gridPosition.x = gridPosition.x + Math.floor(ratioX)
-        }
+        gridPosition.x = gridPosition.x + Math.floor(ratioX)
 
-        if (ratioY < 0) {
-            gridPosition.y = gridPosition.y + Math.floor(ratioY)
-        }
+        gridPosition.y = gridPosition.y + Math.floor(ratioY)
 
         return gridPosition
     }

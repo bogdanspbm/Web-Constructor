@@ -42,6 +42,9 @@ export class App {
             const deltaWidth = (event.pageX - clickPoint.x)
             const deltaHeight = (event.pageY - clickPoint.y)
 
+            let deltaX = 0;
+            let deltaY = 0;
+
 
             // Это чисто логика изменения размера и позиции
             if (currentResizer.classList.contains('bottom-right')) {
@@ -62,6 +65,7 @@ export class App {
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
                     element.style.left = deltaWidth + 'px'
+                    deltaX = deltaWidth
                 }
             } else if (currentResizer.classList.contains('top-right')) {
                 const width = originalSize.width + deltaWidth
@@ -73,6 +77,7 @@ export class App {
                 if (height > minimumSize) {
                     element.style.height = height + 'px'
                     element.style.top = deltaHeight + 'px'
+                    deltaY = deltaHeight
                 }
             } else {
                 const width = originalSize.width - deltaWidth
@@ -80,15 +85,17 @@ export class App {
                 if (width > minimumSize) {
                     element.style.width = width + 'px'
                     element.style.left = deltaWidth + 'px'
+                    deltaX = deltaWidth
                 }
                 if (height > minimumSize) {
                     element.style.height = height + 'px'
                     element.style.top = deltaHeight + 'px'
+                    deltaY = deltaHeight
                 }
             }
 
             // Это логика вычисления новой координаты блока в случае отрицательного скейла
-            const startPoint = controller.calculateNewGridPosition(deltaWidth, deltaHeight)
+            const startPoint = controller.calculateNewGridPosition(deltaX, deltaY)
             const overlapOffset = controller.getOverlappingGridBlock()
             document.grid.overlapBlocks(startPoint, overlapOffset);
         }
