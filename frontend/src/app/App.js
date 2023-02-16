@@ -21,11 +21,16 @@ export class App {
         document.selectListeners.push(listener)
     }
 
+    addMouseMoveListener(listener) {
+        document.mouseMoveListeners.push(listener)
+    }
+
     // TODO: Мне не нравится что логика ресайза находится в App
     bindMouseMoveEvent() {
-        this.root.addEventListener("mousemove", resize)
+        this.root.addEventListener("mousemove", this.notifyMouseMoveListener)
 
         function resize(event) {
+            /*
             if (document.resizing === undefined || document.resizer === undefined) {
                 return
             }
@@ -97,7 +102,7 @@ export class App {
             // Это логика вычисления новой координаты блока в случае отрицательного скейла
             const startPoint = controller.calculateNewGridPosition(deltaX, deltaY)
             const overlapOffset = controller.getOverlappingGridBlock()
-            document.canDrag = document.grid.overlapBlocks(startPoint, overlapOffset);
+            document.canDrag = document.grid.overlapBlocks(startPoint, overlapOffset);*/
         }
 
         this.root.addEventListener("mouseup", function (event) {
@@ -116,6 +121,15 @@ export class App {
         }
     }
 
+    notifyMouseMoveListener(event) {
+        for (let i = 0; i < document.mouseMoveListeners.length; i++) {
+            const listener = document.mouseMoveListeners[i]
+            if (typeof listener.mouseMoveNotify === "function") {
+                listener.mouseMoveNotify(event)
+            }
+        }
+    }
+
     bindGlobalFunctions() {
         const parent = this
         document.select = function (item) {
@@ -129,6 +143,9 @@ export class App {
 
         document.selectListeners = []
         document.addSelectListener = this.addSelectListener
+
+        document.mouseMoveListeners = []
+        document.addMouseMoveListener = this.addMouseMoveListener
 
         document.idCounter = 0;
         document.getID = function () {

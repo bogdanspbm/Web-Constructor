@@ -6,7 +6,7 @@ export class Draggable extends GridContent {
     constructor(elements) {
         super(elements);
         this.createDragElement()
-        this.bindEvents()
+        this.bindDragEvents()
     }
 
     createDragElement() {
@@ -21,7 +21,7 @@ export class Draggable extends GridContent {
         return this.draggable;
     }
 
-    bindEvents() {
+    bindDragEvents() {
         const parent = this
 
         this.draggable.addEventListener("dragstart", function (event) {
@@ -32,6 +32,10 @@ export class Draggable extends GridContent {
             parent.attachToLastDragTarget()
             document.dragging = undefined
         })
+    }
+
+    setDragEnabled(flag) {
+        this.draggable.setAttribute("draggable", flag.toS)
     }
 
     getOverlappedBlocks(target) {

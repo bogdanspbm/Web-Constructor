@@ -69,6 +69,13 @@ export class GridBlock extends DOM {
         this.gridPosition = position
     }
 
+    getBlockSize() {
+        const width = parseFloat(getComputedStyle(this.element, null).getPropertyValue('width').replace('px', ''))
+        const height = parseFloat(getComputedStyle(this.element, null).getPropertyValue('height').replace('px', ''))
+
+        return {width: width, height: height}
+    }
+
 
     bindEvents() {
         const parent = this
@@ -81,10 +88,6 @@ export class GridBlock extends DOM {
             }
 
             const blocks = dragging.getOverlappedBlocks()
-            console.log("Overlaped")
-            console.log(document.dragTarget)
-            console.log("Blocks")
-            console.log(blocks)
 
             blocks.forEach((block) => {
                 block.onDragEnter()
