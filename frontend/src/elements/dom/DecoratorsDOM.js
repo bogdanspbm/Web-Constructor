@@ -108,11 +108,23 @@ export class ResizableDOM extends DecoratorDOM {
         document.addSelectListener(this);
     }
 
+    setDragEnabled(flag) {
+        const draggable = this.searchDecorator(DraggableDOM)
+        console.log(draggable)
+        if (flag) {
+            draggable.element.setAttribute("draggable", "true")
+        } else {
+            draggable.element.setAttribute("draggable", "false")
+        }
+    }
+
+
     bindResize() {
         const parent = this
         for (let i = 0; i < this.resizerArray.length; i++) {
             const resizer = this.resizerArray[i]
             resizer.addEventListener("mousedown", function (event) {
+                parent.setDragEnabled(false)
                 const parentGridBlock = parent.getRootDOM().parent
                 const gridPosition = parentGridBlock.gridPosition
                 document.resizer = resizer
@@ -148,6 +160,7 @@ export class ResizableDOM extends DecoratorDOM {
             })
 
             resizer.addEventListener("mouseup", function (event) {
+                parent.setDragEnabled(true)
                 const success = document.canDrag
 
                 // Clear global data

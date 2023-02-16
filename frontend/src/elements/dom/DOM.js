@@ -365,7 +365,8 @@ export class Grid extends DOM {
 
         for (let i = 0; i < blocks.length; i++) {
             const block = blocks[i]
-            if (block.children.length == 0) {
+
+            if (block === undefined || block.children.length == 0) {
                 continue
             }
 
