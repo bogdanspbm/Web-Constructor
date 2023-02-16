@@ -29,6 +29,38 @@ export class DecoratorDOM extends DOM {
         return startDOM.getDecorator(type)
     }
 
+    getGridSize() {
+        const resizable = this.searchDecorator(ResizableDOM)
+        let gridSize = {x: 1, y: 1}
+
+        if (resizable !== undefined) {
+            gridSize = resizable.gridSize
+        }
+
+        return gridSize
+    }
+
+    getGridPosition() {
+        const gridBlock = this.getRootDOM().parent
+        let gridPosition = {x: 0, y: 0}
+        if (gridBlock) {
+            gridPosition = gridBlock.gridPosition
+        }
+
+        return gridPosition
+    }
+
+    getBounds() {
+        const gridSize = this.getGridSize()
+        const gridPosition = this.getGridPosition()
+
+        return {x: gridPosition.x, y: gridPosition.y, width: gridSize.x, height: gridSize.y}
+    }
+
+    overlap() {
+    }
+
+
     getDecorator(type) {
         if (this.type === "dom") {
             return undefined
@@ -67,19 +99,6 @@ export class DecoratorDOM extends DOM {
         return this.parentDOM.getParentDOM()
     }
 
-    attachToLastDragTarget(target) {
-        if (target === undefined) {
-            target = document.dragTarget
-        }
-
-        if (target === undefined) {
-            return;
-        }
-
-        target.onDragLeave()
-        target.append(this.getRootDOM())
-    }
-
     /**
      * @param {DOM} dom
      * @returns {DOM}
@@ -110,7 +129,6 @@ export class ResizableDOM extends DecoratorDOM {
 
     setDragEnabled(flag) {
         const draggable = this.searchDecorator(DraggableDOM)
-        console.log(draggable)
         if (flag) {
             draggable.element.setAttribute("draggable", "true")
         } else {

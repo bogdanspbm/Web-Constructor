@@ -1,7 +1,7 @@
-import {Div, Grid} from "../elements/dom/DOM.js";
+import {Div} from "../elements/dom/DOM.js";
 import {Toolbar} from "../widgets/toolbar/Toolbar.js";
-import {CanvasComponent} from "../canvas/objects/canvas/Canvas.js";
 import {Details} from "../widgets/details/Details.js";
+import {Grid} from "../grid/Grid.js";
 
 export class App {
 
@@ -120,9 +120,9 @@ export class App {
         const parent = this
         document.select = function (item) {
             if (document.selected !== undefined) {
-                document.selected.setSelect(false)
+                document.selected.setSelected(false)
             }
-            item.setSelect(true)
+            item.setSelected(true)
             document.selected = item
             parent.notifySelectListeners(item)
         }
