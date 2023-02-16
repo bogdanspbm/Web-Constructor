@@ -15,6 +15,11 @@ export class Grid extends DOM {
         }
     }
 
+    getBlockByPosition(position) {
+        const index = position.x + position.y * this.columns
+        return this.blocks[index]
+    }
+
     canAppend() {
         for (let i = 0; i < this.blocks.length; i++) {
             const block = this.blocks[i]
@@ -69,10 +74,38 @@ export class GridBlock extends DOM {
         const parent = this
         this.element.addEventListener('dragenter', function (event) {
             document.dragTarget = parent
+            const dragging = document.dragging
+
+            if (dragging === undefined) {
+                return
+            }
+
+            const blocks = dragging.getOverlappedBlocks()
+            console.log("Overlaped")
+            console.log(document.dragTarget)
+            console.log("Blocks")
+            console.log(blocks)
+
+            blocks.forEach((block) => {
+                block.onDragEnter()
+            })
         })
 
         this.element.addEventListener("dragover", function (event) {
             event.preventDefault()
+        })
+
+        this.element.addEventListener('dragleave', function (event) {
+            const dragging = document.dragging
+
+            if (dragging === undefined) {
+                return
+            }
+
+            const blocks = dragging.getOverlappedBlocks(parent)
+            blocks.forEach((block) => {
+                block.onDragLeave()
+            })
         })
     }
 

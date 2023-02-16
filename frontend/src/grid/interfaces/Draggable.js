@@ -24,15 +24,43 @@ export class Draggable extends GridContent {
     bindEvents() {
         const parent = this
 
-        this.element.addEventListener("dragstart", function (event) {
+        this.draggable.addEventListener("dragstart", function (event) {
             document.dragging = parent
         })
 
-        this.element.addEventListener("dragend", function (event) {
-            document.dragging = undefined
+        this.draggable.addEventListener("dragend", function (event) {
             parent.attachToLastDragTarget()
+            document.dragging = undefined
         })
     }
+
+    getOverlappedBlocks(target) {
+        const blocks = []
+        const grid = document.grid
+
+        if (target === undefined) {
+            target = document.dragTarget
+        }
+
+        if (grid === undefined || target === undefined || !(target instanceof GridBlock)) {
+            return []
+        }
+
+        const startPosition = target.gridPosition
+
+        for (let x = startPosition.x; x < startPosition.x + this.gridSize.x; x++) {
+            for (let y = startPosition.y; y < startPosition.y + this.gridSize.y; y++) {
+                const block = grid.getBlockByPosition({x: x, y: y})
+                if (block === undefined) {
+                    return []
+                }
+                blocks.push(block)
+            }
+        }
+
+        return blocks
+    }
+
 
     attachToLastDragTarget(target) {
         if (target === undefined) {
@@ -43,7 +71,6 @@ export class Draggable extends GridContent {
             return false;
         }
 
-        target.onDragLeave()
         target.append(this)
         return true
     }
