@@ -135,8 +135,8 @@ export class Transformable extends Draggable {
             }
         }
 
-        const dragTarget = this.getDragTarget({x: deltaX, y: deltaY})
-        const overlappedBlocks = this.getOverlappedBlocks(dragTarget)
+        document.dragTarget = this.getDragTarget({x: deltaX, y: deltaY})
+        const overlappedBlocks = this.getOverlappedBlocks()
 
         document.grid.overlapBlocks(overlappedBlocks)
     }
@@ -235,6 +235,7 @@ export class Transformable extends Draggable {
 
         target.setDragEnabled(true)
         target.fixSizeOnResize()
+        target.attachToLastDragTarget()
 
         // Clear global data
         document.resizer = undefined
