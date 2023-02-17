@@ -4,7 +4,6 @@ export class Transformable extends Draggable {
 
     clickPoint = {x: 0, y: 0}
     originalSize = {x: 64, y: 32}
-    start
 
     constructor(elements) {
         super(elements);
@@ -19,7 +18,7 @@ export class Transformable extends Draggable {
         this.setControllersVisibility("hidden")
         this.transformElement.appendChild(this.draggable)
 
-        document.addMouseMoveListener(this)
+        document.addMouseListener(this)
     }
 
     getDOM() {
@@ -43,7 +42,25 @@ export class Transformable extends Draggable {
             return
         }
 
+        if (resizing !== this) {
+            return
+        }
+
         this.resizeOnTransform(event)
+    }
+
+    mouseUpNotify(event) {
+        const resizing = document.resizing
+
+        if (resizing === undefined) {
+            return
+        }
+
+        if (resizing !== this) {
+            return
+        }
+
+        this.mouseUpFunction(event)
     }
 
     resizeOnTransform(event) {
@@ -58,13 +75,17 @@ export class Transformable extends Draggable {
         let deltaY = 0;
 
         const blockSize = this.parent.getBlockSize()
-        const originalSize = {width: blockSize.width * this.gridSize.x, height: blockSize.height + this.gridSize.y}
+        const originalSize = {
+            width: blockSize.width * this.originalGridSize.x, height: blockSize.height + this.originalGridSize.y
+        }
 
 
         // Это чисто логика изменения размера и позиции
         if (currentResizer.classList.contains('bottom-right')) {
             const width = originalSize.width + deltaWidth
             const height = originalSize.height + deltaHeight
+            this.setGridSize({width: width, height: height})
+
             if (width > minimumSize) {
                 this.transformElement.style.width = width + 'px'
             }
@@ -74,6 +95,8 @@ export class Transformable extends Draggable {
         } else if (currentResizer.classList.contains('bottom-left')) {
             const height = originalSize.height + deltaHeight
             const width = originalSize.width - deltaWidth
+            this.setGridSize({width: width, height: height})
+
             if (height > minimumSize) {
                 this.transformElement.style.height = height + 'px'
             }
@@ -85,6 +108,7 @@ export class Transformable extends Draggable {
         } else if (currentResizer.classList.contains('top-right')) {
             const width = originalSize.width + deltaWidth
             const height = originalSize.height - deltaHeight
+            this.setGridSize({width: width, height: height})
 
             if (width > minimumSize) {
                 this.transformElement.style.width = width + 'px'
@@ -97,6 +121,8 @@ export class Transformable extends Draggable {
         } else {
             const width = originalSize.width - deltaWidth
             const height = originalSize.height - deltaHeight
+            this.setGridSize({width: width, height: height})
+
             if (width > minimumSize) {
                 this.transformElement.style.width = width + 'px'
                 this.transformElement.style.left = deltaWidth + 'px'
@@ -107,6 +133,35 @@ export class Transformable extends Draggable {
                 this.transformElement.style.top = deltaHeight + 'px'
                 deltaY = deltaHeight
             }
+        }
+
+        const dragTarget = this.getDragTarget({x: deltaX, y: deltaY})
+        const overlappedBlocks = this.getOverlappedBlocks(dragTarget)
+
+        document.grid.overlapBlocks(overlappedBlocks)
+    }
+
+    getDragTarget(offset) {
+        const gridDeltaX = Math.floor(offset.x / this.parent.getBlockSize().width)
+        const gridDeltaY = Math.floor(offset.y / this.parent.getBlockSize().height)
+
+        const grid = document.grid
+
+        if (grid === undefined) {
+            return
+        }
+
+        const targetPosition = {x: this.getGridPosition().x + gridDeltaX, y: this.getGridPosition().y + gridDeltaY}
+
+        const target = grid.getBlockByPosition(targetPosition)
+
+        return target
+    }
+
+    setGridSize(size) {
+        this.gridSize = {
+            x: Math.ceil(size.width / this.parent.getBlockSize().width),
+            y: Math.ceil(size.height / this.parent.getBlockSize().height)
         }
     }
 
@@ -155,17 +210,27 @@ export class Transformable extends Draggable {
                 parent.clickPoint = {
                     x: event.pageX, y: event.pageY
                 }
+
+                parent.originalGridSize = parent.gridSize
             })
 
-            resizer.addEventListener("mouseup", function (event) {
-                parent.setDragEnabled(true)
-
-                // Clear global data
-                document.resizer = undefined
-                document.resizing = undefined
-                document.canDrag = undefined
-            })
+            resizer.addEventListener("mouseup", this.mouseUpFunction)
         }
+    }
+
+    mouseUpFunction(event) {
+
+        if (typeof this.setDragEnabled === "function") {
+            this.setDragEnabled(true)
+        }
+
+
+        // Clear global data
+        document.resizer = undefined
+        document.resizing = undefined
+        document.canDrag = undefined
+
+        document.grid.overlapBlocks([])
     }
 
     selectEvent() {

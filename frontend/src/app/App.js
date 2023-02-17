@@ -28,6 +28,7 @@ export class App {
     // TODO: Мне не нравится что логика ресайза находится в App
     bindMouseMoveEvent() {
         this.root.addEventListener("mousemove", this.notifyMouseMoveListener)
+        this.root.addEventListener("mouseup", this.notifyMouseUpListener)
 
         function resize(event) {
             /*
@@ -130,6 +131,15 @@ export class App {
         }
     }
 
+    notifyMouseUpListener(event) {
+        for (let i = 0; i < document.mouseMoveListeners.length; i++) {
+            const listener = document.mouseMoveListeners[i]
+            if (typeof listener.mouseUpNotify === "function") {
+                listener.mouseUpNotify(event)
+            }
+        }
+    }
+
     bindGlobalFunctions() {
         const parent = this
         document.select = function (item) {
@@ -145,7 +155,8 @@ export class App {
         document.addSelectListener = this.addSelectListener
 
         document.mouseMoveListeners = []
-        document.addMouseMoveListener = this.addMouseMoveListener
+        document.addMouseListener = this.addMouseMoveListener
+
 
         document.idCounter = 0;
         document.getID = function () {

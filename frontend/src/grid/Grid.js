@@ -1,6 +1,9 @@
 import {DOM} from "../elements/dom/DOM.js";
+import {equalsArrays} from "../utils/Utils.js";
 
 export class Grid extends DOM {
+
+    lastOverlappedBlocks = []
 
     createElement() {
         this.element = document.createElement("div");
@@ -15,7 +18,26 @@ export class Grid extends DOM {
         }
     }
 
+    overlapBlocks(overlappedBlocks) {
+        if (!equalsArrays(this.lastOverlappedBlocks, overlappedBlocks)) {
+            this.lastOverlappedBlocks.forEach((block) => {
+                block.onDragLeave()
+            })
+        }
+
+        overlappedBlocks.forEach((block) => {
+            block.onDragEnter()
+        })
+
+        this.lastOverlappedBlocks = overlappedBlocks
+    }
+
     getBlockByPosition(position) {
+
+        if (position.x < 0 || position.y < 0) {
+            return undefined
+        }
+
         const index = position.x + position.y * this.columns
         return this.blocks[index]
     }

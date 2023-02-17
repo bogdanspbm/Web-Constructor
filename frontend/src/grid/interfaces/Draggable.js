@@ -35,7 +35,7 @@ export class Draggable extends GridContent {
     }
 
     setDragEnabled(flag) {
-        this.draggable.setAttribute("draggable", flag.toS)
+        this.draggable.setAttribute("draggable", flag.toString())
     }
 
     getOverlappedBlocks(target) {
