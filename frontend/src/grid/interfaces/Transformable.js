@@ -60,7 +60,7 @@ export class Transformable extends Draggable {
             return
         }
 
-        this.mouseUpFunction(event)
+        resizing.mouseUpFunction(event)
     }
 
     resizeOnTransform(event) {
@@ -76,7 +76,7 @@ export class Transformable extends Draggable {
 
         const blockSize = this.parent.getBlockSize()
         const originalSize = {
-            width: blockSize.width * this.originalGridSize.x, height: blockSize.height + this.originalGridSize.y
+            width: blockSize.width * this.originalGridSize.x, height: blockSize.height * this.originalGridSize.y
         }
 
 
@@ -158,6 +158,13 @@ export class Transformable extends Draggable {
         return target
     }
 
+    fixSizeOnResize() {
+        this.transformElement.style.width = this.gridSize.x * this.parent.getBlockSize().width + 'px'
+        this.transformElement.style.top = '0px'
+        this.transformElement.style.height = this.gridSize.y * this.parent.getBlockSize().height + 'px'
+        this.transformElement.style.left = '0px'
+    }
+
     setGridSize(size) {
         this.gridSize = {
             x: Math.ceil(size.width / this.parent.getBlockSize().width),
@@ -214,16 +221,20 @@ export class Transformable extends Draggable {
                 parent.originalGridSize = parent.gridSize
             })
 
-            resizer.addEventListener("mouseup", this.mouseUpFunction)
+            resizer.addEventListener("mouseup", function (event) {
+                parent.mouseUpFunction(event, parent)
+            })
         }
     }
 
-    mouseUpFunction(event) {
+    mouseUpFunction(event, target) {
 
-        if (typeof this.setDragEnabled === "function") {
-            this.setDragEnabled(true)
+        if (target === undefined) {
+            target = this
         }
 
+        target.setDragEnabled(true)
+        target.fixSizeOnResize()
 
         // Clear global data
         document.resizer = undefined
