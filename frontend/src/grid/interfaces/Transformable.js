@@ -137,8 +137,8 @@ export class Transformable extends Draggable {
 
         document.dragTarget = this.getDragTarget({x: deltaX, y: deltaY})
         const overlappedBlocks = this.getOverlappedBlocks()
-
-        document.grid.overlapBlocks(overlappedBlocks)
+        const color = this.getOverlapCondition() ? undefined : "#fff1f0"
+        document.grid.overlapBlocks(overlappedBlocks, color)
     }
 
     getDragTarget(offset) {
@@ -162,6 +162,13 @@ export class Transformable extends Draggable {
         this.transformElement.style.width = this.gridSize.x * this.parent.getBlockSize().width + 'px'
         this.transformElement.style.top = '0px'
         this.transformElement.style.height = this.gridSize.y * this.parent.getBlockSize().height + 'px'
+        this.transformElement.style.left = '0px'
+    }
+
+    fixOriginalSize() {
+        this.transformElement.style.width = this.originalGridSize.x * this.parent.getBlockSize().width + 'px'
+        this.transformElement.style.top = '0px'
+        this.transformElement.style.height = this.originalGridSize.y * this.parent.getBlockSize().height + 'px'
         this.transformElement.style.left = '0px'
     }
 
@@ -234,8 +241,14 @@ export class Transformable extends Draggable {
         }
 
         target.setDragEnabled(true)
-        target.fixSizeOnResize()
-        target.attachToLastDragTarget()
+
+        if (target.getOverlapCondition()) {
+            target.fixSizeOnResize()
+            target.attachToLastDragTarget()
+        } else {
+            target.fixOriginalSize()
+        }
+
 
         // Clear global data
         document.resizer = undefined

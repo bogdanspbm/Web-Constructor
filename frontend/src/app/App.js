@@ -135,7 +135,6 @@ export class App {
         for (let i = 0; i < document.mouseMoveListeners.length; i++) {
             const listener = document.mouseMoveListeners[i]
             if (typeof listener.mouseUpNotify === "function") {
-                console.log(listener)
                 listener.mouseUpNotify(event)
             }
         }

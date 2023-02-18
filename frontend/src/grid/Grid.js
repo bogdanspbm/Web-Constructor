@@ -18,7 +18,7 @@ export class Grid extends DOM {
         }
     }
 
-    overlapBlocks(overlappedBlocks) {
+    overlapBlocks(overlappedBlocks, color) {
         if (!equalsArrays(this.lastOverlappedBlocks, overlappedBlocks)) {
             this.lastOverlappedBlocks.forEach((block) => {
                 block.onDragLeave()
@@ -26,7 +26,7 @@ export class Grid extends DOM {
         }
 
         overlappedBlocks.forEach((block) => {
-            block.onDragEnter()
+            block.onDragEnter(color)
         })
 
         this.lastOverlappedBlocks = overlappedBlocks
@@ -95,25 +95,18 @@ export class GridBlock extends DOM {
         const width = parseFloat(getComputedStyle(this.element, null).getPropertyValue('width').replace('px', ''))
         const height = parseFloat(getComputedStyle(this.element, null).getPropertyValue('height').replace('px', ''))
 
-        return {width: width, height: height}
+        return {width: width + 1, height: height + 1}
     }
 
 
     bindEvents() {
         const parent = this
         this.element.addEventListener('dragenter', function (event) {
-            document.dragTarget = parent
-            const dragging = document.dragging
-
-            if (dragging === undefined) {
+            if (parent.children.length !== 0) {
                 return
             }
 
-            const blocks = dragging.getOverlappedBlocks()
-
-            blocks.forEach((block) => {
-                block.onDragEnter()
-            })
+            parent.dragEnterEvent(event, parent)
         })
 
         this.element.addEventListener("dragover", function (event) {
@@ -121,20 +114,52 @@ export class GridBlock extends DOM {
         })
 
         this.element.addEventListener('dragleave', function (event) {
-            const dragging = document.dragging
-
-            if (dragging === undefined) {
+            if (parent.children.length !== 0) {
                 return
             }
+            parent.dragLeaveEvent(event, parent)
+        })
+    }
 
-            const blocks = dragging.getOverlappedBlocks(parent)
-            blocks.forEach((block) => {
-                block.onDragLeave()
-            })
+    dragEnterEvent(event, parent) {
+        if (parent === undefined) {
+            parent = this
+        }
+
+        document.dragTarget = parent
+        const dragging = document.dragging
+
+        if (dragging === undefined) {
+            return
+        }
+
+        const blocks = dragging.getOverlappedBlocks()
+        const color = dragging.getOverlapCondition() ? undefined : "#fff1f0"
+
+        blocks.forEach((block) => {
+            block.onDragEnter(color)
+        })
+    }
+
+    dragLeaveEvent(event, parent) {
+        if (parent === undefined) {
+            parent = this
+        }
+
+        const dragging = document.dragging
+
+        if (dragging === undefined) {
+            return
+        }
+
+        const blocks = dragging.getOverlappedBlocks(parent)
+        blocks.forEach((block) => {
+            block.onDragLeave()
         })
     }
 
     onDragEnter(color) {
+
         if (color === undefined) {
             color = "#F7F7F7"
         }

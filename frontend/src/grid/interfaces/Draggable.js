@@ -29,6 +29,10 @@ export class Draggable extends GridContent {
         })
 
         this.draggable.addEventListener("dragend", function (event) {
+            if (!parent.getOverlapCondition()) {
+                document.grid.overlapBlocks([])
+                return
+            }
             parent.attachToLastDragTarget()
             document.dragging = undefined
         })
@@ -36,6 +40,19 @@ export class Draggable extends GridContent {
 
     setDragEnabled(flag) {
         this.draggable.setAttribute("draggable", flag.toString())
+    }
+
+    getOverlapCondition() {
+        const blocks = this.getOverlappedBlocks()
+        var overlappedCount = 0
+
+        blocks.forEach((block) => {
+            if (block.children.length > 0 && block !== this.parent) {
+                overlappedCount++
+            }
+        })
+
+        return overlappedCount === 0
     }
 
     getOverlappedBlocks(target) {

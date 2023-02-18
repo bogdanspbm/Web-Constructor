@@ -7,6 +7,17 @@
     background: #4096ff;
 }
 
+.input-component {
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: #D7D7D7 solid 1px;
+}
+
+.input-component:hover {
+    background: #FFFFFF;
+    border: #4096ff solid 1px;
+}
+
 .resizable {
     resize: both;
     width: calc(100%);

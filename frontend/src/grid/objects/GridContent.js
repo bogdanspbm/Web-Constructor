@@ -4,6 +4,10 @@ import {GridBlock} from "../Grid.js";
 export class GridContent extends Selectable {
     gridSize = {x: 1, y: 1}
 
+    constructor(elements) {
+        super(elements);
+    }
+
     setParent(parent) {
         if (!parent instanceof GridBlock) {
             return this

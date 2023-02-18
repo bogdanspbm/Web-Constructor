@@ -1,6 +1,6 @@
 import {Collapse, CollapseItem} from "../../../elements/default/Collapse.js";
 import {Button} from "../../../elements/default/Button.js";
-import {ButtonComponent} from "../../../grid/objects/Component.js";
+import {ButtonComponent, InputComponent} from "../../../grid/objects/Component.js";
 
 export class InputsTool extends Collapse {
     createElement() {
@@ -15,7 +15,10 @@ export class InputsTool extends Collapse {
             })]);
         this.input = new CollapseItem([new Button()
             .setText("Input")
-            .setAttribute("margin-left", buttonLeftPadding)]);
+            .setAttribute("margin-left", buttonLeftPadding)
+            .addClickEvent(() => {
+                document.grid.append(new InputComponent());
+            })]);
         this.selector = new CollapseItem([new Button()
             .setText("Selector")
             .setAttribute("margin-left", buttonLeftPadding)]);
