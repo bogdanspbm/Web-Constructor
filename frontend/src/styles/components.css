@@ -7,9 +7,28 @@
     background: #4096ff;
 }
 
+.button-component-text {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+
+    height: calc(100%);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+
 .input-component {
     background: #FFFFFF;
     border-radius: 5px;
+    padding-left: 8px;
     border: #D7D7D7 solid 1px;
 }
 

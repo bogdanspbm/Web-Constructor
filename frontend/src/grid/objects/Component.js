@@ -1,4 +1,5 @@
 import {Transformable} from "../interfaces/Transformable.js";
+import {Div} from "../../elements/dom/DOM.js";
 
 export class Component extends Transformable {
 }
@@ -13,6 +14,15 @@ export class ButtonComponent extends Component {
         this.setAttribute("margin-left", "5px")
         this.setAttribute("margin-right", "5px")
         this.setStyle("button-component")
+
+        this.text = new Div().setStyle("button-component-text")
+
+        this.append(this.text)
+    }
+
+    setText(text) {
+        this.text.setText(text)
+        return this;
     }
 }
 

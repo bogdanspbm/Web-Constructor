@@ -8,6 +8,7 @@ export class Toolbar extends DOM {
         this.setStyle("toolbar")
 
         this.header = new Div().setText("Tools").setStyle("sub-header")
+        this.header.setAttribute("padding-bottom", "6px").setAttribute("padding-left", "4px")
         this.append(this.header);
 
         this.inputsTool = new InputsTool().setText("Inputs");

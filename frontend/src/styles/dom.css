@@ -17,7 +17,10 @@
 }
 
 .button-text {
-    font-family: "Calibri Light", sans-serif;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -26,8 +29,12 @@
     user-select: none;
 }
 
+
 .unselectable {
-    font-family: "Calibri", sans-serif;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
