@@ -42,26 +42,47 @@ export class Grid extends DOM {
         return this.blocks[index]
     }
 
-    canAppend() {
+
+    getBlockedBlocks() {
+        let blockedBlocks = []
+
         for (let i = 0; i < this.blocks.length; i++) {
             const block = this.blocks[i]
-            if (block.canAppend()) {
-                return true
+            if (block.canAppend() || block.children.length === 0) {
+                continue
             }
+
+            console.log(block.children[0])
+
+            const smallBlockedBlocks = block.children[0].getOverlappedBlocks(block)
+            smallBlockedBlocks.forEach(smallBlock => blockedBlocks.push(smallBlock))
+        }
+
+        return blockedBlocks
+    }
+
+    canAppend() {
+        let blockedBlocks = this.getBlockedBlocks()
+
+        if (blockedBlocks.length !== this.blocks.length) {
+            return true
         }
 
         return false
     }
 
     getElementToAppend() {
+        let blockedBlocks = this.getBlockedBlocks()
+
         for (let i = 0; i < this.blocks.length; i++) {
             const block = this.blocks[i]
-            if (block.canAppend()) {
-                return block;
+
+            if (blockedBlocks.indexOf(block) === -1) {
+                return block
             }
         }
 
-        return undefined;
+        return undefined
     }
 
     append(element) {
