@@ -105,3 +105,20 @@
     bottom: -5px;
     cursor: nwse-resize;
 }
+
+.text-component {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    text-align: center;
+    vertical-align: middle;
+    color: #7D7D7D;
+
+    height: calc(100%);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}

@@ -11,10 +11,22 @@ export class TextDetail extends DOM {
         this.append(this.header)
 
         this.input = new Input()
+
         this.input.setOnChangeEvent(function (event) {
             const value = event.target.value
             document.selected.setText(value)
         })
+
         this.append(this.input)
+        this.setInitText()
+    }
+
+    setInitText() {
+        if (document.selected === undefined) {
+            return
+        }
+
+        const text = document.selected.savedText
+        this.input.element.value = text
     }
 }

@@ -14,6 +14,8 @@ export class DOM {
 
     parent = undefined
 
+    savedText = ""
+
     /**
      * @param {DOM[]} elements
      */
@@ -60,6 +62,7 @@ export class DOM {
      * @param {string} text
      */
     setText(text) {
+        this.savedText = text
         this.element.textContent = text;
         return this;
     }

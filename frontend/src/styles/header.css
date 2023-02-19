@@ -11,7 +11,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
-    line-height: 30px;
+    line-height: calc(125%);
 
     padding-left: 20px;
 
@@ -33,7 +33,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
-    line-height: 22px;
+    line-height: calc(125%);
     /* identical to box height, or 157% */
 
 
@@ -69,7 +69,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    line-height: 22px;
+    line-height: calc(125%);
     /* identical to box height, or 157% */
 
 

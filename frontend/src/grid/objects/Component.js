@@ -38,3 +38,18 @@ export class InputComponent extends Component {
         this.setStyle("input-component")
     }
 }
+
+export class TextComponent extends Component {
+    constructor(elements) {
+        super(elements);
+        this.setAttribute("")
+        this.setAttribute("width", "calc(100% - 10px)")
+        this.setAttribute("height", "calc(100% - 10px)")
+        this.setAttribute("margin-bottom", "6px")
+        this.setAttribute("margin-top", "5px")
+        this.setAttribute("margin-left", "9px")
+        this.setAttribute("margin-right", "5px")
+        this.setText("Text")
+        this.setStyle("text-component")
+    }
+}
