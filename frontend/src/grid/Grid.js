@@ -155,11 +155,10 @@ export class GridBlock extends DOM {
         }
 
         const blocks = dragging.getOverlappedBlocks()
+
         const color = dragging.getOverlapCondition() ? undefined : "#fff1f0"
 
-        blocks.forEach((block) => {
-            block.onDragEnter(color)
-        })
+        document.grid.overlapBlocks(blocks, color)
     }
 
     dragLeaveEvent(event, parent) {

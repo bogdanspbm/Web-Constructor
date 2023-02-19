@@ -92,6 +92,8 @@ export class Draggable extends GridContent {
             return false;
         }
 
+        document.grid.overlapBlocks([])
+
         target.append(this)
         return true
     }
