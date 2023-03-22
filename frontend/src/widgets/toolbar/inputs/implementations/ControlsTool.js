@@ -1,6 +1,7 @@
 import { ToolbarExpand } from "../ToolbarExpand.js";
 import { ToolbarButton } from "../ToolbarButton.js";
 import {
+  ButtonComponent,
   InputComponent,
   TextComponent,
 } from "../../../../grid/objects/Component.js";
@@ -11,17 +12,22 @@ export class ControlsTool extends ToolbarExpand {
     this.setText("Controls");
 
     this.inputButton = new ToolbarButton()
-      .setText("Input")
+      .addIcon("./../resources/icons/ic_input_40x40.svg")
+      .setText("Input Component")
       .addClickEvent(() => {
         document.grid.append(new InputComponent());
       });
 
-    this.textButton = new ToolbarButton().setText("Text").addClickEvent(() => {
-      document.grid.append(new TextComponent());
-    });
+    this.textButton = new ToolbarButton()
+      .addIcon("./../resources/icons/ic_text_40x40.svg")
+      .setText("Text Component")
+      .addClickEvent(() => {
+        document.grid.append(new TextComponent());
+      });
 
     this.buttonButton = new ToolbarButton()
-      .setText("Button")
+      .addIcon("./../resources/icons/ic_button_40x40.svg")
+      .setText("Button Component")
       .addClickEvent(() => {
         document.grid.append(new ButtonComponent());
       });

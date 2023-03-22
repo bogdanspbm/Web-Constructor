@@ -9,13 +9,46 @@
 }
 
 .toolbar-button {
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
     background: white;
     border-radius: 10px;
+
+    align-items: center;
 
     width: 125px;
     height: 90px;
 }
+
+.toolbar-button-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    margin-bottom: auto;
+    margin-top: 12px;
+}
+
+.toolbar-button-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 125%;
+
+    text-align: center;
+    width: 70px;
+
+    margin-bottom: 10px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 
 .toolbar-grid {
     padding: 10px;
