@@ -32,7 +32,10 @@ export class Draggable extends GridContent {
     });
 
     this.draggable.addEventListener("dragend", function (event) {
-      if (typeof parent.setControllersVisibility !== "undefined") {
+      if (
+        typeof parent.setControllersVisibility !== "undefined" &&
+        document.selected == parent
+      ) {
         parent.setOutlineVisibility(true);
         parent.setControllersVisibility("visible");
       }
