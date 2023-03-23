@@ -3,7 +3,7 @@
 .header {
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 64px;
     background: #2E2E2E;
     color: white;
 
@@ -110,8 +110,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px
+    width: 64px;
+    height: 64px
 }
 
 .button-header:hover {

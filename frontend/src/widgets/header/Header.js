@@ -13,7 +13,7 @@ export class Header extends Div {
         this.append(this.mainControls);
 
         this.databaseTab = new DatabaseTabs()
-        this.databaseControl = new HeaderDropdown(this.databaseTab, "./../resources/icons/ic_database_40x40.svg").setAttribute("margin-left", "180px").setAttribute("z-index", "2").setAttribute("height", "48px");
+        this.databaseControl = new HeaderDropdown(this.databaseTab, "./../resources/icons/ic_database_40x40.svg").setAttribute("margin-left", "180px").setAttribute("z-index", "2").setAttribute("height", "64px");
         this.append(this.databaseControl);
 
         this.detailsControls = new HeaderDetails();

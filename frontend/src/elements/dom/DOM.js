@@ -58,6 +58,16 @@ export class DOM {
         return this;
     }
 
+    setTag(key, value, element) {
+
+        if (!element) {
+            element = "element";
+        }
+
+        this[element].setAttribute(key, value);
+        return this;
+    }
+
     /**
      * @param {string} text
      */

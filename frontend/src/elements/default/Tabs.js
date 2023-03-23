@@ -1,4 +1,5 @@
-import {DOM, Input, Label} from "../dom/DOM.js";
+import {Div, DOM} from "../dom/DOM.js";
+import {Button} from "./Button.js";
 
 export class Tabs extends DOM {
 
@@ -9,17 +10,28 @@ export class Tabs extends DOM {
             return
         }
 
+        const parent = this
+
         for (let i = 0; i < elements.length; i++) {
-            const element = elements[0]
-            this.append(element.getTabButton(i))
-            this.append(element.getTabLabel(i))
-            this.append(element)
+            const element = elements[i]
+            this.tabs.append(element.getTabButton())
+            this.content.append(element)
         }
+    }
+
+    hideContent() {
+        this.content.children.forEach(child => {
+            child.setAttribute("display", "none")
+        })
     }
 
     createElement() {
         super.createElement();
-        this.setStyle("tabs")
+        this.setStyle("tabs-container")
+        this.tabs = new Div().setStyle("tabs")
+        this.append(this.tabs)
+        this.content = new Div().setStyle("tab-content-container")
+        this.append(this.content)
     }
 
 }
@@ -32,21 +44,18 @@ export class Tab extends DOM {
 
     createElement() {
         super.createElement();
+        this.setStyle("tab-content")
+        this.setAttribute("display", "none")
     }
 
-    getTabButton(index) {
-        let button = new Input()
-        button.setAttribute("name", "tab-btn")
-        button.setAttribute("id", "tab-btn-" + index)
-        button.setAttribute("value", "")
+    getTabButton() {
+        const parent = this
+        let button = new Button().setText(this.tabName).setStyle("tab")
+        button.addClickEvent(action => {
+            parent.parent.children.forEach(tab => tab.setAttribute("display", "none"))
+            parent.setAttribute("display", "block")
+        })
         return button
     }
 
-    getTabLabel(index) {
-        let label = new Label()
-        label.setAttribute("name", "tab-btn")
-        label.setAttribute("for", "tab-btn-" + index)
-        label.setText(this.tabName)
-        return label
-    }
 }
