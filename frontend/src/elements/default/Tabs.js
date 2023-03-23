@@ -5,6 +5,10 @@ export class Tabs extends DOM {
     constructor(elements) {
         super();
 
+        if (elements === undefined) {
+            return
+        }
+
         for (let i = 0; i < elements.length; i++) {
             const element = elements[0]
             this.append(element.getTabButton(i))
@@ -15,7 +19,7 @@ export class Tabs extends DOM {
 
     createElement() {
         super.createElement();
-        this.element.setStyle("tabs")
+        this.setStyle("tabs")
     }
 
 }
