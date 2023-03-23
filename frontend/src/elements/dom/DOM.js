@@ -126,8 +126,10 @@ export class DOM {
 
     /**
      * @param {DOM} element
+     * @param {Number} index
      */
-    append(element) {
+    append(element, index) {
+
 
         if (!this.canAppend()) {
             return this
@@ -135,9 +137,18 @@ export class DOM {
 
         element.setParent(this);
         this.children.push(element)
-        this.getElementToAppend().appendChild(element.getDOM());
+
+        const parent = this.getElementToAppend()
+
+        if (index === undefined || this.children.length === 0) {
+            parent.appendChild(element.getDOM());
+        } else {
+            parent.insertBefore(element.getDOM(), parent.children[index]);
+        }
+
         return this;
     }
+
 
     /**
      * @returns {HTMLElementTagNameMap}
@@ -150,3 +161,14 @@ export class DOM {
 export class Div extends DOM {
 }
 
+export class Input extends DOM {
+    createElement() {
+        this.element = document.createElement("input");
+    }
+}
+
+export class Label extends DOM {
+    createElement() {
+        this.element = document.createElement("label");
+    }
+}

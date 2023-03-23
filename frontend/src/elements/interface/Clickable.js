@@ -1,51 +1,54 @@
-import { DOM } from "../dom/DOM.js";
+import {DOM} from "../dom/DOM.js";
 
 export class Clickable extends DOM {
-  clickAction;
-  active = true;
+    clickAction;
+    active = true;
 
-  constructor(elements) {
-    super(elements);
-    this.bindClickEvent();
-  }
-
-  setActive(flag) {
-    if (this.active === flag) {
-      return;
+    constructor(elements) {
+        super(elements);
+        this.bindClickEvent();
     }
 
-    this.active = flag;
-
-    if (flag) {
-      this.onActiveEvent();
-    } else {
-      this.onDeactivateEvent();
-    }
-  }
-
-  onActiveEvent() {}
-
-  onDeactivateEvent() {}
-
-  bindClickEvent() {
-    const parent = this;
-    this.element.addEventListener(
-      "click",
-      function () {
-        if (parent.clickAction === undefined) {
-          return;
+    setActive(flag) {
+        if (this.active === flag) {
+            return;
         }
-        parent.clickAction();
-      },
-      false
-    );
-  }
 
-  addClickEvent(action) {
-    if (!this.active) {
-      return;
+        this.active = flag;
+
+        if (flag) {
+            this.onActiveEvent();
+        } else {
+            this.onDeactivateEvent();
+        }
     }
-    this.clickAction = action;
-    return this;
-  }
+
+    onActiveEvent() {
+    }
+
+    onDeactivateEvent() {
+    }
+
+    bindClickEvent() {
+        const parent = this;
+        this.element.addEventListener(
+            "click",
+            function () {
+                if (parent.clickAction === undefined) {
+                    return;
+                }
+                if (!parent.active) {
+                    return;
+                }
+
+                parent.clickAction();
+            },
+            false
+        );
+    }
+
+    addClickEvent(action) {
+        this.clickAction = action;
+        return this;
+    }
 }
