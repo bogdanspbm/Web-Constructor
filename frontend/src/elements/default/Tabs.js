@@ -50,12 +50,21 @@ export class Tab extends DOM {
 
     getTabButton() {
         const parent = this
-        let button = new Button().setText(this.tabName).setStyle("tab")
-        button.addClickEvent(action => {
-            parent.parent.children.forEach(tab => tab.setAttribute("display", "none"))
-            parent.setAttribute("display", "block")
+        this.button = new Button().setText(this.tabName).setStyle("tab")
+        this.button.addClickEvent(action => {
+            parent.parent.children.forEach(tab => tab.setUnselect())
+            parent.setSelect()
         })
-        return button
+        return this.button
     }
 
+    setUnselect() {
+        this.setAttribute("display", "none")
+        this.button.setStyle("tab")
+    }
+
+    setSelect() {
+        this.setAttribute("display", "block")
+        this.button.setStyle("tab-selected")
+    }
 }
