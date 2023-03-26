@@ -23,6 +23,16 @@ summary {
 }
 
 
+.container-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     display: flex;
     height: calc(100vh - 60px);

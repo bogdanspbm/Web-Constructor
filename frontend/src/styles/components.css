@@ -1,5 +1,10 @@
 .button-component {
     background: #1677ff;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     border-radius: 5px;
 }
 
@@ -17,7 +22,7 @@
     vertical-align: middle;
     color: white;
 
-    height: calc(100%);
+    line-height: 125%;
 
     font-family: 'Inter';
     font-style: normal;
