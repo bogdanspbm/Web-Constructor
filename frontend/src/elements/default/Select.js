@@ -16,6 +16,6 @@ export class Option extends DOM {
     }
     createElement() {
         this.element = document.createElement("option");
-        this.setStyle("selector-option")
+        this.setStyle("option")
     }
 }
