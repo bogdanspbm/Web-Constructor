@@ -58,6 +58,17 @@ export class DOM {
         return this;
     }
 
+    clearAttribute(key, value, element) {
+        this.styles[key] = undefined;
+
+        if (!element) {
+            element = "element";
+        }
+
+        this[element].setAttribute("style", attributeFromMap(this.styles));
+        return this;
+    }
+
     setTag(key, value, element) {
 
         if (!element) {

@@ -1,0 +1,18 @@
+.input-bar {
+
+    height: 26px;
+
+    background: #FAFAFA;
+    border-radius: 15px;
+    border: none;
+    width: calc(100% - 20px);
+
+    padding: 10px;
+}
+
+.input-bar:hover {
+}
+
+.input-bar:focus {
+    outline: #1677ff solid 2px;
+}
