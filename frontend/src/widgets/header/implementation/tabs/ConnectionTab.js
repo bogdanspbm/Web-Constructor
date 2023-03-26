@@ -5,7 +5,7 @@ import {Input} from "../../../common/Input.js";
 
 export class ConnectionTab extends Tab {
     constructor() {
-        super("Select");
+        super("Connect");
     }
 
     createElement() {
