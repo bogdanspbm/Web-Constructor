@@ -3,7 +3,7 @@
 .header {
     display: flex;
     align-items: center;
-    height: 64px;
+    height: 50px;
     background: #2E2E2E;
     color: white;
 
@@ -12,8 +12,6 @@
     font-weight: 700;
     font-size: 32px;
     line-height: calc(125%);
-
-    padding-left: 20px;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -101,7 +99,6 @@
 
 
 .controls-header {
-    margin-left: calc(50vw - 300px);
     display: flex;
     flex-direction: row;
 }
@@ -110,10 +107,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px
+    width: 50px;
+    height: 50px
 }
 
 .button-header:hover {
     background: black;
+}
+
+.header-selection-tab {
+    height: 90px;
+    padding: 20px;
 }

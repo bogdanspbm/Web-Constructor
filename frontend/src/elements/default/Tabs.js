@@ -17,6 +17,10 @@ export class Tabs extends DOM {
             this.tabs.append(element.getTabButton())
             this.content.append(element)
         }
+
+        if(elements.length > 0){
+            elements[0].setSelect()
+        }
     }
 
     hideContent() {
