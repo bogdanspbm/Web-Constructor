@@ -1,12 +1,13 @@
-package utils
+package adapters
 
 import (
+	"backend/src/utils/ssh"
 	"database/sql"
 	"fmt"
 	"github.com/jmoiron/sqlx"
 )
 
-var sshTunnel SSH
+var sshTunnel ssh.SSH
 
 type DBConnect struct {
 	Ip       string `json:"ip"`
@@ -18,7 +19,7 @@ type DBConnect struct {
 	db *sqlx.DB
 }
 
-func InitConnection(tunnel SSH) {
+func InitConnection(tunnel ssh.SSH) {
 	sshTunnel = tunnel
 }
 
@@ -26,9 +27,9 @@ func (client *DBConnect) Open() error {
 
 	driver := "postgres"
 
-	if sshTunnel.client != nil {
+	if sshTunnel.Client != nil {
 		driver = "postgres+ssh"
-		sql.Register(driver, &ViaSSHDialer{sshTunnel.client})
+		sql.Register(driver, &ssh.ViaSSHDialer{sshTunnel.Client})
 	}
 
 	db, err := sqlx.Open(driver, fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", client.User, client.Password, client.Ip, client.Port, client.Database))

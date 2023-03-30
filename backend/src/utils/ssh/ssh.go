@@ -1,4 +1,4 @@
-package utils
+package ssh
 
 import (
 	"database/sql/driver"
@@ -24,12 +24,12 @@ type SSH struct {
 	Port      int
 	Signer    ssh.Signer
 	PublicKey ssh.PublicKey
-	session   *ssh.Session
-	client    *ssh.Client
+	Session   *ssh.Session
+	Client    *ssh.Client
 }
 
 type ViaSSHDialer struct {
-	client *ssh.Client
+	Client *ssh.Client
 }
 
 func (self *ViaSSHDialer) Open(s string) (_ driver.Conn, err error) {
@@ -37,11 +37,11 @@ func (self *ViaSSHDialer) Open(s string) (_ driver.Conn, err error) {
 }
 
 func (self *ViaSSHDialer) Dial(network, address string) (net.Conn, error) {
-	return self.client.Dial(network, address)
+	return self.Client.Dial(network, address)
 }
 
 func (self *ViaSSHDialer) DialTimeout(network, address string, timeout time.Duration) (net.Conn, error) {
-	return self.client.Dial(network, address)
+	return self.Client.Dial(network, address)
 }
 
 func (sshClient *SSH) readPublicKeyFile(file string) ssh.AuthMethod {
@@ -89,14 +89,14 @@ func (sshClient *SSH) Connect(mode int) error {
 		return err
 	}
 
-	sshClient.session = session
-	sshClient.client = client
+	sshClient.Session = session
+	sshClient.Client = client
 
 	return nil
 }
 
 func (sshClient *SSH) RunCmd(cmd string) {
-	out, err := sshClient.session.CombinedOutput(cmd)
+	out, err := sshClient.Session.CombinedOutput(cmd)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -104,6 +104,6 @@ func (sshClient *SSH) RunCmd(cmd string) {
 }
 
 func (sshClient *SSH) Close() {
-	sshClient.session.Close()
-	sshClient.client.Close()
+	sshClient.Session.Close()
+	sshClient.Client.Close()
 }

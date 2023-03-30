@@ -3,11 +3,15 @@ import {HeaderControls} from "./implementation/HeaderControls.js";
 import {HeaderDetails} from "./implementation/HeaderDetails.js";
 import {HeaderDropdown} from "./HeaderDropdown.js";
 import {DatabaseTabs} from "./implementation/DatabaseTabs.js";
+import {HeaderButton} from "./HeaderButton.js";
 
 export class Header extends Div {
     createElement() {
         super.createElement();
         this.setStyle("header");
+
+        this.files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
+        this.append(this.files);
 
         this.mainControls = new HeaderControls();
         this.append(this.mainControls);
