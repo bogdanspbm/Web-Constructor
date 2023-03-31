@@ -1,7 +1,7 @@
 import {Tab, Tabs} from "../../../elements/default/Tabs.js";
 import {DOM} from "../../../elements/dom/DOM.js";
-import {SelectionTab} from "./tabs/SelectionTab.js";
-import {ConnectionTab} from "./tabs/ConnectionTab.js";
+import {SelectionTab} from "./implementation/SelectionTab.js";
+import {ConnectionTab} from "./implementation/ConnectionTab.js";
 
 export class DatabaseTabs extends DOM {
 

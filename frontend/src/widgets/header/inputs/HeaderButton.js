@@ -1,5 +1,5 @@
-import { Button } from "../../elements/default/Button.js";
-import { Icon } from "../../elements/icon/Icon.js";
+import { Button } from "../../../elements/default/Button.js";
+import { Icon } from "../../../elements/icon/Icon.js";
 
 export class HeaderButton extends Button {
   constructor(path) {

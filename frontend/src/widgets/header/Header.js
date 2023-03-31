@@ -1,9 +1,9 @@
 import {Div} from "../../elements/dom/DOM.js";
-import {HeaderControls} from "./implementation/HeaderControls.js";
-import {HeaderDetails} from "./implementation/HeaderDetails.js";
-import {HeaderDropdown} from "./HeaderDropdown.js";
-import {DatabaseTabs} from "./implementation/DatabaseTabs.js";
-import {HeaderButton} from "./HeaderButton.js";
+import {HeaderControls} from "./inputs/HeaderControls.js";
+import {HeaderDetails} from "./inputs/HeaderDetails.js";
+import {HeaderDropdown} from "./dropdown/HeaderDropdown.js";
+import {DatabaseTabs} from "./tabs/DatabaseTabs.js";
+import {HeaderButton} from "./inputs/HeaderButton.js";
 
 export class Header extends Div {
     createElement() {

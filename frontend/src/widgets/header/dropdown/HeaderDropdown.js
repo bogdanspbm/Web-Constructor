@@ -1,5 +1,5 @@
-import {Icon} from "../../elements/icon/Icon.js";
-import {Dropdown} from "../../elements/default/Dropdown.js";
+import {Icon} from "../../../elements/icon/Icon.js";
+import {Dropdown} from "../../../elements/default/Dropdown.js";
 
 export class HeaderDropdown extends Dropdown {
     constructor(content, path) {

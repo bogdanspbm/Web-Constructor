@@ -1,5 +1,5 @@
 import { Div } from "../../../elements/dom/DOM.js";
-import { HeaderButton } from "../HeaderButton.js";
+import { HeaderButton } from "./HeaderButton.js";
 
 export class HeaderDetails extends Div {
   createElement() {
