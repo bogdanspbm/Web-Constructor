@@ -18,3 +18,10 @@
     background: white;
     border-bottom: solid 1px #F7F7F7;
 }
+
+
+.details-tabs {
+    background: white;
+    width: 280px;
+    min-height: 130px;
+}

@@ -1,5 +1,6 @@
 import {DOM} from "../../elements/dom/DOM.js";
 import {TextDetail} from "./inputs/TextDetail.js";
+import {DetailsTabs} from "./tabs/DetailsTabs.js";
 
 export class Details extends DOM {
 
@@ -7,12 +8,12 @@ export class Details extends DOM {
         super.createElement();
         this.setStyle("details")
 
-        this.header = new DOM().setText("Details").setStyle("sub-header")
-        this.header.setAttribute("padding", "14px").setAttribute("border-bottom", "solid 1px #F7F7F7")
+        this.tabs = new DetailsTabs()
+        this.append(this.tabs)
 
-        this.generateEditors()
+        //this.generateEditors()
 
-        document.addSelectListener(this)
+        //document.addSelectListener(this)
     }
 
     clear() {

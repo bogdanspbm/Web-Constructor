@@ -6,6 +6,7 @@
 
     border-right: 1px solid #eee;
     width: 300px;
+    min-width: 300px;
 }
 
 .toolbar-button {
@@ -59,6 +60,7 @@
 
 .toolbar-tabs {
     background: white;
+    min-width: 300px;
     width: 300px;
     min-height: 130px;
 }
