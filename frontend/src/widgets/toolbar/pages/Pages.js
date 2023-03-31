@@ -13,19 +13,19 @@ export class Pages extends DOM {
         this.pagesScroll = new DOM().setStyle("pages-scroll")
         this.append(this.pagesScroll)
 
-        this.mainPage = new PageButton().setText("Main")
+        this.mainPage = new PageButton()
         this.pagesScroll.append(this.mainPage)
 
-        this.mainPageB = new PageButton().setText("Main")
+        this.mainPageB = new PageButton()
         this.pagesScroll.append(this.mainPageB)
 
-        this.mainPageC = new PageButton().setText("Main")
+        this.mainPageC = new PageButton()
         this.pagesScroll.append(this.mainPageC)
 
-        this.mainPageD = new PageButton().setText("Main")
+        this.mainPageD = new PageButton()
         this.pagesScroll.append(this.mainPageD)
 
-        this.mainPageE = new PageButton().setText("Main")
+        this.mainPageE = new PageButton()
         this.pagesScroll.append(this.mainPageE)
     }
 }
