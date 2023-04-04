@@ -7,5 +7,6 @@ export class PagesHeader extends DOM {
 
         this.header = new DOM().setText("Pages").setStyle("small-header")
         this.append(this.header)
+
     }
 }

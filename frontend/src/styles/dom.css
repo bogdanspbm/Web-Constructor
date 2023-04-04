@@ -48,3 +48,14 @@
 .button:hover {
     background: #EEEEEE;
 }
+
+.button-light {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    width: max-content;
+}
+
+.button-light:hover {
+    background: #EEEEEE;
+}

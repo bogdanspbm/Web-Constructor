@@ -59,11 +59,20 @@ export class App {
         }
     }
 
-    notifyPageListener(event) {
+    notifyPageChangeListener(event) {
         for (let i = 0; i < document.pageListeners.length; i++) {
             const listener = document.pageListeners[i];
             if (typeof listener.pageChangeNotify === "function") {
                 listener.pageChangeNotify(event);
+            }
+        }
+    }
+
+    notifyPageCreateListener(event) {
+        for (let i = 0; i < document.pageListeners.length; i++) {
+            const listener = document.pageListeners[i];
+            if (typeof listener.pageCreateNotify === "function") {
+                listener.pageCreateNotify(event);
             }
         }
     }
@@ -91,7 +100,13 @@ export class App {
 
         document.openPage = function (page) {
             document.page = page
-            parent.notifyPageListener(page)
+            parent.notifyPageChangeListener(page)
+        }
+
+        document.pages = [];
+        document.createPage = function (page) {
+            document.pages.push(page)
+            parent.notifyPageCreateListener(page)
         }
 
         document.selectListeners = [];

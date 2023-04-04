@@ -25,6 +25,18 @@ export class PageButton extends Button {
             console.log(parent.page.getUID())
             document.openPage(parent.page)
         })
+
+
+        // Rename on Double Click
+        this.element.addEventListener("dblclick", function (e) {
+                parent.header.setTag("contenteditable", "true")
+                parent.header.element.focus()
+
+                parent.header.element.addEventListener("focusout", (event) => {
+                    parent.header.setTag("contenteditable", "false")
+                });
+            }
+        )
     }
 
     registerPage() {

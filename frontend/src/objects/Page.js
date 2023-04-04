@@ -1,7 +1,7 @@
 export class Page {
 
     constructor() {
-        this.name = "Main"
+        this.name = "Untitled"
         this.uid = Math.random().toString().replace("0.", "")
     }
 

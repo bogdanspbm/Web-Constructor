@@ -38,3 +38,7 @@ summary {
     height: calc(100vh - 50px);
     z-index: -3;
 }
+
+div[contenteditable=true] {
+    outline: transparent;
+}
