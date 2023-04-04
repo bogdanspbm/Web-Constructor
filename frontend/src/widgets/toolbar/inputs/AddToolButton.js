@@ -1,7 +1,7 @@
 import {Button} from "../../../elements/default/Button.js";
 import {Icon} from "../../../elements/icon/Icon.js";
 
-export class AddPageButton extends Button {
+export class AddToolButton extends Button {
     constructor(path) {
         super();
         this.icon = new Icon(path);

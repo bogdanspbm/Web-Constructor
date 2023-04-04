@@ -14,11 +14,13 @@ export class Tabs extends DOM {
 
         for (let i = 0; i < elements.length; i++) {
             const element = elements[i]
+            element.setParentTabs(parent)
             this.tabs.append(element.getTabButton())
             this.content.append(element)
         }
 
-        if(elements.length > 0){
+        if (elements.length > 0) {
+            this.setSelectedTab(elements[0])
             elements[0].setSelect()
         }
     }
@@ -38,12 +40,25 @@ export class Tabs extends DOM {
         this.append(this.content)
     }
 
+    setSelectedTab(tab) {
+        this.selectedTab = tab
+    }
+
+    getSelectedTab() {
+        return this.selectedTab
+    }
+
 }
 
 export class Tab extends DOM {
     constructor(name) {
         super();
         this.tabName = name
+    }
+
+
+    setParentTabs(tabs) {
+        this.parentTabs = tabs
     }
 
     createElement() {
@@ -70,5 +85,10 @@ export class Tab extends DOM {
     setSelect() {
         this.setAttribute("display", "block")
         this.button.setStyle("tab-selected")
+
+        if (this.parentTabs === undefined) {
+            return
+        }
+        this.parentTabs.setSelectedTab(this)
     }
 }
