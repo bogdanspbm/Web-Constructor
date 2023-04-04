@@ -29,8 +29,22 @@ export class PageButton extends Button {
 
         // Rename on Double Click
         this.element.addEventListener("dblclick", function (e) {
+                if (parent.header.element.innerHTML === "Untitled") {
+                    parent.header.element.innerHTML = ""
+                }
+
                 parent.header.setTag("contenteditable", "true")
                 parent.header.element.focus()
+
+
+                parent.header.element.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        const newName = parent.header.element.innerHTML
+                        parent.page.name = newName
+                        parent.header.setTag("contenteditable", "false")
+                        document.updatePage(parent.page)
+                    }
+                });
 
                 parent.header.element.addEventListener("focusout", (event) => {
                     const newName = parent.header.element.innerHTML

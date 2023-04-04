@@ -1,4 +1,4 @@
-import {Div} from "../elements/dom/DOM.js";
+import {Div, DOM} from "../elements/dom/DOM.js";
 import {Toolbar} from "../widgets/toolbar/Toolbar.js";
 import {Details} from "../widgets/details/Details.js";
 import {Grid} from "../grid/Grid.js";
@@ -140,7 +140,7 @@ export class App {
         this.root.append(this.header.getDOM());
 
         document.toolbar = new Toolbar();
-        document.grid = new Grid().setStyle("grid").setID("canvas");
+        document.grid = new DOM().setStyle("grid").setID("canvas");
         document.details = new Details();
 
         this.panel = new Div([

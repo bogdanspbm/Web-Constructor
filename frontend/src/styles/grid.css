@@ -1,6 +1,6 @@
 .grid {
     margin: 64px;
-    background: #F7F7F7;
+    background: transparent;
     width: calc(100% - 600px);
 
     display: grid;
