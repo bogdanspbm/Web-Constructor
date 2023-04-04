@@ -98,14 +98,23 @@ export class App {
             parent.notifySelectListeners(item);
         };
 
+        document.pages = [];
+
         document.openPage = function (page) {
             document.page = page
+            document.grid = page.getGrid()
+            parent.panelDOM.removeChild(parent.panelDOM.children[1])
+            parent.panelDOM.insertBefore(document.grid.getDOM(), parent.panelDOM.children[1]);
             parent.notifyPageChangeListener(page)
         }
 
-        document.pages = [];
+        document.updatePage = function (page) {
+            document.pages[page.uid] = page
+            parent.notifyPageChangeListener(page)
+        }
+
         document.createPage = function (page) {
-            document.pages.push(page)
+            document.pages[page.uid] = page
             parent.notifyPageCreateListener(page)
         }
 
@@ -125,6 +134,7 @@ export class App {
         };
     }
 
+
     generateConstructor() {
         this.header = new Header();
         this.root.append(this.header.getDOM());
@@ -138,6 +148,7 @@ export class App {
             document.grid,
             document.details,
         ]).setStyle("container");
-        this.root.append(this.panel.getDOM());
+        this.panelDOM = this.panel.getDOM()
+        this.root.append(this.panelDOM);
     }
 }

@@ -121,6 +121,11 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
