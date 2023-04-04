@@ -1,35 +1,34 @@
 import {DOM} from "../../../../elements/dom/DOM.js";
 import {Icon} from "../../../../elements/icon/Icon.js";
 import {Button} from "../../../../elements/default/Button.js";
-import {Page} from "../../../../objects/Page.js";
 
-export class PageButton extends Button {
+export class CollectionButton extends Button {
 
     /**
-     * @param {Page} page
+     * @param {Collection} collection
      */
-    constructor(page) {
+    constructor(collection) {
         super();
 
-        if (page === undefined) {
-            page = new Page()
+        if (collection === undefined) {
+            collection = new Collection()
         }
 
-        this.page = page
-        this.setText(page.getName())
+        this.collection = collection
+        this.setText(collection.getName())
 
-        this.registerPage()
+        this.registerCollection()
 
         const parent = this
         this.addClickEvent(() => {
-            console.log(parent.page.getUID())
-            document.openPage(parent.page)
+            console.log(parent.collection.getUID())
+            document.openCollection(parent.collection)
         })
 
 
         // Rename on Double Click
         this.element.addEventListener("dblclick", function (e) {
-                if (parent.header.element.innerHTML === "Untitled") {
+                if (parent.header.element.innerHTML === "New Collection") {
                     parent.header.element.innerHTML = ""
                 }
 
@@ -40,30 +39,29 @@ export class PageButton extends Button {
                 parent.header.element.addEventListener('keypress', function (e) {
                     if (e.key === 'Enter') {
                         const newName = parent.header.element.innerHTML
-                        parent.page.name = newName
+                        parent.collection.name = newName
                         parent.header.setTag("contenteditable", "false")
-                        document.updatePage(parent.page)
+                        document.updateCollection(parent.collection)
                     }
                 });
 
                 parent.header.element.addEventListener("focusout", (event) => {
                     const newName = parent.header.element.innerHTML
-                    parent.page.name = newName
+                    parent.collection.name = newName
                     parent.header.setTag("contenteditable", "false")
-                    document.updatePage(parent.page)
+                    document.updateCollection(parent.collection)
                 });
             }
         )
     }
 
-    registerPage() {
-        document.addPageListener(this)
+    registerCollection() {
+        document.addCollectionListener(this)
 
-        if (document.page !== undefined) {
+        if (document.collection !== undefined) {
             return
         }
 
-        document.openPage(this.page)
     }
 
     createElement() {
@@ -82,8 +80,8 @@ export class PageButton extends Button {
         return this
     }
 
-    pageChangeNotify(event) {
-        if (event.getUID() === this.page.uid) {
+    collectionChangeNotify(collection) {
+        if (collection.getUID() === this.collection.uid) {
             this.logo.setAttribute("visibility", "visible")
         } else {
             this.logo.setAttribute("visibility", "hidden")

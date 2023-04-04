@@ -3,6 +3,7 @@ import {Toolbar} from "../widgets/toolbar/Toolbar.js";
 import {Details} from "../widgets/details/Details.js";
 import {Header} from "../widgets/header/Header.js";
 import {bindPageListener} from "../listeners/PageListener.js";
+import {bindCollectionListener} from "../listeners/CollectionListener.js";
 
 export class App {
     constructor() {
@@ -78,6 +79,7 @@ export class App {
 
 
         bindPageListener()
+        bindCollectionListener()
 
         document.selectListeners = [];
         document.addSelectListener = this.addSelectListener;

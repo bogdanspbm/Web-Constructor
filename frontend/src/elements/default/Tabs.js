@@ -56,6 +56,10 @@ export class Tab extends DOM {
         this.tabName = name
     }
 
+    getName() {
+        return this.tabName
+    }
+
 
     setParentTabs(tabs) {
         this.parentTabs = tabs

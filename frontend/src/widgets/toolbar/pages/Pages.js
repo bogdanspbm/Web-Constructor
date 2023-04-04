@@ -10,9 +10,9 @@ export class Pages extends DOM {
 
     createElement() {
         super.createElement();
-        this.setStyle("pages")
+        this.setStyle("toolbar-elements-block")
         this.setAttribute("visibility", "hidden")
-        this.pagesScroll = new DOM().setStyle("pages-scroll")
+        this.pagesScroll = new DOM().setStyle("flat-scroll")
         this.append(this.pagesScroll)
     }
 
