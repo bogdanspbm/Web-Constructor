@@ -1,6 +1,6 @@
 import {bindPageListener} from "../listeners/PageListener.js";
 import {bindCollectionListener} from "../listeners/CollectionListener.js";
-import {EditorPage} from "../pages/implementation/EditorPage.js";
+import {FileSystemPage} from "../pages/implementation/FileSystemPage.js";
 
 export class App {
     constructor() {
@@ -93,7 +93,7 @@ export class App {
 
 
     generateConstructor() {
-        const page = new EditorPage()
-        page.openPage()
+        const fileSystem = new FileSystemPage()
+        fileSystem.openPage()
     }
 }

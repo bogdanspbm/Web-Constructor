@@ -8,7 +8,7 @@ export class EditorPage extends Page {
 
 
     /**
-     * @param {Page} page
+     * @param {EditorPageStructure} page
      */
     fillElements(page) {
         const header = new Header();

@@ -3,8 +3,8 @@ import {Tabs} from "../../../elements/default/Tabs.js";
 import {CollectionTab} from "./implementation/CollectionTab.js";
 import {DesignTab} from "./implementation/DesignTab.js";
 import {AddToolButton} from "../inputs/AddToolButton.js";
-import {Page} from "../../../objects/Page.js";
-import {Collection} from "../../../objects/Collection.js";
+import {EditorPageStructure} from "../../../objects/EditorPageStructure.js";
+import {CollectionStructure} from "../../../objects/CollectionStructure.js";
 
 export class ToolbarTabs extends DOM {
     createElement() {
@@ -24,10 +24,10 @@ export class ToolbarTabs extends DOM {
         this.addButton.setAttribute("margin-right", "8px")
         this.addButton.addClickEvent(action => {
             if (parent.tabs.getSelectedTab().getName() === "Collections") {
-                const collection = new Collection()
+                const collection = new CollectionStructure()
                 document.createCollection(collection)
             } else {
-                const page = new Page()
+                const page = new EditorPageStructure()
                 document.createPage(page)
             }
         })

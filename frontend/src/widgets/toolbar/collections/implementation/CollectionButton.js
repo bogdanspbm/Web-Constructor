@@ -11,7 +11,7 @@ export class CollectionButton extends Button {
         super();
 
         if (collection === undefined) {
-            collection = new Collection()
+            collection = new CollectionStructure()
         }
 
         this.collection = collection
@@ -28,7 +28,7 @@ export class CollectionButton extends Button {
 
         // Rename on Double Click
         this.element.addEventListener("dblclick", function (e) {
-                if (parent.header.element.innerHTML === "New Collection") {
+                if (parent.header.element.innerHTML === "New CollectionStructure") {
                     parent.header.element.innerHTML = ""
                 }
 

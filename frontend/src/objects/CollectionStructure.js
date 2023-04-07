@@ -1,5 +1,5 @@
 
-export class Collection {
+export class CollectionStructure {
 
     constructor() {
         this.name = "New Collection"

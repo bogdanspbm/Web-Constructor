@@ -1,18 +1,18 @@
 import {DOM} from "../../../../elements/dom/DOM.js";
 import {Icon} from "../../../../elements/icon/Icon.js";
 import {Button} from "../../../../elements/default/Button.js";
-import {Page} from "../../../../objects/Page.js";
+import {EditorPageStructure} from "../../../../objects/EditorPageStructure.js";
 
 export class PageButton extends Button {
 
     /**
-     * @param {Page} page
+     * @param {EditorPageStructure} page
      */
     constructor(page) {
         super();
 
         if (page === undefined) {
-            page = new Page()
+            page = new EditorPageStructure()
         }
 
         this.page = page

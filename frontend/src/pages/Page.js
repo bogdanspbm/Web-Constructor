@@ -17,7 +17,6 @@ export class Page {
             root.removeChild(root.children[0])
         }
 
-
         this.elements.forEach(element => {
             root.append(element.getDOM());
         })

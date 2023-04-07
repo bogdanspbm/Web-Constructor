@@ -1,6 +1,6 @@
 import {Grid} from "../grid/Grid.js";
 
-export class Page {
+export class EditorPageStructure {
 
     constructor() {
         this.name = "Untitled"
