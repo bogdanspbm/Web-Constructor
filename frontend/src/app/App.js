@@ -1,9 +1,6 @@
-import {Div, DOM} from "../elements/dom/DOM.js";
-import {Toolbar} from "../widgets/toolbar/Toolbar.js";
-import {Details} from "../widgets/details/Details.js";
-import {Header} from "../widgets/header/Header.js";
 import {bindPageListener} from "../listeners/PageListener.js";
 import {bindCollectionListener} from "../listeners/CollectionListener.js";
+import {EditorPage} from "../pages/implementation/EditorPage.js";
 
 export class App {
     constructor() {
@@ -96,21 +93,7 @@ export class App {
 
 
     generateConstructor() {
-        this.header = new Header();
-        this.root.append(this.header.getDOM());
-
-        document.toolbar = new Toolbar();
-        document.grid = new DOM().setStyle("grid").setID("canvas");
-        document.details = new Details();
-
-        this.panel = new Div([
-            document.toolbar,
-            document.grid,
-            document.details,
-        ]).setStyle("container");
-
-        document.panelDOM = this.panel.getDOM()
-
-        this.root.append(document.panelDOM);
+        const page = new EditorPage()
+        page.openPage()
     }
 }

@@ -1,11 +1,12 @@
+import {EditorPage} from "../pages/implementation/EditorPage.js";
+
 export function bindPageListener() {
     document.pages = [];
 
     document.openPage = function (page) {
         document.page = page
-        document.grid = page.getGrid()
-        document.panelDOM.removeChild(document.panelDOM.children[1])
-        document.panelDOM.insertBefore(document.grid.getDOM(), document.panelDOM.children[1]);
+        const editorPage = new EditorPage(page)
+        editorPage.openPage()
         notifyPageChangeListener(page)
     }
 
