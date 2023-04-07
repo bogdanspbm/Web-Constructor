@@ -20,9 +20,13 @@ export class DOM {
      * @param {DOM[]} elements
      */
     constructor(elements) {
-        this.createElement();
+        this.createElement(elements);
 
         if (!elements) {
+            return;
+        }
+
+        if (Object.prototype.toString.call(elements) !== '[object Array]') {
             return;
         }
 
