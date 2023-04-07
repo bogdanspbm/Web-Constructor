@@ -47,7 +47,7 @@ export class Clickable extends DOM {
         );
     }
 
-    addClickEvent(action) {
+    setClickEvent(action) {
         this.clickAction = action;
         return this;
     }

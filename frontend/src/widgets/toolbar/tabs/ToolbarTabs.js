@@ -22,7 +22,7 @@ export class ToolbarTabs extends DOM {
         this.addButton = new AddToolButton("./../resources/icons/ic_add_24x24.svg").setAttribute("height", "24px")
         this.addButton.setAttribute("width", "24px").setAttribute("margin-left", "auto")
         this.addButton.setAttribute("margin-right", "8px")
-        this.addButton.addClickEvent(action => {
+        this.addButton.setClickEvent(action => {
             if (parent.tabs.getSelectedTab().getName() === "Collections") {
                 const collection = new CollectionStructure()
                 document.createCollection(collection)

@@ -14,21 +14,21 @@ export class ControlsTool extends ToolbarExpand {
     this.inputButton = new ToolbarButton()
       .addIcon("./../resources/icons/ic_input_40x40.svg")
       .setText("Input Component")
-      .addClickEvent(() => {
+      .setClickEvent(() => {
         document.grid.append(new InputComponent());
       });
 
     this.textButton = new ToolbarButton()
       .addIcon("./../resources/icons/ic_text_40x40.svg")
       .setText("Text Component")
-      .addClickEvent(() => {
+      .setClickEvent(() => {
         document.grid.append(new TextComponent());
       });
 
     this.buttonButton = new ToolbarButton()
       .addIcon("./../resources/icons/ic_button_40x40.svg")
       .setText("Button Component")
-      .addClickEvent(() => {
+      .setClickEvent(() => {
         document.grid.append(new ButtonComponent());
       });
 

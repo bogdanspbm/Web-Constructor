@@ -9,7 +9,7 @@ export class Dropdown extends DOM {
         super();
         this.content = content
         const parent = this
-        this.button.addClickEvent(action => {
+        this.button.setClickEvent(action => {
             parent.show = !parent.show
             this.setAttribute("background", parent.show ? "#1677FF" : "transparent")
             parent.content.setAttribute("visibility", parent.show ? "visible" : "hidden")

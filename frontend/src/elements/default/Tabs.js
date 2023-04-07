@@ -74,7 +74,7 @@ export class Tab extends DOM {
     getTabButton() {
         const parent = this
         this.button = new Button().setText(this.tabName).setStyle("tab")
-        this.button.addClickEvent(action => {
+        this.button.setClickEvent(action => {
             parent.parent.children.forEach(tab => tab.setUnselect())
             parent.setSelect()
         })

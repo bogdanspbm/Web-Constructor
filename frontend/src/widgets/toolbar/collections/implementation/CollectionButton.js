@@ -20,7 +20,7 @@ export class CollectionButton extends Button {
         this.registerCollection()
 
         const parent = this
-        this.addClickEvent(() => {
+        this.setClickEvent(() => {
             console.log(parent.collection.getUID())
             document.openCollection(parent.collection)
         })

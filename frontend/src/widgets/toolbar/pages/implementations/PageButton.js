@@ -21,8 +21,7 @@ export class PageButton extends Button {
         this.registerPage()
 
         const parent = this
-        this.addClickEvent(() => {
-            console.log(parent.page.getUID())
+        this.setClickEvent(() => {
             document.openPage(parent.page)
         })
 
