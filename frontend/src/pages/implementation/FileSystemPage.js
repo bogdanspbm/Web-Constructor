@@ -13,7 +13,7 @@ export class FileSystemPage extends Page {
         const header = new Header();
         this.elements.push(header);
 
-        const panel = new Div().setStyle("container");
+        const panel = new Div().setStyle("container").setAttribute("margin", "8px");
 
         const tmpFile = new FileButton(EFile.WIDGET)
         panel.append(tmpFile)
