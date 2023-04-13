@@ -1,6 +1,7 @@
 import {bindPageListener} from "../listeners/PageListener.js";
 import {bindCollectionListener} from "../listeners/CollectionListener.js";
 import {FileSystemPage} from "../pages/implementation/FileSystemPage.js";
+import {bindPopupListener} from "../listeners/PopupListener.js";
 
 export class App {
     constructor() {
@@ -75,8 +76,9 @@ export class App {
         };
 
 
-        bindPageListener()
-        bindCollectionListener()
+        bindPageListener();
+        bindCollectionListener();
+        bindPopupListener();
 
         document.selectListeners = [];
         document.addSelectListener = this.addSelectListener;

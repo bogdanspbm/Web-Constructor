@@ -148,6 +148,19 @@ export class DOM {
         return this
     }
 
+    addEvent(eventName, event, key) {
+
+        if (!key) {
+            key = "element";
+        }
+
+        this[key].addEventListener(
+            eventName,
+            event,
+            false
+        );
+    }
+
 
     /**
      * @param {DOM} element
