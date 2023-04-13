@@ -7,6 +7,9 @@ export class PopupMenu extends DOM {
         super.createElement();
 
         this.setStyle("popup")
+        this.addEvent("mouseout", function (event) {
+            document.deletePopup();
+        })
     }
 }
 
