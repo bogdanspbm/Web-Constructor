@@ -1,4 +1,4 @@
-import { Draggable } from "./Draggable.js";
+import {Draggable} from "./Draggable.js";
 
 export class Transformable extends Draggable {
   clickPoint = { x: 0, y: 0 };

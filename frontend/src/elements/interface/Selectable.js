@@ -1,4 +1,4 @@
-import { Clickable } from "./Clickable.js";
+import {Clickable} from "./Clickable.js";
 
 export class Selectable extends Clickable {
   isSelected = false;

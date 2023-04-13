@@ -1,4 +1,4 @@
-import { DOM } from "../dom/DOM.js";
+import {DOM} from "../dom/DOM.js";
 
 export class Icon extends DOM {
   constructor(path) {

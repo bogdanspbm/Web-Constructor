@@ -1,5 +1,5 @@
 import {Tab} from "../../../../elements/default/Tabs.js";
-import {Select, Option} from "../../../../elements/default/Select.js";
+import {Option, Select} from "../../../../elements/default/Select.js";
 
 export class SelectionTab extends Tab {
     constructor() {

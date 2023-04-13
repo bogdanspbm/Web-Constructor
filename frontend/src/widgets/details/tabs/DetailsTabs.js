@@ -1,5 +1,5 @@
 import {DOM} from "../../../elements/dom/DOM.js";
-import {Tab, Tabs} from "../../../elements/default/Tabs.js";
+import {Tabs} from "../../../elements/default/Tabs.js";
 import {SchemaTab} from "./implementation/SchemaTab.js";
 import {DetailsTab} from "./implementation/DetailsTab.js";
 

@@ -14,9 +14,23 @@ export class PopupMenu extends DOM {
 }
 
 export class PopupElement extends Button {
+
+    constructor(text) {
+        super();
+
+        const parent = this
+        this.addEvent("mouseover", function () {
+            document.setOverlappedMenuItem(parent)
+        })
+
+        this.addEvent("mouseout", function () {
+            document.setOverlappedMenuItem(null)
+        })
+        this.setText(text);
+    }
+
     createElement() {
         super.createElement();
-
         this.setStyle("popup-element")
     }
 }

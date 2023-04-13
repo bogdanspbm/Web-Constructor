@@ -1,4 +1,4 @@
-import { Div } from "../../../elements/dom/DOM.js";
+import {Div} from "../../../elements/dom/DOM.js";
 
 export class ToolbarGrid extends Div {
   createElement() {

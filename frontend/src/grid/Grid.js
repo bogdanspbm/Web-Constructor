@@ -1,5 +1,5 @@
-import { DOM } from "../elements/dom/DOM.js";
-import { equalsArrays } from "../utils/Utils.js";
+import {DOM} from "../elements/dom/DOM.js";
+import {equalsArrays} from "../utils/Utils.js";
 
 export class Grid extends DOM {
   lastOverlappedBlocks = [];

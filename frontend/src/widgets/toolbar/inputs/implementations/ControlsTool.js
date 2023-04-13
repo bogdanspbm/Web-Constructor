@@ -1,10 +1,6 @@
-import { ToolbarExpand } from "../ToolbarExpand.js";
-import { ToolbarButton } from "../ToolbarButton.js";
-import {
-  ButtonComponent,
-  InputComponent,
-  TextComponent,
-} from "../../../../grid/objects/Component.js";
+import {ToolbarExpand} from "../ToolbarExpand.js";
+import {ToolbarButton} from "../ToolbarButton.js";
+import {ButtonComponent, InputComponent, TextComponent,} from "../../../../grid/objects/Component.js";
 
 export class ControlsTool extends ToolbarExpand {
   createElement() {

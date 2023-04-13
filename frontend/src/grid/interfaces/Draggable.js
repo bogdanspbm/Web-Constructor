@@ -1,5 +1,5 @@
-import { GridContent } from "../objects/GridContent.js";
-import { GridBlock } from "../Grid.js";
+import {GridContent} from "../objects/GridContent.js";
+import {GridBlock} from "../Grid.js";
 
 export class Draggable extends GridContent {
   constructor(elements) {

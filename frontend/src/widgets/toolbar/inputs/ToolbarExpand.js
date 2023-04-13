@@ -1,5 +1,5 @@
-import { Collapse, CollapseItem } from "../../../elements/default/Collapse.js";
-import { ToolbarGrid } from "./ToolbarGrid.js";
+import {Collapse, CollapseItem} from "../../../elements/default/Collapse.js";
+import {ToolbarGrid} from "./ToolbarGrid.js";
 
 export class ToolbarExpand extends Collapse {
   createElement() {

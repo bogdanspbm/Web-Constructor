@@ -2,12 +2,10 @@ import {Page} from "../Page.js";
 import {Header} from "../../widgets/header/Header.js";
 import {Div} from "../../elements/dom/DOM.js";
 import {FileButton} from "../../widgets/file/FileButton.js";
-import {EFile} from "../../enums/EFile.js";
-import {FileStructure} from "../../objects/FileStructure.js";
 import {WidgetFile} from "../../widgets/file/implementations/WidgetFile.js";
 import {DirectoryFile} from "../../widgets/file/implementations/DirectoryFile.js";
 import {EditorPageStructure} from "../../objects/EditorPageStructure.js";
-import {PopupMenu} from "../../popups/Popup.js";
+import {FilePopup} from "../../popups/implementation/FilePopup.js";
 
 export class FileSystemPage extends Page {
 
@@ -25,7 +23,7 @@ export class FileSystemPage extends Page {
             }
 
 
-            const popup = new PopupMenu().setAttribute("top", (event.pageY - 16) + "px");
+            const popup = new FilePopup().setAttribute("top", (event.pageY - 16) + "px");
             popup.setAttribute("left", (event.pageX - 16) + "px");
             document.createPopup(popup, panel);
         })

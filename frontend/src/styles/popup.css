@@ -1,8 +1,11 @@
 .popup {
     position: absolute;
 
-    min-width: 200px;
+    min-width: 150px;
     min-height: 46px;
+
+    gap: 5px;
+    padding: 5px;
 
     border-radius: 10px;
     background: #FAFAFA;
@@ -10,7 +13,27 @@
 }
 
 .popup-element {
+    display: flex;
 
+    border-radius: 5px;
+    height: 32px;
+    width: calc(100% - 10px);
+
+    align-items: center;
+    padding-left: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    line-height: 125%;
 }
 
 .popup-element:hover {

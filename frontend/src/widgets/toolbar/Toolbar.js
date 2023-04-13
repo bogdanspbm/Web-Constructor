@@ -1,4 +1,4 @@
-import { DOM } from "../../elements/dom/DOM.js";
+import {DOM} from "../../elements/dom/DOM.js";
 import {ToolbarTabs} from "./tabs/ToolbarTabs.js";
 
 export class Toolbar extends DOM {
