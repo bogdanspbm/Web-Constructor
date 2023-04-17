@@ -21,6 +21,10 @@ export class WidgetFile extends FileStructure {
         this.editorPage.setName(name)
     }
 
+    getUID() {
+        return this.editorPage.getUID();
+    }
+
     openAction(event) {
         document.openPage(this.editorPage)
     }

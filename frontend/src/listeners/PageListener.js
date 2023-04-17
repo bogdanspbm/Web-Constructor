@@ -1,7 +1,7 @@
 import {EditorPage} from "../pages/implementation/editor/EditorPage.js";
 
     export function bindPageListener() {
-        document.pages = [];
+        document.pages = {};
 
     document.openPage = function (page) {
         document.page = page

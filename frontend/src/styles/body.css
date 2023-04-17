@@ -37,6 +37,15 @@ summary {
     display: flex;
     height: calc(100vh - 50px);
     z-index: -3;
+    overflow-y: auto;
+}
+
+.container-files {
+    display: flex;
+    margin: 8px;
+    height: calc(100vh - 64px);
+    z-index: -3;
+    overflow-y: auto;
 }
 
 div[contenteditable=true] {

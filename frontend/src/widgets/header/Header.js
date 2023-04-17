@@ -4,6 +4,7 @@ import {HeaderDetails} from "./inputs/HeaderDetails.js";
 import {HeaderDropdown} from "./dropdown/HeaderDropdown.js";
 import {DatabaseTabs} from "./tabs/DatabaseTabs.js";
 import {HeaderButton} from "./inputs/HeaderButton.js";
+import {FileSystemPage} from "../../pages/implementation/filesystem/FileSystemPage.js";
 
 export class Header extends Div {
     createElement() {
@@ -11,6 +12,10 @@ export class Header extends Div {
         this.setStyle("header");
 
         this.files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
+        this.files.setClickEvent(action => {
+            const fileSystem = new FileSystemPage()
+            fileSystem.openPage()
+        })
         this.append(this.files);
 
         this.mainControls = new HeaderControls();

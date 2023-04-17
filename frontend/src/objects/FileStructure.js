@@ -32,6 +32,13 @@ export class FileStructure {
         return this.name
     }
 
+    getUID() {
+        if (this.uid === undefined) {
+            this.uid = this.type["default_name"]
+        }
+        return this.uid
+    }
+
     openAction(event) {
     }
 

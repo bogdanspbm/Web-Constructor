@@ -1,5 +1,5 @@
 export function bindCollectionListener() {
-    document.collections = [];
+    document.collections = {};
 
     document.openCollection = function (collection) {
         document.collection = collection

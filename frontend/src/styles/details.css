@@ -1,11 +1,15 @@
 .details {
     display: flex;
     flex-direction: column;
+
+    border-radius: 15px;
+
+    margin: 10px;
     
     background: white;
 
     border-right: 1px solid #eee;
-    width: 300px;
+    width: 280px;
 
 }
 
@@ -21,7 +25,15 @@
 
 
 .details-tabs {
+    border-radius: 15px;
     background: white;
-    width: 280px;
+    width: 260px;
     min-height: 130px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

@@ -3,9 +3,10 @@ import {Header} from "../../../widgets/header/Header.js";
 import {Div} from "../../../elements/dom/DOM.js";
 import {FileButton} from "./file/FileButton.js";
 import {WidgetFile} from "./file/implementations/WidgetFile.js";
-import {DirectoryFile} from "./file/implementations/DirectoryFile.js";
 import {EditorPageStructure} from "../../../objects/EditorPageStructure.js";
 import {FilePopup} from "../../../popups/implementation/FilePopup.js";
+import {CollectionFile} from "./file/implementations/CollectionFile.js";
+import {CollectionStructure} from "../../../objects/CollectionStructure.js";
 
 export class FileSystemPage extends Page {
 
@@ -16,11 +17,13 @@ export class FileSystemPage extends Page {
 
     fillElements(directory) {
 
+        const parent = this;
+
         const header = new Header();
         this.elements.push(header);
         this.buttons = []
 
-        const panel = new Div().setStyle("container").setAttribute("margin", "8px");
+        const panel = new Div().setStyle("container-files");
         panel.addEvent("click", function (event) {
             if (event.which === 3) {
                 console.log("Right Mouse Button")
@@ -36,11 +39,13 @@ export class FileSystemPage extends Page {
         })
 
         this.panel = panel;
-
         document.addFileListener(this)
 
-        document.addFile(new WidgetFile(new EditorPageStructure()))
-        document.addFile(new DirectoryFile())
+        const files = document.files
+
+        Object.entries(files).forEach(([key, value]) => {
+           parent.fileCreateNotify(value);
+        });
 
         this.elements.push(panel);
     }

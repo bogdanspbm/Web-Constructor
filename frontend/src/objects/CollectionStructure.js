@@ -1,4 +1,3 @@
-
 export class CollectionStructure {
 
     constructor() {
@@ -8,6 +7,10 @@ export class CollectionStructure {
 
     getName() {
         return this.name
+    }
+
+    setName(name) {
+        this.name = name
     }
 
 

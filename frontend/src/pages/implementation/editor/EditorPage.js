@@ -1,7 +1,7 @@
 import {Page} from "../../Page.js";
 import {Header} from "../../../widgets/header/Header.js";
 import {Div, DOM} from "../../../elements/dom/DOM.js";
-import {Toolbar} from "./toolbar/Toolbar.js";
+import {EditorToolbar} from "./toolbar/EditorToolbar.js";
 import {Details} from "./details/Details.js";
 
 export class EditorPage extends Page {
@@ -20,7 +20,7 @@ export class EditorPage extends Page {
             document.grid = page.getGrid()
         }
 
-        const toolbar = new Toolbar();
+        const toolbar = new EditorToolbar();
         const details = new Details();
 
         const panel = new Div([

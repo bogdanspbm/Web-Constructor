@@ -1,14 +1,14 @@
 export function bindFileListener() {
-    document.files = [];
+    document.files = {};
 
 
     document.addFile = function (file) {
-        document.files[file.uid] = file
+        document.files[file.getUID()] = file
         notifyFileCreateListener(file)
     }
 
     document.updateFile = function (file) {
-        document.files[file.uid] = file
+        document.files[file.getUID()] = file
         notifyFileUpdateListener(file)
     }
 

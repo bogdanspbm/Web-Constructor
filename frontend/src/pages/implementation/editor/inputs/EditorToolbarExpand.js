@@ -1,11 +1,11 @@
 import {Collapse, CollapseItem} from "../../../../elements/default/Collapse.js";
-import {ToolbarGrid} from "./ToolbarGrid.js";
+import {EditorToolbarGrid} from "./EditorToolbarGrid.js";
 
-export class ToolbarExpand extends Collapse {
+export class EditorToolbarExpand extends Collapse {
   createElement() {
     super.createElement();
     this.setAttribute("margin", "10px");
-    this.toolbarGrid = new ToolbarGrid();
+    this.toolbarGrid = new EditorToolbarGrid();
     this.collapsedContent = new CollapseItem([this.toolbarGrid]);
 
     this.collapsedContent.setParent(this);

@@ -2,11 +2,14 @@
     display: flex;
     flex-direction: column;
 
+    border-radius: 15px;
+
     background: white;
 
-    border-right: 1px solid #eee;
-    width: 300px;
-    min-width: 300px;
+    margin: 10px;
+
+    width: 280px;
+    min-width: 280px;
 }
 
 .toolbar-button {
@@ -17,7 +20,7 @@
 
     align-items: center;
 
-    width: 125px;
+    width: 115px;
     height: 90px;
 }
 

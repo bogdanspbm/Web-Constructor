@@ -2,7 +2,7 @@ import {Button} from "../../../../elements/default/Button.js";
 import {Icon} from "../../../../elements/icon/Icon.js";
 import {DOM} from "../../../../elements/dom/DOM.js";
 
-export class ToolbarButton extends Button {
+export class EditorToolbarButton extends Button {
     createElement() {
         super.createElement();
         this.setStyle("toolbar-button");

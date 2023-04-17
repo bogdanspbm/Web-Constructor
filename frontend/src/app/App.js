@@ -3,6 +3,10 @@ import {bindCollectionListener} from "../listeners/CollectionListener.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 import {bindPopupListener} from "../listeners/PopupListener.js";
 import {bindFileListener} from "../listeners/FileListener.js";
+import {WidgetFile} from "../pages/implementation/filesystem/file/implementations/WidgetFile.js";
+import {EditorPageStructure} from "../objects/EditorPageStructure.js";
+import {CollectionFile} from "../pages/implementation/filesystem/file/implementations/CollectionFile.js";
+import {CollectionStructure} from "../objects/CollectionStructure.js";
 
 export class App {
     constructor() {
@@ -97,6 +101,8 @@ export class App {
 
 
     generateConstructor() {
+        document.addFile(new WidgetFile(new EditorPageStructure()));
+        document.addFile(new CollectionFile(new CollectionStructure()));
         const fileSystem = new FileSystemPage()
         fileSystem.openPage()
     }
