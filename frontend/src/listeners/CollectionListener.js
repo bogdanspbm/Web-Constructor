@@ -3,9 +3,6 @@ export function bindCollectionListener() {
 
     document.openCollection = function (collection) {
         document.collection = collection
-        //document.grid = page.getGrid()
-        //document.panelDOM.removeChild(document.panelDOM.children[1])
-        //document.panelDOM.insertBefore(document.grid.getDOM(), document.panelDOM.children[1]);
         notifyCollectionChangeListener(collection)
     }
 

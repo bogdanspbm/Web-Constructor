@@ -2,6 +2,7 @@ import {bindPageListener} from "../listeners/PageListener.js";
 import {bindCollectionListener} from "../listeners/CollectionListener.js";
 import {FileSystemPage} from "../pages/implementation/FileSystemPage.js";
 import {bindPopupListener} from "../listeners/PopupListener.js";
+import {bindFileListener} from "../listeners/FileListener.js";
 
 export class App {
     constructor() {
@@ -77,6 +78,7 @@ export class App {
 
 
         bindPageListener();
+        bindFileListener();
         bindCollectionListener();
         bindPopupListener();
 

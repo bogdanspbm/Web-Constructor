@@ -4,11 +4,19 @@ import {Button} from "../../elements/default/Button.js";
 
 export class FileButton extends DOM {
 
-    constructor(params) {
-        super(params);
+    constructor(file) {
+        super(file);
+
 
         this.button.setClickEvent(event => {
-            params.openAction(event)
+            file.openAction(event)
+        })
+    }
+
+    updateFile(file) {
+        this.name.setText(file.getName())
+        this.button.setClickEvent(event => {
+            file.openAction(event)
         })
     }
 

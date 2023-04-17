@@ -12,9 +12,13 @@ export class FileSystemPage extends Page {
     /**
      * @param {DirectoryStructure} directory
      */
+
+
     fillElements(directory) {
+
         const header = new Header();
         this.elements.push(header);
+        this.buttons = []
 
         const panel = new Div().setStyle("container").setAttribute("margin", "8px");
         panel.addEvent("click", function (event) {
@@ -28,13 +32,25 @@ export class FileSystemPage extends Page {
             document.createPopup(popup, panel);
         })
 
+        this.panel = panel;
 
-        const tmpFile = new FileButton(new WidgetFile(new EditorPageStructure()))
-        panel.append(tmpFile)
+        document.addFileListener(this)
 
-        const tmpFolder = new FileButton(new DirectoryFile())
-        panel.append(tmpFolder)
+        document.addFile(new WidgetFile(new EditorPageStructure()))
+        document.addFile(new DirectoryFile())
 
         this.elements.push(panel);
     }
+
+    fileCreateNotify(file) {
+        const fileButton = new FileButton(file)
+        this.buttons[file.uid] = fileButton
+        this.panel.append(fileButton)
+        console.log(fileButton)
+    }
+
+    fileUpdateNotify(file) {
+        this.buttons[file.uid].updateFile(file)
+    }
+
 }
