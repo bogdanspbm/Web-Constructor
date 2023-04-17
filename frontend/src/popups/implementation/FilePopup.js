@@ -1,9 +1,9 @@
 import {PopupElement, PopupMenu} from "../Popup.js";
 import {EFile} from "../../enums/EFile.js";
-import {WidgetFile} from "../../widgets/file/implementations/WidgetFile.js";
+import {WidgetFile} from "../../pages/implementation/filesystem/file/implementations/WidgetFile.js";
 import {EditorPageStructure} from "../../objects/EditorPageStructure.js";
-import {DirectoryFile} from "../../widgets/file/implementations/DirectoryFile.js";
-import {CollectionFile} from "../../widgets/file/implementations/CollectionFile.js";
+import {DirectoryFile} from "../../pages/implementation/filesystem/file/implementations/DirectoryFile.js";
+import {CollectionFile} from "../../pages/implementation/filesystem/file/implementations/CollectionFile.js";
 
 export class FilePopup extends PopupMenu {
     constructor(args) {

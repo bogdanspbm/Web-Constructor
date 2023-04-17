@@ -1,4 +1,4 @@
-import {EditorPage} from "../pages/implementation/EditorPage.js";
+import {EditorPage} from "../pages/implementation/editor/EditorPage.js";
 
     export function bindPageListener() {
         document.pages = [];
