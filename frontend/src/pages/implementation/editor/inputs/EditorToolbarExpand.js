@@ -4,7 +4,6 @@ import {EditorToolbarGrid} from "./EditorToolbarGrid.js";
 export class EditorToolbarExpand extends Collapse {
   createElement() {
     super.createElement();
-    this.setAttribute("margin", "10px");
     this.toolbarGrid = new EditorToolbarGrid();
     this.collapsedContent = new CollapseItem([this.toolbarGrid]);
 
