@@ -37,7 +37,22 @@ summary {
     display: flex;
     height: calc(100vh - 50px);
     z-index: -3;
+}
+
+.container-collection {
+    background: white;
+    border-radius: 15px;
+    
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 20px;
+
+    width: 100%;
+    height: calc(100% - 60px);
 }
 
 .container-files {
