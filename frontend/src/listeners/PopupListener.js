@@ -3,12 +3,22 @@ export function bindPopupListener() {
     document.overlappedMenuItem = null;
 
     document.createPopup = function (popup, parent) {
+        
         if (document.popup !== null && document.popup !== undefined) {
             document.popup.removeParent()
         }
 
         document.popup = popup;
         parent.append(popup);
+    }
+
+
+    document.forceDeletePopup = function () {
+        const popup = document.popup;
+
+        if (popup !== null && popup !== undefined) {
+            popup.removeParent()
+        }
     }
 
     document.deletePopup = function () {

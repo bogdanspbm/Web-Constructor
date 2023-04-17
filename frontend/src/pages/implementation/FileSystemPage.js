@@ -26,6 +26,9 @@ export class FileSystemPage extends Page {
                 console.log("Right Mouse Button")
             }
 
+            if (event.srcElement !== panel.getDOM()) {
+                return
+            }
 
             const popup = new FilePopup().setAttribute("top", (event.pageY - 16) + "px");
             popup.setAttribute("left", (event.pageX - 16) + "px");
@@ -46,7 +49,6 @@ export class FileSystemPage extends Page {
         const fileButton = new FileButton(file)
         this.buttons[file.uid] = fileButton
         this.panel.append(fileButton)
-        console.log(fileButton)
     }
 
     fileUpdateNotify(file) {

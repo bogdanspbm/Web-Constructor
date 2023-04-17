@@ -33,4 +33,27 @@ export class PopupElement extends Button {
         super.createElement();
         this.setStyle("popup-element")
     }
+
+
+    bindClickEvent() {
+        const parent = this;
+        this.element.addEventListener(
+            "click",
+            function () {
+                if (parent.clickAction === undefined) {
+                    return;
+                }
+                if (!parent.active) {
+                    return;
+                }
+
+                parent.clickAction();
+                document.forceDeletePopup()
+            },
+            false
+        );
+        return this;
+    }
+
+
 }
