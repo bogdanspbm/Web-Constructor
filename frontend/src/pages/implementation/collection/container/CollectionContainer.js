@@ -1,5 +1,6 @@
 import {DOM} from "../../../../elements/dom/DOM.js";
 import {CollectionTableHeader} from "../table/CollectionTableHeader.js";
+import {CollectionTableRow} from "../table/CollectionTableRow.js";
 
 export class CollectionContainer extends DOM {
     createElement() {
@@ -8,6 +9,9 @@ export class CollectionContainer extends DOM {
 
         const header = new CollectionTableHeader();
         this.append(header);
+
+        const row = new CollectionTableRow();
+        this.append(row);
     }
 
 

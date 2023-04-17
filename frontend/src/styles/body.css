@@ -42,7 +42,9 @@ summary {
 .container-collection {
     background: white;
     border-radius: 15px;
-    
+
+    gap: 10px;
+
     display: flex;
     flex-direction: column;
     overflow-y: auto;

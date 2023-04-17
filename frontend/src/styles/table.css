@@ -1,0 +1,48 @@
+.table-row-input {
+    border-radius: 10px;
+    height: 32px;
+
+    border: 1px solid #D7D7D7;
+    background: #FAFAFA;
+
+    display: flex;
+
+    padding-left: 10px;
+
+    align-items: center;
+    justify-content: start;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    color: #434343;
+}
+
+.table-row-checkbox {
+    width: 16px;
+    height: 16px;
+
+    background: #FAFAFA;
+    border-radius: 5px;
+
+    border: 1px solid #D7D7D7;
+}
+
+.table-row-checkbox-checked {
+    width: 16px;
+    height: 16px;
+
+    background: #4096ff;
+    border-radius: 5px;
+
+
+    border: 1px solid white;
+
+    outline: 1px solid #D7D7D7;
+    outline-offset: 1px;
+}

@@ -5,7 +5,7 @@ export class CollectionTableHeader extends DOM {
         super.createElement();
         this.setStyle("collection-table-header")
 
-        const nameText = new DOM().setText("Name").setAttribute("margin-left", "32px").setStyle("collection-header-text")
+        const nameText = new DOM().setText("Name").setAttribute("margin-left", "66px").setStyle("collection-header-text")
         this.append(nameText)
 
         const tooltipText = new DOM().setText("Tooltip").setAttribute("margin-left", "128px").setStyle("collection-header-text")
