@@ -1,6 +1,7 @@
 import {DOM} from "../../../../elements/dom/DOM.js";
 import {RowInput} from "../inputs/RowInput.js";
 import {CheckBox} from "../../../../elements/default/Button.js";
+import {TypeSelector} from "../inputs/TypeSelector.js";
 
 export class CollectionTableRow extends DOM {
     createElement() {
@@ -20,7 +21,7 @@ export class CollectionTableRow extends DOM {
         const defaultInput = new RowInput("Default Value").setAttribute("width", "132px").setAttribute("margin-left", "42px");
         this.append(defaultInput)
 
-        const typeInput = new RowInput("Integer").setAttribute("width", "128px").setAttribute("margin-left", "70px");
+        const typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");;
         this.append(typeInput)
 
         const containerInput = new RowInput("Container").setAttribute("width", "128px").setAttribute("margin-left", "46px");
