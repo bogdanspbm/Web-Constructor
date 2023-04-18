@@ -1,6 +1,6 @@
 import {EditorPage} from "../pages/implementation/editor/EditorPage.js";
 
-    export function bindPageListener() {
+export function bindPageListener() {
         document.pages = {};
 
     document.openPage = function (page) {

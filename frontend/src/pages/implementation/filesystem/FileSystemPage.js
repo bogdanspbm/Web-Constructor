@@ -2,11 +2,7 @@ import {Page} from "../../Page.js";
 import {Header} from "../../../widgets/header/Header.js";
 import {Div} from "../../../elements/dom/DOM.js";
 import {FileButton} from "./file/FileButton.js";
-import {WidgetFile} from "./file/implementations/WidgetFile.js";
-import {EditorPageStructure} from "../../../objects/EditorPageStructure.js";
 import {FilePopup} from "../../../popups/implementation/FilePopup.js";
-import {CollectionFile} from "./file/implementations/CollectionFile.js";
-import {CollectionStructure} from "../../../objects/CollectionStructure.js";
 
 export class FileSystemPage extends Page {
 

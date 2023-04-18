@@ -1,8 +1,6 @@
 import {Page} from "../../Page.js";
 import {Header} from "../../../widgets/header/Header.js";
-import {Div, DOM} from "../../../elements/dom/DOM.js";
-import {EditorToolbar} from "../editor/toolbar/EditorToolbar.js";
-import {Details} from "../editor/details/Details.js";
+import {Div} from "../../../elements/dom/DOM.js";
 import {CollectionToolbar} from "./toolbar/CollectionToolbar.js";
 import {CollectionContainer} from "./container/CollectionContainer.js";
 
