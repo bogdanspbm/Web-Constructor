@@ -2,6 +2,7 @@ import {DOM} from "../../../../elements/dom/DOM.js";
 import {RowInput} from "../inputs/RowInput.js";
 import {CheckBox} from "../../../../elements/default/Button.js";
 import {TypeSelector} from "../inputs/TypeSelector.js";
+import {ContainerSelector} from "../inputs/ContainerSelector.js";
 
 export class CollectionTableRow extends DOM {
     createElement() {
@@ -13,18 +14,18 @@ export class CollectionTableRow extends DOM {
         this.append(checkBox);
 
         const nameInput = new RowInput("Name").setAttribute("width", "132px").setAttribute("margin-left", "32px");
-        this.append(nameInput)
+        this.append(nameInput);
 
         const tooltipInput = new RowInput("Tooltip").setAttribute("width", "152px").setAttribute("margin-left", "52px");
-        this.append(tooltipInput)
+        this.append(tooltipInput);
 
         const defaultInput = new RowInput("Default Value").setAttribute("width", "132px").setAttribute("margin-left", "42px");
-        this.append(defaultInput)
+        this.append(defaultInput);
 
-        const typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");;
-        this.append(typeInput)
+        const typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");
+        this.append(typeInput);
 
-        const containerInput = new RowInput("Container").setAttribute("width", "128px").setAttribute("margin-left", "46px");
-        this.append(containerInput)
+        const containerInput = new ContainerSelector().setAttribute("width", "128px").setAttribute("margin-left", "46px");
+        this.append(containerInput);
     }
 }
