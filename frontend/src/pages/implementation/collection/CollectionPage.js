@@ -13,12 +13,15 @@ export class CollectionPage extends Page {
         super(collection);
     }
 
+    /**
+     * @param {CollectionStructure} collection
+     */
     fillElements(collection) {
         const header = new Header();
         this.elements.push(header);
 
-        const toolbar = new CollectionToolbar();
-        const container = new CollectionContainer();
+        const toolbar = new CollectionToolbar(collection);
+        const container = new CollectionContainer(collection);
 
         const panel = new Div([
             toolbar,

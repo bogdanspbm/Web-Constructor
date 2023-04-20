@@ -103,7 +103,7 @@ export class App {
     generateConstructor() {
         document.addFile(new WidgetFile(new EditorPageStructure()));
         document.addFile(new CollectionFile(new CollectionStructure()));
-        const fileSystem = new FileSystemPage()
-        fileSystem.openPage()
+        const fileSystem = new FileSystemPage();
+        fileSystem.openPage();
     }
 }

@@ -62,6 +62,20 @@ export class DOM {
         return this;
     }
 
+    /**
+     * @param {string} key
+     * @param {string} element
+     */
+    removeAttribute(key, element) {
+        delete this.styles[key];
+
+        if (!element) {
+            element = "element";
+        }
+
+        this[element].setAttribute("style", attributeFromMap(this.styles));
+    }
+
     clearAttribute(key, value, element) {
         this.styles[key] = undefined;
 

@@ -3,7 +3,7 @@ import {EFile} from "../../../../../enums/EFile.js";
 import {CollectionPage} from "../../../collection/CollectionPage.js";
 
 export class CollectionFile extends FileStructure {
-    type = EFile.COLLECTION
+    #type = EFile.COLLECTION
 
     /**
      * @param {CollectionStructure} collection
@@ -28,5 +28,9 @@ export class CollectionFile extends FileStructure {
 
     getUID() {
         return this.collection.getUID();
+    }
+
+    getType() {
+        return this.#type;
     }
 }

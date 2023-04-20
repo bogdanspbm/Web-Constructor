@@ -5,27 +5,41 @@ import {TypeSelector} from "../inputs/TypeSelector.js";
 import {ContainerSelector} from "../inputs/ContainerSelector.js";
 
 export class CollectionTableRow extends DOM {
-    createElement() {
+
+    constructor(attribute) {
+        super(attribute);
+    }
+
+    createElement(attribute) {
         super.createElement();
         this.setStyle("collection-table-header");
 
-        const checkBox = new CheckBox().setAttribute("margin-left", "16px");
-        checkBox.setCheckedStyle("table-row-checkbox-checked").setUncheckedCheckedStyle("table-row-checkbox");
-        this.append(checkBox);
+        this.checkBox = new CheckBox().setAttribute("margin-left", "16px");
+        this.checkBox.setCheckedStyle("table-row-checkbox-checked").setUncheckedCheckedStyle("table-row-checkbox");
+        this.append(this.checkBox);
 
-        const nameInput = new RowInput("Name").setAttribute("width", "132px").setAttribute("margin-left", "32px");
-        this.append(nameInput);
+        this.nameInput = new RowInput(attribute.getName()).setAttribute("width", "132px").setAttribute("margin-left", "32px");
+        this.nameInput.setHint("Input Name");
+        this.append(this.nameInput);
 
-        const tooltipInput = new RowInput("Tooltip").setAttribute("width", "152px").setAttribute("margin-left", "52px");
-        this.append(tooltipInput);
+        this.tooltipInput = new RowInput(attribute.getTooltip()).setAttribute("width", "152px").setAttribute("margin-left", "52px");
+        this.tooltipInput.setHint("Input Tooltip");
+        this.append(this.tooltipInput);
 
-        const defaultInput = new RowInput("Default Value").setAttribute("width", "132px").setAttribute("margin-left", "42px");
-        this.append(defaultInput);
+        this.defaultInput = new RowInput(attribute.getValue()).setAttribute("width", "132px").setAttribute("margin-left", "42px");
+        this.defaultInput.setHint("Default Value");
+        this.append(this.defaultInput);
 
-        const typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");
-        this.append(typeInput);
+        this.typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");
+        this.append(this.typeInput);
 
-        const containerInput = new ContainerSelector().setAttribute("width", "128px").setAttribute("margin-left", "46px");
-        this.append(containerInput);
+        this.containerInput = new ContainerSelector().setAttribute("width", "128px").setAttribute("margin-left", "46px");
+        this.append(this.containerInput);
+    }
+
+    updateElement(attribute) {
+        this.nameInput.setText(attribute.getName());
+        this.tooltipInput.setText(attribute.getTooltip());
+        this.defaultInput.setText(attribute.getValue());
     }
 }

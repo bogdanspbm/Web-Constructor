@@ -1,9 +1,21 @@
 import {Div, DOM} from "../../../../elements/dom/DOM.js";
 import {Input} from "../../../../widgets/common/Input.js";
+import {Button} from "../../../../elements/default/Button.js";
+import {AttributeStructure} from "../../../../objects/AttributeStructure.js";
 
 export class CollectionToolbar extends DOM {
 
-    createElement() {
+    /**
+     * @param {CollectionStructure} collection
+     */
+    constructor(collection) {
+        super(collection);
+    }
+
+    /**
+     * @param {CollectionStructure} collection
+     */
+    createElement(collection) {
         super.createElement();
         this.setStyle("toolbar").setAttribute("padding", "20px").setAttribute("width", "240px");
 
@@ -16,5 +28,14 @@ export class CollectionToolbar extends DOM {
         const tooltipInput = new Input().setTag("placeholder", "Tooltip Name").clearAttribute("height").setStyle("input-bar").setAttribute("margin-bottom", "15px")
         this.append(tooltipHeader);
         this.append(tooltipInput);
+
+        const addButton = new Button().setStyle("blue-button").setAttribute("border-radius", "10px")
+            .setAttribute("margin-top", "auto").setAttribute("width", "100%").setText("Add Param");
+
+        addButton.setClickEvent(action => {
+            collection.addAttribute(new AttributeStructure());
+        })
+
+        this.append(addButton);
     }
 }

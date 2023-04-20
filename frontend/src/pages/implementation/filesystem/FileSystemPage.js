@@ -12,9 +12,6 @@ export class FileSystemPage extends Page {
 
 
     fillElements(directory) {
-
-        const parent = this;
-
         const header = new Header();
         this.elements.push(header);
         this.buttons = []
@@ -35,25 +32,29 @@ export class FileSystemPage extends Page {
         })
 
         this.panel = panel;
-        document.addFileListener(this)
 
-        const files = document.files
-
-        Object.entries(files).forEach(([key, value]) => {
-           parent.fileCreateNotify(value);
-        });
+        this.drawFiles();
 
         this.elements.push(panel);
     }
 
+    drawFiles() {
+        const parent = this;
+        document.addFileListener(this);
+        const files = document.files;
+        Object.entries(files).forEach(([key, value]) => {
+            parent.fileCreateNotify(value);
+        });
+    }
+
     fileCreateNotify(file) {
         const fileButton = new FileButton(file)
-        this.buttons[file.uid] = fileButton
+        this.buttons[file.getUID()] = fileButton
         this.panel.append(fileButton)
     }
 
     fileUpdateNotify(file) {
-        this.buttons[file.uid].updateFile(file)
+        this.buttons[file.getUID()].updateFile(file)
     }
 
 }
