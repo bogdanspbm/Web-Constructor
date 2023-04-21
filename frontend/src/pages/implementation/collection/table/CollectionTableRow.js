@@ -14,10 +14,9 @@ export class CollectionTableRow extends DOM {
         super.createElement();
         this.setStyle("collection-table-header");
 
-        console.log(attribute);
-
         this.checkBox = new CheckBox().setAttribute("margin-left", "16px");
         this.checkBox.setCheckedStyle("table-row-checkbox-checked").setUncheckedCheckedStyle("table-row-checkbox");
+        this.append(this.checkBox);
 
         this.nameInput = new RowInput(attribute.getName()).setAttribute("width", "132px").setAttribute("margin-left", "32px");
         this.nameInput.setHint("Input Name");

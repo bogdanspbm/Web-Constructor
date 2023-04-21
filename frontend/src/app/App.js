@@ -7,6 +7,7 @@ import {WidgetFile} from "../pages/implementation/filesystem/file/implementation
 import {EditorPageStructure} from "../objects/EditorPageStructure.js";
 import {CollectionFile} from "../pages/implementation/filesystem/file/implementations/CollectionFile.js";
 import {CollectionStructure} from "../objects/CollectionStructure.js";
+import {AttributeStructure} from "../objects/AttributeStructure.js";
 
 export class App {
     constructor() {
@@ -102,7 +103,14 @@ export class App {
 
     generateConstructor() {
         document.addFile(new WidgetFile(new EditorPageStructure()));
-        document.addFile(new CollectionFile(new CollectionStructure()));
+
+
+        const collection = new CollectionStructure();
+        collection.setName("User");
+        const attribute = new AttributeStructure(collection);
+        attribute.setName("ID");
+        collection.addAttribute(attribute);
+        document.addFile(new CollectionFile(collection));
         const fileSystem = new FileSystemPage();
         fileSystem.openPage();
     }
