@@ -14,20 +14,30 @@ export class CollectionTableRow extends DOM {
         super.createElement();
         this.setStyle("collection-table-header");
 
+        console.log(attribute);
+
         this.checkBox = new CheckBox().setAttribute("margin-left", "16px");
         this.checkBox.setCheckedStyle("table-row-checkbox-checked").setUncheckedCheckedStyle("table-row-checkbox");
-        this.append(this.checkBox);
 
         this.nameInput = new RowInput(attribute.getName()).setAttribute("width", "132px").setAttribute("margin-left", "32px");
         this.nameInput.setHint("Input Name");
+        this.nameInput.setOnInputEvent(text => {
+            attribute.setName(text);
+        })
         this.append(this.nameInput);
 
         this.tooltipInput = new RowInput(attribute.getTooltip()).setAttribute("width", "152px").setAttribute("margin-left", "52px");
         this.tooltipInput.setHint("Input Tooltip");
+        this.tooltipInput.setOnInputEvent(text => {
+            attribute.setTooltip(text);
+        })
         this.append(this.tooltipInput);
 
         this.defaultInput = new RowInput(attribute.getValue()).setAttribute("width", "132px").setAttribute("margin-left", "42px");
         this.defaultInput.setHint("Default Value");
+        this.defaultInput.setOnInputEvent(text => {
+            attribute.setValue(text);
+        })
         this.append(this.defaultInput);
 
         this.typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");

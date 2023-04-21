@@ -2,26 +2,34 @@ import {DOM} from "../../../../elements/dom/DOM.js";
 
 export class RowInput extends DOM {
 
-    constructor(hint) {
-        super(hint);
-    }
 
     setHint(hint) {
         this.hint = hint;
-        this.drawHint();
+        const text = this.element.innerHTML;
+
+        if (text === "") {
+            this.drawHint();
+        }
     }
 
     setOnInputEvent(event) {
         this.inputEvent = event;
     }
 
-    createElement(hint) {
+    setText(text) {
+        super.setText(text);
+        if (text === "") {
+            this.drawHint();
+        }
+    }
+
+    createElement(value) {
         super.createElement();
 
         const parent = this;
 
         this.setStyle("table-row-input")
-        this.setText(hint)
+        this.setText(value);
 
         parent.element.addEventListener("click", function (event) {
 

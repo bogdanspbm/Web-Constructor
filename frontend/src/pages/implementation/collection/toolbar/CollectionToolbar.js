@@ -33,7 +33,7 @@ export class CollectionToolbar extends DOM {
             .setAttribute("margin-top", "auto").setAttribute("width", "100%").setText("Add Param");
 
         addButton.setClickEvent(action => {
-            collection.addAttribute(new AttributeStructure());
+            collection.addAttribute(new AttributeStructure(collection));
         })
 
         this.append(addButton);
