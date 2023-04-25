@@ -1,9 +1,9 @@
 import {FileStructure} from "../../../../../objects/FileStructure.js";
-import {EFile} from "../../../../../enums/EFile.js";
+import {EFileType} from "../../../../../enums/EFileType.js";
 import {CollectionPage} from "../../../collection/CollectionPage.js";
 
 export class CollectionFile extends FileStructure {
-    #type = EFile.COLLECTION
+    #type = EFileType.COLLECTION
 
     /**
      * @param {CollectionStructure} collection

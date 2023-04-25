@@ -1,4 +1,4 @@
-export const EType = Object.freeze({
+export const EAttributeType = Object.freeze({
     INTEGER: {
         "name": "Integer",
         "color": "#36cfc9"

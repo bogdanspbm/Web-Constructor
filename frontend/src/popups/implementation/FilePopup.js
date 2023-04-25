@@ -1,7 +1,7 @@
 import {PopupElement, PopupMenu} from "../Popup.js";
-import {EFile} from "../../enums/EFile.js";
+import {EFileType} from "../../enums/EFileType.js";
 import {WidgetFile} from "../../pages/implementation/filesystem/file/implementations/WidgetFile.js";
-import {EditorPageStructure} from "../../objects/EditorPageStructure.js";
+import {WidgetStructure} from "../../objects/WidgetStructure.js";
 import {DirectoryFile} from "../../pages/implementation/filesystem/file/implementations/DirectoryFile.js";
 import {CollectionFile} from "../../pages/implementation/filesystem/file/implementations/CollectionFile.js";
 
@@ -9,26 +9,26 @@ export class FilePopup extends PopupMenu {
     constructor(args) {
         super(args);
 
-        const createWidget = new FilePopupElement(EFile.WIDGET);
+        const createWidget = new FilePopupElement(EFileType.WIDGET);
         this.append(createWidget);
 
-        const createCollection = new FilePopupElement(EFile.COLLECTION);
+        const createCollection = new FilePopupElement(EFileType.COLLECTION);
         this.append(createCollection);
 
-        const createFolder = new FilePopupElement(EFile.DIRECTORY);
+        const createFolder = new FilePopupElement(EFileType.DIRECTORY);
         this.append(createFolder);
 
-        const createScript = new FilePopupElement(EFile.SCRIPT);
+        const createScript = new FilePopupElement(EFileType.SCRIPT);
         this.append(createScript);
 
-        const createVector = new FilePopupElement(EFile.VECTOR);
+        const createVector = new FilePopupElement(EFileType.VECTOR);
         this.append(createVector);
     }
 }
 
 class FilePopupElement extends PopupElement {
     /**
-     * @param {EFile} fileType
+     * @param {EFileType} fileType
      */
     constructor(fileType) {
         super("Create " + fileType['name']);
@@ -41,18 +41,18 @@ class FilePopupElement extends PopupElement {
 }
 
 /**
- * @param {EFile} fileType
+ * @param {EFileType} fileType
  * @returns {FileStructure}
  */
 function createFileFromType(fileType) {
     switch (fileType) {
-        case EFile.WIDGET: {
-            return new WidgetFile(new EditorPageStructure());
+        case EFileType.WIDGET: {
+            return new WidgetFile(new WidgetStructure());
         }
-        case EFile.DIRECTORY: {
+        case EFileType.DIRECTORY: {
             return new DirectoryFile();
         }
-        case EFile.COLLECTION: {
+        case EFileType.COLLECTION: {
             return new CollectionFile();
         }
 

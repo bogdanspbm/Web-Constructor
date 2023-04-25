@@ -4,6 +4,16 @@ import {DetailsTabs} from "./tabs/DetailsTabs.js";
 
 export class Details extends DOM {
 
+    /**
+     * @param {WidgetStructure} widget
+     */
+    constructor(widget) {
+        super(widget);
+    }
+
+    /**
+     * @param {WidgetStructure} widget
+     */
     createElement() {
         super.createElement();
         this.setStyle("details")

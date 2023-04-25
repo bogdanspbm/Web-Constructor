@@ -7,12 +7,12 @@ export function bindCollectionListener() {
     }
 
     document.updateCollection = function (collection) {
-        document.collections[collection.uid] = collection
+        document.collections[collection.getUID()] = collection
         notifyCollectionChangeListener(collection)
     }
 
     document.createCollection = function (collection) {
-        document.collections[collection.uid] = collection
+        document.collections[collection.getUID()] = collection
         notifyCollectionCreateListener(collection)
     }
 

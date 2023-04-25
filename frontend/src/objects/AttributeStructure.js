@@ -1,5 +1,5 @@
-import {EType} from "../enums/EType.js";
-import {EContainer} from "../enums/EContainer.js";
+import {EAttributeType} from "../enums/EAttributeType.js";
+import {EContainerType} from "../enums/EContainerType.js";
 
 export class AttributeStructure {
 
@@ -16,8 +16,8 @@ export class AttributeStructure {
      */
     constructor(parent) {
         this.#parent = parent;
-        this.#type = EType.INTEGER;
-        this.#container = EContainer.SINGLE;
+        this.#type = EAttributeType.INTEGER;
+        this.#container = EContainerType.SINGLE;
         this.#name = "Variable";
         this.#tooltip = "";
         this.#value = "";
@@ -53,7 +53,7 @@ export class AttributeStructure {
     }
 
     /**
-     * @param {EType} type
+     * @param {EAttributeType} type
      */
     setType(type) {
         this.#type = type;
@@ -65,7 +65,7 @@ export class AttributeStructure {
     }
 
     /**
-     * @param {EContainer} container
+     * @param {EContainerType} container
      */
     setContainer(container) {
         this.#container = container;

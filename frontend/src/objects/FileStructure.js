@@ -1,8 +1,8 @@
-import {EFile} from "../enums/EFile.js";
+import {EFileType} from "../enums/EFileType.js";
 
 export class FileStructure {
 
-    #type = EFile.DIRECTORY
+    #type = EFileType.DIRECTORY
     #name
     #uid
 
@@ -15,7 +15,7 @@ export class FileStructure {
     }
 
     /**
-     * @param {EFile} type
+     * @param {EFileType} type
      */
     setType(type) {
         this.#type = type

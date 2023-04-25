@@ -1,32 +1,32 @@
 import {FileStructure} from "../../../../../objects/FileStructure.js";
-import {EFile} from "../../../../../enums/EFile.js";
+import {EFileType} from "../../../../../enums/EFileType.js";
 
 export class WidgetFile extends FileStructure {
-    #editorPage = null
-    #type = EFile.WIDGET
+    #widget = null
+    #type = EFileType.WIDGET
 
     /**
-     * @param {EditorPageStructure} editorPage
+     * @param {WidgetStructure} widget
      */
-    constructor(editorPage) {
+    constructor(widget) {
         super();
-        this.#editorPage = editorPage
+        this.#widget = widget
     }
 
     getName() {
-        return this.#editorPage.getName()
+        return this.#widget.getName()
     }
 
     setName(name) {
-        this.#editorPage.setName(name)
+        this.#widget.setName(name)
     }
 
     getUID() {
-        return this.#editorPage.getUID();
+        return this.#widget.getUID();
     }
 
     openAction(event) {
-        document.openPage(this.#editorPage)
+        document.openWidget(this.#widget)
     }
 
     getType() {

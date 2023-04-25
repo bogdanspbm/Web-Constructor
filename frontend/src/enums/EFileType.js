@@ -1,4 +1,4 @@
-export const EFile = Object.freeze({
+export const EFileType = Object.freeze({
     DIRECTORY: {
         "name": "Folder",
         "default_name": "New Folder",
