@@ -1,3 +1,6 @@
+import {UpdateStructure} from "./UpdateStructure.js";
+import {EUpdateType} from "../enums/EUpdateType.js";
+
 export class CollectionStructure {
 
     #uid
@@ -31,7 +34,8 @@ export class CollectionStructure {
      */
     addAttribute(attribute) {
         this.#attributes[attribute.getUID()] = attribute;
-        document.updateCollection(this);
+        const update = new UpdateStructure(this, attribute, EUpdateType.INSERT);
+        document.updateCollection(update);
     }
 
     getAttributes() {

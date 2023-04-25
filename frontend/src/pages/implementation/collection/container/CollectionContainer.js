@@ -44,9 +44,9 @@ export class CollectionContainer extends DOM {
     }
 
     /**
-     * @param {CollectionStructure} collection
+     * @param {UpdateStructure} update
      */
-    collectionChangeNotify(collection) {
-        this.drawAttributes(collection);
+    collectionChangeNotify(update) {
+        this.drawAttributes(update.getElement());
     }
 }

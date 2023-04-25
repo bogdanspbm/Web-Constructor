@@ -9,9 +9,13 @@ export function bindWidgetListener() {
         editorPage.openPage()
     }
 
-    document.updateWidget = function (widget) {
+    /**
+     * @param {UpdateStructure} update
+     */
+    document.updateWidget = function (update) {
+        const widget = update.getElement();
         document.widgets[widget.getUID()] = widget
-        notifyWidgetChangeListener(widget)
+        notifyWidgetChangeListener(update)
     }
 
     document.createWidget = function (widget) {
@@ -27,11 +31,14 @@ function addWidgetListener(listener) {
     document.widgetListener.push(listener)
 }
 
-function notifyWidgetChangeListener(widget) {
+/**
+ * @param {UpdateStructure} update
+ */
+function notifyWidgetChangeListener(update) {
     for (let i = 0; i < document.widgetListener.length; i++) {
         const listener = document.widgetListener[i];
         if (typeof listener.widgetChangeNotify === "function") {
-            listener.widgetChangeNotify(widget);
+            listener.widgetChangeNotify(update);
         }
     }
 }

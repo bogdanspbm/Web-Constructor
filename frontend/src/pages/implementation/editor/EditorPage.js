@@ -10,6 +10,14 @@ export class EditorPage extends Page {
     /**
      * @param {WidgetStructure} widget
      */
+    constructor(widget) {
+        super(widget);
+        document.addWidgetListener(this);
+    }
+
+    /**
+     * @param {WidgetStructure} widget
+     */
     fillElements(widget) {
         const header = new Header();
         this.elements.push(header);
@@ -38,4 +46,5 @@ export class EditorPage extends Page {
     fillGridWithElement(grid, elements) {
 
     }
+
 }

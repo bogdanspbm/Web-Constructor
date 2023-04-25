@@ -6,9 +6,13 @@ export function bindCollectionListener() {
         notifyCollectionChangeListener(collection)
     }
 
-    document.updateCollection = function (collection) {
+    /**
+     * @param {UpdateStructure} update
+     */
+    document.updateCollection = function (update) {
+        const collection = update.getElement();
         document.collections[collection.getUID()] = collection
-        notifyCollectionChangeListener(collection)
+        notifyCollectionChangeListener(update)
     }
 
     document.createCollection = function (collection) {
@@ -24,11 +28,14 @@ function addCollectionListener(listener) {
     document.collectionListeners.push(listener)
 }
 
-function notifyCollectionChangeListener(event) {
+/**
+ * @param {UpdateStructure} update
+ */
+function notifyCollectionChangeListener(update) {
     for (let i = 0; i < document.collectionListeners.length; i++) {
         const listener = document.collectionListeners[i];
         if (typeof listener.collectionChangeNotify === "function") {
-            listener.collectionChangeNotify(event);
+            listener.collectionChangeNotify(update);
         }
     }
 }

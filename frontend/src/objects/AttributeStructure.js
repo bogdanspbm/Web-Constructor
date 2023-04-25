@@ -1,5 +1,7 @@
 import {EAttributeType} from "../enums/EAttributeType.js";
 import {EContainerType} from "../enums/EContainerType.js";
+import {UpdateStructure} from "./UpdateStructure.js";
+import {EUpdateType} from "../enums/EUpdateType.js";
 
 export class AttributeStructure {
 
@@ -90,6 +92,7 @@ export class AttributeStructure {
     }
 
     updateParent() {
-        document.updateCollection(this.#parent);
+        const update = new UpdateStructure(this.#parent, this, EUpdateType.CHANGE);
+        document.updateCollection(update);
     }
 }
