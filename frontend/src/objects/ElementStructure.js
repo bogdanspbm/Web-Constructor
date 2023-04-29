@@ -1,4 +1,5 @@
 import {EElementType} from "../enums/EElementType.js";
+import {ButtonComponent, InputComponent, TextComponent} from "../grid/objects/Component.js";
 
 export class ElementStructure {
 
@@ -37,4 +38,20 @@ export class ElementStructure {
     getUID() {
         return this.#uid;
     }
+
+    generateElement() {
+        switch (this.#type) {
+            case EElementType.BUTTON: {
+                return new ButtonComponent();
+            }
+            case EElementType.INPUT: {
+                return new InputComponent();
+            }
+            case EElementType.TEXT: {
+                return new TextComponent();
+            }
+        }
+        return new TextComponent();
+    }
+
 }

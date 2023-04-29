@@ -43,6 +43,9 @@ function notifyWidgetChangeListener(update) {
     }
 }
 
+/**
+ * @param {WidgetStructure} widget
+ */
 function notifyWidgetCreateListener(widget) {
     for (let i = 0; i < document.widgetListener.length; i++) {
         const listener = document.widgetListener[i];

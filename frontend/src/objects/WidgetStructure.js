@@ -1,4 +1,3 @@
-import {Grid} from "../grid/Grid.js";
 import {EFileType} from "../enums/EFileType.js";
 import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
