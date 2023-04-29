@@ -30,8 +30,6 @@ export class EditorGrid extends Grid {
         Object.entries(elements).forEach(([key, value]) => {
             const block = this.getBlockByPosition(value.getPosition());
 
-            console.log(block)
-
             if (block !== null) {
                 block.append(value.generateElement());
             }
