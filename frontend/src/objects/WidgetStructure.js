@@ -44,7 +44,7 @@ export class WidgetStructure {
 
 
     /**
-     * @param {ElementStructure} element
+     * @param {ComponentStructure} element
      */
     addElement(element) {
         this.#elements[element.getUID()] = element;

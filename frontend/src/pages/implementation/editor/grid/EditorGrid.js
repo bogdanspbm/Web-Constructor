@@ -12,6 +12,7 @@ export class EditorGrid extends Grid {
         super(widget);
         this.#widget = widget;
         document.addWidgetListener(this);
+        this.fillGridWithElement(widget.getElements());
     }
 
     /**
@@ -26,6 +27,15 @@ export class EditorGrid extends Grid {
      * @param {Map} elements
      */
     fillGridWithElement(elements) {
+        Object.entries(elements).forEach(([key, value]) => {
+            const block = this.getBlockByPosition(value.getPosition());
+
+            console.log(block)
+
+            if (block !== null) {
+                block.append(value.generateElement());
+            }
+        });
 
     }
 
@@ -51,7 +61,7 @@ export class EditorGrid extends Grid {
     }
 
     /**
-     * @param {ElementStructure} element
+     * @param {ComponentStructure} element
      */
     insertElementListener(element) {
         this.append(element.generateElement());

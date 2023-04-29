@@ -63,6 +63,18 @@ export class Grid extends DOM {
         return blockedBlocks;
     }
 
+    getBlockByPosition(position) {
+        for (let i = 0; i < this.blocks.length; i++) {
+            const block = this.blocks[i];
+
+            if (block.gridPosition.x === position.x && block.gridPosition.y === position.y) {
+                return block;
+            }
+        }
+
+        return null;
+    }
+
     canAppend() {
         let blockedBlocks = this.getBlockedBlocks();
 
@@ -172,5 +184,15 @@ export class GridBlock extends DOM {
 
     onDragLeave() {
         this.setAttribute("background", "#FFFFFF");
+    }
+
+    /**
+     * @param {Component} element
+     * @param {Number} index
+     */
+    append(element, index) {
+        super.append(element, index);
+        element.getParentStructure().setPosition(this.gridPosition);
+        return this;
     }
 }

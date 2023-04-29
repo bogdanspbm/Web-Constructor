@@ -1,7 +1,7 @@
 import {EElementType} from "../enums/EElementType.js";
 import {ButtonComponent, InputComponent, TextComponent} from "../grid/objects/Component.js";
 
-export class ElementStructure {
+export class ComponentStructure {
 
     #parent;
     #type;
@@ -9,6 +9,9 @@ export class ElementStructure {
     #tooltip;
     #uid;
     #value;
+    #position
+    #size
+
 
     /**
      * @param {WidgetStructure} parent
@@ -21,6 +24,22 @@ export class ElementStructure {
         this.#tooltip = "";
         this.#value = "";
         this.#uid = Math.random().toString().replace("0.", "");
+    }
+
+    getPosition() {
+        return this.#position;
+    }
+
+    getSize() {
+        this.#size;
+    }
+
+    setPosition(position) {
+        this.#position = position;
+    }
+
+    setSize(size) {
+        this.#size = size;
     }
 
     getType() {
@@ -40,18 +59,23 @@ export class ElementStructure {
     }
 
     generateElement() {
+        var element;
         switch (this.#type) {
             case EElementType.BUTTON: {
-                return new ButtonComponent();
+                element = new ButtonComponent();
+                break;
             }
             case EElementType.INPUT: {
-                return new InputComponent();
+                element = new InputComponent();
+                break;
             }
             case EElementType.TEXT: {
-                return new TextComponent();
+                element = new TextComponent();
+                break;
             }
         }
-        return new TextComponent();
+        element.setParentStructure(this);
+        return element;
     }
 
 }

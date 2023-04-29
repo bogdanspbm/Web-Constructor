@@ -1,7 +1,7 @@
 import {EditorToolbarExpand} from "../EditorToolbarExpand.js";
 import {EditorToolbarButton} from "../EditorToolbarButton.js";
 import {ButtonComponent, InputComponent, TextComponent,} from "../../../../../grid/objects/Component.js";
-import {ElementStructure} from "../../../../../objects/ElementStructure.js";
+import {ComponentStructure} from "../../../../../objects/ComponentStructure.js";
 import {EElementType} from "../../../../../enums/EElementType.js";
 
 export class ControlsTool extends EditorToolbarExpand {
@@ -24,7 +24,7 @@ export class ControlsTool extends EditorToolbarExpand {
             .addIcon("./../resources/icons/ic_input_40x40.svg")
             .setText("Input Component")
             .setClickEvent(() => {
-                const element = new ElementStructure(widget, EElementType.INPUT);
+                const element = new ComponentStructure(widget, EElementType.INPUT);
                 widget.addElement(element);
                 //document.grid.append(new InputComponent());
             });
@@ -33,7 +33,7 @@ export class ControlsTool extends EditorToolbarExpand {
             .addIcon("./../resources/icons/ic_text_40x40.svg")
             .setText("Text Component")
             .setClickEvent(() => {
-                const element = new ElementStructure(widget, EElementType.TEXT);
+                const element = new ComponentStructure(widget, EElementType.TEXT);
                 widget.addElement(element);
                 //document.grid.append(new TextComponent());
             });
@@ -42,7 +42,7 @@ export class ControlsTool extends EditorToolbarExpand {
             .addIcon("./../resources/icons/ic_button_40x40.svg")
             .setText("Button Component")
             .setClickEvent(() => {
-                const element = new ElementStructure(widget, EElementType.BUTTON);
+                const element = new ComponentStructure(widget, EElementType.BUTTON);
                 widget.addElement(element);
                 //document.grid.append(new ButtonComponent());
             });

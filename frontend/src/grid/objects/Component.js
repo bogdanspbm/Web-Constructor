@@ -2,6 +2,18 @@ import {Transformable} from "../interfaces/Transformable.js";
 import {Div} from "../../elements/dom/DOM.js";
 
 export class Component extends Transformable {
+    #parentStructure
+
+    /**
+     * @param {ComponentStructure} structure
+     */
+    setParentStructure(structure) {
+        this.#parentStructure = structure;
+    }
+
+    getParentStructure() {
+        return this.#parentStructure;
+    }
 }
 
 export class ButtonComponent extends Component {
