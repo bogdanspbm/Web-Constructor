@@ -2,7 +2,7 @@ import {Selectable} from "../../elements/interface/Selectable.js";
 import {GridBlock} from "../Grid.js";
 
 export class GridContent extends Selectable {
-    gridSize = {x: 1, y: 1}
+    #gridSize = {x: 1, y: 1}
 
     constructor(elements) {
         super(elements);
@@ -21,6 +21,20 @@ export class GridContent extends Selectable {
 
     getGridPosition() {
         return this.parent.gridPosition
+    }
+
+    getGridSize() {
+        return this.#gridSize;
+    }
+
+    setGridSize(size, replicate) {
+
+        if (size === undefined) {
+            return this;
+        }
+
+        this.#gridSize = size;
+        return this;
     }
 
 }

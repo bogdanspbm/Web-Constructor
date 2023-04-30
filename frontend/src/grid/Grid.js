@@ -138,7 +138,17 @@ export class GridBlock extends DOM {
                 .replace("px", "")
         );
 
-        return {width: width + 1, height: height + 1};
+
+        // TODO: Когда загружается из файла, эти значения еще 0
+        if (!Object.is(width, NaN)) {
+            document.lastBlockWidth = width;
+        }
+
+        if (!Object.is(height, NaN)) {
+            document.lastBlockHeight = height;
+        }
+
+        return {width: document.lastBlockWidth + 1, height: document.lastBlockHeight + 1};
     }
 
     bindEvents() {
@@ -192,7 +202,8 @@ export class GridBlock extends DOM {
      */
     append(element, index) {
         super.append(element, index);
-        element.getParentStructure().setPosition(this.gridPosition);
+        element.getParentStructure().setPosition(this.gridPosition); // Set Pos
+        element.fixSizeOnResize(); // Set Size
         return this;
     }
 }

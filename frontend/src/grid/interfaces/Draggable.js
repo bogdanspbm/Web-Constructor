@@ -83,10 +83,10 @@ export class Draggable extends GridContent {
 
     const startPosition = target.gridPosition;
 
-    for (let x = startPosition.x; x < startPosition.x + this.gridSize.x; x++) {
+    for (let x = startPosition.x; x < startPosition.x + this.getGridSize().x; x++) {
       for (
         let y = startPosition.y;
-        y < startPosition.y + this.gridSize.y;
+        y < startPosition.y + this.getGridSize().y;
         y++
       ) {
         const block = grid.getBlockByPosition({ x: x, y: y });

@@ -14,6 +14,16 @@ export class Component extends Transformable {
     getParentStructure() {
         return this.#parentStructure;
     }
+
+    setGridSize(size, replicate) {
+        super.setGridSize(size, replicate);
+
+        if (replicate) {
+            this.#parentStructure.setSize(size);
+        }
+
+        return this;
+    }
 }
 
 export class ButtonComponent extends Component {

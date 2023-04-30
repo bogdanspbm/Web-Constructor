@@ -75,6 +75,8 @@ export class ComponentStructure {
             }
         }
         element.setParentStructure(this);
+        element.setGridSize(this.#size, false);
+        element.setOriginalGridSize(this.#size);
         return element;
     }
 
