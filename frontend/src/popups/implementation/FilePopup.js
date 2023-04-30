@@ -34,7 +34,6 @@ class FilePopupElement extends PopupElement {
         super("Create " + fileType['name']);
 
         this.setClickEvent(action => {
-            console.log("element")
             document.addFile(createFileFromType(fileType))
         })
     }

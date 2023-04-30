@@ -9,8 +9,8 @@ export class ComponentStructure {
     #tooltip;
     #uid;
     #value;
-    #position
-    #size
+    #position;
+    #size = {x: 1, y: 1};
 
 
     /**

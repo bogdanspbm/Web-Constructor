@@ -162,7 +162,6 @@ export class Transformable extends Draggable {
     }
 
     fixSizeOnResize() {
-
         if (this.parent === undefined) {
             return;
         }
@@ -171,12 +170,9 @@ export class Transformable extends Draggable {
         this.#transformElement.style.top = "0px";
         this.#transformElement.style.height = this.getGridSize().y * this.parent.getBlockSize().height + "px";
         this.#transformElement.style.left = "0px";
-
-        console.log(this.parent.getBlockSize());
     }
 
     fixOriginalSize() {
-
         if (this.parent === undefined) {
             return;
         }

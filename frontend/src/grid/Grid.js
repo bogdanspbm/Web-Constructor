@@ -52,8 +52,6 @@ export class Grid extends DOM {
                 continue;
             }
 
-            console.log(block.children[0]);
-
             const smallBlockedBlocks = block.children[0].getOverlappedBlocks(block);
             smallBlockedBlocks.forEach((smallBlock) =>
                 blockedBlocks.push(smallBlock)
@@ -117,9 +115,22 @@ export class GridBlock extends DOM {
     gridPosition = {x: 0, y: 0};
 
     createElement() {
+        const parent = this;
         this.element = document.createElement("div");
         this.bindEvents();
         this.setStyle("grid-block");
+        new ResizeObserver(event => {
+            this.resizeListener(parent);
+        }).observe(this.element);
+    }
+
+    resizeListener(parent) {
+
+        if (parent.children === undefined || parent.children.length === 0) {
+            return;
+        }
+
+        parent.children[0].fixOriginalSize();
     }
 
     setGridPosition(position) {
@@ -139,16 +150,7 @@ export class GridBlock extends DOM {
         );
 
 
-        // TODO: Когда загружается из файла, эти значения еще 0
-        if (!Object.is(width, NaN)) {
-            document.lastBlockWidth = width;
-        }
-
-        if (!Object.is(height, NaN)) {
-            document.lastBlockHeight = height;
-        }
-
-        return {width: document.lastBlockWidth + 1, height: document.lastBlockHeight + 1};
+        return {width: width + 1, height: height + 1};
     }
 
     bindEvents() {

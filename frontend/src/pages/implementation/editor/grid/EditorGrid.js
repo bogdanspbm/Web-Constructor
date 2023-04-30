@@ -41,7 +41,6 @@ export class EditorGrid extends Grid {
      * @param {UpdateStructure} update
      */
     widgetChangeNotify(update) {
-        console.log(update);
 
         if (update.getElement().getUID() !== this.#widget.getUID()) {
             return;
