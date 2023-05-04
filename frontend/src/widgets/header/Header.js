@@ -5,27 +5,29 @@ import {HeaderDropdown} from "./dropdown/HeaderDropdown.js";
 import {DatabaseTabs} from "./tabs/DatabaseTabs.js";
 import {HeaderButton} from "./inputs/HeaderButton.js";
 import {FileSystemPage} from "../../pages/implementation/filesystem/FileSystemPage.js";
+import {Button} from "../../elements/default/Button.js";
 
 export class Header extends Div {
-    createElement() {
+
+    createElement(flag) {
         super.createElement();
         this.setStyle("header");
 
-        this.files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
-        this.files.setClickEvent(action => {
+        const files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
+        files.setClickEvent(action => {
             const fileSystem = new FileSystemPage()
             fileSystem.openPage()
         })
-        this.append(this.files);
+        this.append(files);
 
-        this.mainControls = new HeaderControls();
-        this.append(this.mainControls);
+        if (flag) {
+            const mainControls = new HeaderControls();
+            this.append(mainControls);
+        }
 
-        this.databaseTab = new DatabaseTabs()
-        this.databaseControl = new HeaderDropdown(this.databaseTab, "./../resources/icons/ic_database_40x40.svg").setAttribute("width", "50px").setAttribute("margin-left", "180px").setAttribute("z-index", "2").setAttribute("height", "50px");
-        this.append(this.databaseControl);
-
-        this.detailsControls = new HeaderDetails();
-        this.append(this.detailsControls);
+        const buttonExport = new Button().setText("Export").setAttribute("margin-left", "auto")
+            .setAttribute("height", "24px").setAttribute("border-radius", "5px")
+            .setAttribute("margin-right","10px").setStyle("blue-button");
+        this.append(buttonExport)
     }
 }

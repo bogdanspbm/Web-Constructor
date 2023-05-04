@@ -18,7 +18,7 @@ export class EditorPage extends Page {
      * @param {WidgetStructure} widget
      */
     fillElements(widget) {
-        const header = new Header();
+        const header = new Header(true);
         this.elements.push(header);
 
         const grid = new EditorGrid(widget);
