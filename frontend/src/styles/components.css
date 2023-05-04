@@ -35,6 +35,11 @@
     border-radius: 5px;
     padding-left: 8px;
     border: #D7D7D7 solid 1px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
 }
 
 .input-component:hover {
