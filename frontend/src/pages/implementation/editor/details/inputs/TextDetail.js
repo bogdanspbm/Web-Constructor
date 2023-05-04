@@ -3,6 +3,8 @@ import {Input} from "../../../../../widgets/common/Input.js";
 
 export class TextDetail extends DOM {
 
+    hint = ""
+
     /**
      * @param {ComponentStructure} structure
      */
@@ -16,6 +18,8 @@ export class TextDetail extends DOM {
 
         this.input = new Input();
 
+        const parent = this;
+
         this.input.setOnChangeEvent(function (event) {
             const value = event.target.value;
             structure.setProperty("text", value);
@@ -26,9 +30,25 @@ export class TextDetail extends DOM {
     }
 
     /**
+     * @param {String} hint
+     */
+    setHint(hint) {
+        this.input.setHint(hint);
+        this.setInitText(this.lastText);
+        return this;
+    }
+
+    /**
      * @param {String} text
      */
     setInitText(text) {
-        this.input.element.value = text
+
+        this.lastText = text;
+
+        if (text === undefined) {
+            text = this.hint;
+        }
+
+        this.input.setText(text);
     }
 }

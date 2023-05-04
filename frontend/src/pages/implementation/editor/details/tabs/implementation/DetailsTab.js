@@ -31,7 +31,7 @@ export class DetailsTab extends Tab {
             return;
         }
 
-        this.textDetails = new TextDetail(structure);
+        this.textDetails = new TextDetail(structure).setHint("Enter text");
         this.append(this.textDetails);
     }
 

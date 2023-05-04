@@ -24,6 +24,22 @@ export class Component extends Transformable {
 
         return this;
     }
+
+    /**
+     * @param {String} key
+     * @param {String} value
+     */
+    setProperty(key, value) {
+
+        switch (key) {
+            case "text": {
+                this.setText(value);
+                break;
+            }
+        }
+
+        return this;
+    }
 }
 
 export class ButtonComponent extends Component {

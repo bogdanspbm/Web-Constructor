@@ -22,4 +22,11 @@ export class Input extends DOM {
             parent.onChangeEvent(event)
         })
     }
+
+    /**
+     * @param {String} hint
+     */
+    setHint(hint) {
+        this.setTag("placeholder", hint)
+    }
 }

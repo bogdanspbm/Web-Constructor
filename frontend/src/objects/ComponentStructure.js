@@ -96,6 +96,7 @@ export class ComponentStructure {
      */
     setProperty(key, value) {
         this.#properties[key] = value;
+        this.#component.setProperty(key, value);
         return this;
     }
 
