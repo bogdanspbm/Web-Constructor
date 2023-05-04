@@ -10,6 +10,8 @@ export class ComponentStructure {
     #uid;
     #value;
     #position;
+    #properties = {};
+    #component;
     #size = {x: 1, y: 1};
 
 
@@ -59,25 +61,42 @@ export class ComponentStructure {
     }
 
     generateElement() {
-        var element;
         switch (this.#type) {
             case EElementType.BUTTON: {
-                element = new ButtonComponent();
+                this.#component = new ButtonComponent();
                 break;
             }
             case EElementType.INPUT: {
-                element = new InputComponent();
+                this.#component = new InputComponent();
                 break;
             }
             case EElementType.TEXT: {
-                element = new TextComponent();
+                this.#component = new TextComponent();
                 break;
             }
         }
-        element.setParentStructure(this);
-        element.setGridSize(this.#size, false);
-        element.setOriginalGridSize(this.#size);
-        return element;
+        this.#component.setParentStructure(this);
+        this.#component.setGridSize(this.#size, false);
+        this.#component.setOriginalGridSize(this.#size);
+        return this.#component;
+    }
+
+
+    /**
+     * @param {String} key
+     */
+    getProperty(key) {
+        return this.#properties[key];
+    }
+
+
+    /**
+     * @param {String} key
+     * @param {String} value
+     */
+    setProperty(key, value) {
+        this.#properties[key] = value;
+        return this;
     }
 
 }
