@@ -16,11 +16,7 @@
 .detail-block {
     display: flex;
     flex-direction: column;
-
-    padding: 14px;
-
     background: white;
-    border-bottom: solid 1px #F7F7F7;
 }
 
 

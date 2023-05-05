@@ -8,7 +8,7 @@ export class DetailsTab extends Tab {
 
     createElement() {
         super.createElement();
-        this.generateEditors();
+        this.setAttribute("padding", "15px");
         document.addSelectListener(this);
     }
 

@@ -4,11 +4,14 @@ import {SchemaTab} from "./implementation/SchemaTab.js";
 import {DetailsTab} from "./implementation/DetailsTab.js";
 
 export class DetailsTabs extends DOM {
-    createElement() {
+    /**
+     * @param {WidgetStructure} structure
+     */
+    createElement(structure) {
         super.createElement()
 
         this.detailsTab = new DetailsTab();
-        this.schemaTab = new SchemaTab();
+        this.schemaTab = new SchemaTab().setStructure(structure);
 
         this.tabs = new Tabs([this.detailsTab, this.schemaTab]);
         this.setStyle("details-tabs")

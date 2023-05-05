@@ -6,6 +6,18 @@ export function bindCollectionListener() {
         notifyCollectionChangeListener(collection)
     }
 
+    document.findCollectionByName = function (name) {
+        let result = undefined;
+        Object.entries(document.collections).forEach(([key, attribute]) => {
+            const collection = document.collections[key];
+            if (collection.getName() === name) {
+                result = collection;
+                return result;
+            }
+        });
+        return result;
+    }
+
     /**
      * @param {UpdateStructure} update
      */

@@ -13,15 +13,15 @@ export class Tabs extends DOM {
         const parent = this
 
         for (let i = 0; i < elements.length; i++) {
-            const element = elements[i]
-            element.setParentTabs(parent)
-            this.tabs.append(element.getTabButton())
-            this.content.append(element)
+            const element = elements[i];
+            element.setParentTabs(parent);
+            this.tabs.append(element.getTabButton());
+            this.content.append(element);
         }
 
         if (elements.length > 0) {
-            this.setSelectedTab(elements[0])
-            elements[0].setSelect()
+            this.setSelectedTab(elements[0]);
+            elements[0].setSelect();
         }
     }
 

@@ -14,11 +14,11 @@ export class Details extends DOM {
     /**
      * @param {WidgetStructure} widget
      */
-    createElement() {
+    createElement(widget) {
         super.createElement();
         this.setStyle("details");
 
-        this.tabs = new DetailsTabs();
+        this.tabs = new DetailsTabs(widget);
         this.append(this.tabs);
     }
 

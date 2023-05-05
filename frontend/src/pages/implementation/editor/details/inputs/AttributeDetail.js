@@ -1,7 +1,7 @@
 import {DOM} from "../../../../../elements/dom/DOM.js";
 import {Input} from "../../../../../widgets/common/Input.js";
 
-export class TextDetail extends DOM {
+export class AttributeDetail extends DOM {
 
     hint = ""
 
@@ -12,7 +12,7 @@ export class TextDetail extends DOM {
         this.element = document.createElement("div");
         this.setStyle("detail-block");
 
-        this.header = new DOM().setText("Text").setStyle("small-header").setAttribute("margin-bottom", "10px");
+        this.header = new DOM().setText("Attribute").setStyle("small-header").setAttribute("margin-bottom", "10px");
         this.append(this.header);
 
         this.input = new Input().setStyle("input-bar").setAttribute("height", "26px");

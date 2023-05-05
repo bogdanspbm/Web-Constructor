@@ -2,11 +2,11 @@ import {Option, Select} from "../../../../../elements/default/Select.js";
 
 export class CollectionSelector extends Select {
 
-    constructor(args) {
-        super(args);
-    }
 
-    createElement() {
+    /**
+     * @param {WidgetStructure} structure
+     */
+    createElement(structure) {
         super.createElement();
         this.setStyle("selector-borderless");
 
@@ -18,5 +18,18 @@ export class CollectionSelector extends Select {
             const option = new Option(collection.getName());
             this.append(option);
         });
+
+        this.setSelectEvent(value => {
+            structure.setCollection(document.findCollectionByName(value));
+            console.log(structure);
+        })
+
+
+        if (!structure.getCollection()) {
+            return;
+        }
+
+        this.element.value = structure.getCollection().getName();
+
     }
 }
