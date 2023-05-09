@@ -78,6 +78,7 @@ export class ComponentStructure {
         this.#component.setParentStructure(this);
         this.#component.setGridSize(this.#size, false);
         this.#component.setOriginalGridSize(this.#size);
+
         return this.#component;
     }
 

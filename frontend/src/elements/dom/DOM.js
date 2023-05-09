@@ -102,7 +102,10 @@ export class DOM {
      */
     setText(text) {
         this.savedText = text
+
         this.element.textContent = text;
+        this.element.setAttribute("value", text);
+
         return this;
     }
 

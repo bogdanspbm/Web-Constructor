@@ -42,6 +42,8 @@ export class TextDetail extends DOM {
      */
     setInitText(text) {
 
+        console.log(text);
+
         this.lastText = text;
 
         if (text === undefined) {

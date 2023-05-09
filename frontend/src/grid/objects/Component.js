@@ -9,10 +9,28 @@ export class Component extends Transformable {
      */
     setParentStructure(structure) {
         this.#parentStructure = structure;
+        this.syncAttributes();
+        return this;
     }
 
     getParentStructure() {
         return this.#parentStructure;
+    }
+
+    syncAttributes() {
+        if (!this.#parentStructure) {
+            return;
+        }
+
+        this.syncTextAttribute();
+    }
+
+    syncTextAttribute() {
+        const textAttr = this.#parentStructure.getProperty("text")
+        if (!textAttr) {
+            return;
+        }
+        this.setText(textAttr);
     }
 
     setGridSize(size, replicate) {
