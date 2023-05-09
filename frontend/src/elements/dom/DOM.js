@@ -19,8 +19,8 @@ export class DOM {
     /**
      * @param {DOM[]} elements
      */
-    constructor(elements) {
-        this.createElement(elements);
+    constructor(elements, arg0, arg1, arg2) {
+        this.createElement(elements, arg0, arg1, arg2);
 
         if (!elements) {
             return;

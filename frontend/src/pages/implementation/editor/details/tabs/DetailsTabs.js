@@ -5,13 +5,13 @@ import {DetailsTab} from "./implementation/DetailsTab.js";
 
 export class DetailsTabs extends DOM {
     /**
-     * @param {WidgetStructure} structure
+     * @param {WidgetStructure} widget
      */
-    createElement(structure) {
-        super.createElement()
+    createElement(widget) {
+        super.createElement(widget)
 
-        this.detailsTab = new DetailsTab();
-        this.schemaTab = new SchemaTab().setStructure(structure);
+        this.detailsTab = new DetailsTab(widget);
+        this.schemaTab = new SchemaTab(widget);
 
         this.tabs = new Tabs([this.detailsTab, this.schemaTab]);
         this.setStyle("details-tabs")

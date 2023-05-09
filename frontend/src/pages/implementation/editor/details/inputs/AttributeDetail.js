@@ -1,31 +1,25 @@
 import {DOM} from "../../../../../elements/dom/DOM.js";
 import {Input} from "../../../../../widgets/common/Input.js";
+import {AttributeSelector} from "./AttributeSelector.js";
 
 export class AttributeDetail extends DOM {
 
     hint = ""
 
+
     /**
+     * @param {WidgetStructure} widget
      * @param {ComponentStructure} structure
      */
-    createElement(structure) {
+    createElement(structure, widget) {
         this.element = document.createElement("div");
         this.setStyle("detail-block");
 
-        this.header = new DOM().setText("Attribute").setStyle("small-header").setAttribute("margin-bottom", "10px");
-        this.append(this.header);
+        const header = new DOM().setText("Attribute").setStyle("small-header").setAttribute("margin-bottom", "10px");
+        this.append(header);
 
-        this.input = new Input().setStyle("input-bar").setAttribute("height", "26px");
-
-        const parent = this;
-
-        this.input.setOnChangeEvent(function (event) {
-            const value = event.target.value;
-            structure.setProperty("text", value);
-        })
-
-        this.append(this.input);
-        this.setInitText(structure.getProperty("text"));
+        const selector = new AttributeSelector(structure, widget);
+        this.append(selector);
     }
 
     /**
@@ -50,4 +44,5 @@ export class AttributeDetail extends DOM {
 
         this.input.setText(text);
     }
+
 }

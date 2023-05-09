@@ -51,8 +51,8 @@ export class Tabs extends DOM {
 }
 
 export class Tab extends DOM {
-    constructor(name) {
-        super();
+    constructor(name, arg0, arg1) {
+        super(name, arg0, arg1);
         this.tabName = name
     }
 

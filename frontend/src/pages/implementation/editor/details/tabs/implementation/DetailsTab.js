@@ -1,13 +1,21 @@
 import {Tab} from "../../../../../../elements/default/Tabs.js";
 import {TextDetail} from "../../inputs/TextDetail.js";
+import {AttributeSelector} from "../../inputs/AttributeSelector.js";
+import {AttributeDetail} from "../../inputs/AttributeDetail.js";
 
 export class DetailsTab extends Tab {
-    constructor() {
-        super("Details");
+    constructor(widget) {
+        super("Details", widget);
     }
 
-    createElement() {
-        super.createElement();
+    /**
+     * @param {String} name
+     * @param {WidgetStructure} widget
+     */
+
+    createElement(name, widget) {
+        this.widgetStructure = widget;
+        super.createElement(name, widget);
         this.setAttribute("padding", "15px");
         document.addSelectListener(this);
     }
@@ -22,17 +30,21 @@ export class DetailsTab extends Tab {
         }
     }
 
+
     /**
      * @param {ComponentStructure} structure
      */
     generateEditors(structure) {
 
-        if (structure === undefined) {
+        if (!structure) {
             return;
         }
 
-        this.textDetails = new TextDetail(structure).setHint("Enter text");
-        this.append(this.textDetails);
+        const textDetails = new TextDetail(structure).setHint("Enter text");
+        this.append(textDetails);
+
+        const attributeDetails = new AttributeDetail(structure, this.widgetStructure);
+        this.append(attributeDetails);
     }
 
 
@@ -49,4 +61,5 @@ export class DetailsTab extends Tab {
 
         this.generateEditors(element.getParentStructure());
     }
+
 }
