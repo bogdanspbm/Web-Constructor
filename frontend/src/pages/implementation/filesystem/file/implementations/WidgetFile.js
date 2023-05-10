@@ -9,16 +9,8 @@ export class WidgetFile extends FileStructure {
      * @param {WidgetStructure} widget
      */
     constructor(widget) {
-        super();
-        this.#widget = widget
-    }
-
-    getName() {
-        return this.#widget.getName()
-    }
-
-    setName(name) {
-        this.#widget.setName(name)
+        super(widget);
+        this.#widget = widget;
     }
 
     getUID() {
@@ -26,7 +18,7 @@ export class WidgetFile extends FileStructure {
     }
 
     openAction(event) {
-        document.openWidget(this.#widget)
+        document.openWidget(this.#widget);
     }
 
     getType() {

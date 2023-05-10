@@ -1,4 +1,5 @@
 import {EditorPage} from "../pages/implementation/editor/EditorPage.js";
+import {WidgetStructure} from "../objects/WidgetStructure.js";
 
 export function bindWidgetListener() {
     document.widgets = {};
@@ -18,9 +19,11 @@ export function bindWidgetListener() {
         notifyWidgetChangeListener(update)
     }
 
-    document.createWidget = function (widget) {
-        document.widgets[widget.getUID()] = widget
-        notifyWidgetCreateListener(widget)
+    document.createWidget = function () {
+        const widget = new WidgetStructure();
+        document.widgets[widget.getUID()] = widget;
+        notifyWidgetCreateListener(widget);
+        return widget;
     }
 
     document.widgetListener = [];

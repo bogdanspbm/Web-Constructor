@@ -48,13 +48,13 @@ export class FileSystemPage extends Page {
     }
 
     fileCreateNotify(file) {
-        const fileButton = new FileButton(file)
-        this.buttons[file.getUID()] = fileButton
-        this.panel.append(fileButton)
+        const fileButton = new FileButton(file);
+        this.buttons[file.getUID()] = fileButton;
+        this.panel.append(fileButton);
     }
 
     fileUpdateNotify(file) {
-        this.buttons[file.getUID()].updateFile(file)
+        this.buttons[file.getUID()].updateFile(file);
     }
 
 }

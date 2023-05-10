@@ -1,3 +1,5 @@
+import {CollectionStructure} from "../objects/CollectionStructure.js";
+
 export function bindCollectionListener() {
     document.collections = {};
 
@@ -27,9 +29,11 @@ export function bindCollectionListener() {
         notifyCollectionChangeListener(update)
     }
 
-    document.createCollection = function (collection) {
-        document.collections[collection.getUID()] = collection
-        notifyCollectionCreateListener(collection)
+    document.createCollection = function () {
+        const collection = new CollectionStructure();
+        document.collections[collection.getUID()] = collection;
+        notifyCollectionCreateListener(collection);
+        return collection;
     }
 
     document.collectionListeners = [];

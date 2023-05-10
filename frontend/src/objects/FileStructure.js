@@ -2,11 +2,12 @@ import {EFileType} from "../enums/EFileType.js";
 
 export class FileStructure {
 
-    #type = EFileType.DIRECTORY
-    #name
-    #uid
+    #type = EFileType.DIRECTORY;
+    #uid;
+    #structure;
 
-    constructor() {
+    constructor(structure) {
+        this.#structure = structure;
         this.#uid = Math.random().toString().replace("0.", "")
     }
 
@@ -14,25 +15,21 @@ export class FileStructure {
         return this.#type
     }
 
-    /**
-     * @param {EFileType} type
-     */
-    setType(type) {
-        this.#type = type
+    getStructure() {
+        return this.#structure;
     }
+
 
     /**
      * @param {String} name
      */
     setName(name) {
-        this.#name = name
+        this.#structure.setName(name);
+        document.updateFile(this);
     }
 
     getName() {
-        if (this.#name === undefined) {
-            this.#name = this.#type["default_name"]
-        }
-        return this.#name
+        return this.#structure.getName();
     }
 
     getUID() {

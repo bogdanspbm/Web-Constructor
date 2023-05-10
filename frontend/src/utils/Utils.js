@@ -20,3 +20,9 @@ export function equalsArrays(a, b) {
     }
     return true;
 }
+
+export function exportProject() {
+    console.log(document.collections);
+    console.log(document.widgets);
+}
+

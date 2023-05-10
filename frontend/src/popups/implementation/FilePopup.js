@@ -1,9 +1,5 @@
 import {PopupElement, PopupMenu} from "../Popup.js";
 import {EFileType} from "../../enums/EFileType.js";
-import {WidgetFile} from "../../pages/implementation/filesystem/file/implementations/WidgetFile.js";
-import {WidgetStructure} from "../../objects/WidgetStructure.js";
-import {DirectoryFile} from "../../pages/implementation/filesystem/file/implementations/DirectoryFile.js";
-import {CollectionFile} from "../../pages/implementation/filesystem/file/implementations/CollectionFile.js";
 
 export class FilePopup extends PopupMenu {
     constructor(args) {
@@ -34,26 +30,7 @@ class FilePopupElement extends PopupElement {
         super("Create " + fileType['name']);
 
         this.setClickEvent(action => {
-            document.addFile(createFileFromType(fileType))
+            document.createFile(fileType);
         })
-    }
-}
-
-/**
- * @param {EFileType} fileType
- * @returns {FileStructure}
- */
-function createFileFromType(fileType) {
-    switch (fileType) {
-        case EFileType.WIDGET: {
-            return new WidgetFile(new WidgetStructure());
-        }
-        case EFileType.DIRECTORY: {
-            return new DirectoryFile();
-        }
-        case EFileType.COLLECTION: {
-            return new CollectionFile();
-        }
-
     }
 }

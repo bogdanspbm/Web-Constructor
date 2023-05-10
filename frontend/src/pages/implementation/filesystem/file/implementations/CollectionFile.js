@@ -3,31 +3,25 @@ import {EFileType} from "../../../../../enums/EFileType.js";
 import {CollectionPage} from "../../../collection/CollectionPage.js";
 
 export class CollectionFile extends FileStructure {
-    #type = EFileType.COLLECTION
+    #type = EFileType.COLLECTION;
+    #collection;
 
     /**
      * @param {CollectionStructure} collection
      */
     constructor(collection) {
-        super();
-        this.collection = collection
-    }
-
-    getName() {
-        return this.collection.getName()
-    }
-
-    setName(name) {
-        this.collection.setName(name)
+        super(collection);
+        this.#collection = collection;
     }
 
     openAction(event) {
-        const page = new CollectionPage(this.collection);
+        const page = new CollectionPage(this.#collection);
         page.openPage();
     }
 
+
     getUID() {
-        return this.collection.getUID();
+        return this.#collection.getUID();
     }
 
     getType() {

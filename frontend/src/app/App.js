@@ -2,12 +2,9 @@ import {bindCollectionListener} from "../listeners/CollectionListener.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 import {bindPopupListener} from "../listeners/PopupListener.js";
 import {bindFileListener} from "../listeners/FileListener.js";
-import {WidgetFile} from "../pages/implementation/filesystem/file/implementations/WidgetFile.js";
-import {WidgetStructure} from "../objects/WidgetStructure.js";
-import {CollectionFile} from "../pages/implementation/filesystem/file/implementations/CollectionFile.js";
-import {CollectionStructure} from "../objects/CollectionStructure.js";
-import {AttributeStructure} from "../objects/AttributeStructure.js";
 import {bindWidgetListener} from "../listeners/WidgetListener.js";
+import {AttributeStructure} from "../objects/AttributeStructure.js";
+import {EFileType} from "../enums/EFileType.js";
 
 export class App {
     constructor() {
@@ -102,16 +99,17 @@ export class App {
 
 
     generateConstructor() {
-        document.addFile(new WidgetFile(new WidgetStructure()));
-
-
-        const collection = new CollectionStructure();
-        collection.setName("User");
-        const attribute = new AttributeStructure(collection);
-        attribute.setName("ID");
-        collection.addAttribute(attribute);
-        document.addFile(new CollectionFile(collection));
         const fileSystem = new FileSystemPage();
         fileSystem.openPage();
+
+        const widgetFile = document.createFile(EFileType.WIDGET);
+        widgetFile.setName("User Page");
+
+        const collectionFile = document.createFile(EFileType.COLLECTION);
+        collectionFile.setName("User");
+
+        const attribute = new AttributeStructure(collectionFile);
+        attribute.setName("ID");
+        collectionFile.getStructure().addAttribute(attribute);
     }
 }
