@@ -26,6 +26,17 @@ export class AttributeStructure {
         this.#uid = Math.random().toString().replace("0.", "");
     }
 
+    toJSON() {
+        return {
+            uid: this.#uid,
+            name: this.#name,
+            type: this.#type,
+            container: this.#container,
+            tooltip: this.#tooltip,
+            value: this.#value
+        }
+    }
+
     getName() {
         return this.#name;
     }

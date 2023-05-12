@@ -15,6 +15,15 @@ export class WidgetStructure {
         this.#uid = Math.random().toString().replace("0.", "");
     }
 
+    toJSON() {
+        return {
+            name: this.#name,
+            uid: this.#uid,
+            collection: this.#collection ? this.#collection.getUID() : "",
+            elements: JSON.stringify(this.#elements)
+        }
+    }
+
     getName() {
         return this.#name;
     }

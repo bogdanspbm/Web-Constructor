@@ -13,6 +13,14 @@ export class CollectionStructure {
         this.#uid = Math.random().toString().replace("0.", "")
     }
 
+    toJSON() {
+        return {
+            uid: this.#uid,
+            name: this.#name,
+            attributes: JSON.stringify(this.#attributes)
+        }
+    }
+
     getName() {
         return this.#name
     }

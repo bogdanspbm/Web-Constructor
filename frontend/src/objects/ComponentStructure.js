@@ -28,6 +28,17 @@ export class ComponentStructure {
         this.#uid = Math.random().toString().replace("0.", "");
     }
 
+    toJSON() {
+        return {
+            name: this.#name,
+            type: this.#type,
+            uid: this.#uid,
+            position: this.#position,
+            size: this.#size,
+            properties: this.#properties,
+        }
+    }
+
     getPosition() {
         return this.#position;
     }
