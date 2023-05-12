@@ -11,6 +11,7 @@ type Server struct {
 
 func New() *Server {
 	server := &Server{}
+	server.prepare()
 	return server
 }
 
