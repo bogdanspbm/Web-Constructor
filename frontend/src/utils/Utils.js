@@ -22,7 +22,11 @@ export function equalsArrays(a, b) {
 }
 
 export function exportProject() {
-    console.log(document.collections);
-    console.log(document.widgets);
+    const json = {
+        collections: document.collections,
+        widgets: document.widgets
+    }
+
+    console.log(json);
 }
 
