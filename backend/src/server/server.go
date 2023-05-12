@@ -18,6 +18,10 @@ func (server *Server) prepare() {
 	exportServer := requests.NewExportServer()
 	exportHandler := http.HandlerFunc(exportServer.ExportHandler)
 	http.Handle("/export", exportHandler)
+
+	pingServer := requests.NewPingServer()
+	pingHandler := http.HandlerFunc(pingServer.PingHandler)
+	http.Handle("/", pingHandler)
 }
 
 func (server *Server) Start(port int) {
