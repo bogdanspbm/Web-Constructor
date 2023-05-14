@@ -30,11 +30,11 @@ func (component *Component) getComponentClass() (output string) {
 }
 
 func (component *Component) getComponentRowStyle() (output string) {
-	return fmt.Sprintf("grid-row: %v / %v;", component.Position.X, component.Size.X)
+	return fmt.Sprintf("grid-column: %v / %v;", component.Position.X+1, component.Position.X+component.Size.X+1)
 }
 
 func (component *Component) getComponentColStyle() (output string) {
-	return fmt.Sprintf("grid-column: %v / %v;", component.Position.Y, component.Size.Y)
+	return fmt.Sprintf("grid-row: %v / %v;", component.Position.Y+1, component.Position.Y+component.Size.Y+1)
 }
 
 func (component *Component) getComponentStyle() (output string) {
