@@ -17,7 +17,7 @@ export class CollectionStructure {
         return {
             uid: this.#uid,
             name: this.#name,
-            attributes: JSON.stringify(this.#attributes)
+            attributes: this.#attributes
         }
     }
 

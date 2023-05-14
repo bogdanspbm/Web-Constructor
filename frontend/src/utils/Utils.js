@@ -42,10 +42,13 @@ export function postRequest(url, body) {
 
 export function exportProject() {
     const json = {
-        collections: JSON.stringify(document.collections),
-        widgets: JSON.stringify(document.widgets)
+        collections: document.collections,
+        widgets: document.widgets
     }
 
-    postRequest("http://localhost:8080/export", JSON.stringify(json));
+    const data = JSON.stringify(json, null, 4).replace(/\\"/g, '"');
+    console.log(data);
+
+    postRequest("http://localhost:8080/export", data);
 }
 

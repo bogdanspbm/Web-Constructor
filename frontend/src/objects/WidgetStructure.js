@@ -7,10 +7,10 @@ export class WidgetStructure {
     #name;
     #uid;
     #collection;
-    #elements;
+    #components;
 
     constructor() {
-        this.#elements = {};
+        this.#components = {};
         this.#name = EFileType.WIDGET["default_name"];
         this.#uid = Math.random().toString().replace("0.", "");
     }
@@ -20,7 +20,7 @@ export class WidgetStructure {
             name: this.#name,
             uid: this.#uid,
             collection: this.#collection ? this.#collection.getUID() : "",
-            elements: JSON.stringify(this.#elements)
+            components: this.#components
         }
     }
 
@@ -56,12 +56,12 @@ export class WidgetStructure {
      * @param {ComponentStructure} element
      */
     addElement(element) {
-        this.#elements[element.getUID()] = element;
+        this.#components[element.getUID()] = element;
         const update = new UpdateStructure(this, element, EUpdateType.INSERT);
         document.updateWidget(update);
     }
 
     getElements() {
-        return this.#elements;
+        return this.#components;
     }
 }
