@@ -2,6 +2,7 @@ package requests
 
 import (
 	"../adapter"
+	"../utils"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -19,7 +20,7 @@ func NewExportServer() *ExportServer {
 func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	bodyString := string(body)
-	
+
 	var exportData adapter.ExportData
 	err = json.NewDecoder(bytes.NewReader([]byte(bodyString))).Decode(&exportData)
 
@@ -28,5 +29,10 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	fmt.Printf("Received data: %+v\n", exportData)
+	for k, v := range exportData.Widgets {
+		fileName := fmt.Sprintf("%v.html", k)
+		utils.StringToFile(fileName, v.GenerateWidgetHTML())
+	}
+
+	http.Error(w, "{\"status\":\"Success\"}", http.StatusOK)
 }
