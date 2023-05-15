@@ -46,7 +46,7 @@ func (component *Component) getComponentStyle() (output string) {
 	return fmt.Sprintf("style=\"%v%v\"", component.getComponentRowStyle(), component.getComponentColStyle())
 }
 
-func (component *Component) getContent() (output string) {
+func (component *Component) getText() (output string) {
 	output, ok := component.Properties["text"]
 
 	if ok {
@@ -55,8 +55,35 @@ func (component *Component) getContent() (output string) {
 
 	return ""
 }
+func (component *Component) getContent() (output string) {
+	switch component.Type.Name {
+	case "Input":
+		return ""
+	}
+
+	return component.getText()
+}
+
+func (component *Component) getTag() (output string) {
+	switch component.Type.Name {
+	case "Input":
+		return "input"
+	}
+
+	return "div"
+}
+
+func (component *Component) getTagFilling() (output string) {
+	switch component.Type.Name {
+	case "Input":
+		return fmt.Sprintf("placeholder=\"%v\"", component.getText())
+	}
+
+	return "div"
+}
 
 func (component *Component) GenerateComponentHTML() (output string) {
-	output = fmt.Sprintf("<div %v %v>%v</div>\n", component.getComponentClass(), component.getComponentStyle(), component.getContent())
+	output = fmt.Sprintf("<%v %v %v %v>%v</%v>\n", component.getTag(), component.getTagFilling(),
+		component.getComponentClass(), component.getComponentStyle(), component.getContent(), component.getTag())
 	return
 }
