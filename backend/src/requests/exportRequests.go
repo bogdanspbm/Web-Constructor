@@ -30,10 +30,12 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
+	navGenerator := generator.NewNavigationGenerator(exportData.Collections, exportData.Widgets)
+
 	for k, v := range exportData.Widgets {
 		fileName := fmt.Sprintf("output/%v.html", k)
 		cardGenerator := generator.NewCardGenerator(v)
-		utils.StringToFile(fileName, cardGenerator.GenerateCardHTML())
+		utils.StringToFile(fileName, cardGenerator.GenerateCardHTML(navGenerator))
 	}
 
 	http.Error(w, "{\"status\":\"Success\"}", http.StatusOK)
