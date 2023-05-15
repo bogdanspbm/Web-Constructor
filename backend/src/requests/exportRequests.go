@@ -2,6 +2,7 @@ package requests
 
 import (
 	"../adapter"
+	"../generator"
 	"../utils"
 	"bytes"
 	"encoding/json"
@@ -30,8 +31,9 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 	}
 
 	for k, v := range exportData.Widgets {
-		fileName := fmt.Sprintf("output/%v.html", k)
-		utils.StringToFile(fileName, v.GenerateWidgetHTML())
+		fileName := fmt.Sprintf("%v.html", k)
+		cardGenerator := generator.NewCardGenerator(v)
+		utils.StringToFile(fileName, cardGenerator.GenerateCardHTML())
 	}
 
 	http.Error(w, "{\"status\":\"Success\"}", http.StatusOK)
