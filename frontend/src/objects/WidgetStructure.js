@@ -1,6 +1,7 @@
 import {EFileType} from "../enums/EFileType.js";
 import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
+import {createComponentFromJSON} from "./ComponentStructure.js";
 
 export class WidgetStructure {
 
@@ -9,10 +10,28 @@ export class WidgetStructure {
     #collection;
     #components;
 
-    constructor() {
+    constructor(json) {
         this.#components = {};
         this.#name = EFileType.WIDGET["default_name"];
         this.#uid = Math.random().toString().replace("0.", "");
+
+        this.buildFromJSON(json);
+    }
+
+    buildFromJSON(json) {
+        if (!json) {
+            return;
+        }
+
+        const parent = this;
+
+        this.#name = json.name;
+        this.#uid = json.uid;
+
+        Object.entries(json.components).forEach(([key, value]) => {
+            const component = createComponentFromJSON(parent, value);
+            parent.#components[key] = component;
+        });
     }
 
     toJSON() {

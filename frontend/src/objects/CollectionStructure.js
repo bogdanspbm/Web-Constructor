@@ -7,10 +7,21 @@ export class CollectionStructure {
     #name
     #attributes
 
-    constructor() {
-        this.#name = "New Collection"
-        this.#attributes = []
-        this.#uid = Math.random().toString().replace("0.", "")
+    constructor(json) {
+        this.#name = "New Collection";
+        this.#attributes = {};
+        this.#uid = Math.random().toString().replace("0.", "");
+
+        this.buildFromJSON(json);
+    }
+
+    buildFromJSON(json) {
+        if (!json) {
+            return;
+        }
+
+        this.#name = json.name;
+        this.#uid = json.uid;
     }
 
     toJSON() {

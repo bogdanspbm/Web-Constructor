@@ -1,5 +1,6 @@
 import {DOM} from "../dom/DOM.js";
 
+
 export class Clickable extends DOM {
     clickAction;
     active = true;

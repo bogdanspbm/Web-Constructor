@@ -6,6 +6,18 @@ import {EFileType} from "../enums/EFileType.js";
 export function bindFileListener() {
     document.files = {};
 
+    document.findStructureByUID = function (uid) {
+        if (uid in document.widgets) {
+            return document.widgets[uid];
+        }
+
+        if (uid in document.collections) {
+            return document.collections[uid];
+        }
+
+        return undefined;
+    }
+
 
     document.createFile = function (type) {
         const file = createFileFromType(type);

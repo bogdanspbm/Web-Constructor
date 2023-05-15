@@ -1,3 +1,5 @@
+import {CollectionStructure} from "../objects/CollectionStructure.js";
+
 export function attributeFromMap(map) {
     let result = "";
 
@@ -107,8 +109,37 @@ export function loadProject() {
     document.forceDeletePopup();
 
     uploadFunction().then(function (contents) {
-        console.log(contents);
+        const json = JSON.parse(contents)
+        generateCollectionsFromJSON(json);
+        generateWidgetsFromJSON(json);
+        generateFilesFromJSON(json);
     }).catch(function (error) {
         console.error(error);
     });
 }
+
+export function generateWidgetsFromJSON(json) {
+    const newWidgets = {};
+    Object.entries(json.widgets).forEach(([key, value]) => {
+        newWidgets[key] = new WidgetStructure(value);
+    });
+    document.widgets = newWidgets;
+}
+
+export function generateCollectionsFromJSON(json) {
+    const newCollections = {};
+    Object.entries(json.collections).forEach(([key, value]) => {
+        const collection = new CollectionStructure(value);
+        newCollections[key] = collection;
+    });
+    document.collections = newCollections;
+}
+
+export function generateFilesFromJSON(json) {
+    const newFiles = {};
+    Object.entries(json.files).forEach(([key, value]) => {
+        newFiles[key] = createFileFromJSON(value);
+    });
+    document.files = newFiles;
+}
+

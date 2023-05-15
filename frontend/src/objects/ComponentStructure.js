@@ -1,6 +1,16 @@
 import {EElementType} from "../enums/EElementType.js";
 import {ButtonComponent, InputComponent, TextComponent} from "../grid/objects/Component.js";
 
+/**
+ * @param {WidgetStructure} parent
+ * @param {JSON} json
+ */
+export function createComponentFromJSON(parent, json) {
+    const component = new ComponentStructure(parent, json.type);
+    component.buildFromJSON(json);
+    return component;
+}
+
 export class ComponentStructure {
 
     #parent;
@@ -26,6 +36,21 @@ export class ComponentStructure {
         this.#tooltip = "";
         this.#value = "";
         this.#uid = Math.random().toString().replace("0.", "");
+    }
+
+    buildFromJSON(json) {
+        if (!json) {
+            return;
+        }
+
+        this.#type = json.type;
+        this.#name = json.name;
+        this.#tooltip = json.tooltip;
+        this.#value = json.value;
+        this.#uid = json.uid;
+        this.#size = json.size;
+        this.#position = json.position;
+        this.#properties = json.properties;
     }
 
     toJSON() {
