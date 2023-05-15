@@ -1,6 +1,9 @@
 package objects
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 type Widget struct {
 	UID        string               `json:"uid" db:"uid"`
@@ -9,13 +12,9 @@ type Widget struct {
 	Components map[string]Component `json:"components" db:"components"`
 }
 
-func generateDefaultStyle() (output string) {
-	builder := strings.Builder{}
-	builder.WriteString("<style>\n")
-	builder.WriteString(".grid {\n            display: grid;\n			grid-template-rows: repeat(12, 42px);\n            width: 100vw;\n            height: 100vh;\n            grid-template-columns: repeat(12, 1fr);\n            grid-gap: 10px;\n        }")
-	builder.WriteString(".item {\n            background-color: #ccc;\n            padding: 10px;\n            text-align: center;\n        }")
-	builder.WriteString("</style>\n")
-	return builder.String()
+func importStyle(name string) (output string) {
+	output = fmt.Sprintf("<link href='%v' rel='stylesheet' type='text/css'>\n", name)
+	return output
 }
 
 func (widget *Widget) GenerateWidgetHTML() (output string) {
@@ -23,8 +22,8 @@ func (widget *Widget) GenerateWidgetHTML() (output string) {
 	builder := strings.Builder{}
 	builder.WriteString("<!DOCTYPE html>\n")
 	builder.WriteString("<html lang=\"en\">\n")
+	builder.WriteString(importStyle("styles/card.css"))
 	builder.WriteString("<head>\n")
-	builder.WriteString(generateDefaultStyle())
 	builder.WriteString("</head>\n")
 	builder.WriteString("<body>\n")
 	builder.WriteString("<div class=\"grid\">\n")
