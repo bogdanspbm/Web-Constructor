@@ -15,6 +15,8 @@
 .popup-element {
     display: flex;
 
+    color: #2E2E2E;
+
     border-radius: 5px;
     height: 32px;
     width: calc(100% - 10px);

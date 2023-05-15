@@ -12,7 +12,7 @@ type Widget struct {
 func generateDefaultStyle() (output string) {
 	builder := strings.Builder{}
 	builder.WriteString("<style>\n")
-	builder.WriteString(".grid {\n            display: grid;\n            width: 100vw;\n            height: 100vh;\n            grid-template-columns: repeat(12, 1fr);\n            grid-gap: 10px;\n        }")
+	builder.WriteString(".grid {\n            display: grid;\n			grid-template-rows: repeat(12, 42px);\n            width: 100vw;\n            height: 100vh;\n            grid-template-columns: repeat(12, 1fr);\n            grid-gap: 10px;\n        }")
 	builder.WriteString(".item {\n            background-color: #ccc;\n            padding: 10px;\n            text-align: center;\n        }")
 	builder.WriteString("</style>\n")
 	return builder.String()

@@ -4,6 +4,8 @@ import {HeaderButton} from "./inputs/HeaderButton.js";
 import {FileSystemPage} from "../../pages/implementation/filesystem/FileSystemPage.js";
 import {Button} from "../../elements/default/Button.js";
 import {exportProject} from "../../utils/Utils.js";
+import {FilePopup} from "../../popups/implementation/FilePopup.js";
+import {ProjectPopup} from "../../popups/implementation/ProjectPopup.js";
 
 export class Header extends Div {
 
@@ -13,8 +15,18 @@ export class Header extends Div {
 
         const files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
         files.setClickEvent(action => {
-            const fileSystem = new FileSystemPage()
-            fileSystem.openPage()
+            if (flag) {
+                const fileSystem = new FileSystemPage()
+                fileSystem.openPage()
+            } else {
+                if (event.which === 3) {
+                    console.log("Right Mouse Button")
+                }
+
+                const popup = new ProjectPopup().setAttribute("top", (event.pageY - 16) + "px");
+                popup.setAttribute("left", (event.pageX - 16) + "px");
+                document.createPopup(popup, files);
+            }
         })
         this.append(files);
 

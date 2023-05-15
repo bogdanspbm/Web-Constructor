@@ -52,3 +52,29 @@ export function exportProject() {
     postRequest("http://localhost:8080/export", data);
 }
 
+export function createAndDownloadFile(data, filename) {
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+}
+
+export function saveProject() {
+    const json = {
+        collections: document.collections,
+        widgets: document.widgets,
+        files: document.files
+    }
+
+    const data = JSON.stringify(json, null, 4).replace(/\\"/g, '"');
+    createAndDownloadFile(data, "project.json");
+}
+
