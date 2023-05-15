@@ -21,8 +21,13 @@ export function bindPopupListener() {
         }
     }
 
-    document.deletePopup = function () {
-        const delayInMilliseconds = 100;
+    document.deletePopup = function (delay) {
+
+        if(!delay){
+            delay = 100;
+        }
+
+        const delayInMilliseconds = delay;
 
         if (document.overlappedMenuItem !== null) {
             return

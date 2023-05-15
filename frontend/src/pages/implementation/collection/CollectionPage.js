@@ -17,7 +17,7 @@ export class CollectionPage extends Page {
      * @param {CollectionStructure} collection
      */
     fillElements(collection) {
-        const header = new Header();
+        const header = new Header(false);
         this.elements.push(header);
 
         const toolbar = new CollectionToolbar(collection);

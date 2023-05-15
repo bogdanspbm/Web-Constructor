@@ -9,13 +9,13 @@ import {ProjectPopup} from "../../popups/implementation/ProjectPopup.js";
 
 export class Header extends Div {
 
-    createElement(flag) {
+    createElement(flag, isMain) {
         super.createElement();
         this.setStyle("header");
 
         const files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
         files.setClickEvent(action => {
-            if (flag) {
+            if (!isMain) {
                 const fileSystem = new FileSystemPage()
                 fileSystem.openPage()
             } else {

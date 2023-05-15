@@ -53,7 +53,7 @@ export function exportProject() {
 }
 
 export function createAndDownloadFile(data, filename) {
-    const blob = new Blob([data], { type: 'application/json' });
+    const blob = new Blob([data], {type: 'application/json'});
     const url = URL.createObjectURL(blob);
 
     const link = document.createElement('a');
@@ -78,3 +78,37 @@ export function saveProject() {
     createAndDownloadFile(data, "project.json");
 }
 
+export function loadProject() {
+    const uploadFunction = function () {
+        return new Promise(function (resolve, reject) {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+
+            fileInput.addEventListener('change', function () {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const contents = event.target.result;
+                    resolve(contents); // Resolve with the file contents as a string
+                };
+
+                reader.onerror = function (event) {
+                    reject(event.target.error); // Reject with the error object
+                };
+
+                reader.readAsText(file);
+            });
+
+            fileInput.click();
+        });
+    };
+
+    document.forceDeletePopup();
+
+    uploadFunction().then(function (contents) {
+        console.log(contents);
+    }).catch(function (error) {
+        console.error(error);
+    });
+}

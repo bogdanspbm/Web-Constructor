@@ -1,5 +1,5 @@
 import {PopupElement, PopupMenu} from "../Popup.js";
-import {saveProject} from "../../utils/Utils.js";
+import {loadProject, saveProject} from "../../utils/Utils.js";
 
 export class ProjectPopup extends PopupMenu {
 
@@ -13,6 +13,9 @@ export class ProjectPopup extends PopupMenu {
         this.append(loadJSON);
 
         const uploadJSON = new PopupElement("Upload JSON");
+        uploadJSON.setClickEvent(() => {
+            loadProject();
+        })
         this.append(uploadJSON);
     }
 }

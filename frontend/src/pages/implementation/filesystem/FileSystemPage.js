@@ -12,7 +12,7 @@ export class FileSystemPage extends Page {
 
 
     fillElements(directory) {
-        const header = new Header();
+        const header = new Header(false, true);
         this.elements.push(header);
         this.buttons = []
 

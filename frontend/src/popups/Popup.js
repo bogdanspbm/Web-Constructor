@@ -48,7 +48,7 @@ export class PopupElement extends Button {
                 }
 
                 parent.clickAction();
-                document.forceDeletePopup()
+                document.forceDeletePopup();
             },
             false
         );
