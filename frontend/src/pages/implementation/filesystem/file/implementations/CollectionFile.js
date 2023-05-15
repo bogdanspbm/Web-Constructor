@@ -14,6 +14,14 @@ export class CollectionFile extends FileStructure {
         this.#collection = collection;
     }
 
+    toJSON() {
+        return {
+            uid: this.getUID(),
+            type: this.#type,
+            structure: this.getStructure()
+        }
+    }
+
     openAction(event) {
         const page = new CollectionPage(this.#collection);
         page.openPage();

@@ -97,16 +97,16 @@ export class ComponentStructure {
     }
 
     generateElement() {
-        switch (this.#type) {
-            case EElementType.BUTTON: {
+        switch (this.#type.name) {
+            case EElementType.BUTTON.name: {
                 this.#component = new ButtonComponent();
                 break;
             }
-            case EElementType.INPUT: {
+            case EElementType.INPUT.name: {
                 this.#component = new InputComponent();
                 break;
             }
-            case EElementType.TEXT: {
+            case EElementType.TEXT.name: {
                 this.#component = new TextComponent();
                 break;
             }

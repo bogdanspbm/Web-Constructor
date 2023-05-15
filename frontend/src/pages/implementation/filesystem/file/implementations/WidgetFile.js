@@ -13,6 +13,14 @@ export class WidgetFile extends FileStructure {
         this.#widget = widget;
     }
 
+    toJSON() {
+        return {
+            uid: this.getUID(),
+            type: this.#type,
+            structure: this.getStructure()
+        }
+    }
+
     getUID() {
         return this.#widget.getUID();
     }

@@ -1,4 +1,5 @@
-import {attributeFromMap} from "../../utils/Utils.js";
+import {attributeFromMap} from "../../utils/DOMUtils.js";
+
 
 export class DOM {
     element;

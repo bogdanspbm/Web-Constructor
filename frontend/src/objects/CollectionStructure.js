@@ -1,5 +1,7 @@
 import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
+import {createComponentFromJSON} from "./ComponentStructure.js";
+import {createAttributeFromJSON} from "./AttributeStructure.js";
 
 export class CollectionStructure {
 
@@ -22,6 +24,12 @@ export class CollectionStructure {
 
         this.#name = json.name;
         this.#uid = json.uid;
+
+        const parent = this;
+        Object.entries(json.attributes).forEach(([key, value]) => {
+            const attribute = createAttributeFromJSON(parent, value);
+            parent.#attributes[key] = attribute;
+        });
     }
 
     toJSON() {

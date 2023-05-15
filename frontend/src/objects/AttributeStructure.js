@@ -2,6 +2,14 @@ import {EAttributeType} from "../enums/EAttributeType.js";
 import {EContainerType} from "../enums/EContainerType.js";
 import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
+import {ComponentStructure} from "./ComponentStructure.js";
+
+
+export function createAttributeFromJSON(parent, json) {
+    const attribute = new AttributeStructure(parent);
+    attribute.buildFromJSON(json);
+    return attribute;
+}
 
 export class AttributeStructure {
 
@@ -24,6 +32,20 @@ export class AttributeStructure {
         this.#tooltip = "";
         this.#value = "";
         this.#uid = Math.random().toString().replace("0.", "");
+    }
+
+
+    buildFromJSON(json) {
+        if (!json) {
+            return;
+        }
+
+        this.#type = json.type;
+        this.#container = json.container;
+        this.#name = json.name;
+        this.#tooltip = json.tooltip;
+        this.#value = json.value;
+        this.#uid = json.uid;
     }
 
     toJSON() {

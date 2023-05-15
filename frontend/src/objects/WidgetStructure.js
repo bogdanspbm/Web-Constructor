@@ -23,11 +23,10 @@ export class WidgetStructure {
             return;
         }
 
-        const parent = this;
-
         this.#name = json.name;
         this.#uid = json.uid;
 
+        const parent = this;
         Object.entries(json.components).forEach(([key, value]) => {
             const component = createComponentFromJSON(parent, value);
             parent.#components[key] = component;

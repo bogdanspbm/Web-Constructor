@@ -1,27 +1,7 @@
 import {CollectionStructure} from "../objects/CollectionStructure.js";
-
-export function attributeFromMap(map) {
-    let result = "";
-
-    Object.entries(map).forEach(([key, value]) => {
-        if (value !== undefined) {
-            result += key + ":" + value + ";";
-        }
-    });
-
-    return result;
-}
-
-export function equalsArrays(a, b) {
-    if (a === b) return true;
-    if (a === null || b === null) return false;
-    if (a.length !== b.length) return false;
-
-    for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false;
-    }
-    return true;
-}
+import {createFileFromJSON} from "./FileUtils.js";
+import {WidgetStructure} from "../objects/WidgetStructure.js";
+import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
@@ -109,10 +89,13 @@ export function loadProject() {
     document.forceDeletePopup();
 
     uploadFunction().then(function (contents) {
-        const json = JSON.parse(contents)
+        const json = JSON.parse(contents);
         generateCollectionsFromJSON(json);
         generateWidgetsFromJSON(json);
         generateFilesFromJSON(json);
+
+        const fileSystem = new FileSystemPage();
+        fileSystem.openPage();
     }).catch(function (error) {
         console.error(error);
     });
@@ -142,4 +125,3 @@ export function generateFilesFromJSON(json) {
     });
     document.files = newFiles;
 }
-

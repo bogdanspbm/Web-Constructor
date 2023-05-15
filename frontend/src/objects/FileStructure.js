@@ -1,16 +1,5 @@
 import {EFileType} from "../enums/EFileType.js";
 
-/**
- * @param {WidgetStructure} parent
- * @param {JSON} json
- */
-export function createFileFromJSON(json) {
-    const file = document.findStructureByUID(json.structure.getUID());
-    switch (json.type) {
-    }
-    return file;
-}
-
 export class FileStructure {
 
     #type = EFileType.DIRECTORY;
