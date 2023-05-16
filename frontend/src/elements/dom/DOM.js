@@ -223,6 +223,12 @@ export class Input extends DOM {
     }
 }
 
+export class TextArea extends DOM {
+    createElement() {
+        this.element = document.createElement("textarea");
+    }
+}
+
 export class Label extends DOM {
     createElement() {
         this.element = document.createElement("label");
