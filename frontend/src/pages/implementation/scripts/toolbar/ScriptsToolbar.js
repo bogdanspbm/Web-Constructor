@@ -2,6 +2,7 @@ import {Div, DOM} from "../../../../elements/dom/DOM.js";
 import {Input} from "../../../../widgets/common/Input.js";
 import {Button} from "../../../../elements/default/Button.js";
 import {AttributeStructure} from "../../../../objects/AttributeStructure.js";
+import {ScriptTypeSelector} from "../selectors/ScriptTypeSelector.js";
 
 export class ScriptsToolbar extends DOM {
 
@@ -28,5 +29,10 @@ export class ScriptsToolbar extends DOM {
         const tooltipInput = new Input().setTag("placeholder", "Tooltip Name").clearAttribute("height").setStyle("input-bar").setAttribute("margin-bottom", "15px")
         this.append(tooltipHeader);
         this.append(tooltipInput);
+
+        const typeSelectorHeader = new Div().setText("Script Type").setStyle("small-header").setAttribute("margin-bottom", "5px")
+        const typeInput = new ScriptTypeSelector().setAttribute("margin-bottom", "15px")
+        this.append(typeSelectorHeader);
+        this.append(typeInput);
     }
 }
