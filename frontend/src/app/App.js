@@ -5,6 +5,7 @@ import {bindFileListener} from "../listeners/FileListener.js";
 import {bindWidgetListener} from "../listeners/WidgetListener.js";
 import {AttributeStructure} from "../objects/AttributeStructure.js";
 import {EFileType} from "../enums/EFileType.js";
+import {bindScriptListener} from "../listeners/ScriptListener.js";
 
 export class App {
     constructor() {
@@ -82,6 +83,7 @@ export class App {
         bindWidgetListener();
         bindFileListener();
         bindCollectionListener();
+        bindScriptListener();
         bindPopupListener();
 
         document.selectListeners = [];

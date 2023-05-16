@@ -2,6 +2,7 @@ import {WidgetFile} from "../pages/implementation/filesystem/file/implementation
 import {DirectoryFile} from "../pages/implementation/filesystem/file/implementations/DirectoryFile.js";
 import {CollectionFile} from "../pages/implementation/filesystem/file/implementations/CollectionFile.js";
 import {EFileType} from "../enums/EFileType.js";
+import {ScriptFile} from "../pages/implementation/filesystem/file/implementations/ScriptFile.js";
 
 export function bindFileListener() {
     document.files = {};
@@ -73,6 +74,11 @@ function createFileFromType(fileType) {
         case EFileType.COLLECTION: {
             const collection = document.createCollection();
             return new CollectionFile(collection);
+        }
+
+        case EFileType.SCRIPT: {
+            const script = document.createScript();
+            return new ScriptFile(script);
         }
 
     }
