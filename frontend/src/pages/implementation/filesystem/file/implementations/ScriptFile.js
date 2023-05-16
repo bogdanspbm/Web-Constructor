@@ -1,6 +1,7 @@
 import {FileStructure} from "../../../../../objects/FileStructure.js";
 import {EFileType} from "../../../../../enums/EFileType.js";
 import {CollectionPage} from "../../../collection/CollectionPage.js";
+import {ScriptsPage} from "../../../scripts/ScriptsPage.js";
 
 export class ScriptFile extends FileStructure {
     #type = EFileType.SCRIPT;
@@ -23,8 +24,8 @@ export class ScriptFile extends FileStructure {
     }
 
     openAction(event) {
-        //const page = new CollectionPage(this.#collection);
-        // page.openPage();
+        const page = new ScriptsPage(this.#script);
+        page.openPage();
     }
 
 

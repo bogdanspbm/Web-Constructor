@@ -10,9 +10,10 @@ export function bindScriptListener() {
         return script;
     }
 
-    document.updateScript = function (script) {
+    document.updateScript = function (update) {
+        const script = update.getElement();
         document.scriptsStructures[script.getUID()] = script;
-        notifyScriptUpdateListener(script);
+        notifyScriptUpdateListener(update);
     }
 
     document.scriptListeners = [];
@@ -32,11 +33,11 @@ function notifyScriptCreateListener(script) {
     }
 }
 
-function notifyScriptUpdateListener(script) {
+function notifyScriptUpdateListener(update) {
     for (let i = 0; i < document.scriptListeners.length; i++) {
         const listener = document.scriptListeners[i];
-        if (typeof listener.scriptCreateNotify === "function") {
-            listener.scriptCreateNotify(script);
+        if (typeof listener.scriptUpdateNotify === "function") {
+            listener.scriptUpdateNotify(update);
         }
     }
 }
