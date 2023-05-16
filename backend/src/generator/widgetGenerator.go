@@ -2,6 +2,7 @@ package generator
 
 import (
 	"../objects"
+	"fmt"
 	"strings"
 )
 
@@ -15,7 +16,7 @@ func NewWidgetGenerator(widget objects.Widget) *WidgetGenerator {
 
 func (generator *WidgetGenerator) GenerateGrid() string {
 	builder := strings.Builder{}
-	builder.WriteString("<div class=\"grid\">\n")
+	builder.WriteString(fmt.Sprintf("<div class=\"grid\" style=\"grid-template-columns: repeat(%v, 1fr);  grid-template-rows: repeat(%v, 42px);\" >\n", generator.Widget.GetSize().X, generator.Widget.GetSize().Y))
 
 	for _, v := range generator.Widget.Components {
 		builder.WriteString(v.GenerateComponentHTML())

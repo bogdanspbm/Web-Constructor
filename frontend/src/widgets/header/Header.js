@@ -35,7 +35,7 @@ export class Header extends Div {
             this.append(mainControls);
         }
 
-        const buttonExport = new Button().setText("Export").setAttribute("margin-left", "auto")
+        const buttonExport = new Button().setText("Generate").setAttribute("margin-left", "auto")
             .setAttribute("height", "24px").setAttribute("border-radius", "5px")
             .setAttribute("margin-right", "10px").setStyle("blue-button");
         buttonExport.setClickEvent(exportProject);

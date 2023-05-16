@@ -6,13 +6,13 @@ export class ProjectPopup extends PopupMenu {
     constructor(args) {
         super(args);
 
-        const loadJSON = new PopupElement("Load JSON");
+        const loadJSON = new PopupElement("Export JSON");
         loadJSON.setClickEvent(() => {
             saveProject();
         })
         this.append(loadJSON);
 
-        const uploadJSON = new PopupElement("Upload JSON");
+        const uploadJSON = new PopupElement("Import JSON");
         uploadJSON.setClickEvent(() => {
             loadProject();
         })

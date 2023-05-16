@@ -31,10 +31,15 @@
 }
 
 .input-component {
+    display: flex;
+
     background: #FFFFFF;
     border-radius: 5px;
     padding-left: 8px;
     border: #D7D7D7 solid 1px;
+    color: #D7D7D7;
+
+    align-items: center;
 
     font-family: 'Inter';
     font-style: normal;
