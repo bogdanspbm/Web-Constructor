@@ -5,15 +5,15 @@ import {createComponentFromJSON} from "./ComponentStructure.js";
 
 export class WidgetStructure {
 
-    #name;
-    #uid;
-    #collection;
-    #components;
+    name;
+    uid;
+    collection;
+    components;
 
     constructor(json) {
-        this.#components = {};
-        this.#name = EFileType.WIDGET["default_name"];
-        this.#uid = Math.random().toString().replace("0.", "");
+        this.components = {};
+        this.name = EFileType.WIDGET["default_name"];
+        this.uid = Math.random().toString().replace("0.", "");
 
         this.buildFromJSON(json);
     }
@@ -23,42 +23,42 @@ export class WidgetStructure {
             return;
         }
 
-        this.#name = json.name;
-        this.#uid = json.uid;
+        this.name = json.name;
+        this.uid = json.uid;
 
         const parent = this;
         Object.entries(json.components).forEach(([key, value]) => {
             const component = createComponentFromJSON(parent, value);
-            parent.#components[key] = component;
+            parent.components[key] = component;
         });
     }
 
     toJSON() {
         return {
-            name: this.#name,
-            uid: this.#uid,
-            collection: this.#collection ? this.#collection.getUID() : "",
-            components: this.#components
+            name: this.name,
+            uid: this.uid,
+            collection: this.collection ? this.collection.getUID() : "",
+            components: this.components
         }
     }
 
     getName() {
-        return this.#name;
+        return this.name;
     }
 
     /**
      * @param {String} name
      */
     setName(name) {
-        this.#name = name;
+        this.name = name;
     }
 
     getUID() {
-        return this.#uid;
+        return this.uid;
     }
 
     getCollection() {
-        return this.#collection;
+        return this.collection;
     }
 
 
@@ -66,7 +66,7 @@ export class WidgetStructure {
      * @param {CollectionStructure} collection
      */
     setCollection(collection) {
-        this.#collection = collection;
+        this.collection = collection;
     }
 
 
@@ -74,12 +74,12 @@ export class WidgetStructure {
      * @param {ComponentStructure} element
      */
     addElement(element) {
-        this.#components[element.getUID()] = element;
+        this.components[element.getUID()] = element;
         const update = new UpdateStructure(this, element, EUpdateType.INSERT);
         document.updateWidget(update);
     }
 
     getElements() {
-        return this.#components;
+        return this.components;
     }
 }

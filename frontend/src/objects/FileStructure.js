@@ -2,13 +2,13 @@ import {EFileType} from "../enums/EFileType.js";
 
 export class FileStructure {
 
-    #type = EFileType.DIRECTORY;
-    #uid;
-    #structure;
+    type = EFileType.DIRECTORY;
+    uid;
+    structure;
 
     constructor(structure) {
-        this.#structure = structure;
-        this.#uid = Math.random().toString().replace("0.", "")
+        this.structure = structure;
+        this.uid = Math.random().toString().replace("0.", "")
     }
 
     buildFromJSON(json) {
@@ -16,24 +16,24 @@ export class FileStructure {
             return;
         }
 
-        this.#type = json.type;
-        this.#uid = json.uid;
+        this.type = json.type;
+        this.uid = json.uid;
     }
 
     toJSON() {
         return {
-            uid: this.#uid,
-            type: this.#type,
-            structure: this.#structure
+            uid: this.uid,
+            type: this.type,
+            structure: this.structure
         }
     }
 
     getType() {
-        return this.#type
+        return this.type
     }
 
     getStructure() {
-        return this.#structure;
+        return this.structure;
     }
 
 
@@ -41,19 +41,19 @@ export class FileStructure {
      * @param {String} name
      */
     setName(name) {
-        this.#structure.setName(name);
+        this.structure.setName(name);
         document.updateFile(this);
     }
 
     getName() {
-        return this.#structure.getName();
+        return this.structure.getName();
     }
 
     getUID() {
-        if (this.#uid === undefined) {
-            this.#uid = this.#type["default_name"]
+        if (this.uid === undefined) {
+            this.uid = this.type["default_name"]
         }
-        return this.#uid
+        return this.uid
     }
 
     openAction(event) {

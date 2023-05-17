@@ -13,16 +13,16 @@ export function createComponentFromJSON(parent, json) {
 
 export class ComponentStructure {
 
-    #parent;
-    #type;
-    #name;
-    #tooltip;
-    #uid;
-    #value;
-    #position;
-    #properties = {};
-    #component;
-    #size = {x: 1, y: 1};
+    parent;
+    type;
+    name;
+    tooltip;
+    uid;
+    value;
+    position;
+    properties = {};
+    component;
+    size = {x: 1, y: 1};
 
 
     /**
@@ -30,12 +30,12 @@ export class ComponentStructure {
      * @param {EElementType} type
      */
     constructor(parent, type) {
-        this.#parent = parent;
-        this.#type = type;
-        this.#name = type.name;
-        this.#tooltip = "";
-        this.#value = "";
-        this.#uid = Math.random().toString().replace("0.", "");
+        this.parent = parent;
+        this.type = type;
+        this.name = type.name;
+        this.tooltip = "";
+        this.value = "";
+        this.uid = Math.random().toString().replace("0.", "");
     }
 
     buildFromJSON(json) {
@@ -43,79 +43,79 @@ export class ComponentStructure {
             return;
         }
 
-        this.#type = json.type;
-        this.#name = json.name;
-        this.#tooltip = json.tooltip;
-        this.#value = json.value;
-        this.#uid = json.uid;
-        this.#size = json.size;
-        this.#position = json.position;
-        this.#properties = json.properties;
+        this.type = json.type;
+        this.name = json.name;
+        this.tooltip = json.tooltip;
+        this.value = json.value;
+        this.uid = json.uid;
+        this.size = json.size;
+        this.position = json.position;
+        this.properties = json.properties;
     }
 
     toJSON() {
         return {
-            name: this.#name,
-            type: this.#type,
-            uid: this.#uid,
-            position: this.#position,
-            size: this.#size,
-            properties: this.#properties,
+            name: this.name,
+            type: this.type,
+            uid: this.uid,
+            position: this.position,
+            size: this.size,
+            properties: this.properties,
         }
     }
 
     getPosition() {
-        return this.#position;
+        return this.position;
     }
 
     getSize() {
-        this.#size;
+        this.size;
     }
 
     setPosition(position) {
-        this.#position = position;
+        this.position = position;
     }
 
     setSize(size) {
-        this.#size = size;
+        this.size = size;
     }
 
     getType() {
-        return this.#type;
+        return this.type;
     }
 
     getName() {
-        return this.#name;
+        return this.name;
     }
 
     getTooltip() {
-        return this.#tooltip;
+        return this.tooltip;
     }
 
     getUID() {
-        return this.#uid;
+        return this.uid;
     }
 
     generateElement() {
-        switch (this.#type.name) {
+        switch (this.type.name) {
             case EElementType.BUTTON.name: {
-                this.#component = new ButtonComponent();
+                this.component = new ButtonComponent();
                 break;
             }
             case EElementType.INPUT.name: {
-                this.#component = new InputComponent();
+                this.component = new InputComponent();
                 break;
             }
             case EElementType.TEXT.name: {
-                this.#component = new TextComponent();
+                this.component = new TextComponent();
                 break;
             }
         }
-        this.#component.setParentStructure(this);
-        this.#component.setGridSize(this.#size, false);
-        this.#component.setOriginalGridSize(this.#size);
+        this.component.setParentStructure(this);
+        this.component.setGridSize(this.size, false);
+        this.component.setOriginalGridSize(this.size);
 
-        return this.#component;
+        return this.component;
     }
 
 
@@ -123,7 +123,7 @@ export class ComponentStructure {
      * @param {String} key
      */
     getProperty(key) {
-        return this.#properties[key];
+        return this.properties[key];
     }
 
 
@@ -132,8 +132,8 @@ export class ComponentStructure {
      * @param {String} value
      */
     setProperty(key, value) {
-        this.#properties[key] = value;
-        this.#component.setProperty(key, value);
+        this.properties[key] = value;
+        this.component.setProperty(key, value);
         return this;
     }
 

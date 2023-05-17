@@ -3,9 +3,9 @@ import {EContainerType} from "../enums/EContainerType.js";
 
 export class UpdateStructure {
 
-    #element
-    #value
-    #type
+    element
+    value
+    type
 
     /**
      * @param {Any} element
@@ -13,20 +13,20 @@ export class UpdateStructure {
      * @param {EUpdateType} type
      */
     constructor(element, value, type) {
-        this.#type = type;
-        this.#value = value;
-        this.#element = element;
+        this.type = type;
+        this.value = value;
+        this.element = element;
     }
 
     getElement() {
-        return this.#element;
+        return this.element;
     }
 
     getValue() {
-        return this.#value;
+        return this.value;
     }
 
     getType() {
-        return this.#type;
+        return this.type;
     }
 }

@@ -2,16 +2,16 @@ import {EFileType} from "../enums/EFileType.js";
 
 export class ScriptStructure {
 
-    #uid;
-    #name;
-    #tooltip
-    #body;
+    uid;
+    name;
+    tooltip
+    body;
 
     constructor(json) {
-        this.#uid = Math.random().toString().replace("0.", "");
-        this.#name = EFileType.SCRIPT["default_name"];
-        this.#tooltip = "";
-        this.#body = ""
+        this.uid = Math.random().toString().replace("0.", "");
+        this.name = EFileType.SCRIPT["default_name"];
+        this.tooltip = "";
+        this.body = ""
 
         this.buildFromJSON(json);
     }
@@ -21,34 +21,34 @@ export class ScriptStructure {
             return;
         }
 
-        this.#name = json.name;
-        this.#uid = json.uid;
-        this.#body = json.body;
+        this.name = json.name;
+        this.uid = json.uid;
+        this.body = json.body;
     }
 
     getUID() {
-        return this.#uid;
+        return this.uid;
     }
 
     /**
      * @param {string} name
      */
     setName(name) {
-        this.#name = name;
+        this.name = name;
     }
 
     /**
      * @param {string} text
      */
     setTooltip(text) {
-        this.#tooltip = text;
+        this.tooltip = text;
     }
 
     getName() {
-        return this.#name;
+        return this.name;
     }
 
     getTooltip() {
-        return this.#tooltip;
+        return this.tooltip;
     }
 }
