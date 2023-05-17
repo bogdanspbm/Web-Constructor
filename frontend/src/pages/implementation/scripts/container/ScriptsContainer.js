@@ -2,8 +2,6 @@ import {Div, DOM, TextArea} from "../../../../elements/dom/DOM.js";
 
 export class ScriptsContainer extends DOM {
 
-    attributes = []
-
     /**
      * @param {ScriptStructure} script
      */

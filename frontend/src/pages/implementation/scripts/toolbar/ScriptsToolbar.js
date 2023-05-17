@@ -1,7 +1,5 @@
 import {Div, DOM} from "../../../../elements/dom/DOM.js";
 import {Input} from "../../../../widgets/common/Input.js";
-import {Button} from "../../../../elements/default/Button.js";
-import {AttributeStructure} from "../../../../objects/AttributeStructure.js";
 import {ScriptTypeSelector} from "../selectors/ScriptTypeSelector.js";
 
 export class ScriptsToolbar extends DOM {
@@ -21,12 +19,22 @@ export class ScriptsToolbar extends DOM {
         this.setStyle("toolbar").setAttribute("padding", "20px").setAttribute("width", "240px");
 
         const nameHeader = new Div().setText("Name").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const nameInput = new Input().setTag("placeholder", "Input Name").clearAttribute("height").setStyle("input-bar").setAttribute("margin-bottom", "15px")
+        const nameInput = new Input()
+            .setTag("placeholder", "Input Name")
+            .clearAttribute("height")
+            .setStyle("input-bar")
+            .setAttribute("margin-bottom", "15px")
+            .setTag("value", script.getName());
         this.append(nameHeader);
         this.append(nameInput);
 
         const tooltipHeader = new Div().setText("Tooltip").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const tooltipInput = new Input().setTag("placeholder", "Tooltip Name").clearAttribute("height").setStyle("input-bar").setAttribute("margin-bottom", "15px")
+        const tooltipInput = new Input()
+            .setTag("placeholder", "Tooltip Name")
+            .clearAttribute("height")
+            .setStyle("input-bar")
+            .setAttribute("margin-bottom", "15px")
+            .setTag("value", script.getTooltip());
         this.append(tooltipHeader);
         this.append(tooltipInput);
 

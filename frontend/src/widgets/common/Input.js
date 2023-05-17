@@ -2,8 +2,29 @@ import {DOM} from "../../elements/dom/DOM.js";
 
 export class Input extends DOM {
 
+    constructor(structure, field) {
+        super(structure, field);
+        this.bindStructure(structure, field);
+    }
+
     setOnChangeEvent(event) {
         this.onChangeEvent = event
+    }
+
+    bindStructure(structure, field) {
+        if (!structure || !field) {
+            return;
+        }
+
+        if (typeof structure.getPrivateField !== "function") {
+            return;
+        }
+
+        if (typeof structure.setPrivateField !== "function") {
+            return;
+        }
+
+        this.setTag("value", structure.getPrivateField(field));
     }
 
     createElement() {
