@@ -20,7 +20,7 @@ export class ScriptsContainer extends DOM {
         const scriptScroll = new Div().setStyle("script-scroll");
 
         const linesColumn = new Div().setStyle("lines-container");
-        const scriptContainer = new TextArea().setStyle("code-container");
+        const scriptContainer = new TextArea(script, "body").setStyle("code-container");
 
         scriptScroll.append(linesColumn);
         scriptScroll.append(scriptContainer);

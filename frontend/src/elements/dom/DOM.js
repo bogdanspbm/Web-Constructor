@@ -217,15 +217,50 @@ export class DOM {
 export class Div extends DOM {
 }
 
-export class Input extends DOM {
-    createElement() {
-        this.element = document.createElement("input");
-    }
-}
-
 export class TextArea extends DOM {
-    createElement() {
+
+    constructor(structure, field) {
+        super(structure, field);
+        this.bindStructure(structure, field);
+    }
+
+    setOnChangeEvent(event) {
+        this.onChangeEvent = event
+    }
+
+    createElement(structure, field) {
         this.element = document.createElement("textarea");
+        this.bindEvents();
+    }
+
+    bindStructure(structure, field) {
+        if (!structure || !field) {
+            return;
+        }
+        const parent = this;
+        
+        parent.element.value = structure[field];
+
+        this.setOnChangeEvent(() => {
+            structure[field] = parent.element.value;
+        })
+    }
+
+    bindEvents() {
+        const parent = this
+        this.element.addEventListener("input", function (event) {
+            if (typeof parent.onChangeEvent !== "function") {
+                return
+            }
+            parent.onChangeEvent(event);
+        })
+    }
+
+    /**
+     * @param {String} hint
+     */
+    setHint(hint) {
+        this.setTag("placeholder", hint);
     }
 }
 
