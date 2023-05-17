@@ -27,7 +27,10 @@ export class CollectionStructure {
 
         this.name = json.name;
         this.uid = json.uid;
-        this.script = new ScriptStructure(json.script);
+
+        if (json.script) {
+            this.script = new ScriptStructure(json.script);
+        }
 
         const parent = this;
         Object.entries(json.attributes).forEach(([key, value]) => {
@@ -41,7 +44,7 @@ export class CollectionStructure {
             uid: this.uid,
             name: this.name,
             attributes: this.attributes,
-            script: this.script
+            script: this.getScript()
         }
     }
 

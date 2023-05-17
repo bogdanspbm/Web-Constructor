@@ -2,6 +2,7 @@ import {WidgetFile} from "../objects/files/implementation/WidgetFile.js";
 import {CollectionFile} from "../objects/files/implementation/CollectionFile.js";
 import {DirectoryFile} from "../objects/files/implementation/DirectoryFile.js";
 import {EFileType} from "../enums/EFileType.js";
+import {ScriptFile} from "../objects/files/implementation/ScriptFile.js";
 
 
 export function createFileFromJSON(json) {
@@ -17,8 +18,11 @@ export function createFileFromJSON(json) {
         case EFileType.DIRECTORY.name: {
             return new DirectoryFile(structure);
         }
+
+        case EFileType.SCRIPT.name: {
+            return new ScriptFile(structure);
+        }
     }
 
-    console.log("Failed to Create File: " + json);
     return undefined;
 }

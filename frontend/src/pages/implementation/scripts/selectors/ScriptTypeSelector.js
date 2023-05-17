@@ -5,8 +5,8 @@ export class ScriptTypeSelector extends Select {
         super.createElement();
         this.setStyle("selector-borderless");
 
-        const emptyScript = new Option("Empty");
-        this.append(emptyScript);
+        const functionsLibrary = new Option("Functions Library");
+        this.append(functionsLibrary);
 
         const collectionAdapterScript = new Option("Collection Adapter");
         this.append(collectionAdapterScript);

@@ -4,36 +4,36 @@ import {CollectionPage} from "../../../pages/implementation/collection/Collectio
 import {ScriptsPage} from "../../../pages/implementation/scripts/ScriptsPage.js";
 
 export class ScriptFile extends FileStructure {
-    #type = EFileType.SCRIPT;
-    #script;
+    type = EFileType.SCRIPT;
+    script;
 
     /**
      * @param {ScriptStructure} script
      */
     constructor(script) {
         super(script);
-        this.#script = script;
+        this.script = script;
     }
 
     toJSON() {
         return {
             uid: this.getUID(),
-            type: this.#type,
+            type: this.type,
             structure: this.getStructure()
         }
     }
 
     openAction(event) {
-        const page = new ScriptsPage(this.#script);
+        const page = new ScriptsPage(this.script);
         page.openPage();
     }
 
 
     getUID() {
-        return this.#script.getUID();
+        return this.script.getUID();
     }
 
     getType() {
-        return this.#type;
+        return this.type;
     }
 }

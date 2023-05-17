@@ -2,13 +2,13 @@ import {FileStructure} from "../FileStructure.js";
 import {EFileType} from "../../../enums/EFileType.js";
 
 export class DirectoryFile extends FileStructure {
-    #type = EFileType.DIRECTORY
+    type = EFileType.DIRECTORY
 
 
     toJSON() {
         return {
             uid: this.getUID(),
-            type: this.#type,
+            type: this.type,
             structure: this.getStructure()
         }
     }
@@ -17,6 +17,6 @@ export class DirectoryFile extends FileStructure {
     }
 
     getType() {
-        return this.#type;
+        return this.type;
     }
 }

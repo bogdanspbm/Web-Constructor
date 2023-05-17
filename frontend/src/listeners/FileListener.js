@@ -16,6 +16,10 @@ export function bindFileListener() {
             return document.collections[uid];
         }
 
+        if (uid in document.scriptsStructures) {
+            return document.scriptsStructures[uid];
+        }
+
         return undefined;
     }
 

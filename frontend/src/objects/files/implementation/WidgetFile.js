@@ -2,34 +2,34 @@ import {FileStructure} from "../FileStructure.js";
 import {EFileType} from "../../../enums/EFileType.js";
 
 export class WidgetFile extends FileStructure {
-    #widget = null
-    #type = EFileType.WIDGET
+    widget = null
+    type = EFileType.WIDGET
 
     /**
      * @param {WidgetStructure} widget
      */
     constructor(widget) {
         super(widget);
-        this.#widget = widget;
+        this.widget = widget;
     }
 
     toJSON() {
         return {
             uid: this.getUID(),
-            type: this.#type,
+            type: this.type,
             structure: this.getStructure()
         }
     }
 
     getUID() {
-        return this.#widget.getUID();
+        return this.widget.getUID();
     }
 
     openAction(event) {
-        document.openWidget(this.#widget);
+        document.openWidget(this.widget);
     }
 
     getType() {
-        return this.#type;
+        return this.type;
     }
 }

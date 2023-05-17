@@ -2,6 +2,7 @@ import {CollectionStructure} from "../objects/CollectionStructure.js";
 import {createFileFromJSON} from "./FileUtils.js";
 import {WidgetStructure} from "../objects/WidgetStructure.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
+import {ScriptStructure} from "../objects/scripts/ScriptStructure.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
@@ -28,7 +29,7 @@ export function toPascalCase(str) {
     const words = str.split(/\s+|_/);
 
     const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-    
+
     const pascalCaseStr = capitalizedWords.join('');
 
     return pascalCaseStr;
@@ -37,10 +38,11 @@ export function toPascalCase(str) {
 export function exportProject() {
     const json = {
         collections: document.collections,
-        widgets: document.widgets
+        widgets: document.widgets,
+        scripts: document.scriptsStructures
     }
 
-    const data = JSON.stringify(json, null, 4).replace(/\\"/g, '"');
+    const data = JSON.stringify(json, null, 4);
     console.log(data);
 
     postRequest("http://localhost:8080/export", data);
@@ -65,10 +67,11 @@ export function saveProject() {
     const json = {
         collections: document.collections,
         widgets: document.widgets,
+        scripts: document.scriptsStructures,
         files: document.files
     }
 
-    const data = JSON.stringify(json, null, 4).replace(/\\"/g, '"');
+    const data = JSON.stringify(json, null, 4);
     createAndDownloadFile(data, "project.json");
 }
 
@@ -104,6 +107,7 @@ export function loadProject() {
         const json = JSON.parse(contents);
         generateCollectionsFromJSON(json);
         generateWidgetsFromJSON(json);
+        generateScriptsFromJSON(json);
         generateFilesFromJSON(json);
 
         const fileSystem = new FileSystemPage();
@@ -113,8 +117,26 @@ export function loadProject() {
     });
 }
 
+export function generateScriptsFromJSON(json) {
+    const newScripts = {};
+
+    if (!json.scripts) {
+        return;
+    }
+
+    Object.entries(json.scripts).forEach(([key, value]) => {
+        newScripts[key] = new ScriptStructure(value);
+    });
+    document.scriptsStructures = newScripts;
+}
+
 export function generateWidgetsFromJSON(json) {
     const newWidgets = {};
+
+    if (!json.widgets) {
+        return;
+    }
+
     Object.entries(json.widgets).forEach(([key, value]) => {
         newWidgets[key] = new WidgetStructure(value);
     });
@@ -123,6 +145,11 @@ export function generateWidgetsFromJSON(json) {
 
 export function generateCollectionsFromJSON(json) {
     const newCollections = {};
+
+    if (!json.collections) {
+        return;
+    }
+
     Object.entries(json.collections).forEach(([key, value]) => {
         const collection = new CollectionStructure(value);
         newCollections[key] = collection;
@@ -133,7 +160,8 @@ export function generateCollectionsFromJSON(json) {
 export function generateFilesFromJSON(json) {
     const newFiles = {};
     Object.entries(json.files).forEach(([key, value]) => {
-        newFiles[key] = createFileFromJSON(value);
+        const file = createFileFromJSON(value);
+        newFiles[key] = file;
     });
     document.files = newFiles;
 }

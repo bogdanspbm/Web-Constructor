@@ -1,18 +1,18 @@
 export class Item {
+    #images;
+    #tags;
     #id;
     #name;
     #price;
     #description;
-    #images;
-    #tags;
 
     constructor(json) {
+        this.#id = json.id;
         this.#name = json.name;
         this.#price = json.price;
         this.#description = json.description;
         this.#images = json.images;
         this.#tags = json.tags;
-        this.#id = json.id;
     }
 
     getid() {
