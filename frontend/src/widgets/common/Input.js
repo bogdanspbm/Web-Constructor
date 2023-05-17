@@ -15,16 +15,13 @@ export class Input extends DOM {
         if (!structure || !field) {
             return;
         }
+        const parent = this;
 
-        if (typeof structure.getPrivateField !== "function") {
-            return;
-        }
+        this.setTag("value", structure[field]);
 
-        if (typeof structure.setPrivateField !== "function") {
-            return;
-        }
-
-        this.setTag("value", structure.getPrivateField(field));
+        this.setOnChangeEvent(() => {
+            structure[field] = parent.element.value;
+        })
     }
 
     createElement() {
