@@ -22,6 +22,18 @@ export function postRequest(url, body) {
     return result;
 }
 
+export function toPascalCase(str) {
+    str = str.trim().toLowerCase();
+
+    const words = str.split(/\s+|_/);
+
+    const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    
+    const pascalCaseStr = capitalizedWords.join('');
+
+    return pascalCaseStr;
+}
+
 export function exportProject() {
     const json = {
         collections: document.collections,

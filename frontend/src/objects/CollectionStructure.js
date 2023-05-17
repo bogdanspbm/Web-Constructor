@@ -2,6 +2,7 @@ import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
 import {createAttributeFromJSON} from "./AttributeStructure.js";
 import {ScriptStructure} from "./scripts/ScriptStructure.js";
+import {CollectionScriptStructure} from "./scripts/implementation/CollectionScriptStructure.js";
 
 export class CollectionStructure {
 
@@ -16,8 +17,6 @@ export class CollectionStructure {
         this.tooltip = "";
         this.attributes = {};
         this.uid = Math.random().toString().replace("0.", "");
-        this.script = new ScriptStructure();
-
         this.buildFromJSON(json);
     }
 
@@ -55,6 +54,9 @@ export class CollectionStructure {
     }
 
     getScript() {
+        if (!this.script) {
+            this.script = new CollectionScriptStructure(this.name);
+        }
         return this.script;
     }
 
