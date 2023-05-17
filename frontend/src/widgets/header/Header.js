@@ -6,6 +6,7 @@ import {Button} from "../../elements/default/Button.js";
 import {exportProject} from "../../utils/Utils.js";
 import {ProjectPopup} from "../../popups/implementation/ProjectPopup.js";
 import {EPageType} from "../../enums/EPageType.js";
+import {CollectionHeaderTabs} from "../../pages/implementation/collection/header/CollectionHeaderTabs.js";
 
 export class Header extends Div {
 
@@ -35,10 +36,21 @@ export class Header extends Div {
             this.append(mainControls);
         }
 
-        const buttonExport = new Button().setText("Generate").setAttribute("margin-left", "auto")
-            .setAttribute("height", "24px").setAttribute("border-radius", "5px")
-            .setAttribute("margin-right", "10px").setStyle("blue-button");
-        buttonExport.setClickEvent(exportProject);
-        this.append(buttonExport)
+        switch (pageType) {
+            case EPageType.FILE_SYSTEM: {
+                const
+                    buttonExport = new Button().setText("Generate").setAttribute("margin-left", "auto")
+                        .setAttribute("height", "24px").setAttribute("border-radius", "5px")
+                        .setAttribute("margin-right", "10px").setStyle("blue-button");
+                buttonExport.setClickEvent(exportProject);
+                this.append(buttonExport);
+                break
+            }
+            case EPageType.COLLECTION: {
+                const collectionTabs = new CollectionHeaderTabs();
+                this.append(collectionTabs);
+                break;
+            }
+        }
     }
 }

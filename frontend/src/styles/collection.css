@@ -19,3 +19,9 @@
 
     color: #434343;
 }
+
+.collection-header-tabs {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
