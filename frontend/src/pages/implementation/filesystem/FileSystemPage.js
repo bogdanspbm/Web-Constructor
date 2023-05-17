@@ -3,16 +3,21 @@ import {Header} from "../../../widgets/header/Header.js";
 import {Div} from "../../../elements/dom/DOM.js";
 import {FileButton} from "./file/FileButton.js";
 import {FilePopup} from "../../../popups/implementation/FilePopup.js";
+import {EPageType} from "../../../enums/EPageType.js";
 
 export class FileSystemPage extends Page {
+
 
     /**
      * @param {DirectoryStructure} directory
      */
 
+    constructor(directory) {
+        super(directory, EPageType.FILE_SYSTEM);
+    }
 
     fillElements(directory) {
-        const header = new Header(false, true);
+        const header = new Header(this.getType());
         this.elements.push(header);
         this.buttons = []
 
@@ -36,6 +41,11 @@ export class FileSystemPage extends Page {
         this.drawFiles();
 
         this.elements.push(panel);
+    }
+
+
+    getType() {
+        return EPageType.FILE_SYSTEM;
     }
 
     drawFiles() {

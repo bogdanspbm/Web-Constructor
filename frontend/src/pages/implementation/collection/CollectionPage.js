@@ -3,6 +3,7 @@ import {Header} from "../../../widgets/header/Header.js";
 import {Div} from "../../../elements/dom/DOM.js";
 import {CollectionToolbar} from "./toolbar/CollectionToolbar.js";
 import {CollectionContainer} from "./container/CollectionContainer.js";
+import {EPageType} from "../../../enums/EPageType.js";
 
 export class CollectionPage extends Page {
 
@@ -10,14 +11,14 @@ export class CollectionPage extends Page {
      * @param {CollectionStructure} collection
      */
     constructor(collection) {
-        super(collection);
+        super(collection, EPageType.COLLECTION);
     }
 
     /**
      * @param {CollectionStructure} collection
      */
     fillElements(collection) {
-        const header = new Header(false);
+        const header = new Header(this.getType());
         this.elements.push(header);
 
         const toolbar = new CollectionToolbar(collection);
@@ -31,5 +32,6 @@ export class CollectionPage extends Page {
 
         this.elements.push(panel);
     }
+
 
 }

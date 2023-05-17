@@ -4,18 +4,18 @@ import {HeaderButton} from "./inputs/HeaderButton.js";
 import {FileSystemPage} from "../../pages/implementation/filesystem/FileSystemPage.js";
 import {Button} from "../../elements/default/Button.js";
 import {exportProject} from "../../utils/Utils.js";
-import {FilePopup} from "../../popups/implementation/FilePopup.js";
 import {ProjectPopup} from "../../popups/implementation/ProjectPopup.js";
+import {EPageType} from "../../enums/EPageType.js";
 
 export class Header extends Div {
 
-    createElement(flag, isMain) {
+    createElement(pageType) {
         super.createElement();
         this.setStyle("header");
 
         const files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
         files.setClickEvent(action => {
-            if (!isMain) {
+            if (pageType !== EPageType.FILE_SYSTEM) {
                 const fileSystem = new FileSystemPage()
                 fileSystem.openPage()
             } else {
@@ -30,7 +30,7 @@ export class Header extends Div {
         })
         this.append(files);
 
-        if (flag) {
+        if (pageType === EPageType.EDITOR) {
             const mainControls = new HeaderControls();
             this.append(mainControls);
         }

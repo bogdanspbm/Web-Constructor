@@ -4,6 +4,7 @@ import {Div} from "../../../elements/dom/DOM.js";
 import {EditorToolbar} from "./toolbar/EditorToolbar.js";
 import {Details} from "./details/Details.js";
 import {EditorGrid} from "./grid/EditorGrid.js";
+import {EPageType} from "../../../enums/EPageType.js";
 
 export class EditorPage extends Page {
 
@@ -11,14 +12,14 @@ export class EditorPage extends Page {
      * @param {WidgetStructure} widget
      */
     constructor(widget) {
-        super(widget);
+        super(widget, EPageType.EDITOR);
     }
 
     /**
      * @param {WidgetStructure} widget
      */
     fillElements(widget) {
-        const header = new Header(true);
+        const header = new Header(this.getType());
         this.elements.push(header);
 
         const grid = new EditorGrid(widget);
@@ -36,6 +37,5 @@ export class EditorPage extends Page {
 
         this.elements.push(panel);
     }
-
 
 }
