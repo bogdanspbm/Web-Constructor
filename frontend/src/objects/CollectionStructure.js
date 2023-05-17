@@ -1,7 +1,7 @@
 import {UpdateStructure} from "./UpdateStructure.js";
 import {EUpdateType} from "../enums/EUpdateType.js";
 import {createAttributeFromJSON} from "./AttributeStructure.js";
-import {ScriptStructure} from "./ScriptStructure.js";
+import {ScriptStructure} from "./scripts/ScriptStructure.js";
 
 export class CollectionStructure {
 

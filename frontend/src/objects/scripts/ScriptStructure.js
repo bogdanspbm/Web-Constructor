@@ -1,4 +1,4 @@
-import {EFileType} from "../enums/EFileType.js";
+import {EFileType} from "../../enums/EFileType.js";
 
 export class ScriptStructure {
 

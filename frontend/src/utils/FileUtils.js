@@ -1,6 +1,6 @@
-import {WidgetFile} from "../pages/implementation/filesystem/file/implementations/WidgetFile.js";
-import {CollectionFile} from "../pages/implementation/filesystem/file/implementations/CollectionFile.js";
-import {DirectoryFile} from "../pages/implementation/filesystem/file/implementations/DirectoryFile.js";
+import {WidgetFile} from "../objects/files/implementation/WidgetFile.js";
+import {CollectionFile} from "../objects/files/implementation/CollectionFile.js";
+import {DirectoryFile} from "../objects/files/implementation/DirectoryFile.js";
 import {EFileType} from "../enums/EFileType.js";
 
 

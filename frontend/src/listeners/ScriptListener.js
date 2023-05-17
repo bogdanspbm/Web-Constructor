@@ -1,4 +1,4 @@
-import {ScriptStructure} from "../objects/ScriptStructure.js";
+import {ScriptStructure} from "../objects/scripts/ScriptStructure.js";
 
 export function bindScriptListener() {
     document.scriptsStructures = {};

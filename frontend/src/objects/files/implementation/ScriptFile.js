@@ -1,7 +1,7 @@
-import {FileStructure} from "../../../../../objects/FileStructure.js";
-import {EFileType} from "../../../../../enums/EFileType.js";
-import {CollectionPage} from "../../../collection/CollectionPage.js";
-import {ScriptsPage} from "../../../scripts/ScriptsPage.js";
+import {FileStructure} from "../FileStructure.js";
+import {EFileType} from "../../../enums/EFileType.js";
+import {CollectionPage} from "../../../pages/implementation/collection/CollectionPage.js";
+import {ScriptsPage} from "../../../pages/implementation/scripts/ScriptsPage.js";
 
 export class ScriptFile extends FileStructure {
     #type = EFileType.SCRIPT;

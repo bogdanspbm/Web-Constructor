@@ -238,7 +238,7 @@ export class TextArea extends DOM {
             return;
         }
         const parent = this;
-        
+
         parent.element.value = structure[field];
 
         this.setOnChangeEvent(() => {
