@@ -1,0 +1,4092 @@
+{
+    "collections": {
+        "598111511942373": {
+            "uid": "598111511942373",
+            "name": "User",
+            "attributes": {
+                "21692762449208725": {
+                    "uid": "21692762449208725",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "07090572352604418": {
+                    "uid": "07090572352604418",
+                    "name": "Name",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "520641114721742": {
+                    "uid": "520641114721742",
+                    "name": "Surname",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "17880782236226045": {
+                    "uid": "17880782236226045",
+                    "name": "Patronymic",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "6832512646928937": {
+                    "uid": "6832512646928937",
+                    "name": "Phone",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "024992408831975732": {
+                    "uid": "024992408831975732",
+                    "name": "Birthdate",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "024694404969310524": {
+                    "uid": "024694404969310524",
+                    "name": "Password",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "5889236437870649": {
+                    "uid": "5889236437870649",
+                    "name": "Mail",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "7046926193708622": {
+                    "uid": "7046926193708622",
+                    "name": "Role",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "014821783374389552": {
+                    "uid": "014821783374389552",
+                    "name": "Sex",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "1057714014319091",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class UserAdapter {\n\n    getUsers() {\n       //  Implement me! \n    }\n\n    getUser(id) {\n       //  Implement me! \n    }\n\n    updateUser(item) {\n       //  Implement me! \n    }\n\n    createUser(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        },
+        "22053892158242228": {
+            "uid": "22053892158242228",
+            "name": "Item",
+            "attributes": {
+                "06095211192933192": {
+                    "uid": "06095211192933192",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "02168719579193512": {
+                    "uid": "02168719579193512",
+                    "name": "Name",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "16452933849604667": {
+                    "uid": "16452933849604667",
+                    "name": "Price",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "9477399424882902": {
+                    "uid": "9477399424882902",
+                    "name": "Description",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "42917891841951605": {
+                    "uid": "42917891841951605",
+                    "name": "Images",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "9449561157550028": {
+                    "uid": "9449561157550028",
+                    "name": "Tags",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "5462290765935376",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class ItemAdapter {\n\n    getItems() {\n       //  Implement me! \n    }\n\n    getItem(id) {\n       //  Implement me! \n    }\n\n    updateItem(item) {\n       //  Implement me! \n    }\n\n    createItem(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        },
+        "1834324789084163": {
+            "uid": "1834324789084163",
+            "name": "Delivery",
+            "attributes": {
+                "4421962723169781": {
+                    "uid": "4421962723169781",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "6541374073921449": {
+                    "uid": "6541374073921449",
+                    "name": "Order ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "5221514937506868": {
+                    "uid": "5221514937506868",
+                    "name": "Address ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "39570942873810955": {
+                    "uid": "39570942873810955",
+                    "name": "Target Date",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "38216143902476674": {
+                    "uid": "38216143902476674",
+                    "name": "Type ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "7459644204904952",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class DeliveryAdapter {\n\n    getDeliverys() {\n       //  Implement me! \n    }\n\n    getDelivery(id) {\n       //  Implement me! \n    }\n\n    updateDelivery(item) {\n       //  Implement me! \n    }\n\n    createDelivery(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        },
+        "7591479750406358": {
+            "uid": "7591479750406358",
+            "name": "Payment",
+            "attributes": {
+                "3208662247756817": {
+                    "uid": "3208662247756817",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "4646405346063225": {
+                    "uid": "4646405346063225",
+                    "name": "Value",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "1259691738113209": {
+                    "uid": "1259691738113209",
+                    "name": "Type ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "2517111407308179": {
+                    "uid": "2517111407308179",
+                    "name": "Status ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "14374187798936044": {
+                    "uid": "14374187798936044",
+                    "name": "Creation Date",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "04574177214043007",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class PaymentAdapter {\n\n    getPayments() {\n       //  Implement me! \n    }\n\n    getPayment(id) {\n       //  Implement me! \n    }\n\n    updatePayment(item) {\n       //  Implement me! \n    }\n\n    createPayment(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        },
+        "6211409548982729": {
+            "uid": "6211409548982729",
+            "name": "Order",
+            "attributes": {
+                "4510460492261028": {
+                    "uid": "4510460492261028",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "4597768287745616": {
+                    "uid": "4597768287745616",
+                    "name": "Display Number",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "5511964018789521": {
+                    "uid": "5511964018789521",
+                    "name": "User ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "9023708252523224": {
+                    "uid": "9023708252523224",
+                    "name": "Status ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "4162902834519151": {
+                    "uid": "4162902834519151",
+                    "name": "Cancel Reason ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "4187067629024819": {
+                    "uid": "4187067629024819",
+                    "name": "Payment ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "21348645865021898": {
+                    "uid": "21348645865021898",
+                    "name": "Creation Date",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "6497848014391008": {
+                    "uid": "6497848014391008",
+                    "name": "Modification Date",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "25438045913589424",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class OrderAdapter {\n\n    getOrders() {\n       //  Implement me! \n    }\n\n    getOrder(id) {\n       //  Implement me! \n    }\n\n    updateOrder(item) {\n       //  Implement me! \n    }\n\n    createOrder(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        },
+        "770966569720481": {
+            "uid": "770966569720481",
+            "name": "Order Item",
+            "attributes": {
+                "9106886527810583": {
+                    "uid": "9106886527810583",
+                    "name": "ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "859207272964704": {
+                    "uid": "859207272964704",
+                    "name": "Order ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "9742815251183639": {
+                    "uid": "9742815251183639",
+                    "name": "Item ID",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "37915745543414214": {
+                    "uid": "37915745543414214",
+                    "name": "Quantity",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "5566425430490163": {
+                    "uid": "5566425430490163",
+                    "name": "Default Price",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "8553473006034775": {
+                    "uid": "8553473006034775",
+                    "name": "Discount",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                },
+                "4958782394130601": {
+                    "uid": "4958782394130601",
+                    "name": "Final Price",
+                    "type": {
+                        "name": "Integer",
+                        "color": "#36cfc9"
+                    },
+                    "container": {
+                        "name": "Single",
+                        "icon": "#36cfc9"
+                    },
+                    "tooltip": "",
+                    "value": ""
+                }
+            },
+            "script": {
+                "uid": "17069487324651766",
+                "name": "New Script",
+                "tooltip": "",
+                "body": "export class OrderItemAdapter {\n\n    getOrderItems() {\n       //  Implement me! \n    }\n\n    getOrderItem(id) {\n       //  Implement me! \n    }\n\n    updateOrderItem(item) {\n       //  Implement me! \n    }\n\n    createOrderItem(item) {\n       //  Implement me! \n    }\n\n}"
+            }
+        }
+    },
+    "widgets": {
+        "8405106907951716": {
+            "name": "User Page",
+            "uid": "8405106907951716",
+            "collection": "",
+            "components": {
+                "6335438779091185": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "6335438779091185",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Name"
+                    }
+                },
+                "40285482485726476": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "40285482485726476",
+                    "position": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Name",
+                        "text": "Enter name"
+                    }
+                },
+                "47051700832753296": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "47051700832753296",
+                    "position": {
+                        "x": 4,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Surname"
+                    }
+                },
+                "4269112879859609": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "4269112879859609",
+                    "position": {
+                        "x": 4,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter surname",
+                        "attribute": "Surname"
+                    }
+                },
+                "5024110775699042": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "5024110775699042",
+                    "position": {
+                        "x": 8,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter Patronymic",
+                        "attribute": "Patronymic"
+                    }
+                },
+                "7830659326345517": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "7830659326345517",
+                    "position": {
+                        "x": 8,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Patronymic"
+                    }
+                },
+                "5695915041607873": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "5695915041607873",
+                    "position": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Mail"
+                    }
+                },
+                "0996460021232759": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "0996460021232759",
+                    "position": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter mail",
+                        "attribute": "Mail"
+                    }
+                },
+                "2543828232694987": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "2543828232694987",
+                    "position": {
+                        "x": 4,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Password Hash"
+                    }
+                },
+                "26168562210049706": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "26168562210049706",
+                    "position": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter password hash",
+                        "attribute": "Password"
+                    }
+                },
+                "4164470925437098": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "4164470925437098",
+                    "position": {
+                        "x": 0,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Phone"
+                    }
+                },
+                "3698607044329245": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "3698607044329245",
+                    "position": {
+                        "x": 0,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Phone",
+                        "text": "Enter phone"
+                    }
+                },
+                "3427176939134493": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "3427176939134493",
+                    "position": {
+                        "x": 4,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Role",
+                        "text": "Enter role"
+                    }
+                },
+                "43197302870729337": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "43197302870729337",
+                    "position": {
+                        "x": 4,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Role"
+                    }
+                },
+                "3739169121554957": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "3739169121554957",
+                    "position": {
+                        "x": 8,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Gender"
+                    }
+                },
+                "3159633138242004": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "3159633138242004",
+                    "position": {
+                        "x": 8,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter gender"
+                    }
+                },
+                "6988705087912221": {
+                    "name": "Button",
+                    "type": {
+                        "name": "Button",
+                        "color": "#f759ab"
+                    },
+                    "uid": "6988705087912221",
+                    "position": {
+                        "x": 9,
+                        "y": 10
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Save"
+                    }
+                }
+            }
+        },
+        "03660773268480888": {
+            "name": "Item Page",
+            "uid": "03660773268480888",
+            "collection": "",
+            "components": {
+                "6881375415150122": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "6881375415150122",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Name"
+                    }
+                },
+                "8936648333366117": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "8936648333366117",
+                    "position": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 4,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter Name",
+                        "attribute": "Name"
+                    }
+                },
+                "00455300033484618": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "00455300033484618",
+                    "position": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Description",
+                        "attribute": "Description"
+                    }
+                },
+                "9433742856742633": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "9433742856742633",
+                    "position": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "properties": {
+                        "attribute": "Description"
+                    }
+                },
+                "19731804829200006": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "19731804829200006",
+                    "position": {
+                        "x": 5,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Price",
+                        "attribute": "None"
+                    }
+                },
+                "39180012387617613": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "39180012387617613",
+                    "position": {
+                        "x": 5,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Price",
+                        "text": "Enter Price"
+                    }
+                },
+                "15324323715450783": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "15324323715450783",
+                    "position": {
+                        "x": 5,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Images"
+                    }
+                },
+                "5802428536064475": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "5802428536064475",
+                    "position": {
+                        "x": 5,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Images",
+                        "text": "Enter Images"
+                    }
+                },
+                "008399688446131481": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "008399688446131481",
+                    "position": {
+                        "x": 5,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Tags"
+                    }
+                },
+                "5958186453997989": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "5958186453997989",
+                    "position": {
+                        "x": 5,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Tags",
+                        "text": "Enter tags"
+                    }
+                },
+                "6432556202885453": {
+                    "name": "Button",
+                    "type": {
+                        "name": "Button",
+                        "color": "#f759ab"
+                    },
+                    "uid": "6432556202885453",
+                    "position": {
+                        "x": 6,
+                        "y": 9
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Save"
+                    }
+                }
+            }
+        },
+        "5056395436915411": {
+            "name": "Payment Page",
+            "uid": "5056395436915411",
+            "collection": "7591479750406358",
+            "components": {
+                "44383307440605346": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "44383307440605346",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment ID"
+                    }
+                },
+                "12679136392769985": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "12679136392769985",
+                    "position": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "ID",
+                        "attribute": "ID"
+                    }
+                },
+                "8143014319290012": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "8143014319290012",
+                    "position": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment Value"
+                    }
+                },
+                "34995432644344127": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "34995432644344127",
+                    "position": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter Value",
+                        "attribute": "Value"
+                    }
+                },
+                "767222321374889": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "767222321374889",
+                    "position": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment Type"
+                    }
+                },
+                "11015862310364355": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "11015862310364355",
+                    "position": {
+                        "x": 3,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment Type",
+                        "attribute": "Type ID"
+                    }
+                },
+                "9231758360089788": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "9231758360089788",
+                    "position": {
+                        "x": 3,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment Status"
+                    }
+                },
+                "8622576207172388": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "8622576207172388",
+                    "position": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Status",
+                        "attribute": "Status ID"
+                    }
+                },
+                "5924284044900874": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "5924284044900874",
+                    "position": {
+                        "x": 6,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Creation Date",
+                        "attribute": "Creation Date"
+                    }
+                },
+                "1310419340704414": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "1310419340704414",
+                    "position": {
+                        "x": 6,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Creation Date"
+                    }
+                },
+                "39766857956298285": {
+                    "name": "Button",
+                    "type": {
+                        "name": "Button",
+                        "color": "#f759ab"
+                    },
+                    "uid": "39766857956298285",
+                    "position": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Save"
+                    }
+                }
+            }
+        },
+        "9084835857287179": {
+            "name": "Delivery Page",
+            "uid": "9084835857287179",
+            "collection": "1834324789084163",
+            "components": {
+                "2486241541409051": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "2486241541409051",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Delivery ID"
+                    }
+                },
+                "7645197783829847": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "7645197783829847",
+                    "position": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "ID",
+                        "attribute": "ID"
+                    }
+                },
+                "9970707908836574": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "9970707908836574",
+                    "position": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Order ID",
+                        "attribute": "Order ID"
+                    }
+                },
+                "31174951196834266": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "31174951196834266",
+                    "position": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Order ID"
+                    }
+                },
+                "7039271615104974": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "7039271615104974",
+                    "position": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Order Address"
+                    }
+                },
+                "06318902030597617": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "06318902030597617",
+                    "position": {
+                        "x": 3,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Order Address"
+                    }
+                },
+                "863056000745666": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "863056000745666",
+                    "position": {
+                        "x": 7,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Target Date"
+                    }
+                },
+                "7049183215312633": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "7049183215312633",
+                    "position": {
+                        "x": 7,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Target Date",
+                        "attribute": "Target Date"
+                    }
+                },
+                "6233142572837913": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "6233142572837913",
+                    "position": {
+                        "x": 3,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Type ID"
+                    }
+                },
+                "2714713134831901": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "2714713134831901",
+                    "position": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Type ID",
+                        "text": "ID"
+                    }
+                }
+            }
+        },
+        "821106199573082": {
+            "name": "Order Page",
+            "uid": "821106199573082",
+            "collection": "6211409548982729",
+            "components": {
+                "1952070024336683": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "1952070024336683",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Order ID"
+                    }
+                },
+                "3448669387994998": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "3448669387994998",
+                    "position": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "ID",
+                        "attribute": "ID"
+                    }
+                },
+                "5293011582404432": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "5293011582404432",
+                    "position": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Display Number"
+                    }
+                },
+                "820001593038705": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "820001593038705",
+                    "position": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Enter Display Number",
+                        "attribute": "Display Number"
+                    }
+                },
+                "5483745286642152": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "5483745286642152",
+                    "position": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "User ID"
+                    }
+                },
+                "4537852004335754": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "4537852004335754",
+                    "position": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "User Name",
+                        "attribute": "User ID"
+                    }
+                },
+                "057483430483034725": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "057483430483034725",
+                    "position": {
+                        "x": 3,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Status"
+                    }
+                },
+                "6826963221418321": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "6826963221418321",
+                    "position": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Satus ID"
+                    }
+                },
+                "06929203207138235": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "06929203207138235",
+                    "position": {
+                        "x": 6,
+                        "y": 4
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Cancel Reason ID"
+                    }
+                },
+                "6622871267387136": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "6622871267387136",
+                    "position": {
+                        "x": 6,
+                        "y": 3
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Cancel Reason ID",
+                        "attribute": "Cancel Reason ID"
+                    }
+                },
+                "738679649855793": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "738679649855793",
+                    "position": {
+                        "x": 0,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Payment ID"
+                    }
+                },
+                "8981525830402264": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "8981525830402264",
+                    "position": {
+                        "x": 0,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "attribute": "Payment ID",
+                        "text": "Payment"
+                    }
+                },
+                "5832515720841953": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "5832515720841953",
+                    "position": {
+                        "x": 3,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Creation Date"
+                    }
+                },
+                "5800261371150963": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "5800261371150963",
+                    "position": {
+                        "x": 3,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Creation Date",
+                        "attribute": "Creation Date"
+                    }
+                },
+                "23702004440967928": {
+                    "name": "Text",
+                    "type": {
+                        "name": "Text",
+                        "color": "#36cfc9"
+                    },
+                    "uid": "23702004440967928",
+                    "position": {
+                        "x": 6,
+                        "y": 6
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Modification Date"
+                    }
+                },
+                "7566217674765099": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "7566217674765099",
+                    "position": {
+                        "x": 6,
+                        "y": 7
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Modification Date",
+                        "attribute": "Modification Date"
+                    }
+                },
+                "6783934015400113": {
+                    "name": "Input",
+                    "type": {
+                        "name": "Input",
+                        "color": "#73d13d"
+                    },
+                    "uid": "6783934015400113",
+                    "position": {
+                        "x": 6,
+                        "y": 1
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {}
+                },
+                "14046946909956248": {
+                    "name": "Button",
+                    "type": {
+                        "name": "Button",
+                        "color": "#f759ab"
+                    },
+                    "uid": "14046946909956248",
+                    "position": {
+                        "x": 6,
+                        "y": 9
+                    },
+                    "size": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "properties": {
+                        "text": "Save"
+                    }
+                }
+            }
+        }
+    },
+    "scripts": {
+        "7612071802940428": {
+            "uid": "7612071802940428",
+            "name": "Request Library",
+            "tooltip": "",
+            "body": "export function httpGet(url) {\n    const xmlHttp = new XMLHttpRequest();\n    xmlHttp.open(\"GET\", url, false); // false for synchronous request\n    xmlHttp.send(null);\n    return xmlHttp.responseText;\n}"
+        }
+    },
+    "files": {
+        "8405106907951716": {
+            "uid": "8405106907951716",
+            "type": {
+                "name": "Widget",
+                "default_name": "New Widget",
+                "icon": "./../resources/icons/ic_widget_64x64.svg",
+                "color": "#4983F4"
+            },
+            "structure": {
+                "name": "User Page",
+                "uid": "8405106907951716",
+                "collection": "",
+                "components": {
+                    "6335438779091185": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "6335438779091185",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Name"
+                        }
+                    },
+                    "40285482485726476": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "40285482485726476",
+                        "position": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Name",
+                            "text": "Enter name"
+                        }
+                    },
+                    "47051700832753296": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "47051700832753296",
+                        "position": {
+                            "x": 4,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Surname"
+                        }
+                    },
+                    "4269112879859609": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "4269112879859609",
+                        "position": {
+                            "x": 4,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter surname",
+                            "attribute": "Surname"
+                        }
+                    },
+                    "5024110775699042": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "5024110775699042",
+                        "position": {
+                            "x": 8,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter Patronymic",
+                            "attribute": "Patronymic"
+                        }
+                    },
+                    "7830659326345517": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "7830659326345517",
+                        "position": {
+                            "x": 8,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Patronymic"
+                        }
+                    },
+                    "5695915041607873": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "5695915041607873",
+                        "position": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Mail"
+                        }
+                    },
+                    "0996460021232759": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "0996460021232759",
+                        "position": {
+                            "x": 0,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter mail",
+                            "attribute": "Mail"
+                        }
+                    },
+                    "2543828232694987": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "2543828232694987",
+                        "position": {
+                            "x": 4,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Password Hash"
+                        }
+                    },
+                    "26168562210049706": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "26168562210049706",
+                        "position": {
+                            "x": 4,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter password hash",
+                            "attribute": "Password"
+                        }
+                    },
+                    "4164470925437098": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "4164470925437098",
+                        "position": {
+                            "x": 0,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Phone"
+                        }
+                    },
+                    "3698607044329245": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "3698607044329245",
+                        "position": {
+                            "x": 0,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Phone",
+                            "text": "Enter phone"
+                        }
+                    },
+                    "3427176939134493": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "3427176939134493",
+                        "position": {
+                            "x": 4,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Role",
+                            "text": "Enter role"
+                        }
+                    },
+                    "43197302870729337": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "43197302870729337",
+                        "position": {
+                            "x": 4,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Role"
+                        }
+                    },
+                    "3739169121554957": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "3739169121554957",
+                        "position": {
+                            "x": 8,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Gender"
+                        }
+                    },
+                    "3159633138242004": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "3159633138242004",
+                        "position": {
+                            "x": 8,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter gender"
+                        }
+                    },
+                    "6988705087912221": {
+                        "name": "Button",
+                        "type": {
+                            "name": "Button",
+                            "color": "#f759ab"
+                        },
+                        "uid": "6988705087912221",
+                        "position": {
+                            "x": 9,
+                            "y": 10
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Save"
+                        }
+                    }
+                }
+            }
+        },
+        "598111511942373": {
+            "uid": "598111511942373",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "598111511942373",
+                "name": "User",
+                "attributes": {
+                    "21692762449208725": {
+                        "uid": "21692762449208725",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "07090572352604418": {
+                        "uid": "07090572352604418",
+                        "name": "Name",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "520641114721742": {
+                        "uid": "520641114721742",
+                        "name": "Surname",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "17880782236226045": {
+                        "uid": "17880782236226045",
+                        "name": "Patronymic",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "6832512646928937": {
+                        "uid": "6832512646928937",
+                        "name": "Phone",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "024992408831975732": {
+                        "uid": "024992408831975732",
+                        "name": "Birthdate",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "024694404969310524": {
+                        "uid": "024694404969310524",
+                        "name": "Password",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "5889236437870649": {
+                        "uid": "5889236437870649",
+                        "name": "Mail",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "7046926193708622": {
+                        "uid": "7046926193708622",
+                        "name": "Role",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "014821783374389552": {
+                        "uid": "014821783374389552",
+                        "name": "Sex",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "1057714014319091",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class UserAdapter {\n\n    getUsers() {\n       //  Implement me! \n    }\n\n    getUser(id) {\n       //  Implement me! \n    }\n\n    updateUser(item) {\n       //  Implement me! \n    }\n\n    createUser(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "22053892158242228": {
+            "uid": "22053892158242228",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "22053892158242228",
+                "name": "Item",
+                "attributes": {
+                    "06095211192933192": {
+                        "uid": "06095211192933192",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "02168719579193512": {
+                        "uid": "02168719579193512",
+                        "name": "Name",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "16452933849604667": {
+                        "uid": "16452933849604667",
+                        "name": "Price",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "9477399424882902": {
+                        "uid": "9477399424882902",
+                        "name": "Description",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "42917891841951605": {
+                        "uid": "42917891841951605",
+                        "name": "Images",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "9449561157550028": {
+                        "uid": "9449561157550028",
+                        "name": "Tags",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "5462290765935376",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class ItemAdapter {\n\n    getItems() {\n       //  Implement me! \n    }\n\n    getItem(id) {\n       //  Implement me! \n    }\n\n    updateItem(item) {\n       //  Implement me! \n    }\n\n    createItem(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "03660773268480888": {
+            "uid": "03660773268480888",
+            "type": {
+                "name": "Widget",
+                "default_name": "New Widget",
+                "icon": "./../resources/icons/ic_widget_64x64.svg",
+                "color": "#4983F4"
+            },
+            "structure": {
+                "name": "Item Page",
+                "uid": "03660773268480888",
+                "collection": "",
+                "components": {
+                    "6881375415150122": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "6881375415150122",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Name"
+                        }
+                    },
+                    "8936648333366117": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "8936648333366117",
+                        "position": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 4,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter Name",
+                            "attribute": "Name"
+                        }
+                    },
+                    "00455300033484618": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "00455300033484618",
+                        "position": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Description",
+                            "attribute": "Description"
+                        }
+                    },
+                    "9433742856742633": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "9433742856742633",
+                        "position": {
+                            "x": 0,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 4,
+                            "y": 4
+                        },
+                        "properties": {
+                            "attribute": "Description"
+                        }
+                    },
+                    "19731804829200006": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "19731804829200006",
+                        "position": {
+                            "x": 5,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Price",
+                            "attribute": "None"
+                        }
+                    },
+                    "39180012387617613": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "39180012387617613",
+                        "position": {
+                            "x": 5,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Price",
+                            "text": "Enter Price"
+                        }
+                    },
+                    "15324323715450783": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "15324323715450783",
+                        "position": {
+                            "x": 5,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Images"
+                        }
+                    },
+                    "5802428536064475": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "5802428536064475",
+                        "position": {
+                            "x": 5,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Images",
+                            "text": "Enter Images"
+                        }
+                    },
+                    "008399688446131481": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "008399688446131481",
+                        "position": {
+                            "x": 5,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Tags"
+                        }
+                    },
+                    "5958186453997989": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "5958186453997989",
+                        "position": {
+                            "x": 5,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Tags",
+                            "text": "Enter tags"
+                        }
+                    },
+                    "6432556202885453": {
+                        "name": "Button",
+                        "type": {
+                            "name": "Button",
+                            "color": "#f759ab"
+                        },
+                        "uid": "6432556202885453",
+                        "position": {
+                            "x": 6,
+                            "y": 9
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Save"
+                        }
+                    }
+                }
+            }
+        },
+        "7612071802940428": {
+            "uid": "7612071802940428",
+            "type": {
+                "name": "Script",
+                "default_name": "New Script",
+                "icon": "./../resources/icons/ic_script_64x64.svg",
+                "color": "#EB5252"
+            },
+            "structure": {
+                "uid": "7612071802940428",
+                "name": "Request Library",
+                "tooltip": "",
+                "body": "export function httpGet(url) {\n    const xmlHttp = new XMLHttpRequest();\n    xmlHttp.open(\"GET\", url, false); // false for synchronous request\n    xmlHttp.send(null);\n    return xmlHttp.responseText;\n}"
+            }
+        },
+        "1834324789084163": {
+            "uid": "1834324789084163",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "1834324789084163",
+                "name": "Delivery",
+                "attributes": {
+                    "4421962723169781": {
+                        "uid": "4421962723169781",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "6541374073921449": {
+                        "uid": "6541374073921449",
+                        "name": "Order ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "5221514937506868": {
+                        "uid": "5221514937506868",
+                        "name": "Address ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "39570942873810955": {
+                        "uid": "39570942873810955",
+                        "name": "Target Date",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "38216143902476674": {
+                        "uid": "38216143902476674",
+                        "name": "Type ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "7459644204904952",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class DeliveryAdapter {\n\n    getDeliverys() {\n       //  Implement me! \n    }\n\n    getDelivery(id) {\n       //  Implement me! \n    }\n\n    updateDelivery(item) {\n       //  Implement me! \n    }\n\n    createDelivery(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "7591479750406358": {
+            "uid": "7591479750406358",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "7591479750406358",
+                "name": "Payment",
+                "attributes": {
+                    "3208662247756817": {
+                        "uid": "3208662247756817",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "4646405346063225": {
+                        "uid": "4646405346063225",
+                        "name": "Value",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "1259691738113209": {
+                        "uid": "1259691738113209",
+                        "name": "Type ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "2517111407308179": {
+                        "uid": "2517111407308179",
+                        "name": "Status ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "14374187798936044": {
+                        "uid": "14374187798936044",
+                        "name": "Creation Date",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "04574177214043007",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class PaymentAdapter {\n\n    getPayments() {\n       //  Implement me! \n    }\n\n    getPayment(id) {\n       //  Implement me! \n    }\n\n    updatePayment(item) {\n       //  Implement me! \n    }\n\n    createPayment(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "6211409548982729": {
+            "uid": "6211409548982729",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "6211409548982729",
+                "name": "Order",
+                "attributes": {
+                    "4510460492261028": {
+                        "uid": "4510460492261028",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "4597768287745616": {
+                        "uid": "4597768287745616",
+                        "name": "Display Number",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "5511964018789521": {
+                        "uid": "5511964018789521",
+                        "name": "User ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "9023708252523224": {
+                        "uid": "9023708252523224",
+                        "name": "Status ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "4162902834519151": {
+                        "uid": "4162902834519151",
+                        "name": "Cancel Reason ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "4187067629024819": {
+                        "uid": "4187067629024819",
+                        "name": "Payment ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "21348645865021898": {
+                        "uid": "21348645865021898",
+                        "name": "Creation Date",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "6497848014391008": {
+                        "uid": "6497848014391008",
+                        "name": "Modification Date",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "25438045913589424",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class OrderAdapter {\n\n    getOrders() {\n       //  Implement me! \n    }\n\n    getOrder(id) {\n       //  Implement me! \n    }\n\n    updateOrder(item) {\n       //  Implement me! \n    }\n\n    createOrder(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "770966569720481": {
+            "uid": "770966569720481",
+            "type": {
+                "name": "Collection",
+                "default_name": "New Collection",
+                "icon": "./../resources/icons/ic_collection_64x64.svg",
+                "color": "#52EBBD"
+            },
+            "structure": {
+                "uid": "770966569720481",
+                "name": "Order Item",
+                "attributes": {
+                    "9106886527810583": {
+                        "uid": "9106886527810583",
+                        "name": "ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "859207272964704": {
+                        "uid": "859207272964704",
+                        "name": "Order ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "9742815251183639": {
+                        "uid": "9742815251183639",
+                        "name": "Item ID",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "37915745543414214": {
+                        "uid": "37915745543414214",
+                        "name": "Quantity",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "5566425430490163": {
+                        "uid": "5566425430490163",
+                        "name": "Default Price",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "8553473006034775": {
+                        "uid": "8553473006034775",
+                        "name": "Discount",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    },
+                    "4958782394130601": {
+                        "uid": "4958782394130601",
+                        "name": "Final Price",
+                        "type": {
+                            "name": "Integer",
+                            "color": "#36cfc9"
+                        },
+                        "container": {
+                            "name": "Single",
+                            "icon": "#36cfc9"
+                        },
+                        "tooltip": "",
+                        "value": ""
+                    }
+                },
+                "script": {
+                    "uid": "17069487324651766",
+                    "name": "New Script",
+                    "tooltip": "",
+                    "body": "export class OrderItemAdapter {\n\n    getOrderItems() {\n       //  Implement me! \n    }\n\n    getOrderItem(id) {\n       //  Implement me! \n    }\n\n    updateOrderItem(item) {\n       //  Implement me! \n    }\n\n    createOrderItem(item) {\n       //  Implement me! \n    }\n\n}"
+                }
+            }
+        },
+        "5056395436915411": {
+            "uid": "5056395436915411",
+            "type": {
+                "name": "Widget",
+                "default_name": "New Widget",
+                "icon": "./../resources/icons/ic_widget_64x64.svg",
+                "color": "#4983F4"
+            },
+            "structure": {
+                "name": "Payment Page",
+                "uid": "5056395436915411",
+                "collection": "7591479750406358",
+                "components": {
+                    "44383307440605346": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "44383307440605346",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment ID"
+                        }
+                    },
+                    "12679136392769985": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "12679136392769985",
+                        "position": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "ID",
+                            "attribute": "ID"
+                        }
+                    },
+                    "8143014319290012": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "8143014319290012",
+                        "position": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment Value"
+                        }
+                    },
+                    "34995432644344127": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "34995432644344127",
+                        "position": {
+                            "x": 0,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter Value",
+                            "attribute": "Value"
+                        }
+                    },
+                    "767222321374889": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "767222321374889",
+                        "position": {
+                            "x": 3,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment Type"
+                        }
+                    },
+                    "11015862310364355": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "11015862310364355",
+                        "position": {
+                            "x": 3,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment Type",
+                            "attribute": "Type ID"
+                        }
+                    },
+                    "9231758360089788": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "9231758360089788",
+                        "position": {
+                            "x": 3,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment Status"
+                        }
+                    },
+                    "8622576207172388": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "8622576207172388",
+                        "position": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Status",
+                            "attribute": "Status ID"
+                        }
+                    },
+                    "5924284044900874": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "5924284044900874",
+                        "position": {
+                            "x": 6,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Creation Date",
+                            "attribute": "Creation Date"
+                        }
+                    },
+                    "1310419340704414": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "1310419340704414",
+                        "position": {
+                            "x": 6,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Creation Date"
+                        }
+                    },
+                    "39766857956298285": {
+                        "name": "Button",
+                        "type": {
+                            "name": "Button",
+                            "color": "#f759ab"
+                        },
+                        "uid": "39766857956298285",
+                        "position": {
+                            "x": 6,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Save"
+                        }
+                    }
+                }
+            }
+        },
+        "9084835857287179": {
+            "uid": "9084835857287179",
+            "type": {
+                "name": "Widget",
+                "default_name": "New Widget",
+                "icon": "./../resources/icons/ic_widget_64x64.svg",
+                "color": "#4983F4"
+            },
+            "structure": {
+                "name": "Delivery Page",
+                "uid": "9084835857287179",
+                "collection": "1834324789084163",
+                "components": {
+                    "2486241541409051": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "2486241541409051",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Delivery ID"
+                        }
+                    },
+                    "7645197783829847": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "7645197783829847",
+                        "position": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "ID",
+                            "attribute": "ID"
+                        }
+                    },
+                    "9970707908836574": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "9970707908836574",
+                        "position": {
+                            "x": 0,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Order ID",
+                            "attribute": "Order ID"
+                        }
+                    },
+                    "31174951196834266": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "31174951196834266",
+                        "position": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Order ID"
+                        }
+                    },
+                    "7039271615104974": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "7039271615104974",
+                        "position": {
+                            "x": 3,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Order Address"
+                        }
+                    },
+                    "06318902030597617": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "06318902030597617",
+                        "position": {
+                            "x": 3,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Order Address"
+                        }
+                    },
+                    "863056000745666": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "863056000745666",
+                        "position": {
+                            "x": 7,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Target Date"
+                        }
+                    },
+                    "7049183215312633": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "7049183215312633",
+                        "position": {
+                            "x": 7,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Target Date",
+                            "attribute": "Target Date"
+                        }
+                    },
+                    "6233142572837913": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "6233142572837913",
+                        "position": {
+                            "x": 3,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Type ID"
+                        }
+                    },
+                    "2714713134831901": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "2714713134831901",
+                        "position": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Type ID",
+                            "text": "ID"
+                        }
+                    }
+                }
+            }
+        },
+        "821106199573082": {
+            "uid": "821106199573082",
+            "type": {
+                "name": "Widget",
+                "default_name": "New Widget",
+                "icon": "./../resources/icons/ic_widget_64x64.svg",
+                "color": "#4983F4"
+            },
+            "structure": {
+                "name": "Order Page",
+                "uid": "821106199573082",
+                "collection": "6211409548982729",
+                "components": {
+                    "1952070024336683": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "1952070024336683",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Order ID"
+                        }
+                    },
+                    "3448669387994998": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "3448669387994998",
+                        "position": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "ID",
+                            "attribute": "ID"
+                        }
+                    },
+                    "5293011582404432": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "5293011582404432",
+                        "position": {
+                            "x": 2,
+                            "y": 0
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Display Number"
+                        }
+                    },
+                    "820001593038705": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "820001593038705",
+                        "position": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 3,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Enter Display Number",
+                            "attribute": "Display Number"
+                        }
+                    },
+                    "5483745286642152": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "5483745286642152",
+                        "position": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "User ID"
+                        }
+                    },
+                    "4537852004335754": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "4537852004335754",
+                        "position": {
+                            "x": 0,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "User Name",
+                            "attribute": "User ID"
+                        }
+                    },
+                    "057483430483034725": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "057483430483034725",
+                        "position": {
+                            "x": 3,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Status"
+                        }
+                    },
+                    "6826963221418321": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "6826963221418321",
+                        "position": {
+                            "x": 3,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Satus ID"
+                        }
+                    },
+                    "06929203207138235": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "06929203207138235",
+                        "position": {
+                            "x": 6,
+                            "y": 4
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Cancel Reason ID"
+                        }
+                    },
+                    "6622871267387136": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "6622871267387136",
+                        "position": {
+                            "x": 6,
+                            "y": 3
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Cancel Reason ID",
+                            "attribute": "Cancel Reason ID"
+                        }
+                    },
+                    "738679649855793": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "738679649855793",
+                        "position": {
+                            "x": 0,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Payment ID"
+                        }
+                    },
+                    "8981525830402264": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "8981525830402264",
+                        "position": {
+                            "x": 0,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "attribute": "Payment ID",
+                            "text": "Payment"
+                        }
+                    },
+                    "5832515720841953": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "5832515720841953",
+                        "position": {
+                            "x": 3,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Creation Date"
+                        }
+                    },
+                    "5800261371150963": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "5800261371150963",
+                        "position": {
+                            "x": 3,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Creation Date",
+                            "attribute": "Creation Date"
+                        }
+                    },
+                    "23702004440967928": {
+                        "name": "Text",
+                        "type": {
+                            "name": "Text",
+                            "color": "#36cfc9"
+                        },
+                        "uid": "23702004440967928",
+                        "position": {
+                            "x": 6,
+                            "y": 6
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Modification Date"
+                        }
+                    },
+                    "7566217674765099": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "7566217674765099",
+                        "position": {
+                            "x": 6,
+                            "y": 7
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Modification Date",
+                            "attribute": "Modification Date"
+                        }
+                    },
+                    "6783934015400113": {
+                        "name": "Input",
+                        "type": {
+                            "name": "Input",
+                            "color": "#73d13d"
+                        },
+                        "uid": "6783934015400113",
+                        "position": {
+                            "x": 6,
+                            "y": 1
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {}
+                    },
+                    "14046946909956248": {
+                        "name": "Button",
+                        "type": {
+                            "name": "Button",
+                            "color": "#f759ab"
+                        },
+                        "uid": "14046946909956248",
+                        "position": {
+                            "x": 6,
+                            "y": 9
+                        },
+                        "size": {
+                            "x": 2,
+                            "y": 1
+                        },
+                        "properties": {
+                            "text": "Save"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
