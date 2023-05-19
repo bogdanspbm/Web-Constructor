@@ -6,8 +6,6 @@ export class CollectionSelector extends Select {
         super.createElement(props);
         this.setStyle("selector-borderless");
 
-        console.log(props);
-
         const noneOption = new Option("None");
         this.append(noneOption);
 

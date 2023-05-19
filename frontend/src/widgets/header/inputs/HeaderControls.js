@@ -1,8 +1,13 @@
 import {Div} from "../../../elements/dom/DOM.js";
-import {HeaderButton} from "./HeaderButton.js";
+import {HeaderButton} from "../implementation/HeaderButton.js";
+import {EPageType} from "../../../enums/EPageType.js";
 
 export class HeaderControls extends Div {
     createElement(props) {
+        if (props.type !== EPageType.EDITOR) {
+            return;
+        }
+
         super.createElement();
         this.setStyle("controls-header");
 
@@ -17,5 +22,7 @@ export class HeaderControls extends Div {
 
         this.copy = new HeaderButton({path: "./../resources/icons/ic_copy_40x40.svg"});
         this.append(this.copy);
+
+        props.parent.append(this);
     }
 }

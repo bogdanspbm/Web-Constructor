@@ -14,10 +14,6 @@ export class TextDetail extends DOM {
 
         this.input = new Input().setStyle("input-bar").setAttribute("height", "26px");
 
-        const parent = this;
-
-        console.log(props);
-
         this.input.setOnChangeEvent(function (event) {
             const value = event.target.value;
             props.structure.setProperty("text", value);

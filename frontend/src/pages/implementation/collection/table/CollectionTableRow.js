@@ -18,8 +18,6 @@ export class CollectionTableRow extends DOM {
         this.checkBox.setCheckedStyle("table-row-checkbox-checked").setUncheckedCheckedStyle("table-row-checkbox");
         this.append(this.checkBox);
 
-        console.log(props)
-
         this.nameInput = new Input({
             structure: props.attribute,
             field: "name"
