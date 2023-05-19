@@ -21,20 +21,22 @@ export class CollectionPage extends Page {
         const header = new Header({pageType: this.getType()});
         this.elements.push(header);
 
-        const toolbar = new CollectionToolbar(props.collection);
+        const toolbar = new CollectionToolbar({collection: props.structure});
 
         let container;
 
         if (this.openedTab === ECollectionPageTabs.TABLE || !this.openedTab) {
-            container = new CollectionContainer(props.collection);
+            container = new CollectionContainer({collection: props.structure});
         } else {
-            container = new ScriptsContainer(props.collection.getScript());
+            container = new ScriptsContainer({script: props.structure.getScript()});
         }
 
-        const panel = new Div([
-            toolbar,
-            container
-        ]).setStyle("container");
+        const panel = new Div({
+            elements: [
+                toolbar,
+                container
+            ]
+        }).setStyle("container");
 
         this.elements.push(panel);
     }
@@ -42,7 +44,7 @@ export class CollectionPage extends Page {
     tabChangeNotify(tabType) {
         this.openedTab = tabType;
         this.elements = [];
-        this.fillElements(this.collection);
+        this.fillElements({structure: this.collection});
         this.openPage();
     }
 

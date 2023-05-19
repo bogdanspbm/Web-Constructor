@@ -8,17 +8,14 @@ export class ScriptsContainer extends DOM {
         document.addScriptListener(this);
     }
 
-    /**
-     * @param {ScriptStructure} script
-     */
     createElement(props) {
-        super.createElement();
+        super.createElement(props);
         this.setStyle("container-script");
 
         const scriptScroll = new Div().setStyle("script-scroll");
 
         const linesColumn = new Div().setStyle("lines-container");
-        const scriptContainer = new TextArea(props.script, "body").setStyle("code-container");
+        const scriptContainer = new TextArea({structure: props.script, field: "body"}).setStyle("code-container");
 
         scriptScroll.append(linesColumn);
         scriptScroll.append(scriptContainer);

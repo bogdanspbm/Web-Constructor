@@ -7,7 +7,7 @@ export class CollectionToolbar extends DOM {
 
 
     createElement(props) {
-        super.createElement();
+        super.createElement(props);
         this.setStyle("toolbar").setAttribute("padding", "20px").setAttribute("width", "240px");
 
         const nameHeader = new Div().setText("Name").setStyle("small-header").setAttribute("margin-bottom", "5px")
