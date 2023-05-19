@@ -4,7 +4,8 @@ export class ScriptStructure {
 
     uid;
     name;
-    tooltip
+    tooltip;
+    type;
     body;
 
     constructor(json) {

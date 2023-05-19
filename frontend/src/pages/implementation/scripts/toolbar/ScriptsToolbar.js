@@ -4,22 +4,16 @@ import {ScriptTypeSelector} from "../selectors/ScriptTypeSelector.js";
 
 export class ScriptsToolbar extends DOM {
 
-    /**
-     * @param {ScriptStructure} script
-     */
-    constructor(script) {
-        super(script);
+    constructor(props) {
+        super(props);
     }
 
-    /**
-     * @param {ScriptStructure} script
-     */
-    createElement(script) {
+    createElement(props) {
         super.createElement();
         this.setStyle("toolbar").setAttribute("padding", "20px").setAttribute("width", "240px");
 
         const nameHeader = new Div().setText("Name").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const nameInput = new Input({structure: script, field: "name"})
+        const nameInput = new Input({structure: props.script, field: "name"})
             .setTag("placeholder", "Input Name")
             .clearAttribute("height")
             .setStyle("input-bar")
@@ -28,7 +22,7 @@ export class ScriptsToolbar extends DOM {
         this.append(nameInput);
 
         const tooltipHeader = new Div().setText("Tooltip").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const tooltipInput = new Input({structure: script, field: "tooltip"})
+        const tooltipInput = new Input({structure: props.script, field: "tooltip"})
             .setTag("placeholder", "Tooltip Name")
             .clearAttribute("height")
             .setStyle("input-bar")
@@ -37,7 +31,7 @@ export class ScriptsToolbar extends DOM {
         this.append(tooltipInput);
 
         const typeSelectorHeader = new Div().setText("Script Type").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const typeInput = new ScriptTypeSelector().setAttribute("margin-bottom", "15px")
+        const typeInput = new ScriptTypeSelector({structure: props.script, field: "type"}).setAttribute("margin-bottom", "15px")
         this.append(typeSelectorHeader);
         this.append(typeInput);
     }
