@@ -3,7 +3,7 @@ import {Icon} from "../../../../elements/icon/Icon.js";
 import {DOM} from "../../../../elements/dom/DOM.js";
 
 export class EditorToolbarButton extends Button {
-    createElement() {
+    createElement(props) {
         super.createElement();
         this.setStyle("toolbar-button");
         this.text = new DOM();
@@ -13,7 +13,7 @@ export class EditorToolbarButton extends Button {
 
 
     addIcon(path) {
-        this.icon = new Icon(path);
+        this.icon = new Icon({path: path});
         this.icon.setStyle("toolbar-button-icon");
         this.append(this.icon);
         return this;

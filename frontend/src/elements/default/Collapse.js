@@ -3,7 +3,7 @@ import {Clickable} from "../interface/Clickable.js";
 
 export class Collapse extends DOM {
 
-    createElement() {
+    createElement(props) {
         this.element = document.createElement("div");
         this.details = document.createElement("details");
         this.summary = document.createElement("summary");
@@ -32,7 +32,7 @@ export class Collapse extends DOM {
 }
 
 export class CollapseItem extends Clickable {
-    createElement() {
+    createElement(props) {
         super.createElement();
         this.setStyle("collapse-item");
     }

@@ -6,45 +6,32 @@ import {EElementType} from "../../../../../enums/EElementType.js";
 
 export class ControlsTool extends EditorToolbarExpand {
 
-    /**
-     * @param {WidgetStructure} widget
-     */
-    constructor(widget) {
-        super(widget);
-    }
-
-    /**
-     * @param {WidgetStructure} widget
-     */
-    createElement(widget) {
-        super.createElement();
+    createElement(props) {
+        super.createElement(props);
         this.setText("Controls");
 
         this.inputButton = new EditorToolbarButton()
             .addIcon("./../resources/icons/ic_input_40x40.svg")
             .setText("Input Component")
             .setClickEvent(() => {
-                const element = new ComponentStructure(widget, EElementType.INPUT);
-                widget.addElement(element);
-                //document.grid.append(new InputComponent());
+                const element = new ComponentStructure(props.widget, EElementType.INPUT);
+                props.widget.addElement(element);
             });
 
         this.textButton = new EditorToolbarButton()
             .addIcon("./../resources/icons/ic_text_40x40.svg")
             .setText("Text Component")
             .setClickEvent(() => {
-                const element = new ComponentStructure(widget, EElementType.TEXT);
-                widget.addElement(element);
-                //document.grid.append(new TextComponent());
+                const element = new ComponentStructure(props.widget, EElementType.TEXT);
+                props.widget.addElement(element);
             });
 
         this.buttonButton = new EditorToolbarButton()
             .addIcon("./../resources/icons/ic_button_40x40.svg")
             .setText("Button Component")
             .setClickEvent(() => {
-                const element = new ComponentStructure(widget, EElementType.BUTTON);
-                widget.addElement(element);
-                //document.grid.append(new ButtonComponent());
+                const element = new ComponentStructure(props.widget, EElementType.BUTTON);
+                props.widget.addElement(element);
             });
 
         this.append(this.inputButton);

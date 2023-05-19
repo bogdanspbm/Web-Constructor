@@ -30,7 +30,7 @@ export class FileButton extends DOM {
         this.button = new Button().setStyle("file");
         this.append(this.button);
 
-        this.icon = new Icon(file.getType()['icon']).setStyle("file-icon");
+        this.icon = new Icon({path: file.getType()['icon']}).setStyle("file-icon");
         this.button.append(this.icon);
 
         this.border = new DOM().setStyle("file-border").setAttribute("background", file.getType()['color']);

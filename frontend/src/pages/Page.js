@@ -5,12 +5,12 @@ export class Page {
     elements = [];
     type = EPageType.FILE_SYSTEM;
 
-    constructor(param, type) {
-        this.type = type;
-        this.fillElements(param);
+    constructor(props) {
+        this.type = props.type;
+        this.fillElements(props);
     }
 
-    fillElements(param) {
+    fillElements(props) {
     }
 
 

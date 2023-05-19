@@ -4,7 +4,7 @@ import {equalsArrays} from "../utils/DOMUtils.js";
 export class Grid extends DOM {
     lastOverlappedBlocks = [];
 
-    createElement() {
+    createElement(props) {
         this.element = document.createElement("div");
         this.blocks = [];
         this.columns = 12;
@@ -114,7 +114,7 @@ export class GridBlock extends DOM {
 
     gridPosition = {x: 0, y: 0};
 
-    createElement() {
+    createElement(props) {
         const parent = this;
         this.element = document.createElement("div");
         this.bindEvents();

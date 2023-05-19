@@ -3,25 +3,25 @@ import {Button} from "./Button.js";
 
 export class Tabs extends DOM {
 
-    constructor(elements) {
+    constructor(props) {
         super();
 
-        if (elements === undefined) {
+        if (props.elements === undefined) {
             return
         }
 
         const parent = this
 
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
+        for (let i = 0; i < props.elements.length; i++) {
+            const element = props.elements[i];
             element.setParentTabs(parent);
             this.tabs.append(element.getTabButton());
             this.content.append(element);
         }
 
-        if (elements.length > 0) {
-            this.setSelectedTab(elements[0]);
-            elements[0].setSelect();
+        if (props.elements.length > 0) {
+            this.setSelectedTab(props.elements[0]);
+            props.elements[0].setSelect();
         }
     }
 
@@ -31,13 +31,13 @@ export class Tabs extends DOM {
         })
     }
 
-    createElement() {
+    createElement(props) {
         super.createElement();
-        this.setStyle("tabs-container")
-        this.tabs = new Div().setStyle("tabs")
-        this.append(this.tabs)
-        this.content = new Div().setStyle("tab-content-container")
-        this.append(this.content)
+        this.setStyle("tabs-container");
+        this.tabs = new Div().setStyle("tabs");
+        this.append(this.tabs);
+        this.content = new Div().setStyle("tab-content-container");
+        this.append(this.content);
     }
 
     setSelectedTab(tab) {
@@ -51,9 +51,9 @@ export class Tabs extends DOM {
 }
 
 export class Tab extends DOM {
-    constructor(name, arg0, arg1) {
-        super(name, arg0, arg1);
-        this.tabName = name
+    constructor(props) {
+        super(props);
+        this.tabName = props.name;
     }
 
     getName() {
@@ -65,8 +65,8 @@ export class Tab extends DOM {
         this.parentTabs = tabs
     }
 
-    createElement() {
-        super.createElement();
+    createElement(props) {
+        super.createElement(props);
         this.setStyle("tab-content")
         this.setAttribute("display", "none")
     }

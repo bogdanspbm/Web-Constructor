@@ -7,22 +7,16 @@ import {EPageType} from "../../../enums/EPageType.js";
 
 export class ScriptsPage extends Page {
 
-    /**
-     * @param {ScriptStructure} script
-     */
-    constructor(script) {
-        super(script, EPageType.SCRIPT);
-    }
 
     /**
      * @param {CollectionStructure} script
      */
-    fillElements(script) {
-        const header = new Header(this.getType());
+    fillElements(props) {
+        const header = new Header({pageType: this.getType()});
         this.elements.push(header);
 
-        const toolbar = new ScriptsToolbar(script);
-        const container = new ScriptsContainer(script);
+        const toolbar = new ScriptsToolbar(props.structure);
+        const container = new ScriptsContainer(props.structure);
 
         const panel = new Div([
             toolbar,

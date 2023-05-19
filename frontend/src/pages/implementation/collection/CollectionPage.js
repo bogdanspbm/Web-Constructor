@@ -9,30 +9,26 @@ import {ScriptsContainer} from "../scripts/container/ScriptsContainer.js";
 
 export class CollectionPage extends Page {
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    constructor(collection) {
-        super(collection, EPageType.COLLECTION);
+
+    constructor(props) {
+        super(props);
         document.addTabsListeners(this, EPageType.COLLECTION.tabs);
     }
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    fillElements(collection) {
-        this.collection = collection;
-        const header = new Header(this.getType());
+
+    fillElements(props) {
+        this.collection = props.structure;
+        const header = new Header({pageType: this.getType()});
         this.elements.push(header);
 
-        const toolbar = new CollectionToolbar(collection);
+        const toolbar = new CollectionToolbar(props.collection);
 
         let container;
 
         if (this.openedTab === ECollectionPageTabs.TABLE || !this.openedTab) {
-            container = new CollectionContainer(collection);
+            container = new CollectionContainer(props.collection);
         } else {
-            container = new ScriptsContainer(collection.getScript());
+            container = new ScriptsContainer(props.collection.getScript());
         }
 
         const panel = new Div([

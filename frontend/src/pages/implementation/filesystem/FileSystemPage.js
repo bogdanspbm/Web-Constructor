@@ -8,16 +8,8 @@ import {EPageType} from "../../../enums/EPageType.js";
 export class FileSystemPage extends Page {
 
 
-    /**
-     * @param {DirectoryStructure} directory
-     */
-
-    constructor(directory) {
-        super(directory, EPageType.FILE_SYSTEM);
-    }
-
-    fillElements(directory) {
-        const header = new Header(this.getType());
+    fillElements(props) {
+        const header = new Header({pageType: this.getType()});
         this.elements.push(header);
         this.buttons = []
 

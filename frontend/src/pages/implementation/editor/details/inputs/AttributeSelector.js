@@ -2,27 +2,22 @@ import {Option, Select} from "../../../../../elements/default/Select.js";
 
 export class AttributeSelector extends Select {
 
-    constructor(structure, field, widget) {
-        super(structure, field, widget);
+    constructor(props) {
+        super(props);
     }
 
-    /**
-     * @param {WidgetStructure} widget
-     * @param {string} field
-     * @param {ComponentStructure} structure
-     */
-    createElement(structure, field, widget) {
-        super.createElement();
+    createElement(props) {
+        super.createElement(props);
         this.setStyle("selector-borderless");
 
         const noneOption = new Option("None");
         this.append(noneOption);
 
-        if (!widget) {
+        if (!props.widget) {
             return;
         }
 
-        const collection = widget.getCollection();
+        const collection = props.widget.getCollection();
 
         if (!collection) {
             return;

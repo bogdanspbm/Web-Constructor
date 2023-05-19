@@ -10,14 +10,14 @@ import {CollectionHeaderTabs} from "../../pages/implementation/collection/header
 
 export class Header extends Div {
 
-    createElement(pageType) {
+    createElement(props) {
         super.createElement();
         this.setStyle("header");
 
-        const files = new HeaderButton("./../resources/icons/ic_logo_48x48.svg");
+        const files = new HeaderButton({path: "./../resources/icons/ic_logo_48x48.svg"});
         files.setClickEvent(action => {
-            if (pageType !== EPageType.FILE_SYSTEM) {
-                const fileSystem = new FileSystemPage()
+            if (props.pageType !== EPageType.FILE_SYSTEM) {
+                const fileSystem = new FileSystemPage({type: EPageType.FILE_SYSTEM});
                 fileSystem.openPage()
             } else {
                 if (event.which === 3) {
@@ -31,12 +31,12 @@ export class Header extends Div {
         })
         this.append(files);
 
-        if (pageType === EPageType.EDITOR) {
+        if (props.pageType === EPageType.EDITOR) {
             const mainControls = new HeaderControls();
             this.append(mainControls);
         }
 
-        switch (pageType) {
+        switch (props.pageType) {
             case EPageType.FILE_SYSTEM: {
                 const
                     buttonExport = new Button().setText("Generate").setAttribute("margin-left", "auto")

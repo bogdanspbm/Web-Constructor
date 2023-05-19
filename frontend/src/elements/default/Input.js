@@ -1,11 +1,16 @@
-import {DOM} from "../../elements/dom/DOM.js";
+import {DOM} from "../dom/DOM.js";
 import {getComplexField, setComplexField} from "../../utils/Utils.js";
 
 export class Input extends DOM {
 
-    constructor(structure, field) {
-        super(structure, field);
-        this.bindStructure(structure, field);
+    constructor(props) {
+        super(props);
+
+        if (!props) {
+            props = {};
+        }
+
+        this.bindStructure(props.structure, props.field);
     }
 
     setOnChangeEvent(event) {
@@ -25,7 +30,7 @@ export class Input extends DOM {
         })
     }
 
-    createElement() {
+    createElement(props) {
         this.element = document.createElement("input")
         this.setStyle("input-component")
         this.setAttribute("height", "28px")

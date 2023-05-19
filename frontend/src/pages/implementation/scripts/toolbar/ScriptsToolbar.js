@@ -1,5 +1,5 @@
 import {Div, DOM} from "../../../../elements/dom/DOM.js";
-import {Input} from "../../../../widgets/common/Input.js";
+import {Input} from "../../../../elements/default/Input.js";
 import {ScriptTypeSelector} from "../selectors/ScriptTypeSelector.js";
 
 export class ScriptsToolbar extends DOM {
@@ -19,7 +19,7 @@ export class ScriptsToolbar extends DOM {
         this.setStyle("toolbar").setAttribute("padding", "20px").setAttribute("width", "240px");
 
         const nameHeader = new Div().setText("Name").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const nameInput = new Input(script, "name")
+        const nameInput = new Input({structure: script, field: "name"})
             .setTag("placeholder", "Input Name")
             .clearAttribute("height")
             .setStyle("input-bar")
@@ -28,7 +28,7 @@ export class ScriptsToolbar extends DOM {
         this.append(nameInput);
 
         const tooltipHeader = new Div().setText("Tooltip").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const tooltipInput = new Input(script, "tooltip")
+        const tooltipInput = new Input({structure: script, field: "tooltip"})
             .setTag("placeholder", "Tooltip Name")
             .clearAttribute("height")
             .setStyle("input-bar")

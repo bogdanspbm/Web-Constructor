@@ -2,13 +2,11 @@ import {Option, Select} from "../../../../../elements/default/Select.js";
 
 export class CollectionSelector extends Select {
 
-
-    /**
-     * @param {WidgetStructure} structure
-     */
-    createElement(structure) {
-        super.createElement();
+    createElement(props) {
+        super.createElement(props);
         this.setStyle("selector-borderless");
+
+        console.log(props);
 
         const noneOption = new Option("None");
         this.append(noneOption);

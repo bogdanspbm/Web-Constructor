@@ -6,8 +6,8 @@ export class Transformable extends Draggable {
     #clickPoint = {x: 0, y: 0};
     #transformElement;
 
-    constructor(elements) {
-        super(elements);
+    constructor(props) {
+        super(props);
         this.createTransformElement();
         this.bindResizeEvents();
     }

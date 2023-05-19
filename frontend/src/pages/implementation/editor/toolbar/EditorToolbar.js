@@ -6,19 +6,19 @@ export class EditorToolbar extends DOM {
     /**
      * @param {WidgetStructure} widget
      */
-    constructor(widget) {
-        super(widget);
+    constructor(props) {
+        super(props);
     }
 
 
     /**
      * @param {WidgetStructure} widget
      */
-    createElement(widget) {
+    createElement(props) {
         super.createElement();
         this.setStyle("toolbar");
 
-        this.inputsTool = new ControlsTool(widget);
-        this.append(this.inputsTool);
+        const inputsTool = new ControlsTool({widget: props.widget});
+        this.append(inputsTool);
     }
 }

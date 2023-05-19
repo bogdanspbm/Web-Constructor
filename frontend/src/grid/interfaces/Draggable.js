@@ -2,8 +2,8 @@ import {GridContent} from "../objects/GridContent.js";
 import {GridBlock} from "../Grid.js";
 
 export class Draggable extends GridContent {
-  constructor(elements) {
-    super(elements);
+  constructor(props) {
+    super(props);
     this.createDragElement();
     this.bindDragEvents();
   }

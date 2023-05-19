@@ -1,12 +1,13 @@
 import {EditorPage} from "../pages/implementation/editor/EditorPage.js";
 import {WidgetStructure} from "../objects/WidgetStructure.js";
+import {EPageType} from "../enums/EPageType.js";
 
 export function bindWidgetListener() {
     document.widgets = {};
 
     document.openWidget = function (widget) {
         document.widget = widget
-        const editorPage = new EditorPage(widget)
+        const editorPage = new EditorPage({structure: widget, type: EPageType.EDITOR})
         editorPage.openPage()
     }
 

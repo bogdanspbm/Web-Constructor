@@ -2,29 +2,29 @@ import {Button} from "../../../elements/default/Button.js";
 import {Icon} from "../../../elements/icon/Icon.js";
 
 export class HeaderButton extends Button {
-  constructor(path) {
-    super();
-    this.icon = new Icon(path);
-    this.icon.setStyle("white-filter");
-    this.append(this.icon);
-  }
-
-  createElement() {
-    super.createElement();
-    this.setStyle("button-header");
-  }
-
-  onActiveEvent() {
-    if (this.icon === undefined) {
-      return;
+    constructor(props) {
+        super(props);
+        this.icon = new Icon({path: props.path});
+        this.icon.setStyle("white-filter");
+        this.append(this.icon);
     }
-    this.icon.setStyle("white-filter");
-  }
 
-  onDeactivateEvent() {
-    if (this.icon === undefined) {
-      return;
+    createElement() {
+        super.createElement();
+        this.setStyle("button-header");
     }
-    this.icon.setStyle("gray-filter");
-  }
+
+    onActiveEvent() {
+        if (this.icon === undefined) {
+            return;
+        }
+        this.icon.setStyle("white-filter");
+    }
+
+    onDeactivateEvent() {
+        if (this.icon === undefined) {
+            return;
+        }
+        this.icon.setStyle("gray-filter");
+    }
 }

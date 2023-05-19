@@ -3,6 +3,7 @@ import {createFileFromJSON} from "./FileUtils.js";
 import {WidgetStructure} from "../objects/WidgetStructure.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 import {ScriptStructure} from "../objects/scripts/ScriptStructure.js";
+import {EPageType} from "../enums/EPageType.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
@@ -109,7 +110,7 @@ export function loadProject() {
         generateScriptsFromJSON(json);
         generateFilesFromJSON(json);
 
-        const fileSystem = new FileSystemPage();
+        const fileSystem = new FileSystemPage({type: EPageType.FILE_SYSTEM});
         fileSystem.openPage();
     }).catch(function (error) {
         console.error(error);
