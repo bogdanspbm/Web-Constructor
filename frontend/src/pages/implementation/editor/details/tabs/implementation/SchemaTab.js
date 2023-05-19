@@ -22,7 +22,7 @@ export class SchemaTab extends Tab {
      */
     generateEditors(widget) {
         const collectionHeader = new Div().setText("Collection").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const collectionInput = new CollectionSelector(widget);
+        const collectionInput = new CollectionSelector(widget, "collection");
         this.append(collectionHeader);
         this.append(collectionInput);
     }

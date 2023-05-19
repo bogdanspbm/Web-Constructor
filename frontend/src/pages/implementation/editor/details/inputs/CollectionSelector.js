@@ -15,21 +15,8 @@ export class CollectionSelector extends Select {
 
         Object.entries(document.collections).forEach(([key, attribute]) => {
             const collection = document.collections[key];
-            const option = new Option(collection.getName());
+            const option = new Option(collection);
             this.append(option);
         });
-
-        this.setSelectEvent(value => {
-            structure.setCollection(document.findCollectionByName(value));
-            console.log(structure);
-        })
-
-
-        if (!structure.getCollection()) {
-            return;
-        }
-
-        this.element.value = structure.getCollection().getName();
-
     }
 }

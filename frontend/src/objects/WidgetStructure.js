@@ -27,6 +27,11 @@ export class WidgetStructure {
         this.uid = json.uid;
 
         const parent = this;
+
+        if (json.collection) {
+            this.collection = document.collections[json.collection];
+        }
+
         Object.entries(json.components).forEach(([key, value]) => {
             const component = createComponentFromJSON(parent, value);
             parent.components[key] = component;

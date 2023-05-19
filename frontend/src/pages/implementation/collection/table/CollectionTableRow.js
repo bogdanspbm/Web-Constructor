@@ -39,10 +39,10 @@ export class CollectionTableRow extends DOM {
         })
         this.append(this.defaultInput);
 
-        this.typeInput = new TypeSelector().setAttribute("width", "142px").setAttribute("margin-left", "70px");
+        this.typeInput = new TypeSelector(attribute, "type").setAttribute("width", "142px").setAttribute("margin-left", "70px");
         this.append(this.typeInput);
 
-        this.containerInput = new ContainerSelector().setAttribute("width", "128px").setAttribute("margin-left", "46px");
+        this.containerInput = new ContainerSelector(attribute, "container").setAttribute("width", "128px").setAttribute("margin-left", "46px");
         this.append(this.containerInput);
     }
 
