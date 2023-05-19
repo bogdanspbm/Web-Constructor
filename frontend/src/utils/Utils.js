@@ -38,6 +38,7 @@ export function toPascalCase(str) {
 
 export function exportProject() {
     const json = {
+        projectInfo: document.projectInfo,
         collections: document.collections,
         widgets: document.widgets,
         scripts: document.scriptsStructures
@@ -65,6 +66,7 @@ export function createAndDownloadFile(data, filename) {
 
 export function saveProject() {
     const json = {
+        projectInfo: document.projectInfo,
         collections: document.collections,
         widgets: document.widgets,
         scripts: document.scriptsStructures,
@@ -105,6 +107,7 @@ export function loadProject() {
 
     uploadFunction().then(function (contents) {
         const json = JSON.parse(contents);
+        generateProjectFromJSON(json);
         generateCollectionsFromJSON(json);
         generateWidgetsFromJSON(json);
         generateScriptsFromJSON(json);
@@ -116,6 +119,12 @@ export function loadProject() {
         console.error(error);
     });
 }
+
+export function generateProjectFromJSON(json) {
+    console.log(json);
+    document.loadProjectFromJSON(json.projectInfo);
+}
+
 
 export function generateScriptsFromJSON(json) {
     const newScripts = {};

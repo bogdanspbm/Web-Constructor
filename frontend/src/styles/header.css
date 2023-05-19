@@ -21,6 +21,42 @@
     user-select: none;
 }
 
+.project-name {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+}
+
+.input-header {
+    width: 100%;
+
+    text-align: center;
+
+    display: flex;
+
+    background: #434343;
+    border-radius: 5px;
+    padding-left: 8px;
+    border: #2D2D2D solid 1px;
+    color: #D7D7D7;
+
+    align-items: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.input-header:hover {
+    border: #4096ff solid 1px;
+}
+
+.input-header:focus {
+    outline: none;
+    border: #4096ff solid 1px;
+}
+
 .sub-header {
     width: calc(100%);
     height: 22px;

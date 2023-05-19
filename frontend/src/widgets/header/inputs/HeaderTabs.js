@@ -11,7 +11,7 @@ export class HeaderTabs extends DOM {
         switch (props.type) {
             case EPageType.FILE_SYSTEM: {
                 const
-                    buttonExport = new Button().setText("Generate").setAttribute("margin-left", "auto")
+                    buttonExport = new Button().setText("Generate")
                         .setAttribute("height", "24px").setAttribute("border-radius", "5px")
                         .setAttribute("margin-right", "10px").setStyle("blue-button");
                 buttonExport.setClickEvent(exportProject);
