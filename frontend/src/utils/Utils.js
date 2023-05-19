@@ -43,7 +43,6 @@ export function exportProject() {
     }
 
     const data = JSON.stringify(json, null, 4);
-    console.log(data);
 
     postRequest("http://localhost:8080/export", data);
 }
@@ -141,6 +140,41 @@ export function generateWidgetsFromJSON(json) {
         newWidgets[key] = new WidgetStructure(value);
     });
     document.widgets = newWidgets;
+}
+
+export function getComplexField(structure, field) {
+    const keys = field.split(":");
+
+    let result = structure;
+    for (const key of keys) {
+        if (result.hasOwnProperty(key)) {
+            result = result[key];
+        } else {
+            return undefined; // Return undefined if the path does not exist
+        }
+    }
+
+    return result;
+}
+
+export function setComplexField(structure, field, value) {
+    const keys = field.split(":");
+
+    let obj = structure;
+    for (let i = 0; i < keys.length - 1; i++) {
+        const key = keys[i];
+
+        if (!obj.hasOwnProperty(key) || typeof obj[key] !== "object") {
+            obj[key] = {};
+        }
+
+        obj = obj[key];
+    }
+
+    const lastKey = keys[keys.length - 1];
+    obj[lastKey] = value;
+
+    return structure;
 }
 
 export function generateCollectionsFromJSON(json) {

@@ -1,5 +1,4 @@
 import {DOM} from "../../../../../elements/dom/DOM.js";
-import {Input} from "../../../../../widgets/common/Input.js";
 import {AttributeSelector} from "./AttributeSelector.js";
 
 export class AttributeDetail extends DOM {
@@ -18,7 +17,7 @@ export class AttributeDetail extends DOM {
         const header = new DOM().setText("Attribute").setStyle("small-header").setAttribute("margin-bottom", "10px");
         this.append(header);
 
-        const selector = new AttributeSelector(structure, widget);
+        const selector = new AttributeSelector(structure, "properties:attribute", widget);
         this.append(selector);
     }
 

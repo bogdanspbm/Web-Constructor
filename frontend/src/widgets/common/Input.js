@@ -1,4 +1,5 @@
 import {DOM} from "../../elements/dom/DOM.js";
+import {getComplexField, setComplexField} from "../../utils/Utils.js";
 
 export class Input extends DOM {
 
@@ -17,10 +18,10 @@ export class Input extends DOM {
         }
         const parent = this;
 
-        this.setTag("value", structure[field]);
+        this.setTag("value", getComplexField(structure, field));
 
         this.setOnChangeEvent(() => {
-            structure[field] = parent.element.value;
+            setComplexField(structure, field, parent.element.value);
         })
     }
 

@@ -1,15 +1,16 @@
 import {DOM} from "../dom/DOM.js";
+import {getComplexField, setComplexField} from "../../utils/Utils.js";
 
 export class Select extends DOM {
 
-    constructor(structure, field) {
-        super(structure, field);
+    constructor(structure, field, arg) {
+        super(structure, field, arg);
         this.bindChangeEvent(() => {
         });
         this.bindStructure(structure, field);
     }
 
-    createElement(structure, field) {
+    createElement(structure, field, arg) {
         this.element = document.createElement("select");
         this.setStyle("selector")
     }
@@ -31,7 +32,7 @@ export class Select extends DOM {
             return;
         }
 
-        let optionName = structure[field];
+        let optionName = getComplexField(structure, field);
 
         if (optionName && optionName.name) {
             optionName = optionName.name;
@@ -40,8 +41,7 @@ export class Select extends DOM {
         this.element.selectedIndex = this.getIndexByOption(optionName);
 
         this.bindChangeEvent((value) => {
-            console.log(value);
-            structure[field] = value;
+            setComplexField(structure, field, value);
         })
     }
 
