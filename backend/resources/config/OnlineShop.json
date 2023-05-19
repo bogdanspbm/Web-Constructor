@@ -21,10 +21,7 @@
                 "07090572352604418": {
                     "uid": "07090572352604418",
                     "name": "Name",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -35,10 +32,7 @@
                 "520641114721742": {
                     "uid": "520641114721742",
                     "name": "Surname",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -49,10 +43,7 @@
                 "17880782236226045": {
                     "uid": "17880782236226045",
                     "name": "Patronymic",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -63,10 +54,7 @@
                 "6832512646928937": {
                     "uid": "6832512646928937",
                     "name": "Phone",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -77,10 +65,7 @@
                 "024992408831975732": {
                     "uid": "024992408831975732",
                     "name": "Birthdate",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -91,10 +76,7 @@
                 "024694404969310524": {
                     "uid": "024694404969310524",
                     "name": "Password",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -105,10 +87,7 @@
                 "5889236437870649": {
                     "uid": "5889236437870649",
                     "name": "Mail",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -173,10 +152,7 @@
                 "02168719579193512": {
                     "uid": "02168719579193512",
                     "name": "Name",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -201,10 +177,7 @@
                 "9477399424882902": {
                     "uid": "9477399424882902",
                     "name": "Description",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -219,10 +192,7 @@
                         "name": "Integer",
                         "color": "#36cfc9"
                     },
-                    "container": {
-                        "name": "Single",
-                        "icon": "#36cfc9"
-                    },
+                    "container": "Array",
                     "tooltip": "",
                     "value": ""
                 },
@@ -233,10 +203,7 @@
                         "name": "Integer",
                         "color": "#36cfc9"
                     },
-                    "container": {
-                        "name": "Single",
-                        "icon": "#36cfc9"
-                    },
+                    "container": "Array",
                     "tooltip": "",
                     "value": ""
                 }
@@ -297,10 +264,7 @@
                 "39570942873810955": {
                     "uid": "39570942873810955",
                     "name": "Target Date",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -393,10 +357,7 @@
                 "14374187798936044": {
                     "uid": "14374187798936044",
                     "name": "Creation Date",
-                    "type": {
-                        "name": "Integer",
-                        "color": "#36cfc9"
-                    },
+                    "type": "String",
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -651,7 +612,7 @@
         "8405106907951716": {
             "name": "User Page",
             "uid": "8405106907951716",
-            "collection": "",
+            "collection": "598111511942373",
             "components": {
                 "6335438779091185": {
                     "name": "Text",
@@ -988,7 +949,7 @@
         "03660773268480888": {
             "name": "Item Page",
             "uid": "03660773268480888",
-            "collection": "",
+            "collection": "22053892158242228",
             "components": {
                 "6881375415150122": {
                     "name": "Text",
@@ -2004,7 +1965,7 @@
             "structure": {
                 "name": "User Page",
                 "uid": "8405106907951716",
-                "collection": "",
+                "collection": "598111511942373",
                 "components": {
                     "6335438779091185": {
                         "name": "Text",
@@ -2368,10 +2329,7 @@
                     "07090572352604418": {
                         "uid": "07090572352604418",
                         "name": "Name",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2382,10 +2340,7 @@
                     "520641114721742": {
                         "uid": "520641114721742",
                         "name": "Surname",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2396,10 +2351,7 @@
                     "17880782236226045": {
                         "uid": "17880782236226045",
                         "name": "Patronymic",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2410,10 +2362,7 @@
                     "6832512646928937": {
                         "uid": "6832512646928937",
                         "name": "Phone",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2424,10 +2373,7 @@
                     "024992408831975732": {
                         "uid": "024992408831975732",
                         "name": "Birthdate",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2438,10 +2384,7 @@
                     "024694404969310524": {
                         "uid": "024694404969310524",
                         "name": "Password",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2452,10 +2395,7 @@
                     "5889236437870649": {
                         "uid": "5889236437870649",
                         "name": "Mail",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2529,10 +2469,7 @@
                     "02168719579193512": {
                         "uid": "02168719579193512",
                         "name": "Name",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2557,10 +2494,7 @@
                     "9477399424882902": {
                         "uid": "9477399424882902",
                         "name": "Description",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2575,10 +2509,7 @@
                             "name": "Integer",
                             "color": "#36cfc9"
                         },
-                        "container": {
-                            "name": "Single",
-                            "icon": "#36cfc9"
-                        },
+                        "container": "Array",
                         "tooltip": "",
                         "value": ""
                     },
@@ -2589,10 +2520,7 @@
                             "name": "Integer",
                             "color": "#36cfc9"
                         },
-                        "container": {
-                            "name": "Single",
-                            "icon": "#36cfc9"
-                        },
+                        "container": "Array",
                         "tooltip": "",
                         "value": ""
                     }
@@ -2616,7 +2544,7 @@
             "structure": {
                 "name": "Item Page",
                 "uid": "03660773268480888",
-                "collection": "",
+                "collection": "22053892158242228",
                 "components": {
                     "6881375415150122": {
                         "name": "Text",
@@ -2908,10 +2836,7 @@
                     "39570942873810955": {
                         "uid": "39570942873810955",
                         "name": "Target Date",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -3013,10 +2938,7 @@
                     "14374187798936044": {
                         "uid": "14374187798936044",
                         "name": "Creation Date",
-                        "type": {
-                            "name": "Integer",
-                            "color": "#36cfc9"
-                        },
+                        "type": "String",
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
