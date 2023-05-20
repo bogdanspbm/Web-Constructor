@@ -1,5 +1,7 @@
 import {FileStructure} from "../FileStructure.js";
 import {EFileType} from "../../../enums/EFileType.js";
+import {VectorPage} from "../../../pages/implementation/vector/VectorPage.js";
+import {EPageType} from "../../../enums/EPageType.js";
 
 export class VectorFile extends FileStructure {
     type = EFileType.VECTOR;
@@ -22,8 +24,8 @@ export class VectorFile extends FileStructure {
     }
 
     openAction(event) {
-        //const page = new VectorPage({structure: this.vector, type: EPageType.VECTOR});
-        // page.openPage();
+        const page = new VectorPage({structure: this.vector, type: EPageType.VECTOR});
+        page.openPage();
     }
 
 

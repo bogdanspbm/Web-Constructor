@@ -1,0 +1,28 @@
+.container-vector {
+    background: white;
+    border-radius: 15px;
+
+    gap: 10px;
+
+    display: flex;
+
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 20px;
+
+    width: 100%;
+    height: calc(100% - 60px);
+}
+
+.svg-preview {
+    width: 256px;
+    height: 256px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+}

@@ -116,7 +116,7 @@ function createVectorFile(callback) {
                 const reader = new FileReader();
 
                 reader.onload = function (event) {
-                    const base64String = btoa(event.target.result);
+                    const base64String = event.target.result;
                     resolve(base64String); // Resolve with the file contents as a string
                 };
 
@@ -124,7 +124,7 @@ function createVectorFile(callback) {
                     reject(event.target.error); // Reject with the error object
                 };
 
-                reader.readAsText(file);
+                reader.readAsDataURL(file);
             });
 
             fileInput.click();
