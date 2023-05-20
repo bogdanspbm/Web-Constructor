@@ -3,6 +3,14 @@ import {Icon} from "../../../../../elements/icon/Icon.js";
 import {DOM} from "../../../../../elements/dom/DOM.js";
 
 export class CreateGroupButton extends Button {
+
+    constructor(props) {
+        super(props);
+        this.setClickEvent(() => {
+            document.createGroup();
+        })
+    }
+
     createElement(props) {
         super.createElement(props);
         this.setStyle("create-group-button");

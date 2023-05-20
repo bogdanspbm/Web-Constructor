@@ -93,6 +93,9 @@
     display: grid;
     width: 100%;
     height: 100%;
+
+    grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
+    gap: 30px;
 }
 
 .group-create-text {
@@ -126,7 +129,21 @@
     background: #FAFAFA;
     border: 1px solid #F7F7F7;
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+
+    width: 196px;
+    height: 237px;
+}
+
+.group-widget {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    background: #FFFFFF;
+    border: 1px solid #F7F7F7;
+
     border-radius: 10px;
 
     width: 196px;
