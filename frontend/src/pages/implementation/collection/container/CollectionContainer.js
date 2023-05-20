@@ -6,20 +6,15 @@ export class CollectionContainer extends DOM {
 
     attributes = []
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    constructor(collection) {
-        super(collection);
+
+    constructor(props) {
+        super(props);
         document.addCollectionListener(this);
-        this.drawAttributes(collection);
+        this.drawAttributes(props.collection);
     }
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    createElement(collection) {
-        super.createElement();
+    createElement(props) {
+        super.createElement(props);
         this.setStyle("container-collection");
 
         const header = new CollectionTableHeader();
@@ -36,7 +31,7 @@ export class CollectionContainer extends DOM {
                 const row = parent.attributes[key];
                 row.updateElement(attribute);
             } else {
-                const row = new CollectionTableRow(attribute);
+                const row = new CollectionTableRow({attribute: attribute});
                 parent.attributes[key] = row;
                 parent.append(row);
             }

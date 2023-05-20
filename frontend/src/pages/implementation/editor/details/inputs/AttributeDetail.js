@@ -10,14 +10,14 @@ export class AttributeDetail extends DOM {
      * @param {WidgetStructure} widget
      * @param {ComponentStructure} structure
      */
-    createElement(structure, widget) {
+    createElement(props) {
         this.element = document.createElement("div");
         this.setStyle("detail-block");
 
         const header = new DOM().setText("Attribute").setStyle("small-header").setAttribute("margin-bottom", "10px");
         this.append(header);
 
-        const selector = new AttributeSelector(structure, "properties:attribute", widget);
+        const selector = new AttributeSelector({structure: props.structure, field: "properties:attribute", widget: props.widget});
         this.append(selector);
     }
 

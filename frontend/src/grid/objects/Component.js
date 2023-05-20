@@ -61,8 +61,8 @@ export class Component extends Transformable {
 }
 
 export class ButtonComponent extends Component {
-    constructor(elements) {
-        super(elements);
+    constructor(props) {
+        super(props);
         this.setAttribute("width", "calc(100% - 10px)")
         this.setAttribute("height", "calc(100% - 10px)")
         this.setAttribute("margin-bottom", "6px")
@@ -83,8 +83,8 @@ export class ButtonComponent extends Component {
 }
 
 export class InputComponent extends Component {
-    constructor(elements) {
-        super(elements);
+    constructor(props) {
+        super(props);
         this.setAttribute("width", "calc(100% - 12px)")
         this.setAttribute("height", "calc(100% - 12px)")
         this.setAttribute("margin-bottom", "7px")
@@ -96,8 +96,8 @@ export class InputComponent extends Component {
 }
 
 export class TextComponent extends Component {
-    constructor(elements) {
-        super(elements);
+    constructor(props) {
+        super(props);
         this.setAttribute("")
         this.setAttribute("width", "calc(100% - 10px)")
         this.setAttribute("height", "calc(100% - 10px)")

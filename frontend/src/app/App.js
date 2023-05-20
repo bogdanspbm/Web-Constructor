@@ -7,6 +7,8 @@ import {AttributeStructure} from "../objects/AttributeStructure.js";
 import {EFileType} from "../enums/EFileType.js";
 import {bindScriptListener} from "../listeners/ScriptListener.js";
 import {bindTabsListener} from "../listeners/TabsListener.js";
+import {EPageType} from "../enums/EPageType.js";
+import {bindProjectListener} from "../listeners/ProjectListener.js";
 
 export class App {
     constructor() {
@@ -87,6 +89,7 @@ export class App {
         bindScriptListener();
         bindPopupListener();
         bindTabsListener();
+        bindProjectListener();
 
         document.selectListeners = [];
         document.addSelectListener = this.addSelectListener;
@@ -103,7 +106,7 @@ export class App {
 
 
     generateConstructor() {
-        const fileSystem = new FileSystemPage();
+        const fileSystem = new FileSystemPage({type: EPageType.FILE_SYSTEM});
         fileSystem.openPage();
 
         const widgetFile = document.createFile(EFileType.WIDGET);

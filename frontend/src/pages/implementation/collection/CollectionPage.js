@@ -9,36 +9,34 @@ import {ScriptsContainer} from "../scripts/container/ScriptsContainer.js";
 
 export class CollectionPage extends Page {
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    constructor(collection) {
-        super(collection, EPageType.COLLECTION);
+
+    constructor(props) {
+        super(props);
         document.addTabsListeners(this, EPageType.COLLECTION.tabs);
     }
 
-    /**
-     * @param {CollectionStructure} collection
-     */
-    fillElements(collection) {
-        this.collection = collection;
-        const header = new Header(this.getType());
+
+    fillElements(props) {
+        this.collection = props.structure;
+        const header = new Header({pageType: this.getType()});
         this.elements.push(header);
 
-        const toolbar = new CollectionToolbar(collection);
+        const toolbar = new CollectionToolbar({collection: props.structure});
 
         let container;
 
         if (this.openedTab === ECollectionPageTabs.TABLE || !this.openedTab) {
-            container = new CollectionContainer(collection);
+            container = new CollectionContainer({collection: props.structure});
         } else {
-            container = new ScriptsContainer(collection.getScript());
+            container = new ScriptsContainer({script: props.structure.getScript()});
         }
 
-        const panel = new Div([
-            toolbar,
-            container
-        ]).setStyle("container");
+        const panel = new Div({
+            elements: [
+                toolbar,
+                container
+            ]
+        }).setStyle("container");
 
         this.elements.push(panel);
     }
@@ -46,7 +44,7 @@ export class CollectionPage extends Page {
     tabChangeNotify(tabType) {
         this.openedTab = tabType;
         this.elements = [];
-        this.fillElements(this.collection);
+        this.fillElements({structure: this.collection});
         this.openPage();
     }
 

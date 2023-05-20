@@ -5,8 +5,8 @@ export class Clickable extends DOM {
     clickAction;
     active = true;
 
-    constructor(elements) {
-        super(elements);
+    constructor(props) {
+        super(props);
         this.bindClickEvent();
     }
 

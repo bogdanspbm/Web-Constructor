@@ -3,14 +3,14 @@ import {getComplexField, setComplexField} from "../../utils/Utils.js";
 
 export class Select extends DOM {
 
-    constructor(structure, field, arg) {
-        super(structure, field, arg);
+    constructor(props) {
+        super(props);
         this.bindChangeEvent(() => {
         });
-        this.bindStructure(structure, field);
+        this.bindStructure(props.structure, props.field);
     }
 
-    createElement(structure, field, arg) {
+    createElement(props) {
         this.element = document.createElement("select");
         this.setStyle("selector")
     }

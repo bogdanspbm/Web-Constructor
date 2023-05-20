@@ -1,7 +1,7 @@
 import {Clickable} from "../interface/Clickable.js";
 
 export class Button extends Clickable {
-    createElement() {
+    createElement(props) {
         super.createElement();
         this.setStyle("button");
     }
@@ -16,8 +16,8 @@ export class CheckBox extends Clickable {
 
     checked = false
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         const parent = this;
         this.setClickEvent(action => {

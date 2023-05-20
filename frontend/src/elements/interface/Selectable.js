@@ -4,8 +4,8 @@ export class Selectable extends Clickable {
   isSelected = false;
   clickElement = undefined;
 
-  constructor(elements) {
-    super(elements);
+  constructor(props) {
+    super(props);
 
     this.setClickElement(document.createElement("div"));
     this.setStyle("selectable-off", "clickElement");

@@ -3,17 +3,13 @@ import {Div} from "../../../../../../elements/dom/DOM.js";
 import {CollectionSelector} from "../../inputs/CollectionSelector.js";
 
 export class SchemaTab extends Tab {
-    constructor(widget) {
-        super("Schema", widget);
+    constructor(props) {
+        super({name: "Schema", widget: props.widget});
     }
 
-    /**
-     * @param {String} name
-     * @param {WidgetStructure} widget
-     */
-    createElement(name, widget) {
-        super.createElement(name, widget);
-        this.generateEditors(widget);
+    createElement(props) {
+        super.createElement(props);
+        this.generateEditors(props.widget);
         this.setAttribute("padding", "15px");
     }
 
@@ -22,7 +18,7 @@ export class SchemaTab extends Tab {
      */
     generateEditors(widget) {
         const collectionHeader = new Div().setText("Collection").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const collectionInput = new CollectionSelector(widget, "collection");
+        const collectionInput = new CollectionSelector({structure: widget, field: "collection"});
         this.append(collectionHeader);
         this.append(collectionInput);
     }

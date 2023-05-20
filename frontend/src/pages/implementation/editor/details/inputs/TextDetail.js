@@ -1,14 +1,11 @@
 import {DOM} from "../../../../../elements/dom/DOM.js";
-import {Input} from "../../../../../widgets/common/Input.js";
+import {Input} from "../../../../../elements/default/Input.js";
 
 export class TextDetail extends DOM {
 
     hint = ""
 
-    /**
-     * @param {ComponentStructure} structure
-     */
-    createElement(structure) {
+    createElement(props) {
         this.element = document.createElement("div");
         this.setStyle("detail-block");
 
@@ -17,15 +14,13 @@ export class TextDetail extends DOM {
 
         this.input = new Input().setStyle("input-bar").setAttribute("height", "26px");
 
-        const parent = this;
-
         this.input.setOnChangeEvent(function (event) {
             const value = event.target.value;
-            structure.setProperty("text", value);
+            props.structure.setProperty("text", value);
         })
 
         this.append(this.input);
-        this.setInitText(structure.getProperty("text"));
+        this.setInitText(props.structure.getProperty("text"));
     }
 
     /**

@@ -18,20 +18,25 @@ export class DOM {
     savedText = ""
 
     /**
-     * @param {DOM[]} elements
+     * @param {{} | undefined} props
      */
-    constructor(elements, arg0, arg1, arg2) {
-        this.createElement(elements, arg0, arg1, arg2);
+    constructor(props) {
 
-        if (!elements) {
+        if (!props) {
+            props = {};
+        }
+
+        this.createElement(props);
+
+        if (!props.elements) {
             return;
         }
 
-        if (Object.prototype.toString.call(elements) !== '[object Array]') {
+        if (Object.prototype.toString.call(props.elements) !== '[object Array]') {
             return;
         }
 
-        elements.forEach((element) => this.append(element));
+        props.elements.forEach((element) => this.append(element));
     }
 
     createElement() {
@@ -215,57 +220,4 @@ export class DOM {
 }
 
 export class Div extends DOM {
-}
-
-export class TextArea extends DOM {
-
-    constructor(structure, field) {
-        super(structure, field);
-        this.bindStructure(structure, field);
-    }
-
-    setOnChangeEvent(event) {
-        this.onChangeEvent = event
-    }
-
-    createElement(structure, field) {
-        this.element = document.createElement("textarea");
-        this.bindEvents();
-    }
-
-    bindStructure(structure, field) {
-        if (!structure || !field) {
-            return;
-        }
-        const parent = this;
-
-        parent.element.value = structure[field];
-
-        this.setOnChangeEvent(() => {
-            structure[field] = parent.element.value;
-        })
-    }
-
-    bindEvents() {
-        const parent = this
-        this.element.addEventListener("input", function (event) {
-            if (typeof parent.onChangeEvent !== "function") {
-                return
-            }
-            parent.onChangeEvent(event);
-        })
-    }
-
-    /**
-     * @param {String} hint
-     */
-    setHint(hint) {
-        this.setTag("placeholder", hint);
-    }
-}
-
-export class Label extends DOM {
-    createElement() {
-        this.element = document.createElement("label");
-    }
 }

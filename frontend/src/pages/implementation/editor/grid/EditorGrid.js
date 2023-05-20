@@ -5,21 +5,15 @@ export class EditorGrid extends Grid {
 
     #widget
 
-    /**
-     * @param {WidgetStructure} widget
-     */
-    constructor(widget) {
-        super(widget);
-        this.#widget = widget;
+    constructor(props) {
+        super(props);
+        this.#widget = props.widget;
         document.addWidgetListener(this);
-        this.fillGridWithElement(widget.getElements());
+        this.fillGridWithElement(props.widget.getElements());
     }
 
-    /**
-     * @param {WidgetStructure} widget
-     */
-    createElement(widget) {
-        super.createElement(widget);
+    createElement(props) {
+        super.createElement(props);
         this.setStyle("grid").setID("canvas");
     }
 

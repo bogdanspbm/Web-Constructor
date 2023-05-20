@@ -1,17 +1,17 @@
+import {Button} from "../../../elements/default/Button.js";
 import {Icon} from "../../../elements/icon/Icon.js";
-import {Dropdown} from "../../../elements/default/Dropdown.js";
 
-export class HeaderDropdown extends Dropdown {
-    constructor(content, path) {
-        super(content);
-        this.icon = new Icon(path);
+export class HeaderButton extends Button {
+    constructor(props) {
+        super(props);
+        this.icon = new Icon({path: props.path});
         this.icon.setStyle("white-filter");
-        this.button.append(this.icon, 0);
+        this.append(this.icon);
     }
 
     createElement() {
         super.createElement();
-        this.button.setStyle("button-header");
+        this.setStyle("button-header");
     }
 
     onActiveEvent() {

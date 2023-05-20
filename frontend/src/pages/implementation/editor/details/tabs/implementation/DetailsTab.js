@@ -1,11 +1,10 @@
 import {Tab} from "../../../../../../elements/default/Tabs.js";
 import {TextDetail} from "../../inputs/TextDetail.js";
-import {AttributeSelector} from "../../inputs/AttributeSelector.js";
 import {AttributeDetail} from "../../inputs/AttributeDetail.js";
 
 export class DetailsTab extends Tab {
-    constructor(widget) {
-        super("Details", widget);
+    constructor(props) {
+        super({name: "Details", widget: props.widget});
     }
 
     /**
@@ -13,9 +12,9 @@ export class DetailsTab extends Tab {
      * @param {WidgetStructure} widget
      */
 
-    createElement(name, widget) {
-        this.widgetStructure = widget;
-        super.createElement(name, widget);
+    createElement(props) {
+        this.widgetStructure = props.widget;
+        super.createElement(props);
         this.setAttribute("padding", "15px");
         document.addSelectListener(this);
     }
@@ -40,10 +39,10 @@ export class DetailsTab extends Tab {
             return;
         }
 
-        const textDetails = new TextDetail(structure).setHint("Enter text");
+        const textDetails = new TextDetail({structure: structure}).setHint("Enter text");
         this.append(textDetails);
 
-        const attributeDetails = new AttributeDetail(structure, this.widgetStructure);
+        const attributeDetails = new AttributeDetail({structure: structure, widget: this.widgetStructure});
         this.append(attributeDetails);
     }
 

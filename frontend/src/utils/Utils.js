@@ -3,6 +3,7 @@ import {createFileFromJSON} from "./FileUtils.js";
 import {WidgetStructure} from "../objects/WidgetStructure.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 import {ScriptStructure} from "../objects/scripts/ScriptStructure.js";
+import {EPageType} from "../enums/EPageType.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
@@ -37,6 +38,7 @@ export function toPascalCase(str) {
 
 export function exportProject() {
     const json = {
+        projectInfo: document.projectInfo,
         collections: document.collections,
         widgets: document.widgets,
         scripts: document.scriptsStructures
@@ -64,6 +66,7 @@ export function createAndDownloadFile(data, filename) {
 
 export function saveProject() {
     const json = {
+        projectInfo: document.projectInfo,
         collections: document.collections,
         widgets: document.widgets,
         scripts: document.scriptsStructures,
@@ -104,17 +107,24 @@ export function loadProject() {
 
     uploadFunction().then(function (contents) {
         const json = JSON.parse(contents);
+        generateProjectFromJSON(json);
         generateCollectionsFromJSON(json);
         generateWidgetsFromJSON(json);
         generateScriptsFromJSON(json);
         generateFilesFromJSON(json);
 
-        const fileSystem = new FileSystemPage();
+        const fileSystem = new FileSystemPage({type: EPageType.FILE_SYSTEM});
         fileSystem.openPage();
     }).catch(function (error) {
         console.error(error);
     });
 }
+
+export function generateProjectFromJSON(json) {
+    console.log(json);
+    document.loadProjectFromJSON(json.projectInfo);
+}
+
 
 export function generateScriptsFromJSON(json) {
     const newScripts = {};

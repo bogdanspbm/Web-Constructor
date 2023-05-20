@@ -1,9 +1,9 @@
 import {DOM} from "../dom/DOM.js";
 
 export class Icon extends DOM {
-  constructor(path) {
-    super();
-    this.setIcon(path);
+  constructor(props) {
+    super(props);
+    this.setIcon(props.path);
   }
 
   createElement() {
