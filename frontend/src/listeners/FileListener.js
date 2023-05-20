@@ -3,7 +3,6 @@ import {DirectoryFile} from "../objects/files/implementation/DirectoryFile.js";
 import {CollectionFile} from "../objects/files/implementation/CollectionFile.js";
 import {EFileType} from "../enums/EFileType.js";
 import {ScriptFile} from "../objects/files/implementation/ScriptFile.js";
-import {VectorStructure} from "../objects/VectorStructure.js";
 import {VectorFile} from "../objects/files/implementation/VectorFile.js";
 
 export function bindFileListener() {
@@ -134,7 +133,7 @@ function createVectorFile(callback) {
     document.forceDeletePopup();
 
     uploadFunction().then(function (base64String) {
-        const vector = new VectorStructure(base64String);
+        const vector = document.createVector(base64String);
         const file = new VectorFile(vector);
         callback(file);
     }).catch(function (error) {

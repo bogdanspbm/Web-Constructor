@@ -9,6 +9,7 @@ import {bindScriptListener} from "../listeners/ScriptListener.js";
 import {bindTabsListener} from "../listeners/TabsListener.js";
 import {EPageType} from "../enums/EPageType.js";
 import {bindProjectListener} from "../listeners/ProjectListener.js";
+import {bindVectorListener} from "../listeners/VectorListeners.js";
 
 export class App {
     constructor() {
@@ -90,6 +91,7 @@ export class App {
         bindPopupListener();
         bindTabsListener();
         bindProjectListener();
+        bindVectorListener();
 
         document.selectListeners = [];
         document.addSelectListener = this.addSelectListener;

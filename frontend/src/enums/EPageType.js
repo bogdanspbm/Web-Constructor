@@ -18,5 +18,9 @@ export const EPageType = Object.freeze({
     VECTOR: {
         "name": "VECTOR",
         "tabs": "VECTOR_TABS"
+    },
+    SETTINGS: {
+        "name": "SETTINGS",
+        "tabs": "SETTINGS_TABS"
     }
 });

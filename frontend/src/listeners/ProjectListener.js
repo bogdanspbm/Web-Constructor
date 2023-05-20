@@ -1,6 +1,7 @@
 export function bindProjectListener() {
     document.projectInfo = {
-        name: "Untitled Project"
+        name: "Untitled Project",
+        groups: {}
     }
 
     document.loadProjectFromJSON = (json) => {
