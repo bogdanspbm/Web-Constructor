@@ -21,7 +21,7 @@ export class GroupStructure {
         this.name = json.name;
         this.uid = json.uid;
         this.tooltip = json.tooltip;
-        this.vector = json.vector;
+        this.vector = document.findStructureByUID(json.vector);
     }
 
     toJSON() {
