@@ -118,10 +118,10 @@
     display: flex;
     flex-direction: column;
 
-    padding: 40px;
+    padding: 30px;
     background: #FFFFFF;
-    width: 720px;
-    height: 370px;
+    width: 600px;
+    height: 310px;
     border-radius: 15px;
 }
 
@@ -129,7 +129,9 @@
     display: flex;
     flex-direction: row;
 
-    margin-top: 32px;
+    gap: 40px;
+
+    margin-top: 42px;
     margin-left: 4px;
 
     width: 100%;
@@ -156,4 +158,18 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.group-preview-container {
+    display: flex;
+
+    border-radius: 15px;
+
+    height: calc(100% - 32px);
+
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    background: #FAFAFA;
 }
