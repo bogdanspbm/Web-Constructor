@@ -8,7 +8,7 @@ export class GroupStructure {
     constructor() {
         this.uid = Math.random().toString().replace("0.", "");
         this.name = "New Group";
-        this.tooltip = "";
+        this.tooltip = "Default group to combine pages into single tab. Also can add Icon";
         this.icon = "";
     }
 
