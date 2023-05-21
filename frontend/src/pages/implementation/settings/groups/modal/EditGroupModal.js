@@ -21,7 +21,7 @@ export class EditGroupModal extends Modal {
         const previewContainer = new DOM().setStyle("container-vertical").setAttribute("width", "100%");
         container.append(previewContainer);
 
-        const vectorUID = props.group.vectorUID;
+        const vectorUID = props.group.vector;
         const vector = document.vectorsStructures[vectorUID];
         const base64String = vector ? vector.base64 : "";
 
