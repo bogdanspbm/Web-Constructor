@@ -1,7 +1,7 @@
 import {EFileType} from "../enums/EFileType.js";
 
 
-export class VectorStructure{
+export class VectorStructure {
 
     uid;
     name;
@@ -21,8 +21,18 @@ export class VectorStructure{
         }
 
         this.name = json.name;
+        this.tooltip = json.tooltip;
         this.uid = json.uid;
         this.base64 = json.base64;
+    }
+
+    toJSON() {
+        return {
+            name: this.name,
+            uid: this.uid,
+            tooltip: this.tooltip,
+            base64: this.base64
+        }
     }
 
     getUID() {

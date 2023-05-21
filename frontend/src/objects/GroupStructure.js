@@ -3,13 +3,14 @@ export class GroupStructure {
     uid;
     name;
     tooltip;
-    icon;
+    vector;
 
-    constructor() {
+    constructor(json) {
         this.uid = Math.random().toString().replace("0.", "");
         this.name = "New Group";
         this.tooltip = "Default group to combine pages into single tab. Also can add Icon";
-        this.icon = "";
+        this.vector = "";
+        this.buildFromJSON(json);
     }
 
     buildFromJSON(json) {
@@ -19,7 +20,17 @@ export class GroupStructure {
 
         this.name = json.name;
         this.uid = json.uid;
-        this.base64 = json.base64;
+        this.tooltip = json.tooltip;
+        this.vector = json.vector;
+    }
+
+    toJSON() {
+        return {
+            name: this.name,
+            uid: this.uid,
+            tooltip: this.tooltip,
+            vector: this.vector && typeof this.vector.getUID === "function" ? this.vector.getUID() : ""
+        }
     }
 
     getUID() {

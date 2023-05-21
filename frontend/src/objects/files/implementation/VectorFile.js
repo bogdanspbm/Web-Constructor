@@ -19,7 +19,7 @@ export class VectorFile extends FileStructure {
         return {
             uid: this.getUID(),
             type: this.type,
-            vector: this.getStructure()
+            structure: this.getStructure()
         }
     }
 

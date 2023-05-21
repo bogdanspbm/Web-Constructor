@@ -21,7 +21,9 @@ export class EditGroupModal extends Modal {
         const previewContainer = new DOM().setStyle("container-vertical").setAttribute("width", "100%");
         container.append(previewContainer);
 
-        const base64String = props.group.icon;
+        const vectorUID = props.group.vectorUID;
+        const vector = document.vectorsStructures[vectorUID];
+        const base64String = vector ? vector.base64 : "";
 
         const previewHeader = new Div().setText("Preview").setStyle("small-header").setAttribute("margin-bottom", "5px");
         previewContainer.append(previewHeader);
@@ -50,7 +52,7 @@ export class EditGroupModal extends Modal {
         tools.append(tooltipInput);
 
         const vectorHeader = new Div().setText("Vector").setStyle("small-header").setAttribute("margin-bottom", "5px")
-        const vectorInput = new VectorSelector({structure: props.group, field: "icon"})
+        const vectorInput = new VectorSelector({structure: props.group, field: "vector"})
             .setAttribute("margin-bottom", "15px");
         tools.append(vectorHeader);
         tools.append(vectorInput);

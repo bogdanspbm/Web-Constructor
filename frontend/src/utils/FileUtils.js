@@ -3,6 +3,7 @@ import {CollectionFile} from "../objects/files/implementation/CollectionFile.js"
 import {DirectoryFile} from "../objects/files/implementation/DirectoryFile.js";
 import {EFileType} from "../enums/EFileType.js";
 import {ScriptFile} from "../objects/files/implementation/ScriptFile.js";
+import {VectorFile} from "../objects/files/implementation/VectorFile.js";
 
 
 export function createFileFromJSON(json) {
@@ -21,6 +22,10 @@ export function createFileFromJSON(json) {
 
         case EFileType.SCRIPT.name: {
             return new ScriptFile(structure);
+        }
+
+        case EFileType.VECTOR.name: {
+            return new VectorFile(structure);
         }
     }
 

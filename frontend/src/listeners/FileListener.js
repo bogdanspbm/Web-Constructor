@@ -21,6 +21,14 @@ export function bindFileListener() {
             return document.scriptsStructures[uid];
         }
 
+        if (uid in document.vectorsStructures) {
+            return document.vectorsStructures[uid];
+        }
+
+        if (uid in document.groupsStructures) {
+            return document.groupsStructures[uid];
+        }
+
         return undefined;
     }
 
