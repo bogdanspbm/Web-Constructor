@@ -2,13 +2,14 @@ import {DOM} from "../../../../../elements/dom/DOM.js";
 import {Icon} from "../../../../../elements/icon/Icon.js";
 import {Button} from "../../../../../elements/default/Button.js";
 import {Modal} from "../../../../../elements/default/Modal.js";
+import {EditGroupModal} from "../modal/EditGroupModal.js";
 
 export class GroupWidget extends Button {
 
     constructor(props) {
         super(props);
         this.setClickEvent(() => {
-            const modal = new Modal();
+            const modal = new EditGroupModal({group: props.group});
             modal.show();
         })
     }

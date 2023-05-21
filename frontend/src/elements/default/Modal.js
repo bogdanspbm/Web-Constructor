@@ -6,7 +6,10 @@ export class Modal extends Button {
     constructor(props) {
         super(props);
         const parent = this;
-        this.setClickEvent(() => {
+        this.setClickEvent((event) => {
+            if (event.srcElement !== parent.getDOM()) {
+                return;
+            }
             parent.close();
         })
     }
