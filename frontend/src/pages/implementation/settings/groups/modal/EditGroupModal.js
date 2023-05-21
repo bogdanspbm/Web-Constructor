@@ -21,8 +21,7 @@ export class EditGroupModal extends Modal {
         const previewContainer = new DOM().setStyle("container-vertical").setAttribute("width", "100%");
         container.append(previewContainer);
 
-        const vectorUID = props.group.vector;
-        const vector = document.vectorsStructures[vectorUID];
+        const vector = props.group.vector;
         const base64String = vector ? vector.base64 : "";
 
         const previewHeader = new Div().setText("Preview").setStyle("small-header").setAttribute("margin-bottom", "5px");

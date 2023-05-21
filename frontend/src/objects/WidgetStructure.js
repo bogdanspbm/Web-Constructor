@@ -9,11 +9,13 @@ export class WidgetStructure {
     uid;
     collection;
     components;
+    group;
 
     constructor(json) {
         this.components = {};
         this.name = EFileType.WIDGET["default_name"];
         this.uid = Math.random().toString().replace("0.", "");
+        this.group = "";
 
         this.buildFromJSON(json);
     }
@@ -25,6 +27,10 @@ export class WidgetStructure {
 
         this.name = json.name;
         this.uid = json.uid;
+
+        if (json.group) {
+            this.group = document.groupsStructures[json.group];
+        }
 
         const parent = this;
 
@@ -43,7 +49,8 @@ export class WidgetStructure {
             name: this.name,
             uid: this.uid,
             collection: this.collection ? this.collection.getUID() : "",
-            components: this.components
+            components: this.components,
+            group: this.group && typeof this.group.getUID === "function" ? this.group.getUID() : "",
         }
     }
 
