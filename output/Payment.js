@@ -1,18 +1,15 @@
 export class Payment {
-#typeid;
 #statusid;
 #creationdate;
 #id;
 #value;
+#typeid;
 constructor(json) {
 this.#id = json.id;
 this.#value = json.value;
 this.#typeid = json.typeid;
 this.#statusid = json.statusid;
 this.#creationdate = json.creationdate;
-}
-gettypeid() {
-return this.#typeid;
 }
 getstatusid() {
 return this.#statusid;
@@ -25,6 +22,9 @@ return this.#id;
 }
 getvalue() {
 return this.#value;
+}
+gettypeid() {
+return this.#typeid;
 }
 }
 export class PaymentAdapter{

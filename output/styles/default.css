@@ -69,3 +69,8 @@ html, body {
 .widget-nav-button:hover {
     background: #F7F7F7;
 }
+
+.unselectable {
+    display: flex;
+    flex-direction: row;
+}

@@ -15,6 +15,10 @@ func (widget *Widget) GenerateNavigationButton() string {
 	return fmt.Sprintf("<div class=\"widget-nav-button\">%v</div>", widget.Name)
 }
 
+func (widget *Widget) HasGroup() bool {
+	return widget.Group != ""
+}
+
 func (widget *Widget) GetSize() Vector2D {
 	x := 0
 	y := 0

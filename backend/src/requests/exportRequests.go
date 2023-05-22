@@ -31,7 +31,7 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	navGenerator := generator.NewNavigationGenerator(exportData.Collections, exportData.Widgets)
+	navGenerator := generator.NewNavigationGenerator(exportData.Collections, exportData.Widgets, exportData.Vectors, exportData.Groups)
 
 	for _, v := range exportData.Widgets {
 		fileName := fmt.Sprintf("output/%v.html", utils.ToPascalCase(v.Name))

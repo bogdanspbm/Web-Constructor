@@ -1,19 +1,25 @@
 export class OrderItem {
-#id;
 #orderid;
 #itemid;
 #quantity;
 #defaultprice;
 #discount;
 #finalprice;
+#id;
 constructor(json) {
+this.#discount = json.discount;
+this.#finalprice = json.finalprice;
 this.#id = json.id;
 this.#orderid = json.orderid;
 this.#itemid = json.itemid;
 this.#quantity = json.quantity;
 this.#defaultprice = json.defaultprice;
-this.#discount = json.discount;
-this.#finalprice = json.finalprice;
+}
+getorderid() {
+return this.#orderid;
+}
+getitemid() {
+return this.#itemid;
 }
 getquantity() {
 return this.#quantity;
@@ -29,12 +35,6 @@ return this.#finalprice;
 }
 getid() {
 return this.#id;
-}
-getorderid() {
-return this.#orderid;
-}
-getitemid() {
-return this.#itemid;
 }
 }
 export class OrderItemAdapter{
