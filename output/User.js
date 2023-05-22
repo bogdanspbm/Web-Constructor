@@ -1,37 +1,31 @@
 export class User {
-#name;
-#patronymic;
-#mail;
-#sex;
 #id;
+#name;
 #surname;
 #phone;
 #birthdate;
 #password;
+#sex;
+#patronymic;
+#mail;
 #role;
 constructor(json) {
-this.#name = json.name;
-this.#patronymic = json.patronymic;
-this.#mail = json.mail;
+this.#password = json.password;
+this.#sex = json.sex;
 this.#id = json.id;
+this.#name = json.name;
 this.#surname = json.surname;
 this.#phone = json.phone;
 this.#birthdate = json.birthdate;
-this.#password = json.password;
+this.#patronymic = json.patronymic;
+this.#mail = json.mail;
 this.#role = json.role;
-this.#sex = json.sex;
-}
-getname() {
-return this.#name;
-}
-getpatronymic() {
-return this.#patronymic;
-}
-getmail() {
-return this.#mail;
 }
 getid() {
 return this.#id;
+}
+getname() {
+return this.#name;
 }
 getsurname() {
 return this.#surname;
@@ -45,11 +39,17 @@ return this.#birthdate;
 getpassword() {
 return this.#password;
 }
-getrole() {
-return this.#role;
-}
 getsex() {
 return this.#sex;
+}
+getpatronymic() {
+return this.#patronymic;
+}
+getmail() {
+return this.#mail;
+}
+getrole() {
+return this.#role;
 }
 }
 export class UserAdapter{

@@ -86,6 +86,8 @@ export class Option extends DOM {
     getValue() {
         if (typeof this.#structure.getName === "function") {
             return this.#structure;
+        } else if (this.#structure.name) {
+            return this.#structure;
         } else {
             return this.element.textContent;
         }

@@ -1,11 +1,11 @@
 export class OrderItem {
+#id;
+#orderid;
+#itemid;
 #quantity;
 #defaultprice;
 #discount;
 #finalprice;
-#id;
-#orderid;
-#itemid;
 constructor(json) {
 this.#id = json.id;
 this.#orderid = json.orderid;

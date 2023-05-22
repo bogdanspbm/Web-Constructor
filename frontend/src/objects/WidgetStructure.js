@@ -10,12 +10,14 @@ export class WidgetStructure {
     collection;
     components;
     group;
+    vector;
 
     constructor(json) {
         this.components = {};
         this.name = EFileType.WIDGET["default_name"];
         this.uid = Math.random().toString().replace("0.", "");
         this.group = "";
+        this.vector = "";
 
         this.buildFromJSON(json);
     }
@@ -30,6 +32,10 @@ export class WidgetStructure {
 
         if (json.group) {
             this.group = document.groupsStructures[json.group];
+        }
+
+        if (json.vector) {
+            this.vector = document.vectorsStructures[json.vector];
         }
 
         const parent = this;
@@ -50,6 +56,7 @@ export class WidgetStructure {
             uid: this.uid,
             collection: this.collection ? this.collection.getUID() : "",
             components: this.components,
+            vector: this.vector && typeof this.vector.getUID === "function" ? this.vector.getUID() : "",
             group: this.group && typeof this.group.getUID === "function" ? this.group.getUID() : "",
         }
     }

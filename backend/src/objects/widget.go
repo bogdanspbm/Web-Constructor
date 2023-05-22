@@ -6,6 +6,8 @@ type Widget struct {
 	UID        string               `json:"uid" db:"uid"`
 	Name       string               `json:"name" db:"name"`
 	Collection string               `json:"collection" db:"collection"`
+	Vector     string               `json:"vector" db:"vector"`
+	Group      string               `json:"group" db:"group"`
 	Components map[string]Component `json:"components" db:"components"`
 }
 
