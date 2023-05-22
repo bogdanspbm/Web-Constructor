@@ -1,4 +1,7 @@
 {
+    "projectInfo": {
+        "name": "Untitled Project"
+    },
     "collections": {
         "598111511942373": {
             "uid": "598111511942373",
@@ -21,7 +24,10 @@
                 "07090572352604418": {
                     "uid": "07090572352604418",
                     "name": "Name",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -32,7 +38,10 @@
                 "520641114721742": {
                     "uid": "520641114721742",
                     "name": "Surname",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -43,7 +52,10 @@
                 "17880782236226045": {
                     "uid": "17880782236226045",
                     "name": "Patronymic",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -54,7 +66,10 @@
                 "6832512646928937": {
                     "uid": "6832512646928937",
                     "name": "Phone",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -65,7 +80,10 @@
                 "024992408831975732": {
                     "uid": "024992408831975732",
                     "name": "Birthdate",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -76,7 +94,10 @@
                 "024694404969310524": {
                     "uid": "024694404969310524",
                     "name": "Password",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -87,7 +108,10 @@
                 "5889236437870649": {
                     "uid": "5889236437870649",
                     "name": "Mail",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -152,7 +176,10 @@
                 "02168719579193512": {
                     "uid": "02168719579193512",
                     "name": "Name",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -177,7 +204,10 @@
                 "9477399424882902": {
                     "uid": "9477399424882902",
                     "name": "Description",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -192,7 +222,10 @@
                         "name": "Integer",
                         "color": "#36cfc9"
                     },
-                    "container": "Array",
+                    "container": {
+                        "name": "Array",
+                        "icon": "#f759ab"
+                    },
                     "tooltip": "",
                     "value": ""
                 },
@@ -203,7 +236,10 @@
                         "name": "Integer",
                         "color": "#36cfc9"
                     },
-                    "container": "Array",
+                    "container": {
+                        "name": "Array",
+                        "icon": "#f759ab"
+                    },
                     "tooltip": "",
                     "value": ""
                 }
@@ -264,7 +300,10 @@
                 "39570942873810955": {
                     "uid": "39570942873810955",
                     "name": "Target Date",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -357,7 +396,10 @@
                 "14374187798936044": {
                     "uid": "14374187798936044",
                     "name": "Creation Date",
-                    "type": "String",
+                    "type": {
+                        "name": "String",
+                        "color": "#f759ab"
+                    },
                     "container": {
                         "name": "Single",
                         "icon": "#36cfc9"
@@ -944,7 +986,9 @@
                         "text": "Save"
                     }
                 }
-            }
+            },
+            "vector": "",
+            "group": "12473527595828116"
         },
         "03660773268480888": {
             "name": "Item Page",
@@ -1166,7 +1210,9 @@
                         "text": "Save"
                     }
                 }
-            }
+            },
+            "vector": "",
+            "group": ""
         },
         "5056395436915411": {
             "name": "Payment Page",
@@ -1387,7 +1433,9 @@
                         "text": "Save"
                     }
                 }
-            }
+            },
+            "vector": "",
+            "group": ""
         },
         "9084835857287179": {
             "name": "Delivery Page",
@@ -1588,7 +1636,9 @@
                         "text": "ID"
                     }
                 }
-            }
+            },
+            "vector": "",
+            "group": ""
         },
         "821106199573082": {
             "name": "Order Page",
@@ -1942,7 +1992,9 @@
                         "text": "Save"
                     }
                 }
-            }
+            },
+            "vector": "",
+            "group": ""
         }
     },
     "scripts": {
@@ -2297,7 +2349,9 @@
                             "text": "Save"
                         }
                     }
-                }
+                },
+                "vector": "",
+                "group": "12473527595828116"
             }
         },
         "598111511942373": {
@@ -2329,7 +2383,10 @@
                     "07090572352604418": {
                         "uid": "07090572352604418",
                         "name": "Name",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2340,7 +2397,10 @@
                     "520641114721742": {
                         "uid": "520641114721742",
                         "name": "Surname",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2351,7 +2411,10 @@
                     "17880782236226045": {
                         "uid": "17880782236226045",
                         "name": "Patronymic",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2362,7 +2425,10 @@
                     "6832512646928937": {
                         "uid": "6832512646928937",
                         "name": "Phone",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2373,7 +2439,10 @@
                     "024992408831975732": {
                         "uid": "024992408831975732",
                         "name": "Birthdate",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2384,7 +2453,10 @@
                     "024694404969310524": {
                         "uid": "024694404969310524",
                         "name": "Password",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2395,7 +2467,10 @@
                     "5889236437870649": {
                         "uid": "5889236437870649",
                         "name": "Mail",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2469,7 +2544,10 @@
                     "02168719579193512": {
                         "uid": "02168719579193512",
                         "name": "Name",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2494,7 +2572,10 @@
                     "9477399424882902": {
                         "uid": "9477399424882902",
                         "name": "Description",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2509,7 +2590,10 @@
                             "name": "Integer",
                             "color": "#36cfc9"
                         },
-                        "container": "Array",
+                        "container": {
+                            "name": "Array",
+                            "icon": "#f759ab"
+                        },
                         "tooltip": "",
                         "value": ""
                     },
@@ -2520,7 +2604,10 @@
                             "name": "Integer",
                             "color": "#36cfc9"
                         },
-                        "container": "Array",
+                        "container": {
+                            "name": "Array",
+                            "icon": "#f759ab"
+                        },
                         "tooltip": "",
                         "value": ""
                     }
@@ -2761,7 +2848,9 @@
                             "text": "Save"
                         }
                     }
-                }
+                },
+                "vector": "",
+                "group": ""
             }
         },
         "7612071802940428": {
@@ -2836,7 +2925,10 @@
                     "39570942873810955": {
                         "uid": "39570942873810955",
                         "name": "Target Date",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -2938,7 +3030,10 @@
                     "14374187798936044": {
                         "uid": "14374187798936044",
                         "name": "Creation Date",
-                        "type": "String",
+                        "type": {
+                            "name": "String",
+                            "color": "#f759ab"
+                        },
                         "container": {
                             "name": "Single",
                             "icon": "#36cfc9"
@@ -3434,7 +3529,9 @@
                             "text": "Save"
                         }
                     }
-                }
+                },
+                "vector": "",
+                "group": ""
             }
         },
         "9084835857287179": {
@@ -3644,7 +3741,9 @@
                             "text": "ID"
                         }
                     }
-                }
+                },
+                "vector": "",
+                "group": ""
             }
         },
         "821106199573082": {
@@ -4007,8 +4106,41 @@
                             "text": "Save"
                         }
                     }
-                }
+                },
+                "vector": "",
+                "group": ""
             }
+        },
+        "029732656643205235": {
+            "uid": "029732656643205235",
+            "type": {
+                "name": "Vector",
+                "default_name": "New Vector",
+                "icon": "./../resources/icons/ic_vector_64x64.svg",
+                "color": "#EB529B"
+            },
+            "structure": {
+                "name": "User Icon",
+                "uid": "029732656643205235",
+                "tooltip": "",
+                "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgOTYgOTYwIDk2MCIgd2lkdGg9IjQ4Ij48cGF0aCBkPSJNNDgwIDU3NXEtNjYgMC0xMDgtNDJ0LTQyLTEwOHEwLTY2IDQyLTEwOHQxMDgtNDJxNjYgMCAxMDggNDJ0NDIgMTA4cTAgNjYtNDIgMTA4dC0xMDggNDJaTTE2MCA4OTZ2LTk0cTAtMzggMTktNjV0NDktNDFxNjctMzAgMTI4LjUtNDVUNDgwIDYzNnE2MiAwIDEyMyAxNS41dDEyNy45MjEgNDQuNjk0cTMxLjMwMSAxNC4xMjYgNTAuMTkgNDAuOTY2UTgwMCA3NjQgODAwIDgwMnY5NEgxNjBabTYwLTYwaDUyMHYtMzRxMC0xNi05LjUtMzAuNVQ3MDcgNzUwcS02NC0zMS0xMTctNDIuNVQ0ODAgNjk2cS01NyAwLTExMSAxMS41VDI1MiA3NTBxLTE0IDctMjMgMjEuNXQtOSAzMC41djM0Wm0yNjAtMzIxcTM5IDAgNjQuNS0yNS41VDU3MCA0MjVxMC0zOS0yNS41LTY0LjVUNDgwIDMzNXEtMzkgMC02NC41IDI1LjVUMzkwIDQyNXEwIDM5IDI1LjUgNjQuNVQ0ODAgNTE1Wm0wLTkwWm0wIDQxMVoiLz48L3N2Zz4="
+            }
+        }
+    },
+    "vectors": {
+        "029732656643205235": {
+            "name": "User Icon",
+            "uid": "029732656643205235",
+            "tooltip": "",
+            "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgOTYgOTYwIDk2MCIgd2lkdGg9IjQ4Ij48cGF0aCBkPSJNNDgwIDU3NXEtNjYgMC0xMDgtNDJ0LTQyLTEwOHEwLTY2IDQyLTEwOHQxMDgtNDJxNjYgMCAxMDggNDJ0NDIgMTA4cTAgNjYtNDIgMTA4dC0xMDggNDJaTTE2MCA4OTZ2LTk0cTAtMzggMTktNjV0NDktNDFxNjctMzAgMTI4LjUtNDVUNDgwIDYzNnE2MiAwIDEyMyAxNS41dDEyNy45MjEgNDQuNjk0cTMxLjMwMSAxNC4xMjYgNTAuMTkgNDAuOTY2UTgwMCA3NjQgODAwIDgwMnY5NEgxNjBabTYwLTYwaDUyMHYtMzRxMC0xNi05LjUtMzAuNVQ3MDcgNzUwcS02NC0zMS0xMTctNDIuNVQ0ODAgNjk2cS01NyAwLTExMSAxMS41VDI1MiA3NTBxLTE0IDctMjMgMjEuNXQtOSAzMC41djM0Wm0yNjAtMzIxcTM5IDAgNjQuNS0yNS41VDU3MCA0MjVxMC0zOS0yNS41LTY0LjVUNDgwIDMzNXEtMzkgMC02NC41IDI1LjVUMzkwIDQyNXEwIDM5IDI1LjUgNjQuNVQ0ODAgNTE1Wm0wLTkwWm0wIDQxMVoiLz48L3N2Zz4="
+        }
+    },
+    "groups": {
+        "12473527595828116": {
+            "name": "Users",
+            "uid": "12473527595828116",
+            "tooltip": "Default group to combine pages into single tab. Also can add Icon",
+            "vector": "029732656643205235"
         }
     }
 }
