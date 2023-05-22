@@ -1,3 +1,3 @@
-import {httpGet} from "../library/RequestLibrary.js";
+import * as library from "../library/RequestLibrary.js";
 
-console.log(httpGet("http://127.0.0.1:9080/items/1"));
+console.log(library.httpGet("http://127.0.0.1:9080/items/1"));
