@@ -1,21 +1,15 @@
 export class Delivery {
+#orderid;
 #addressid;
 #targetdate;
 #typeid;
 #id;
-#orderid;
 constructor(json) {
-this.#id = json.id;
-this.#orderid = json.orderid;
 this.#addressid = json.addressid;
 this.#targetdate = json.targetdate;
 this.#typeid = json.typeid;
-}
-getorderid() {
-return this.#orderid;
-}
-getaddressid() {
-return this.#addressid;
+this.#id = json.id;
+this.#orderid = json.orderid;
 }
 gettargetdate() {
 return this.#targetdate;
@@ -25,6 +19,12 @@ return this.#typeid;
 }
 getid() {
 return this.#id;
+}
+getorderid() {
+return this.#orderid;
+}
+getaddressid() {
+return this.#addressid;
 }
 }
 export class DeliveryAdapter{

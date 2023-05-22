@@ -23,8 +23,13 @@
 
 .project-name {
     margin-left: auto;
-    margin-right: auto;
     width: 30vw;
+}
+
+.project-settings {
+    width: 50px;
+    padding-left:  16px;
+    margin-right: auto;
 }
 
 .input-header {

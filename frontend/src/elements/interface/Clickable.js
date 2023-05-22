@@ -34,7 +34,7 @@ export class Clickable extends DOM {
         const parent = this;
         this.element.addEventListener(
             "click",
-            function () {
+            function (event) {
                 if (parent.clickAction === undefined) {
                     return;
                 }
@@ -42,7 +42,7 @@ export class Clickable extends DOM {
                     return;
                 }
 
-                parent.clickAction();
+                parent.clickAction(event);
             },
             false
         );

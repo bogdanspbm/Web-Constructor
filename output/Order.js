@@ -1,4 +1,5 @@
 export class Order {
+#id;
 #displaynumber;
 #userid;
 #statusid;
@@ -6,16 +7,15 @@ export class Order {
 #paymentid;
 #creationdate;
 #modificationdate;
-#id;
 constructor(json) {
+this.#userid = json.userid;
+this.#statusid = json.statusid;
+this.#cancelreasonid = json.cancelreasonid;
 this.#paymentid = json.paymentid;
 this.#creationdate = json.creationdate;
 this.#modificationdate = json.modificationdate;
 this.#id = json.id;
 this.#displaynumber = json.displaynumber;
-this.#userid = json.userid;
-this.#statusid = json.statusid;
-this.#cancelreasonid = json.cancelreasonid;
 }
 getuserid() {
 return this.#userid;

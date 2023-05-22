@@ -4,6 +4,8 @@ import {WidgetStructure} from "../objects/WidgetStructure.js";
 import {FileSystemPage} from "../pages/implementation/filesystem/FileSystemPage.js";
 import {ScriptStructure} from "../objects/scripts/ScriptStructure.js";
 import {EPageType} from "../enums/EPageType.js";
+import {VectorStructure} from "../objects/VectorStructure.js";
+import {GroupStructure} from "../objects/GroupStructure.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
@@ -41,7 +43,9 @@ export function exportProject() {
         projectInfo: document.projectInfo,
         collections: document.collections,
         widgets: document.widgets,
-        scripts: document.scriptsStructures
+        scripts: document.scriptsStructures,
+        vectors: document.vectorsStructures,
+        groups: document.groupsStructures,
     }
 
     const data = JSON.stringify(json, null, 4);
@@ -70,7 +74,9 @@ export function saveProject() {
         collections: document.collections,
         widgets: document.widgets,
         scripts: document.scriptsStructures,
-        files: document.files
+        files: document.files,
+        vectors: document.vectorsStructures,
+        groups: document.groupsStructures,
     }
 
     const data = JSON.stringify(json, null, 4);
@@ -108,6 +114,8 @@ export function loadProject() {
     uploadFunction().then(function (contents) {
         const json = JSON.parse(contents);
         generateProjectFromJSON(json);
+        generateVectorsFromJSON(json);
+        generateGroupsFromJSON(json);
         generateCollectionsFromJSON(json);
         generateWidgetsFromJSON(json);
         generateScriptsFromJSON(json);
@@ -121,7 +129,6 @@ export function loadProject() {
 }
 
 export function generateProjectFromJSON(json) {
-    console.log(json);
     document.loadProjectFromJSON(json.projectInfo);
 }
 
@@ -150,6 +157,35 @@ export function generateWidgetsFromJSON(json) {
         newWidgets[key] = new WidgetStructure(value);
     });
     document.widgets = newWidgets;
+}
+
+export function generateGroupsFromJSON(json) {
+    const newGroups = {};
+
+    if (!json.groups) {
+        return;
+    }
+
+    Object.entries(json.groups).forEach(([key, value]) => {
+        newGroups[key] = new GroupStructure(value);
+    });
+    document.groupsStructures = newGroups;
+}
+
+export function generateVectorsFromJSON(json) {
+    const newVectors = {};
+
+    if (!json.vectors) {
+        return;
+    }
+
+    Object.entries(json.vectors).forEach(([key, value]) => {
+        const vectorStructure = new VectorStructure("");
+        vectorStructure.buildFromJSON(value);
+        newVectors[key] = vectorStructure;
+    });
+
+    document.vectorsStructures = newVectors;
 }
 
 export function getComplexField(structure, field) {

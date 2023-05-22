@@ -3,6 +3,7 @@ import {DirectoryFile} from "../objects/files/implementation/DirectoryFile.js";
 import {CollectionFile} from "../objects/files/implementation/CollectionFile.js";
 import {EFileType} from "../enums/EFileType.js";
 import {ScriptFile} from "../objects/files/implementation/ScriptFile.js";
+import {VectorFile} from "../objects/files/implementation/VectorFile.js";
 
 export function bindFileListener() {
     document.files = {};
@@ -20,15 +21,25 @@ export function bindFileListener() {
             return document.scriptsStructures[uid];
         }
 
+        if (uid in document.vectorsStructures) {
+            return document.vectorsStructures[uid];
+        }
+
+        if (uid in document.groupsStructures) {
+            return document.groupsStructures[uid];
+        }
+
         return undefined;
     }
 
 
     document.createFile = function (type) {
-        const file = createFileFromType(type);
-        document.files[file.getUID()] = file;
-        notifyFileCreateListener(file);
-        return file;
+        const callback = (file) => {
+            document.files[file.getUID()] = file;
+            notifyFileCreateListener(file);
+        }
+
+        return createFileFromType(type, callback);
     }
 
     document.updateFile = function (file) {
@@ -64,26 +75,76 @@ function notifyFileUpdateListener(file) {
 
 /**
  * @param {EFileType} fileType
+ * @param {function} callback
  * @returns {FileStructure}
  */
-function createFileFromType(fileType) {
+function createFileFromType(fileType, callback) {
     switch (fileType) {
         case EFileType.WIDGET: {
             const widget = document.createWidget();
-            return new WidgetFile(widget);
+            const file = new WidgetFile(widget);
+            callback(file);
+            return file;
         }
         case EFileType.DIRECTORY: {
-            return new DirectoryFile();
+            const file = new DirectoryFile();
+            callback(file);
+            return file;
         }
         case EFileType.COLLECTION: {
             const collection = document.createCollection();
-            return new CollectionFile(collection);
+            const file = new CollectionFile(collection);
+            callback(file);
+            return file;
+        }
+        case EFileType.VECTOR: {
+            createVectorFile(callback);
+            return undefined;
         }
 
         case EFileType.SCRIPT: {
             const script = document.createScript();
-            return new ScriptFile(script);
+            const file = new ScriptFile(script)
+            callback(file);
+            return file;
         }
 
     }
+}
+
+function createVectorFile(callback) {
+    const uploadFunction = function () {
+        return new Promise(function (resolve, reject) {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+
+            fileInput.addEventListener('change', function () {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const base64String = event.target.result;
+                    resolve(base64String); // Resolve with the file contents as a string
+                };
+
+                reader.onerror = function (event) {
+                    reject(event.target.error); // Reject with the error object
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            fileInput.click();
+        });
+    };
+
+    document.forceDeletePopup();
+
+    uploadFunction().then(function (base64String) {
+        const vector = document.createVector(base64String);
+        const file = new VectorFile(vector);
+        callback(file);
+    }).catch(function (error) {
+
+    });
 }

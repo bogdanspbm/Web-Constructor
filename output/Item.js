@@ -1,10 +1,10 @@
 export class Item {
-#tags;
-#id;
-#name;
 #price;
 #description;
 #images;
+#tags;
+#id;
+#name;
 constructor(json) {
 this.#id = json.id;
 this.#name = json.name;
