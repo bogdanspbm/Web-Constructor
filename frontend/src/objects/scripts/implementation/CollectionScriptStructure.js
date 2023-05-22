@@ -11,22 +11,20 @@ export class CollectionScriptStructure extends ScriptStructure {
     generateEmptyBody(collectionName) {
         const name = toPascalCase(collectionName);
 
-        return "export class " + name + "Adapter {\n\n" +
-            "    getRows() {\n" +
-            "       //  Implement me! \n" +
-            "    }\n" +
+        return "export function getRows() {\n" +
+            "   //  Implement me! \n" +
+            "}\n" +
             "\n" +
-            "    getRowByID(id) {\n" +
-            "       //  Implement me! \n" +
-            "    }\n" +
+            "export function getRowByID(id) {\n" +
+            "   //  Implement me! \n" +
+            "}\n" +
             "\n" +
-            "    updateRow(item) {\n" +
-            "       //  Implement me! \n" +
-            "    }\n" +
+            "export function updateRow(item) {\n" +
+            "   //  Implement me! \n" +
+            "}\n" +
             "\n" +
-            "    createRow(item) {\n" +
-            "       //  Implement me! \n" +
-            "    }\n\n" +
+            "export function createRow(item) {\n" +
+            "   //  Implement me! \n" +
             "}";
     }
 }

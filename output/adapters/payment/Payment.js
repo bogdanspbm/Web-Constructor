@@ -1,3 +1,4 @@
+import * as library from "./../../library/RequestLibrary.js"
 export class Payment {
 #id;
 #value;
@@ -11,12 +12,6 @@ this.#typeID = json.typeID;
 this.#statusID = json.statusID;
 this.#creationDate = json.creationDate;
 }
-getStatusID() {
-return this.#statusID;
-}
-getCreationDate() {
-return this.#creationDate;
-}
 getID() {
 return this.#id;
 }
@@ -26,10 +21,29 @@ return this.#value;
 getTypeID() {
 return this.#typeID;
 }
+getStatusID() {
+return this.#statusID;
 }
-export class PaymentAdapter{
-getPayments(){}
-getPayment(id){}
-updatePayment(payment){}
-createPayment(payment){}
+getCreationDate() {
+return this.#creationDate;
+}
+}
+export class PaymentAdapter {
+
+    getPayments() {
+       //  Implement me! 
+    }
+
+    getPayment(id) {
+       //  Implement me! 
+    }
+
+    updatePayment(item) {
+       //  Implement me! 
+    }
+
+    createPayment(item) {
+       //  Implement me! 
+    }
+
 }

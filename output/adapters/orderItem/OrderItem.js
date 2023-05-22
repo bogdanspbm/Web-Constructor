@@ -1,22 +1,20 @@
+import * as library from "./../../library/RequestLibrary.js"
 export class OrderItem {
+#defaultPrice;
 #discount;
 #finalPrice;
 #id;
 #orderID;
 #itemID;
 #quantity;
-#defaultPrice;
 constructor(json) {
-this.#finalPrice = json.finalPrice;
-this.#id = json.id;
 this.#orderID = json.orderID;
 this.#itemID = json.itemID;
 this.#quantity = json.quantity;
 this.#defaultPrice = json.defaultPrice;
 this.#discount = json.discount;
-}
-getDefaultPrice() {
-return this.#defaultPrice;
+this.#finalPrice = json.finalPrice;
+this.#id = json.id;
 }
 getDiscount() {
 return this.#discount;
@@ -36,10 +34,26 @@ return this.#itemID;
 getQuantity() {
 return this.#quantity;
 }
+getDefaultPrice() {
+return this.#defaultPrice;
 }
-export class OrderItemAdapter{
-getOrderItems(){}
-getOrderItem(id){}
-updateOrderItem(orderItem){}
-createOrderItem(orderItem){}
+}
+export class OrderItemAdapter {
+
+    getOrderItems() {
+       //  Implement me! 
+    }
+
+    getOrderItem(id) {
+       //  Implement me! 
+    }
+
+    updateOrderItem(item) {
+       //  Implement me! 
+    }
+
+    createOrderItem(item) {
+       //  Implement me! 
+    }
+
 }

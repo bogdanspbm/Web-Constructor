@@ -1,3 +1,4 @@
+import * as library from "./../../library/RequestLibrary.js"
 export class Item {
 #id;
 #name;
@@ -6,12 +7,15 @@ export class Item {
 #images;
 #tags;
 constructor(json) {
-this.#id = json.id;
-this.#name = json.name;
 this.#price = json.price;
 this.#description = json.description;
 this.#images = json.images;
 this.#tags = json.tags;
+this.#id = json.id;
+this.#name = json.name;
+}
+getID() {
+return this.#id;
 }
 getName() {
 return this.#name;
@@ -28,13 +32,19 @@ return this.#images;
 getTags() {
 return this.#tags;
 }
-getID() {
-return this.#id;
 }
+export function getRows() {
+   //  Implement me! 
 }
-export class ItemAdapter{
-getItems(){}
-getItem(id){}
-updateItem(item){}
-createItem(item){}
+
+export function getRowByID(id) {
+   //  Implement me! 
+}
+
+export function updateRow(item) {
+   //  Implement me! 
+}
+
+export function createRow(item) {
+   //  Implement me! 
 }
