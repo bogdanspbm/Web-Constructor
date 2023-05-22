@@ -30,6 +30,10 @@ func ToCamelCase(text string) string {
 	// Remove any special characters or punctuation marks
 	//text = removeSpecialCharacters(text)
 
+	if text == "" {
+		return ""
+	}
+
 	// Split the text into individual words
 	words := strings.Fields(text)
 

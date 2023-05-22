@@ -31,15 +31,26 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	navGenerator := generator.NewNavigationGenerator(exportData)
+	pageData := generator.NewNavigationGenerator(exportData)
 
 	for _, v := range exportData.Widgets {
 		fileDir := utils.ToCamelCase(v.Name)
 		fileName := fmt.Sprintf("%v.html", utils.ToPascalCase(v.Name))
+		jsFileName := fmt.Sprintf("%v.js", utils.ToPascalCase(v.Name))
+
 		cardGenerator := generator.NewCardGenerator(v)
-		utils.StringToFile(fmt.Sprintf("output/pages/%v/Card%v", fileDir, fileName), cardGenerator.GenerateCardHTML(navGenerator))
+		utils.StringToFile(fmt.Sprintf("output/pages/%v/Card%v", fileDir, fileName), cardGenerator.GenerateCardHTML(pageData))
+
 		listGenerator := generator.NewListGenerator(v)
-		utils.StringToFile(fmt.Sprintf("output/pages/%v/List%v", fileDir, fileName), listGenerator.GenerateListHTML(navGenerator))
+		utils.StringToFile(fmt.Sprintf("output/pages/%v/List%v", fileDir, fileName), listGenerator.GenerateListHTML(pageData))
+
+		jsData, err := listGenerator.GenerateListJS(pageData)
+
+		if err != nil {
+			continue
+		}
+
+		utils.StringToFile(fmt.Sprintf("output/pages/%v/List%v", fileDir, jsFileName), jsData)
 	}
 
 	for _, v := range exportData.Collections {

@@ -12,19 +12,19 @@ export class CollectionScriptStructure extends ScriptStructure {
         const name = toPascalCase(collectionName);
 
         return "export class " + name + "Adapter {\n\n" +
-            "    get" + name + "s() {\n" +
+            "    getRows() {\n" +
             "       //  Implement me! \n" +
             "    }\n" +
             "\n" +
-            "    get" + name + "(id) {\n" +
+            "    getRowByID(id) {\n" +
             "       //  Implement me! \n" +
             "    }\n" +
             "\n" +
-            "    update" + name + "(item) {\n" +
+            "    updateRow(item) {\n" +
             "       //  Implement me! \n" +
             "    }\n" +
             "\n" +
-            "    create" + name + "(item) {\n" +
+            "    createRow(item) {\n" +
             "       //  Implement me! \n" +
             "    }\n\n" +
             "}";

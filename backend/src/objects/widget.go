@@ -23,7 +23,7 @@ func (widget *Widget) GetVector(vectors map[string]Vector) Vector {
 
 func (widget *Widget) GetCollection(collections map[string]Collection) Collection {
 	for _, v := range collections {
-		if v.UID == widget.Vector {
+		if v.UID == widget.Collection {
 			return v
 		}
 	}

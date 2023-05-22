@@ -2,6 +2,8 @@ package generator
 
 import (
 	"../objects"
+	"../utils"
+	"errors"
 	"fmt"
 	"strings"
 )
@@ -11,7 +13,7 @@ type ListGenerator struct {
 }
 
 func importAdapter(name string) (output string) {
-	output = fmt.Sprintf("<link href='%v' rel='stylesheet' type='text/css'>\n", name)
+	output = fmt.Sprintf("import * as %v from \"./../../adapters/%v/%v.js\";\n", utils.ToCamelCase(name), utils.ToCamelCase(name), utils.ToPascalCase(name))
 	return output
 }
 
@@ -46,9 +48,15 @@ func (generator *ListGenerator) GenerateListHTML(data *PageGenerator) (output st
 	return builder.String()
 }
 
-func (generator *ListGenerator) GenerateListJS(data *PageGenerator) (output string) {
+func (generator *ListGenerator) GenerateListJS(data *PageGenerator) (output string, err error) {
 	collection := generator.Widget.GetCollection(data.Data.Collections)
+
+	if collection.Name == "" {
+		return "", errors.New("empty collection")
+	}
+
 	builder := strings.Builder{}
-	builder.WriteString("")
-	return builder.String()
+	builder.WriteString(importAdapter(collection.Name))
+	builder.WriteString(fmt.Sprintf("const data = %v.getRows();", utils.ToCamelCase(collection.Name)))
+	return builder.String(), nil
 }
