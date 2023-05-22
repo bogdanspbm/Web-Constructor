@@ -2,10 +2,17 @@ package utils
 
 import (
 	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
 func StringToFile(path string, str string) error {
+	dir := filepath.Dir(path)
+	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
+		return err
+	}
+
 	return ioutil.WriteFile(path, []byte(str), 0644)
 }
 
@@ -21,7 +28,7 @@ func ToPascalCase(input string) string {
 
 func ToCamelCase(text string) string {
 	// Remove any special characters or punctuation marks
-	text = removeSpecialCharacters(text)
+	//text = removeSpecialCharacters(text)
 
 	// Split the text into individual words
 	words := strings.Fields(text)

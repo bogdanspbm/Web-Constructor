@@ -19,15 +19,15 @@ func importStyle(name string) (output string) {
 	return output
 }
 
-func (generator *CardGenerator) GenerateCardHTML(navigation *NavigationGenerator) (output string) {
+func (generator *CardGenerator) GenerateCardHTML(navigation *PageGenerator) (output string) {
 
 	gridGenerator := NewWidgetGenerator(generator.Widget)
 
 	builder := strings.Builder{}
 	builder.WriteString("<!DOCTYPE html>\n")
 	builder.WriteString("<html lang=\"en\">\n")
-	builder.WriteString(importStyle("styles/default.css"))
-	builder.WriteString(importStyle("styles/card.css"))
+	builder.WriteString(importStyle("./../../styles/default.css"))
+	builder.WriteString(importStyle("./../../styles/card.css"))
 	builder.WriteString("<head>\n")
 	builder.WriteString("</head>\n")
 	builder.WriteString("<body>\n")

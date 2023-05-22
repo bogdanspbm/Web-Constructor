@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.list-container {
+    width: calc(100% - 128px);
+    height: calc(100% - 128px);
+    display: grid;
+    place-items: center;
+    padding: 64px;
+    flex-grow: 1;
+}
+
+.list-holder {
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 15px;
+
+}

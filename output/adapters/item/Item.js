@@ -1,35 +1,35 @@
 export class Item {
+#tags;
+#id;
 #name;
 #price;
 #description;
 #images;
-#tags;
-#id;
 constructor(json) {
-this.#images = json.images;
-this.#tags = json.tags;
-this.#id = json.id;
 this.#name = json.name;
 this.#price = json.price;
 this.#description = json.description;
+this.#images = json.images;
+this.#tags = json.tags;
+this.#id = json.id;
 }
-getimages() {
-return this.#images;
-}
-gettags() {
-return this.#tags;
-}
-getid() {
-return this.#id;
-}
-getname() {
+getName() {
 return this.#name;
 }
-getprice() {
+getPrice() {
 return this.#price;
 }
-getdescription() {
+getDescription() {
 return this.#description;
+}
+getImages() {
+return this.#images;
+}
+getTags() {
+return this.#tags;
+}
+getID() {
+return this.#id;
 }
 }
 export class ItemAdapter{

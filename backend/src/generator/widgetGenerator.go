@@ -25,3 +25,8 @@ func (generator *WidgetGenerator) GenerateGrid() string {
 	builder.WriteString("</div>\n")
 	return builder.String()
 }
+
+func (generator *WidgetGenerator) GenerateList() string {
+	builder := strings.Builder{}
+	return builder.String()
+}

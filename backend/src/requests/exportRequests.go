@@ -31,16 +31,20 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	navGenerator := generator.NewNavigationGenerator(exportData.Collections, exportData.Widgets, exportData.Vectors, exportData.Groups)
+	navGenerator := generator.NewNavigationGenerator(exportData)
 
 	for _, v := range exportData.Widgets {
-		fileName := fmt.Sprintf("output/%v.html", utils.ToPascalCase(v.Name))
+		fileDir := utils.ToCamelCase(v.Name)
+		fileName := fmt.Sprintf("%v.html", utils.ToPascalCase(v.Name))
 		cardGenerator := generator.NewCardGenerator(v)
-		utils.StringToFile(fileName, cardGenerator.GenerateCardHTML(navGenerator))
+		utils.StringToFile(fmt.Sprintf("output/pages/%v/Card%v", fileDir, fileName), cardGenerator.GenerateCardHTML(navGenerator))
+		listGenerator := generator.NewListGenerator(v)
+		utils.StringToFile(fmt.Sprintf("output/pages/%v/List%v", fileDir, fileName), listGenerator.GenerateListHTML(navGenerator))
 	}
 
 	for _, v := range exportData.Collections {
-		fileName := fmt.Sprintf("output/%v.js", utils.ToPascalCase(v.Name))
+		fileDir := utils.ToCamelCase(v.Name)
+		fileName := fmt.Sprintf("%v.js", utils.ToPascalCase(v.Name))
 		collectionGenerator := generator.NewCollectionGenerator(v)
 		collectionAdapterGenerator := generator.NewAdapterGenerator(v)
 
@@ -48,7 +52,7 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		builder.WriteString(collectionGenerator.GenerateCollection())
 		builder.WriteString(collectionAdapterGenerator.GenerateAdapter())
 
-		utils.StringToFile(fileName, builder.String())
+		utils.StringToFile(fmt.Sprintf("output/adapters/%v/%v", fileDir, fileName), builder.String())
 	}
 
 	http.Error(w, "{\"status\":\"Success\"}", http.StatusOK)
