@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"../adapter"
+	"backend/src/adapter"
 	"strings"
 )
 

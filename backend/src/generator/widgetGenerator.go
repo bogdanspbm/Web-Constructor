@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"../objects"
+	"backend/src/objects"
 	"fmt"
 	"strings"
 )

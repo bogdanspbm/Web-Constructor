@@ -1,9 +1,9 @@
 package requests
 
 import (
-	"../adapter"
-	"../generator"
-	"../utils"
+	"backend/src/adapter"
+	"backend/src/generator"
+	"backend/src/utils"
 	"bytes"
 	"encoding/json"
 	"fmt"

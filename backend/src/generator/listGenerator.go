@@ -1,8 +1,8 @@
 package generator
 
 import (
-	"../objects"
-	"../utils"
+	"backend/src/objects"
+	"backend/src/utils"
 	"errors"
 	"fmt"
 	"strings"
