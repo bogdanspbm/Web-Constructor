@@ -38,12 +38,13 @@ func (generator *ListGenerator) GenerateListHTML(data *PageGenerator) (output st
 	builder.WriteString(data.GenerateNavigation())
 	builder.WriteString("<div class=\"list-container\">\n")
 	builder.WriteString("<div class=\"list-holder\">\n")
-	builder.WriteString(widgetGenerator.GenerateList())
+	builder.WriteString(widgetGenerator.GenerateList(data.Data.Collections))
 	builder.WriteString("</div>\n")
 	builder.WriteString("</div>\n")
 	builder.WriteString("</div>\n")
 	builder.WriteString("</body>\n")
 	builder.WriteString("</html>\n")
+	builder.WriteString(fmt.Sprintf("<script type='module' src='./List%v.js'></script>", utils.ToPascalCase(generator.Widget.Name)))
 
 	return builder.String()
 }
@@ -57,6 +58,19 @@ func (generator *ListGenerator) GenerateListJS(data *PageGenerator) (output stri
 
 	builder := strings.Builder{}
 	builder.WriteString(importAdapter(collection.Name))
-	builder.WriteString(fmt.Sprintf("const data = %v.getRows();", utils.ToCamelCase(collection.Name)))
+	builder.WriteString("const container = document.getElementById('table-container');\n")
+	builder.WriteString(fmt.Sprintf("const data = %v.getRows();\n\n", utils.ToCamelCase(collection.Name)))
+	builder.WriteString("data.forEach(rowData => {\n")
+	builder.WriteString("const rowDiv = document.createElement('div');\n")
+	builder.WriteString("rowDiv.setAttribute(\"class\", \"table-row\");\n")
+	builder.WriteString("Object.keys(rowData).forEach(key => {\n")
+	builder.WriteString("const rowCol = document.createElement('div');\n")
+	builder.WriteString("rowCol.setAttribute(\"class\", \"table-row-column\");\n")
+	builder.WriteString("const value = rowData[key];\n")
+	builder.WriteString("rowCol.textContent = value;\n")
+	builder.WriteString("rowDiv.append(rowCol);\n")
+	builder.WriteString("});\n")
+	builder.WriteString("container.append(rowDiv);\n")
+	builder.WriteString("});\n")
 	return builder.String(), nil
 }

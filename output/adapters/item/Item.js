@@ -7,12 +7,18 @@ export class Item {
 #images;
 #tags;
 constructor(json) {
+this.#name = json.name;
 this.#price = json.price;
 this.#description = json.description;
 this.#images = json.images;
 this.#tags = json.tags;
 this.#id = json.id;
-this.#name = json.name;
+}
+getImages() {
+return this.#images;
+}
+getTags() {
+return this.#tags;
 }
 getID() {
 return this.#id;
@@ -26,19 +32,17 @@ return this.#price;
 getDescription() {
 return this.#description;
 }
-getImages() {
-return this.#images;
-}
-getTags() {
-return this.#tags;
-}
 }
 export function getRows() {
-   //  Implement me! 
+   const response = library.httpGet("http://127.0.0.1:9080/items/");
+   const json = JSON.parse(response);
+   return json.items;
 }
 
 export function getRowByID(id) {
-   //  Implement me! 
+   const response = library.httpGet("http://127.0.0.1:9080/items/" + id);
+   const json = JSON.parse(response);
+   return json.item;
 }
 
 export function updateRow(item) {

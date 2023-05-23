@@ -1,81 +1,74 @@
+import * as library from "./../../library/RequestLibrary.js"
 export class User {
-    #id;
-    #name;
-    #phone;
-    #birthdate;
-    #sex;
-    #surname;
-    #patronymic;
-    #password;
-    #mail;
-    #role;
-
-    constructor(json) {
-        this.#patronymic = json.patronymic;
-        this.#password = json.password;
-        this.#mail = json.mail;
-        this.#role = json.role;
-        this.#sex = json.sex;
-        this.#surname = json.surname;
-        this.#name = json.name;
-        this.#phone = json.phone;
-        this.#birthdate = json.birthdate;
-        this.#id = json.id;
-    }
-
-    getID() {
-        return this.#id;
-    }
-
-    getName() {
-        return this.#name;
-    }
-
-    getPhone() {
-        return this.#phone;
-    }
-
-    getBirthdate() {
-        return this.#birthdate;
-    }
-
-    getRole() {
-        return this.#role;
-    }
-
-    getSex() {
-        return this.#sex;
-    }
-
-    getSurname() {
-        return this.#surname;
-    }
-
-    getPatronymic() {
-        return this.#patronymic;
-    }
-
-    getPassword() {
-        return this.#password;
-    }
-
-    getMail() {
-        return this.#mail;
-    }
+#patronymic;
+#phone;
+#password;
+#role;
+#name;
+#surname;
+#mail;
+#sex;
+#id;
+#birthdate;
+constructor(json) {
+this.#surname = json.surname;
+this.#patronymic = json.patronymic;
+this.#phone = json.phone;
+this.#password = json.password;
+this.#role = json.role;
+this.#name = json.name;
+this.#birthdate = json.birthdate;
+this.#mail = json.mail;
+this.#sex = json.sex;
+this.#id = json.id;
 }
-
+getSex() {
+return this.#sex;
+}
+getID() {
+return this.#id;
+}
+getBirthdate() {
+return this.#birthdate;
+}
+getMail() {
+return this.#mail;
+}
+getPhone() {
+return this.#phone;
+}
+getPassword() {
+return this.#password;
+}
+getRole() {
+return this.#role;
+}
+getName() {
+return this.#name;
+}
+getSurname() {
+return this.#surname;
+}
+getPatronymic() {
+return this.#patronymic;
+}
+}
 export function getRows() {
-    //  Implement me!
+   const response = library.httpGet("http://127.0.0.1:9080/users/");
+   const json = JSON.parse(response);
+   return json.users;
 }
 
 export function getRowByID(id) {
-    //  Implement me!
+   const response = library.httpGet("http://127.0.0.1:9080/users/" + id);
+   const json = JSON.parse(response);
+   return json.user;
 }
 
 export function updateRow(item) {
-    //  Implement me!
+   //  Implement me! 
 }
 
 export function createRow(item) {
-    //  Implement me!
+   //  Implement me! 
 }
