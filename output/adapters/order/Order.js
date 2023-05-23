@@ -1,22 +1,31 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class Order {
-#cancelReasonID;
-#paymentID;
-#creationDate;
-#modificationDate;
 #id;
 #displayNumber;
 #userID;
 #statusID;
+#cancelReasonID;
+#paymentID;
+#creationDate;
+#modificationDate;
 constructor(json) {
-this.#statusID = json.statusID;
-this.#cancelReasonID = json.cancelReasonID;
-this.#paymentID = json.paymentID;
-this.#creationDate = json.creationDate;
 this.#modificationDate = json.modificationDate;
 this.#id = json.id;
 this.#displayNumber = json.displayNumber;
 this.#userID = json.userID;
+this.#statusID = json.statusID;
+this.#cancelReasonID = json.cancelReasonID;
+this.#paymentID = json.paymentID;
+this.#creationDate = json.creationDate;
+}
+getPaymentID() {
+return this.#paymentID;
+}
+getCreationDate() {
+return this.#creationDate;
+}
+getModificationDate() {
+return this.#modificationDate;
 }
 getID() {
 return this.#id;
@@ -32,15 +41,6 @@ return this.#statusID;
 }
 getCancelReasonID() {
 return this.#cancelReasonID;
-}
-getPaymentID() {
-return this.#paymentID;
-}
-getCreationDate() {
-return this.#creationDate;
-}
-getModificationDate() {
-return this.#modificationDate;
 }
 }
 export function getRows() {

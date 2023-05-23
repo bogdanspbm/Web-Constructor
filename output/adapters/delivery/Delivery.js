@@ -1,10 +1,10 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class Delivery {
+#typeID;
 #id;
 #orderID;
 #addressID;
 #targetDate;
-#typeID;
 constructor(json) {
 this.#id = json.id;
 this.#orderID = json.orderID;

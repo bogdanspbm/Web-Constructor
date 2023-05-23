@@ -83,6 +83,14 @@
     flex: 0.25;
 }
 
+.table-header-control-column{
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+    flex-direction: row;
+    flex: 0.25;
+}
+
 .table-row {
     background: #FAFAFA;
     border-radius: 10px;
