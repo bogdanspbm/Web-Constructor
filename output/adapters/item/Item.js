@@ -1,21 +1,18 @@
-import * as library from "./../../library/RequestLibrary.js"
+import * as library from "../../library/RequestLibrary.js"
 export class Item {
-#price;
-#description;
-#images;
 #tags;
 #id;
 #name;
+#price;
+#description;
+#images;
 constructor(json) {
-this.#id = json.id;
-this.#name = json.name;
-this.#price = json.price;
 this.#description = json.description;
 this.#images = json.images;
 this.#tags = json.tags;
-}
-getID() {
-return this.#id;
+this.#id = json.id;
+this.#name = json.name;
+this.#price = json.price;
 }
 getName() {
 return this.#name;
@@ -31,6 +28,9 @@ return this.#images;
 }
 getTags() {
 return this.#tags;
+}
+getID() {
+return this.#id;
 }
 }
 export function getRows() {

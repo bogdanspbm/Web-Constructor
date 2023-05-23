@@ -1,20 +1,20 @@
-import * as library from "./../../library/RequestLibrary.js"
+import * as library from "../../library/RequestLibrary.js"
 export class OrderItem {
-#orderID;
 #itemID;
 #quantity;
 #defaultPrice;
 #discount;
 #finalPrice;
 #id;
+#orderID;
 constructor(json) {
+this.#itemID = json.itemID;
+this.#quantity = json.quantity;
+this.#defaultPrice = json.defaultPrice;
 this.#discount = json.discount;
 this.#finalPrice = json.finalPrice;
 this.#id = json.id;
 this.#orderID = json.orderID;
-this.#itemID = json.itemID;
-this.#quantity = json.quantity;
-this.#defaultPrice = json.defaultPrice;
 }
 getID() {
 return this.#id;

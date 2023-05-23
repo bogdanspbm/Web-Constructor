@@ -150,3 +150,67 @@ func CreateZipFile(output string, path string) error {
 
 	return nil
 }
+
+func CopyDir(sourceDir, destinationDir string) error {
+	// Create the destination directory if it doesn't exist
+	if err := os.MkdirAll(destinationDir, 0755); err != nil {
+		return err
+	}
+
+	// Open the source directory
+	dir, err := os.Open(sourceDir)
+	if err != nil {
+		return err
+	}
+	defer dir.Close()
+
+	// Read the contents of the source directory
+	fileInfos, err := dir.Readdir(-1)
+	if err != nil {
+		return err
+	}
+
+	// Iterate over the files and directories in the source directory
+	for _, fileInfo := range fileInfos {
+		sourcePath := filepath.Join(sourceDir, fileInfo.Name())
+		destinationPath := filepath.Join(destinationDir, fileInfo.Name())
+
+		// If the source is a directory, recursively copy its contents
+		if fileInfo.IsDir() {
+			if err := CopyDir(sourcePath, destinationPath); err != nil {
+				return err
+			}
+		} else {
+			// If the source is a file, copy it to the destination directory
+			if err := CopyFile(sourcePath, destinationPath); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+func CopyFile(sourceFile, destinationFile string) error {
+	// Open the source file
+	source, err := os.Open(sourceFile)
+	if err != nil {
+		return err
+	}
+	defer source.Close()
+
+	// Create the destination file
+	destination, err := os.Create(destinationFile)
+	if err != nil {
+		return err
+	}
+	defer destination.Close()
+
+	// Copy the contents of the source file to the destination file
+	_, err = io.Copy(destination, source)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

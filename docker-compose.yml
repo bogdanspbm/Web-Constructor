@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  frontend:
+    build: ./frontend
+    hostname: frontend
+    tty: true
+    ports:
+      - 8080:8080

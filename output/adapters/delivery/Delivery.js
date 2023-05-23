@@ -1,19 +1,16 @@
-import * as library from "./../../library/RequestLibrary.js"
+import * as library from "../../library/RequestLibrary.js"
 export class Delivery {
-#typeID;
 #id;
 #orderID;
 #addressID;
 #targetDate;
+#typeID;
 constructor(json) {
-this.#id = json.id;
 this.#orderID = json.orderID;
 this.#addressID = json.addressID;
 this.#targetDate = json.targetDate;
 this.#typeID = json.typeID;
-}
-getTypeID() {
-return this.#typeID;
+this.#id = json.id;
 }
 getID() {
 return this.#id;
@@ -26,6 +23,9 @@ return this.#addressID;
 }
 getTargetDate() {
 return this.#targetDate;
+}
+getTypeID() {
+return this.#typeID;
 }
 }
 export function getRows() {

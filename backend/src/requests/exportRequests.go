@@ -108,6 +108,9 @@ func (server *ExportServer) ExportHandler(w http.ResponseWriter, r *http.Request
 		}
 	}
 
+	err = utils.CopyDir("output/styles", fmt.Sprintf("output/%v/styles", outputFolder))
+	err = utils.CopyDir("output/resources", fmt.Sprintf("output/%v/resources", outputFolder))
+
 	err = utils.CreateZipFile(fmt.Sprintf("output/%v.zip", outputFolder), fmt.Sprintf("output/%v", outputFolder))
 	defer utils.RemoveDirectory(fmt.Sprintf("output/%v.zip", outputFolder))
 
