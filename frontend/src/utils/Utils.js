@@ -49,7 +49,10 @@ export function exportProject() {
 
     const data = JSON.stringify(json, null, 4);
 
-    postRequest("http://localhost:8080/export", data);
+    const url = new URL(window.location.href);
+    const baseUrl = url.origin.replace(/:\d+$/, '');
+    console.log(baseUrl + ":8080/export");
+    postRequest(baseUrl + ":8080/export", data);
 }
 
 export function createAndDownloadFile(data, filename, options) {
