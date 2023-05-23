@@ -9,10 +9,8 @@ import {GroupStructure} from "../objects/GroupStructure.js";
 
 export function postRequest(url, body) {
     const http = new XMLHttpRequest();
-    http.open('POST', url, false);
-
-    let result = "";
-
+    http.responseType = "blob"
+    http.open('POST', url, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     http.onreadystatechange = function () {//Call a function when the state changes.
@@ -20,11 +18,12 @@ export function postRequest(url, body) {
             return;
         }
 
-        result = http.responseText;
+        const result = http.response;
+        createAndDownloadFile(result, "project.zip")
     }
     http.send(body);
-    return result;
 }
+
 
 export function toPascalCase(str) {
     str = str.trim().toLowerCase();
@@ -53,8 +52,8 @@ export function exportProject() {
     postRequest("http://localhost:8080/export", data);
 }
 
-export function createAndDownloadFile(data, filename) {
-    const blob = new Blob([data], {type: 'application/json'});
+export function createAndDownloadFile(data, filename, options) {
+    const blob = new Blob([data], options);
     const url = URL.createObjectURL(blob);
 
     const link = document.createElement('a');

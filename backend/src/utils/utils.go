@@ -1,7 +1,11 @@
 package utils
 
 import (
+	"archive/zip"
+	"crypto/rand"
+	"io"
 	"io/ioutil"
+	"math/big"
 	"os"
 	"path/filepath"
 	"strings"
@@ -68,4 +72,81 @@ func capitalize(word string) string {
 	}
 	firstChar := strings.ToUpper(string(word[0]))
 	return firstChar + word[1:]
+}
+
+func RemoveDirectory(path string) error {
+	return os.RemoveAll(path)
+}
+
+func GenerateUID(length int) (string, error) {
+	charset := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	charsetLength := big.NewInt(int64(len(charset)))
+
+	result := make([]byte, length)
+	for i := 0; i < length; i++ {
+		index, err := rand.Int(rand.Reader, charsetLength)
+		if err != nil {
+			return "", err
+		}
+		result[i] = charset[index.Int64()]
+	}
+
+	return string(result), nil
+}
+
+func CreateZipFile(output string, path string) error {
+	// Create a new ZIP file
+	zipFile, err := os.Create(output)
+	if err != nil {
+		return err
+	}
+	defer zipFile.Close()
+
+	// Create a new ZIP writer
+	zipWriter := zip.NewWriter(zipFile)
+	defer zipWriter.Close()
+
+	// Walk through the directory and add files to the ZIP archive
+	err = filepath.WalkDir(path, func(filePath string, info os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		// Skip directories
+		if info.IsDir() {
+			return nil
+		}
+
+		// Open the source file
+		srcFile, err := os.Open(filePath)
+		if err != nil {
+			return err
+		}
+		defer srcFile.Close()
+
+		// Create a new file inside the ZIP archive using the relative path
+		relPath, err := filepath.Rel(path, filePath)
+		if err != nil {
+			return err
+		}
+
+		zipFile, err := zipWriter.Create(relPath)
+		if err != nil {
+			return err
+		}
+
+		// Copy the contents of the source file to the ZIP file
+		_, err = io.Copy(zipFile, srcFile)
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
