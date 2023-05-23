@@ -69,3 +69,37 @@ html, body {
 .widget-nav-button:hover {
     background: #F7F7F7;
 }
+
+.group-icon {
+    width: 24px;
+    height: 24px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.page-icon {
+    width: 24px;
+    height: 24px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+}
+
+.unselectable {
+    display: flex;
+    flex-direction: row;
+}

@@ -6,6 +6,7 @@ import {CollectionContainer} from "./container/CollectionContainer.js";
 import {EPageType} from "../../../enums/EPageType.js";
 import {ECollectionPageTabs} from "./header/CollectionHeaderTabs.js";
 import {ScriptsContainer} from "../scripts/container/ScriptsContainer.js";
+import {CollectionScriptStructure} from "../../../objects/scripts/implementation/CollectionScriptStructure.js";
 
 export class CollectionPage extends Page {
 
@@ -28,7 +29,13 @@ export class CollectionPage extends Page {
         if (this.openedTab === ECollectionPageTabs.TABLE || !this.openedTab) {
             container = new CollectionContainer({collection: props.structure});
         } else {
-            container = new ScriptsContainer({script: props.structure.getScript()});
+            container = new ScriptsContainer({
+                script: props.structure.getScript(), event: () => {
+                    const newScript = new CollectionScriptStructure(props.structure.getName());
+                    props.structure.script = newScript;
+                    return newScript;
+                }
+            });
         }
 
         const panel = new Div({

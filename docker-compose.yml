@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  server:
+    build: ./backend
+    restart: always
+    ports:
+      - 8080:8080
+  frontend:
+    build: ./frontend
+    hostname: frontend
+    tty: true
+    ports:
+      - 80:80
+    environment:
+      - WAIT_HOSTS=server:8080
+      - SERVER_HOST=server

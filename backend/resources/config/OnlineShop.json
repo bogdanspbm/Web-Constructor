@@ -149,10 +149,10 @@
                 }
             },
             "script": {
-                "uid": "1057714014319091",
+                "uid": "2948877223063353",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class UserAdapter {\n\n    getUsers() {\n       //  Implement me! \n    }\n\n    getUser(id) {\n       //  Implement me! \n    }\n\n    updateUser(item) {\n       //  Implement me! \n    }\n\n    createUser(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   const response = library.httpGet(\"http://127.0.0.1:9080/users/\");\n   const json = JSON.parse(response);\n   return json.users;\n}\n\nexport function getRowByID(id) {\n   const response = library.httpGet(\"http://127.0.0.1:9080/users/\" + id);\n   const json = JSON.parse(response);\n   return json.user;\n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         },
         "22053892158242228": {
@@ -245,10 +245,10 @@
                 }
             },
             "script": {
-                "uid": "5462290765935376",
+                "uid": "03950686596142505",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class ItemAdapter {\n\n    getItems() {\n       //  Implement me! \n    }\n\n    getItem(id) {\n       //  Implement me! \n    }\n\n    updateItem(item) {\n       //  Implement me! \n    }\n\n    createItem(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   const response = library.httpGet(\"http://127.0.0.1:9080/items/\");\n   const json = JSON.parse(response);\n   return json.items;\n}\n\nexport function getRowByID(id) {\n   const response = library.httpGet(\"http://127.0.0.1:9080/items/\" + id);\n   const json = JSON.parse(response);\n   return json.item;\n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         },
         "1834324789084163": {
@@ -327,10 +327,10 @@
                 }
             },
             "script": {
-                "uid": "7459644204904952",
+                "uid": "09880493585072991",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class DeliveryAdapter {\n\n    getDeliverys() {\n       //  Implement me! \n    }\n\n    getDelivery(id) {\n       //  Implement me! \n    }\n\n    updateDelivery(item) {\n       //  Implement me! \n    }\n\n    createDelivery(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         },
         "7591479750406358": {
@@ -409,10 +409,10 @@
                 }
             },
             "script": {
-                "uid": "04574177214043007",
+                "uid": "020410042042207754",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class PaymentAdapter {\n\n    getPayments() {\n       //  Implement me! \n    }\n\n    getPayment(id) {\n       //  Implement me! \n    }\n\n    updatePayment(item) {\n       //  Implement me! \n    }\n\n    createPayment(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         },
         "6211409548982729": {
@@ -533,10 +533,10 @@
                 }
             },
             "script": {
-                "uid": "25438045913589424",
+                "uid": "3413979164743406",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class OrderAdapter {\n\n    getOrders() {\n       //  Implement me! \n    }\n\n    getOrder(id) {\n       //  Implement me! \n    }\n\n    updateOrder(item) {\n       //  Implement me! \n    }\n\n    createOrder(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         },
         "770966569720481": {
@@ -643,10 +643,10 @@
                 }
             },
             "script": {
-                "uid": "17069487324651766",
+                "uid": "7421911863427357",
                 "name": "New Script",
                 "tooltip": "",
-                "body": "export class OrderItemAdapter {\n\n    getOrderItems() {\n       //  Implement me! \n    }\n\n    getOrderItem(id) {\n       //  Implement me! \n    }\n\n    updateOrderItem(item) {\n       //  Implement me! \n    }\n\n    createOrderItem(item) {\n       //  Implement me! \n    }\n\n}"
+                "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
             }
         }
     },
@@ -2508,10 +2508,10 @@
                     }
                 },
                 "script": {
-                    "uid": "1057714014319091",
+                    "uid": "2948877223063353",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class UserAdapter {\n\n    getUsers() {\n       //  Implement me! \n    }\n\n    getUser(id) {\n       //  Implement me! \n    }\n\n    updateUser(item) {\n       //  Implement me! \n    }\n\n    createUser(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   const response = library.httpGet(\"http://127.0.0.1:9080/users/\");\n   const json = JSON.parse(response);\n   return json.users;\n}\n\nexport function getRowByID(id) {\n   const response = library.httpGet(\"http://127.0.0.1:9080/users/\" + id);\n   const json = JSON.parse(response);\n   return json.user;\n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },
@@ -2613,10 +2613,10 @@
                     }
                 },
                 "script": {
-                    "uid": "5462290765935376",
+                    "uid": "03950686596142505",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class ItemAdapter {\n\n    getItems() {\n       //  Implement me! \n    }\n\n    getItem(id) {\n       //  Implement me! \n    }\n\n    updateItem(item) {\n       //  Implement me! \n    }\n\n    createItem(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   const response = library.httpGet(\"http://127.0.0.1:9080/items/\");\n   const json = JSON.parse(response);\n   return json.items;\n}\n\nexport function getRowByID(id) {\n   const response = library.httpGet(\"http://127.0.0.1:9080/items/\" + id);\n   const json = JSON.parse(response);\n   return json.item;\n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },
@@ -2952,10 +2952,10 @@
                     }
                 },
                 "script": {
-                    "uid": "7459644204904952",
+                    "uid": "09880493585072991",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class DeliveryAdapter {\n\n    getDeliverys() {\n       //  Implement me! \n    }\n\n    getDelivery(id) {\n       //  Implement me! \n    }\n\n    updateDelivery(item) {\n       //  Implement me! \n    }\n\n    createDelivery(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },
@@ -3043,10 +3043,10 @@
                     }
                 },
                 "script": {
-                    "uid": "04574177214043007",
+                    "uid": "020410042042207754",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class PaymentAdapter {\n\n    getPayments() {\n       //  Implement me! \n    }\n\n    getPayment(id) {\n       //  Implement me! \n    }\n\n    updatePayment(item) {\n       //  Implement me! \n    }\n\n    createPayment(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },
@@ -3176,10 +3176,10 @@
                     }
                 },
                 "script": {
-                    "uid": "25438045913589424",
+                    "uid": "3413979164743406",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class OrderAdapter {\n\n    getOrders() {\n       //  Implement me! \n    }\n\n    getOrder(id) {\n       //  Implement me! \n    }\n\n    updateOrder(item) {\n       //  Implement me! \n    }\n\n    createOrder(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },
@@ -3295,10 +3295,10 @@
                     }
                 },
                 "script": {
-                    "uid": "17069487324651766",
+                    "uid": "7421911863427357",
                     "name": "New Script",
                     "tooltip": "",
-                    "body": "export class OrderItemAdapter {\n\n    getOrderItems() {\n       //  Implement me! \n    }\n\n    getOrderItem(id) {\n       //  Implement me! \n    }\n\n    updateOrderItem(item) {\n       //  Implement me! \n    }\n\n    createOrderItem(item) {\n       //  Implement me! \n    }\n\n}"
+                    "body": "export function getRows() {\n   //  Implement me! \n}\n\nexport function getRowByID(id) {\n   //  Implement me! \n}\n\nexport function updateRow(item) {\n   //  Implement me! \n}\n\nexport function createRow(item) {\n   //  Implement me! \n}"
                 }
             }
         },

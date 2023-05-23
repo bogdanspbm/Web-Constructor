@@ -11,8 +11,32 @@ type Widget struct {
 	Components map[string]Component `json:"components" db:"components"`
 }
 
+func (widget *Widget) GetVector(vectors map[string]Vector) Vector {
+	for _, v := range vectors {
+		if v.UID == widget.Vector {
+			return v
+		}
+	}
+
+	return Vector{}
+}
+
+func (widget *Widget) GetCollection(collections map[string]Collection) Collection {
+	for _, v := range collections {
+		if v.UID == widget.Collection {
+			return v
+		}
+	}
+
+	return Collection{}
+}
+
 func (widget *Widget) GenerateNavigationButton() string {
 	return fmt.Sprintf("<div class=\"widget-nav-button\">%v</div>", widget.Name)
+}
+
+func (widget *Widget) HasGroup() bool {
+	return widget.Group != ""
 }
 
 func (widget *Widget) GetSize() Vector2D {

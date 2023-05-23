@@ -1,7 +1,7 @@
 package server
 
 import (
-	"../requests"
+	"backend/src/requests"
 	"fmt"
 	"net/http"
 )

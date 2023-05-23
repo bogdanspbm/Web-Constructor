@@ -1,6 +1,6 @@
 package adapter
 
-import "../objects"
+import "backend/src/objects"
 
 type ExportData struct {
 	Collections map[string]objects.Collection `json:"collections" db:"collections"`

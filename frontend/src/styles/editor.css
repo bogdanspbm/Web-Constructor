@@ -28,10 +28,22 @@
     width: 64px;
 }
 
+.script-holder {
+    display: grid;
+    width: 100%;
+    padding: 10px;
+}
+
 
 .code-container {
     width: 100%;
-    padding: 10px;
+    height: 100%;
+
+    align-self: end;
+    justify-self: end;
+
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
 
     background: #FAFAFA;
     border: 1px solid #F5F5F5;

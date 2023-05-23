@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"../objects"
+	"backend/src/objects"
 	"fmt"
 	"strings"
 )
@@ -23,5 +23,17 @@ func (generator *WidgetGenerator) GenerateGrid() string {
 	}
 
 	builder.WriteString("</div>\n")
+	return builder.String()
+}
+
+func (generator *WidgetGenerator) GenerateList(collections map[string]objects.Collection) string {
+	builder := strings.Builder{}
+	builder.WriteString("<div class=\"table-header\">")
+	for _, v := range generator.Widget.GetCollection(collections).Attributes {
+		builder.WriteString(fmt.Sprintf("<div class=\"table-header-column\">%v</div>", v.Name))
+	}
+	builder.WriteString(fmt.Sprintf("<div class=\"table-header-control-column\"></div>"))
+	builder.WriteString("</div>")
+	builder.WriteString("<div class=\"table-scroll\" id=\"table-container\"></div>")
 	return builder.String()
 }

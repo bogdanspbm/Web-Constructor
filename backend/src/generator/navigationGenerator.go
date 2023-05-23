@@ -1,24 +1,31 @@
 package generator
 
 import (
-	"../objects"
+	"backend/src/adapter"
 	"strings"
 )
 
-type NavigationGenerator struct {
-	Collections map[string]objects.Collection `json:"collections" db:"collections"`
-	Widgets     map[string]objects.Widget     `json:"widgets" db:"widgets"`
+type PageGenerator struct {
+	Data adapter.ExportData
 }
 
-func NewNavigationGenerator(collections map[string]objects.Collection, widgets map[string]objects.Widget) *NavigationGenerator {
-	return &NavigationGenerator{collections, widgets}
+func NewNavigationGenerator(data adapter.ExportData) *PageGenerator {
+	return &PageGenerator{data}
 }
 
-func (generator *NavigationGenerator) GenerateNavigation() string {
+func (generator *PageGenerator) GenerateNavigation() string {
 	builder := strings.Builder{}
 
 	builder.WriteString("<div class=\"navigation\">\n")
-	for _, v := range generator.Widgets {
+
+	for _, v := range generator.Data.Groups {
+		builder.WriteString(v.GenerateGroup(generator.Data.Widgets, generator.Data.Vectors))
+	}
+
+	for _, v := range generator.Data.Widgets {
+		if v.HasGroup() {
+			continue
+		}
 		builder.WriteString(v.GenerateNavigationButton())
 	}
 	builder.WriteString("</div>\n")
