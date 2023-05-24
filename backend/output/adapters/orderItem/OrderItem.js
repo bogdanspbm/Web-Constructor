@@ -1,20 +1,23 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class OrderItem {
-#discount;
-#finalPrice;
-#id;
 #orderID;
 #itemID;
 #quantity;
 #defaultPrice;
+#discount;
+#finalPrice;
+#id;
 constructor(json) {
+this.#itemID = json.itemID;
+this.#quantity = json.quantity;
 this.#defaultPrice = json.defaultPrice;
 this.#discount = json.discount;
 this.#finalPrice = json.finalPrice;
 this.#id = json.id;
 this.#orderID = json.orderID;
-this.#itemID = json.itemID;
-this.#quantity = json.quantity;
+}
+getDefaultPrice() {
+return this.#defaultPrice;
 }
 getDiscount() {
 return this.#discount;
@@ -33,9 +36,6 @@ return this.#itemID;
 }
 getQuantity() {
 return this.#quantity;
-}
-getDefaultPrice() {
-return this.#defaultPrice;
 }
 }
 export function getRows() {

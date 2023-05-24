@@ -1,16 +1,16 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class Payment {
+#id;
 #value;
 #typeID;
 #statusID;
 #creationDate;
-#id;
 constructor(json) {
-this.#statusID = json.statusID;
 this.#creationDate = json.creationDate;
 this.#id = json.id;
 this.#value = json.value;
 this.#typeID = json.typeID;
+this.#statusID = json.statusID;
 }
 getID() {
 return this.#id;

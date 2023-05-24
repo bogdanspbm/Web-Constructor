@@ -1,13 +1,13 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class Order {
+#creationDate;
+#modificationDate;
 #id;
 #displayNumber;
 #userID;
 #statusID;
 #cancelReasonID;
 #paymentID;
-#creationDate;
-#modificationDate;
 constructor(json) {
 this.#modificationDate = json.modificationDate;
 this.#id = json.id;
@@ -17,9 +17,6 @@ this.#statusID = json.statusID;
 this.#cancelReasonID = json.cancelReasonID;
 this.#paymentID = json.paymentID;
 this.#creationDate = json.creationDate;
-}
-getStatusID() {
-return this.#statusID;
 }
 getCancelReasonID() {
 return this.#cancelReasonID;
@@ -41,6 +38,9 @@ return this.#displayNumber;
 }
 getUserID() {
 return this.#userID;
+}
+getStatusID() {
+return this.#statusID;
 }
 }
 export function getRows() {
