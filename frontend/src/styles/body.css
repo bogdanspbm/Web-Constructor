@@ -62,10 +62,10 @@ summary {
     display: grid;
     margin: 8px;
     height: calc(100vh - 64px);
+    max-width: 100%;
     z-index: -3;
-    gap: 28px;
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(92px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(148px, auto));
 }
 
 div[contenteditable=true] {

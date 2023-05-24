@@ -26,7 +26,7 @@ func (generator *PageGenerator) GenerateNavigation() string {
 		if v.HasGroup() {
 			continue
 		}
-		builder.WriteString(v.GenerateNavigationButton())
+		builder.WriteString(v.GenerateNavigationButton(generator.Data.Vectors))
 	}
 	builder.WriteString("</div>\n")
 

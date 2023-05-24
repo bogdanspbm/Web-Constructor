@@ -1,32 +1,32 @@
-import * as library from "../../library/RequestLibrary.js"
+import * as library from "./../../library/RequestLibrary.js"
 export class User {
-#id;
 #name;
-#surname;
-#password;
-#sex;
-#patronymic;
 #phone;
 #birthdate;
 #mail;
 #role;
+#sex;
+#id;
+#surname;
+#patronymic;
+#password;
 constructor(json) {
 this.#id = json.id;
-this.#name = json.name;
 this.#surname = json.surname;
-this.#password = json.password;
-this.#sex = json.sex;
 this.#patronymic = json.patronymic;
+this.#password = json.password;
+this.#name = json.name;
 this.#phone = json.phone;
 this.#birthdate = json.birthdate;
 this.#mail = json.mail;
 this.#role = json.role;
+this.#sex = json.sex;
 }
-getRole() {
-return this.#role;
+getSex() {
+return this.#sex;
 }
-getPatronymic() {
-return this.#patronymic;
+getName() {
+return this.#name;
 }
 getPhone() {
 return this.#phone;
@@ -37,17 +37,17 @@ return this.#birthdate;
 getMail() {
 return this.#mail;
 }
-getSex() {
-return this.#sex;
+getRole() {
+return this.#role;
 }
 getID() {
 return this.#id;
 }
-getName() {
-return this.#name;
-}
 getSurname() {
 return this.#surname;
+}
+getPatronymic() {
+return this.#patronymic;
 }
 getPassword() {
 return this.#password;

@@ -1,6 +1,9 @@
 package objects
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Widget struct {
 	UID        string               `json:"uid" db:"uid"`
@@ -31,8 +34,20 @@ func (widget *Widget) GetCollection(collections map[string]Collection) Collectio
 	return Collection{}
 }
 
-func (widget *Widget) GenerateNavigationButton() string {
-	return fmt.Sprintf("<div class=\"widget-nav-button\">%v</div>", widget.Name)
+func (widget *Widget) GenerateNavigationButton(vectors map[string]Vector) string {
+	base64 := widget.GetVector(vectors).Base64
+
+	builder := strings.Builder{}
+
+	builder.WriteString("<div class=\"widget-nav-button\">")
+
+	if base64 != "" {
+		builder.WriteString(fmt.Sprintf("<div class=\"page-icon\" style=\"background-image:url(%v)\"></div>", base64))
+	}
+
+	builder.WriteString(fmt.Sprintf("%v</div>", widget.Name))
+
+	return builder.String()
 }
 
 func (widget *Widget) HasGroup() bool {

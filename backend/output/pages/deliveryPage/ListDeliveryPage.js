@@ -1,4 +1,4 @@
-import * as delivery from "../../adapters/delivery/Delivery.js";
+import * as delivery from "./../../adapters/delivery/Delivery.js";
 const container = document.getElementById('table-container');
 const data = delivery.getRows();
 

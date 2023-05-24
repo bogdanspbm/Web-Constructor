@@ -1,4 +1,4 @@
-import * as payment from "../../adapters/payment/Payment.js";
+import * as payment from "./../../adapters/payment/Payment.js";
 const container = document.getElementById('table-container');
 const data = payment.getRows();
 

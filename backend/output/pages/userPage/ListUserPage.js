@@ -1,4 +1,4 @@
-import * as user from "../../adapters/user/User.js";
+import * as user from "./../../adapters/user/User.js";
 const container = document.getElementById('table-container');
 const data = user.getRows();
 

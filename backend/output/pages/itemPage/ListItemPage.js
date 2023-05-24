@@ -1,4 +1,4 @@
-import * as item from "../../adapters/item/Item.js";
+import * as item from "./../../adapters/item/Item.js";
 const container = document.getElementById('table-container');
 const data = item.getRows();
 

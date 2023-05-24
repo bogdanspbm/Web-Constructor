@@ -45,17 +45,21 @@ html, body {
 }
 
 .widget-nav-button {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+
     color: #2E2E2E;
 
     padding: 5px;
     padding-left: 10px;
-
     border-radius: 10px;
 
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 15px;
     line-height: calc(125%);
 
     -webkit-touch-callout: none;
@@ -100,6 +104,30 @@ html, body {
 }
 
 .unselectable {
+    gap: 8px;
+
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+
     display: flex;
     flex-direction: row;
+    align-items: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: calc(125%);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.unselectable:hover {
+    background: #F7F7F7;
 }

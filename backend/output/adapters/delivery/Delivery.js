@@ -1,16 +1,16 @@
-import * as library from "../../library/RequestLibrary.js"
+import * as library from "./../../library/RequestLibrary.js"
 export class Delivery {
+#targetDate;
+#typeID;
 #id;
 #orderID;
 #addressID;
-#targetDate;
-#typeID;
 constructor(json) {
+this.#id = json.id;
 this.#orderID = json.orderID;
 this.#addressID = json.addressID;
 this.#targetDate = json.targetDate;
 this.#typeID = json.typeID;
-this.#id = json.id;
 }
 getID() {
 return this.#id;

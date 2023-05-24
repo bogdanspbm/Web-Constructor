@@ -1,22 +1,25 @@
-import * as library from "../../library/RequestLibrary.js"
+import * as library from "./../../library/RequestLibrary.js"
 export class Order {
+#modificationDate;
+#id;
+#displayNumber;
 #userID;
 #statusID;
 #cancelReasonID;
 #paymentID;
 #creationDate;
-#modificationDate;
-#id;
-#displayNumber;
 constructor(json) {
-this.#paymentID = json.paymentID;
-this.#creationDate = json.creationDate;
-this.#modificationDate = json.modificationDate;
 this.#id = json.id;
 this.#displayNumber = json.displayNumber;
 this.#userID = json.userID;
 this.#statusID = json.statusID;
 this.#cancelReasonID = json.cancelReasonID;
+this.#paymentID = json.paymentID;
+this.#creationDate = json.creationDate;
+this.#modificationDate = json.modificationDate;
+}
+getCreationDate() {
+return this.#creationDate;
 }
 getModificationDate() {
 return this.#modificationDate;
@@ -38,9 +41,6 @@ return this.#cancelReasonID;
 }
 getPaymentID() {
 return this.#paymentID;
-}
-getCreationDate() {
-return this.#creationDate;
 }
 }
 export function getRows() {

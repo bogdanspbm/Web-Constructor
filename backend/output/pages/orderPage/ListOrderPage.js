@@ -1,4 +1,4 @@
-import * as order from "../../adapters/order/Order.js";
+import * as order from "./../../adapters/order/Order.js";
 const container = document.getElementById('table-container');
 const data = order.getRows();
 

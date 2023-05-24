@@ -42,14 +42,23 @@ func (group *Group) GenerateGroup(widgets map[string]Widget, vectors map[string]
 
 	builder := strings.Builder{}
 	builder.WriteString("<details>\n")
-	builder.WriteString(fmt.Sprintf("<summary class=\"unselectable\"><div class=\"group-icon\" style=\"background-image:url(%v)\"></div>%v</summary>\n", vector.Base64, group.Name))
+	builder.WriteString("<summary class=\"unselectable\">")
+	if vector.Base64 != "" {
+		builder.WriteString(fmt.Sprintf("<div class=\"group-icon\" style=\"background-image:url(%v)\"></div>", vector.Base64))
+	}
+	builder.WriteString(fmt.Sprintf("%v</summary>\n", group.Name))
 	builder.WriteString("<div class=\"collapse\">\n")
 	builder.WriteString("<div class=\"collapse-item\">\n")
 	builder.WriteString("<div class=\"vertical-container\">\n")
 
 	for _, widget := range group.FilterWidgets(widgets) {
 		tmpVector := widget.GetVector(vectors)
-		builder.WriteString(fmt.Sprintf("<div class=\"horizontal-container\"><div class=\"page-icon\" style=\"background-image:url(%v)\"></div>%v</div>\n", tmpVector.Base64, widget.Name))
+		builder.WriteString("<div class=\"widget-nav-button\">")
+		if tmpVector.Base64 != "" {
+			builder.WriteString(fmt.Sprintf("<div class=\"page-icon\" style=\"background-image:url(%v)\"></div>", tmpVector.Base64))
+		}
+		builder.WriteString(fmt.Sprintf("%v</div>\n", widget.Name))
+
 	}
 
 	builder.WriteString("</div>\n")
