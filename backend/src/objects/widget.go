@@ -1,6 +1,7 @@
 package objects
 
 import (
+	"backend/src/utils"
 	"fmt"
 	"strings"
 )
@@ -39,13 +40,13 @@ func (widget *Widget) GenerateNavigationButton(vectors map[string]Vector) string
 
 	builder := strings.Builder{}
 
-	builder.WriteString("<div class=\"widget-nav-button\">")
+	builder.WriteString(fmt.Sprintf("<a href=\"./../%v/List%v.html\" class=\"widget-nav-button\">", utils.ToCamelCase(widget.Name), utils.ToPascalCase(widget.Name)))
 
 	if base64 != "" {
 		builder.WriteString(fmt.Sprintf("<div class=\"page-icon\" style=\"background-image:url(%v)\"></div>", base64))
 	}
 
-	builder.WriteString(fmt.Sprintf("%v</div>", widget.Name))
+	builder.WriteString(fmt.Sprintf("%v</a>", widget.Name))
 
 	return builder.String()
 }

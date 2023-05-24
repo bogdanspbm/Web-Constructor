@@ -1,26 +1,44 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class User {
-#name;
-#phone;
-#birthdate;
-#mail;
 #role;
 #sex;
-#id;
+#name;
 #surname;
-#patronymic;
+#phone;
 #password;
+#id;
+#patronymic;
+#birthdate;
+#mail;
 constructor(json) {
 this.#id = json.id;
-this.#surname = json.surname;
 this.#patronymic = json.patronymic;
-this.#password = json.password;
-this.#name = json.name;
-this.#phone = json.phone;
 this.#birthdate = json.birthdate;
 this.#mail = json.mail;
-this.#role = json.role;
 this.#sex = json.sex;
+this.#name = json.name;
+this.#surname = json.surname;
+this.#phone = json.phone;
+this.#password = json.password;
+this.#role = json.role;
+}
+getMail() {
+return this.#mail;
+}
+getID() {
+return this.#id;
+}
+getPatronymic() {
+return this.#patronymic;
+}
+getBirthdate() {
+return this.#birthdate;
+}
+getPassword() {
+return this.#password;
+}
+getRole() {
+return this.#role;
 }
 getSex() {
 return this.#sex;
@@ -28,29 +46,11 @@ return this.#sex;
 getName() {
 return this.#name;
 }
-getPhone() {
-return this.#phone;
-}
-getBirthdate() {
-return this.#birthdate;
-}
-getMail() {
-return this.#mail;
-}
-getRole() {
-return this.#role;
-}
-getID() {
-return this.#id;
-}
 getSurname() {
 return this.#surname;
 }
-getPatronymic() {
-return this.#patronymic;
-}
-getPassword() {
-return this.#password;
+getPhone() {
+return this.#phone;
 }
 }
 export function getRows() {

@@ -52,13 +52,13 @@ func (group *Group) GenerateGroup(widgets map[string]Widget, vectors map[string]
 	builder.WriteString("<div class=\"vertical-container\">\n")
 
 	for _, widget := range group.FilterWidgets(widgets) {
-		tmpVector := widget.GetVector(vectors)
+		/*tmpVector := widget.GetVector(vectors)
 		builder.WriteString("<div class=\"widget-nav-button\">")
 		if tmpVector.Base64 != "" {
 			builder.WriteString(fmt.Sprintf("<div class=\"page-icon\" style=\"background-image:url(%v)\"></div>", tmpVector.Base64))
 		}
-		builder.WriteString(fmt.Sprintf("%v</div>\n", widget.Name))
-
+		builder.WriteString(fmt.Sprintf("%v</div>\n", widget.Name))*/
+		builder.WriteString(widget.GenerateNavigationButton(vectors))
 	}
 
 	builder.WriteString("</div>\n")

@@ -19,7 +19,8 @@ export function postRequest(url, body) {
         }
 
         const result = http.response;
-        createAndDownloadFile(result, "project.zip")
+        createAndDownloadFile(result, document.projectInfo.name + ".zip"
+        )
     }
     http.send(body);
 }
@@ -82,7 +83,7 @@ export function saveProject() {
     }
 
     const data = JSON.stringify(json, null, 4);
-    createAndDownloadFile(data, "project.json");
+    createAndDownloadFile(data, document.projectInfo.name +".json");
 }
 
 export function loadProject() {

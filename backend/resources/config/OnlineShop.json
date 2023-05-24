@@ -1,6 +1,6 @@
 {
     "projectInfo": {
-        "name": "Untitled Project"
+        "name": "Online Shop"
     },
     "collections": {
         "598111511942373": {
@@ -987,8 +987,8 @@
                     }
                 }
             },
-            "vector": "",
-            "group": "12473527595828116"
+            "vector": "029732656643205235",
+            "group": ""
         },
         "03660773268480888": {
             "name": "Item Page",
@@ -1211,7 +1211,7 @@
                     }
                 }
             },
-            "vector": "",
+            "vector": "7900927849335577",
             "group": ""
         },
         "5056395436915411": {
@@ -1435,7 +1435,7 @@
                 }
             },
             "vector": "",
-            "group": ""
+            "group": "12473527595828116"
         },
         "9084835857287179": {
             "name": "Delivery Page",
@@ -1637,7 +1637,7 @@
                     }
                 }
             },
-            "vector": "",
+            "vector": "3258493732934329",
             "group": ""
         },
         "821106199573082": {
@@ -1994,7 +1994,7 @@
                 }
             },
             "vector": "",
-            "group": ""
+            "group": "12473527595828116"
         }
     },
     "scripts": {
@@ -2350,8 +2350,8 @@
                         }
                     }
                 },
-                "vector": "",
-                "group": "12473527595828116"
+                "vector": "029732656643205235",
+                "group": ""
             }
         },
         "598111511942373": {
@@ -2849,7 +2849,7 @@
                         }
                     }
                 },
-                "vector": "",
+                "vector": "7900927849335577",
                 "group": ""
             }
         },
@@ -3531,7 +3531,7 @@
                     }
                 },
                 "vector": "",
-                "group": ""
+                "group": "12473527595828116"
             }
         },
         "9084835857287179": {
@@ -3742,7 +3742,7 @@
                         }
                     }
                 },
-                "vector": "",
+                "vector": "3258493732934329",
                 "group": ""
             }
         },
@@ -4108,7 +4108,7 @@
                     }
                 },
                 "vector": "",
-                "group": ""
+                "group": "12473527595828116"
             }
         },
         "029732656643205235": {
@@ -4125,6 +4125,51 @@
                 "tooltip": "",
                 "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgOTYgOTYwIDk2MCIgd2lkdGg9IjQ4Ij48cGF0aCBkPSJNNDgwIDU3NXEtNjYgMC0xMDgtNDJ0LTQyLTEwOHEwLTY2IDQyLTEwOHQxMDgtNDJxNjYgMCAxMDggNDJ0NDIgMTA4cTAgNjYtNDIgMTA4dC0xMDggNDJaTTE2MCA4OTZ2LTk0cTAtMzggMTktNjV0NDktNDFxNjctMzAgMTI4LjUtNDVUNDgwIDYzNnE2MiAwIDEyMyAxNS41dDEyNy45MjEgNDQuNjk0cTMxLjMwMSAxNC4xMjYgNTAuMTkgNDAuOTY2UTgwMCA3NjQgODAwIDgwMnY5NEgxNjBabTYwLTYwaDUyMHYtMzRxMC0xNi05LjUtMzAuNVQ3MDcgNzUwcS02NC0zMS0xMTctNDIuNVQ0ODAgNjk2cS01NyAwLTExMSAxMS41VDI1MiA3NTBxLTE0IDctMjMgMjEuNXQtOSAzMC41djM0Wm0yNjAtMzIxcTM5IDAgNjQuNS0yNS41VDU3MCA0MjVxMC0zOS0yNS41LTY0LjVUNDgwIDMzNXEtMzkgMC02NC41IDI1LjVUMzkwIDQyNXEwIDM5IDI1LjUgNjQuNVQ0ODAgNTE1Wm0wLTkwWm0wIDQxMVoiLz48L3N2Zz4="
             }
+        },
+        "3258493732934329": {
+            "uid": "3258493732934329",
+            "type": {
+                "name": "Vector",
+                "default_name": "New Vector",
+                "icon": "./../resources/icons/ic_vector_64x64.svg",
+                "color": "#EB529B"
+            },
+            "structure": {
+                "name": "Delivery Icon",
+                "uid": "3258493732934329",
+                "tooltip": "",
+                "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Ik0yMjQuMTE4LTE2MVExNzUtMTYxIDE0MC41LTE5NS40MTcgMTA2LTIyOS44MzMgMTA2LTI3OUg0MHYtNDYxcTAtMjQgMTgtNDJ0NDItMThoNTc5djE2N2gxMDVsMTM2IDE4MXYxNzNoLTcxcTAgNDkuMTY3LTM0LjM4MiA4My41ODNRNzgwLjIzNS0xNjEgNzMxLjExOC0xNjEgNjgyLTE2MSA2NDcuNS0xOTUuNDE3IDYxMy0yMjkuODMzIDYxMy0yNzlIMzQycTAgNDktMzQuMzgyIDgzLjUtMzQuMzgzIDM0LjUtODMuNSAzNC41Wk0yMjQtMjIxcTI0IDAgNDEtMTd0MTctNDFxMC0yNC0xNy00MXQtNDEtMTdxLTI0IDAtNDEgMTd0LTE3IDQxcTAgMjQgMTcgNDF0NDEgMTdaTTEwMC0zMzloMjJxMTctMjcgNDMuMDQxLTQzIDI2LjA0MS0xNiA1OC0xNnQ1OC40NTkgMTYuNVEzMDgtMzY1IDMyNS0zMzloMjk0di00MDFIMTAwdjQwMVptNjMxIDExOHEyNCAwIDQxLTE3dDE3LTQxcTAtMjQtMTctNDF0LTQxLTE3cS0yNCAwLTQxIDE3dC0xNyA0MXEwIDI0IDE3IDQxdDQxIDE3Wm0tNTItMjA0aDE4Nkw3NTQtNTczaC03NXYxNDhaTTM2MC01MjlaIi8+PC9zdmc+"
+            }
+        },
+        "6876975038937883": {
+            "uid": "6876975038937883",
+            "type": {
+                "name": "Vector",
+                "default_name": "New Vector",
+                "icon": "./../resources/icons/ic_vector_64x64.svg",
+                "color": "#EB529B"
+            },
+            "structure": {
+                "name": "Receipt Icon",
+                "uid": "6876975038937883",
+                "tooltip": "",
+                "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Ik0yMjItODBxLTQzLjc1IDAtNzQuMzc1LTMwLjYyNVQxMTctMTg1di0xMjVoMTI3di01NzBsNTkuOCA2MCA1OS44LTYwIDU5LjggNjAgNTkuOC02MCA1OS44IDYwIDYwLTYwIDYwIDYwIDYwLTYwIDYwIDYwIDYwLTYwdjY5NXEwIDQzLjc1LTMwLjYyNSA3NC4zNzVUNzM4LTgwSDIyMlptNTE2LTYwcTIwIDAgMzIuNS0xMi41VDc4My0xODV2LTU5NUgzMDR2NDcwaDM4OXYxMjVxMCAyMCAxMi41IDMyLjVUNzM4LTE0MFpNMzU3LTYyMnYtNjBoMjQwdjYwSDM1N1ptMCAxMzR2LTYwaDI0MHY2MEgzNTdabTMzMy0xMzRxLTEyIDAtMjEtOXQtOS0yMXEwLTEyIDktMjF0MjEtOXExMiAwIDIxIDl0OSAyMXEwIDEyLTkgMjF0LTIxIDlabTAgMTI5cS0xMiAwLTIxLTl0LTktMjFxMC0xMiA5LTIxdDIxLTlxMTIgMCAyMSA5dDkgMjFxMCAxMi05IDIxdC0yMSA5Wk0yMjEtMTQwaDQxMnYtMTEwSDE3N3Y2NXEwIDIwIDEyLjY1IDMyLjVUMjIxLTE0MFptLTQ0IDB2LTExMCAxMTBaIi8+PC9zdmc+"
+            }
+        },
+        "7900927849335577": {
+            "uid": "7900927849335577",
+            "type": {
+                "name": "Vector",
+                "default_name": "New Vector",
+                "icon": "./../resources/icons/ic_vector_64x64.svg",
+                "color": "#EB529B"
+            },
+            "structure": {
+                "name": "Item Icon",
+                "uid": "7900927849335577",
+                "tooltip": "",
+                "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Im0yNjEtNTI2IDIyMC0zNTQgMjIwIDM1NEgyNjFaTTcwNi04MHEtNzQgMC0xMjQtNTB0LTUwLTEyNHEwLTc0IDUwLTEyNHQxMjQtNTBxNzQgMCAxMjQgNTB0NTAgMTI0cTAgNzQtNTAgMTI0VDcwNi04MFptLTU4Ni0yNXYtMzA0aDMwNHYzMDRIMTIwWm01ODYuMDg1LTM1UTc1NC0xNDAgNzg3LTE3My4wODVxMzMtMzMuMDg0IDMzLTgxUTgyMC0zMDIgNzg2LjkxNi0zMzVxLTMzLjA4NS0zMy04MS4wMDEtMzNRNjU4LTM2OCA2MjUtMzM0LjkxNXEtMzMgMzMuMDg0LTMzIDgxUTU5Mi0yMDYgNjI1LjA4NC0xNzNxMzMuMDg1IDMzIDgxLjAwMSAzM1pNMTgwLTE2NWgxODR2LTE4NEgxODB2MTg0Wm0xODktNDIxaDIyNEw0ODEtNzY3IDM2OS01ODZabTExMiAwWk0zNjQtMzQ5Wm0zNDIgOTVaIi8+PC9zdmc+"
+            }
         }
     },
     "vectors": {
@@ -4133,14 +4178,32 @@
             "uid": "029732656643205235",
             "tooltip": "",
             "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgOTYgOTYwIDk2MCIgd2lkdGg9IjQ4Ij48cGF0aCBkPSJNNDgwIDU3NXEtNjYgMC0xMDgtNDJ0LTQyLTEwOHEwLTY2IDQyLTEwOHQxMDgtNDJxNjYgMCAxMDggNDJ0NDIgMTA4cTAgNjYtNDIgMTA4dC0xMDggNDJaTTE2MCA4OTZ2LTk0cTAtMzggMTktNjV0NDktNDFxNjctMzAgMTI4LjUtNDVUNDgwIDYzNnE2MiAwIDEyMyAxNS41dDEyNy45MjEgNDQuNjk0cTMxLjMwMSAxNC4xMjYgNTAuMTkgNDAuOTY2UTgwMCA3NjQgODAwIDgwMnY5NEgxNjBabTYwLTYwaDUyMHYtMzRxMC0xNi05LjUtMzAuNVQ3MDcgNzUwcS02NC0zMS0xMTctNDIuNVQ0ODAgNjk2cS01NyAwLTExMSAxMS41VDI1MiA3NTBxLTE0IDctMjMgMjEuNXQtOSAzMC41djM0Wm0yNjAtMzIxcTM5IDAgNjQuNS0yNS41VDU3MCA0MjVxMC0zOS0yNS41LTY0LjVUNDgwIDMzNXEtMzkgMC02NC41IDI1LjVUMzkwIDQyNXEwIDM5IDI1LjUgNjQuNVQ0ODAgNTE1Wm0wLTkwWm0wIDQxMVoiLz48L3N2Zz4="
+        },
+        "3258493732934329": {
+            "name": "Delivery Icon",
+            "uid": "3258493732934329",
+            "tooltip": "",
+            "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Ik0yMjQuMTE4LTE2MVExNzUtMTYxIDE0MC41LTE5NS40MTcgMTA2LTIyOS44MzMgMTA2LTI3OUg0MHYtNDYxcTAtMjQgMTgtNDJ0NDItMThoNTc5djE2N2gxMDVsMTM2IDE4MXYxNzNoLTcxcTAgNDkuMTY3LTM0LjM4MiA4My41ODNRNzgwLjIzNS0xNjEgNzMxLjExOC0xNjEgNjgyLTE2MSA2NDcuNS0xOTUuNDE3IDYxMy0yMjkuODMzIDYxMy0yNzlIMzQycTAgNDktMzQuMzgyIDgzLjUtMzQuMzgzIDM0LjUtODMuNSAzNC41Wk0yMjQtMjIxcTI0IDAgNDEtMTd0MTctNDFxMC0yNC0xNy00MXQtNDEtMTdxLTI0IDAtNDEgMTd0LTE3IDQxcTAgMjQgMTcgNDF0NDEgMTdaTTEwMC0zMzloMjJxMTctMjcgNDMuMDQxLTQzIDI2LjA0MS0xNiA1OC0xNnQ1OC40NTkgMTYuNVEzMDgtMzY1IDMyNS0zMzloMjk0di00MDFIMTAwdjQwMVptNjMxIDExOHEyNCAwIDQxLTE3dDE3LTQxcTAtMjQtMTctNDF0LTQxLTE3cS0yNCAwLTQxIDE3dC0xNyA0MXEwIDI0IDE3IDQxdDQxIDE3Wm0tNTItMjA0aDE4Nkw3NTQtNTczaC03NXYxNDhaTTM2MC01MjlaIi8+PC9zdmc+"
+        },
+        "6876975038937883": {
+            "name": "Receipt Icon",
+            "uid": "6876975038937883",
+            "tooltip": "",
+            "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Ik0yMjItODBxLTQzLjc1IDAtNzQuMzc1LTMwLjYyNVQxMTctMTg1di0xMjVoMTI3di01NzBsNTkuOCA2MCA1OS44LTYwIDU5LjggNjAgNTkuOC02MCA1OS44IDYwIDYwLTYwIDYwIDYwIDYwLTYwIDYwIDYwIDYwLTYwdjY5NXEwIDQzLjc1LTMwLjYyNSA3NC4zNzVUNzM4LTgwSDIyMlptNTE2LTYwcTIwIDAgMzIuNS0xMi41VDc4My0xODV2LTU5NUgzMDR2NDcwaDM4OXYxMjVxMCAyMCAxMi41IDMyLjVUNzM4LTE0MFpNMzU3LTYyMnYtNjBoMjQwdjYwSDM1N1ptMCAxMzR2LTYwaDI0MHY2MEgzNTdabTMzMy0xMzRxLTEyIDAtMjEtOXQtOS0yMXEwLTEyIDktMjF0MjEtOXExMiAwIDIxIDl0OSAyMXEwIDEyLTkgMjF0LTIxIDlabTAgMTI5cS0xMiAwLTIxLTl0LTktMjFxMC0xMiA5LTIxdDIxLTlxMTIgMCAyMSA5dDkgMjFxMCAxMi05IDIxdC0yMSA5Wk0yMjEtMTQwaDQxMnYtMTEwSDE3N3Y2NXEwIDIwIDEyLjY1IDMyLjVUMjIxLTE0MFptLTQ0IDB2LTExMCAxMTBaIi8+PC9zdmc+"
+        },
+        "7900927849335577": {
+            "name": "Item Icon",
+            "uid": "7900927849335577",
+            "tooltip": "",
+            "base64": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iNDgiPjxwYXRoIGQ9Im0yNjEtNTI2IDIyMC0zNTQgMjIwIDM1NEgyNjFaTTcwNi04MHEtNzQgMC0xMjQtNTB0LTUwLTEyNHEwLTc0IDUwLTEyNHQxMjQtNTBxNzQgMCAxMjQgNTB0NTAgMTI0cTAgNzQtNTAgMTI0VDcwNi04MFptLTU4Ni0yNXYtMzA0aDMwNHYzMDRIMTIwWm01ODYuMDg1LTM1UTc1NC0xNDAgNzg3LTE3My4wODVxMzMtMzMuMDg0IDMzLTgxUTgyMC0zMDIgNzg2LjkxNi0zMzVxLTMzLjA4NS0zMy04MS4wMDEtMzNRNjU4LTM2OCA2MjUtMzM0LjkxNXEtMzMgMzMuMDg0LTMzIDgxUTU5Mi0yMDYgNjI1LjA4NC0xNzNxMzMuMDg1IDMzIDgxLjAwMSAzM1pNMTgwLTE2NWgxODR2LTE4NEgxODB2MTg0Wm0xODktNDIxaDIyNEw0ODEtNzY3IDM2OS01ODZabTExMiAwWk0zNjQtMzQ5Wm0zNDIgOTVaIi8+PC9zdmc+"
         }
     },
     "groups": {
         "12473527595828116": {
-            "name": "Users",
+            "name": "Orders",
             "uid": "12473527595828116",
             "tooltip": "Default group to combine pages into single tab. Also can add Icon",
-            "vector": "029732656643205235"
+            "vector": "6876975038937883"
         }
     }
 }
