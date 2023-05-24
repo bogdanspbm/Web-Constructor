@@ -1,18 +1,21 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class Item {
+#description;
 #images;
 #tags;
 #id;
 #name;
 #price;
-#description;
 constructor(json) {
-this.#tags = json.tags;
-this.#id = json.id;
-this.#name = json.name;
 this.#price = json.price;
 this.#description = json.description;
 this.#images = json.images;
+this.#tags = json.tags;
+this.#id = json.id;
+this.#name = json.name;
+}
+getImages() {
+return this.#images;
 }
 getTags() {
 return this.#tags;
@@ -28,9 +31,6 @@ return this.#price;
 }
 getDescription() {
 return this.#description;
-}
-getImages() {
-return this.#images;
 }
 }
 export function getRows() {

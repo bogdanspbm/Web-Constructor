@@ -1,29 +1,32 @@
 import * as library from "./../../library/RequestLibrary.js"
 export class User {
-#name;
+#password;
+#role;
 #surname;
 #patronymic;
 #birthdate;
 #mail;
 #sex;
 #id;
+#name;
 #phone;
-#password;
-#role;
 constructor(json) {
-this.#phone = json.phone;
-this.#password = json.password;
-this.#role = json.role;
-this.#id = json.id;
 this.#surname = json.surname;
 this.#patronymic = json.patronymic;
 this.#birthdate = json.birthdate;
+this.#password = json.password;
+this.#role = json.role;
+this.#id = json.id;
+this.#name = json.name;
+this.#phone = json.phone;
 this.#mail = json.mail;
 this.#sex = json.sex;
-this.#name = json.name;
 }
-getName() {
-return this.#name;
+getPassword() {
+return this.#password;
+}
+getRole() {
+return this.#role;
 }
 getSurname() {
 return this.#surname;
@@ -43,14 +46,11 @@ return this.#sex;
 getID() {
 return this.#id;
 }
+getName() {
+return this.#name;
+}
 getPhone() {
 return this.#phone;
-}
-getPassword() {
-return this.#password;
-}
-getRole() {
-return this.#role;
 }
 }
 export function getRows() {

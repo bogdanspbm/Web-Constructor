@@ -74,12 +74,15 @@ func (generator *ListGenerator) GenerateListJS(data *PageGenerator) (output stri
 	builder.WriteString("const rowCol = document.createElement('div');\n")
 	builder.WriteString("rowCol.setAttribute(\"class\", \"table-row-control-column\");\n")
 	builder.WriteString("rowDiv.append(rowCol);\n")
-	builder.WriteString("const editButton = document.createElement('div');\n")
+
+	builder.WriteString("const editButton = document.createElement('a');\n")
 	builder.WriteString("editButton.setAttribute(\"class\", \"row-button\");\n")
+	builder.WriteString(fmt.Sprintf("editButton.setAttribute(\"href\", \"./Card%v.html?id=\" + rowData.id);\n", utils.ToPascalCase(generator.Widget.Name)))
 	builder.WriteString("const editIcon = document.createElement('div');\n")
 	builder.WriteString("editIcon.setAttribute(\"class\", \"edit-icon\");\n")
 	builder.WriteString("editButton.append(editIcon);\n")
 	builder.WriteString("rowCol.append(editButton);\n")
+
 	builder.WriteString("const deleteButton = document.createElement('div');\n")
 	builder.WriteString("deleteButton.setAttribute(\"class\", \"row-delete-button\");\n")
 	builder.WriteString("const deleteIcon = document.createElement('div');\n")

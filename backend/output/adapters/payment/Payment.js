@@ -6,11 +6,11 @@ export class Payment {
 #statusID;
 #creationDate;
 constructor(json) {
-this.#creationDate = json.creationDate;
 this.#id = json.id;
 this.#value = json.value;
 this.#typeID = json.typeID;
 this.#statusID = json.statusID;
+this.#creationDate = json.creationDate;
 }
 getID() {
 return this.#id;
